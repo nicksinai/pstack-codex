@@ -1,0 +1,198 @@
+{
+  "repository": "nicksinai/pstack-codex",
+  "parent_issue": 1,
+  "tickets": {
+    "1": {
+      "number": 2,
+      "database_id": 5819323111,
+      "url": "https://github.com/nicksinai/pstack-codex/issues/2",
+      "title": "Deliver a portable plugin with explicit prose workflows",
+      "blocked_by_drafts": [],
+      "parent_linked": true,
+      "linked_blockers": []
+    },
+    "2": {
+      "number": 3,
+      "database_id": 5819323443,
+      "url": "https://github.com/nicksinai/pstack-codex/issues/3",
+      "title": "Deliver model-configured local delegation, how, and swarm",
+      "blocked_by_drafts": [
+        1
+      ],
+      "parent_linked": true,
+      "linked_blockers": [
+        1
+      ]
+    },
+    "3": {
+      "number": 4,
+      "database_id": 5819324108,
+      "url": "https://github.com/nicksinai/pstack-codex/issues/4",
+      "title": "Deliver competing designs and independent adversarial review",
+      "blocked_by_drafts": [
+        2
+      ],
+      "parent_linked": true,
+      "linked_blockers": [
+        2
+      ]
+    },
+    "4": {
+      "number": 5,
+      "database_id": 5819324694,
+      "url": "https://github.com/nicksinai/pstack-codex/issues/5",
+      "title": "Deliver scoped rationale, recall, teaching, and session pickup",
+      "blocked_by_drafts": [
+        2
+      ],
+      "parent_linked": true,
+      "linked_blockers": [
+        2
+      ]
+    },
+    "5": {
+      "number": 6,
+      "database_id": 5819325299,
+      "url": "https://github.com/nicksinai/pstack-codex/issues/6",
+      "title": "Deliver PR preparation, babysitting, and requested shipping",
+      "blocked_by_drafts": [
+        3
+      ],
+      "parent_linked": true,
+      "linked_blockers": [
+        3
+      ]
+    },
+    "6": {
+      "number": 7,
+      "database_id": 5819325822,
+      "url": "https://github.com/nicksinai/pstack-codex/issues/7",
+      "title": "Deliver faithful investigation and code-change routing",
+      "blocked_by_drafts": [
+        4,
+        5
+      ],
+      "parent_linked": true,
+      "linked_blockers": [
+        4,
+        5
+      ]
+    },
+    "7": {
+      "number": 8,
+      "database_id": 5819326594,
+      "url": "https://github.com/nicksinai/pstack-codex/issues/8",
+      "title": "Deliver approved reflection and guided personal skill authoring",
+      "blocked_by_drafts": [
+        4,
+        5
+      ],
+      "parent_linked": true,
+      "linked_blockers": [
+        4,
+        5
+      ]
+    },
+    "8": {
+      "number": 9,
+      "database_id": 5819327561,
+      "url": "https://github.com/nicksinai/pstack-codex/issues/9",
+      "title": "Deliver measured performance and forensic workflows",
+      "blocked_by_drafts": [
+        6
+      ],
+      "parent_linked": true,
+      "linked_blockers": [
+        6
+      ]
+    },
+    "9": {
+      "number": 10,
+      "database_id": 5819328281,
+      "url": "https://github.com/nicksinai/pstack-codex/issues/10",
+      "title": "Deliver prototype, visual parity, and project verification workflows",
+      "blocked_by_drafts": [
+        6,
+        7
+      ],
+      "parent_linked": true,
+      "linked_blockers": [
+        6,
+        7
+      ]
+    },
+    "10": {
+      "number": 11,
+      "database_id": 5819329531,
+      "url": "https://github.com/nicksinai/pstack-codex/issues/11",
+      "title": "Deliver sticky mode, unattended continuation, and interruption recovery",
+      "blocked_by_drafts": [
+        4
+      ],
+      "parent_linked": true,
+      "linked_blockers": [
+        4
+      ]
+    },
+    "11": {
+      "number": 12,
+      "database_id": 5819330138,
+      "url": "https://github.com/nicksinai/pstack-codex/issues/12",
+      "title": "Deliver local program orchestration with durable ownership and verdicts",
+      "blocked_by_drafts": [
+        6,
+        10
+      ],
+      "parent_linked": true,
+      "linked_blockers": [
+        6,
+        10
+      ]
+    },
+    "12": {
+      "number": 13,
+      "database_id": 5819331450,
+      "url": "https://github.com/nicksinai/pstack-codex/issues/13",
+      "title": "Deliver independent-PR and stacked-change autopilot",
+      "blocked_by_drafts": [
+        11
+      ],
+      "parent_linked": true,
+      "linked_blockers": [
+        11
+      ]
+    },
+    "13": {
+      "number": 14,
+      "database_id": 5819331976,
+      "url": "https://github.com/nicksinai/pstack-codex/issues/14",
+      "title": "Deliver evidence-based worktree cleanup",
+      "blocked_by_drafts": [
+        4
+      ],
+      "parent_linked": true,
+      "linked_blockers": [
+        4
+      ]
+    },
+    "14": {
+      "number": 15,
+      "database_id": 5819332524,
+      "url": "https://github.com/nicksinai/pstack-codex/issues/15",
+      "title": "Deliver a friend-shareable package with complete fidelity accounting",
+      "blocked_by_drafts": [
+        8,
+        9,
+        12,
+        13
+      ],
+      "parent_linked": true,
+      "linked_blockers": [
+        8,
+        9,
+        12,
+        13
+      ]
+    }
+  }
+}

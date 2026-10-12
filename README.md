@@ -6,6 +6,7 @@ A source-preserving port of Lauren Tan / poteto's pstack engineering workflows t
 
 - [Implementation specification](docs/specs/pstack-for-codex.md)
 - [Published specification issue](https://github.com/nicksinai/pstack-codex/issues/1)
+- [Implementation tickets and dependencies](docs/plans/pstack-ticket-breakdown.md)
 - [Design decisions](docs/pstack-port-design.md)
 - [Architectural decision](docs/adr/0001-preserve-workflows-with-native-execution.md)
 - [Glossary](GLOSSARY.md)
