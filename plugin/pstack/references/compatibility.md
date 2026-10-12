@@ -16,6 +16,8 @@ Use native GPT models for this release. Model identity and reasoning effort are 
 
 Keep investigation, code changes, PR preparation, babysitting, merge, and deployment authority distinct. Upstream broad team-chat permission does not override the host requirement for explicit authorization to send messages. Preserve existing skills and configuration. Write personal settings only to recipient-owned locations established by the relevant setup workflow.
 
+For any parallel workflow, read [delegation](delegation.md) for initialization, lifecycle, writer isolation, and shared resources. Resolve role names and budgets through [models](models.md); role labels are not recipient model identifiers. The [poteto-agent wrapper](poteto-agent.md) establishes the required full-mode reads for mode delegates.
+
 ## Qualification
 
 The authoritative per-ticket arguments are in [qualification](../qualification/README.md). Their statuses describe source/configuration properties under stated premises, not guaranteed agent compliance. A tool observed in an implementation chat is not evidence that a friend's installed plugin receives that tool. UI outcomes, runtime availability, and successful installation remain conditional until observed in the recipient's environment.
