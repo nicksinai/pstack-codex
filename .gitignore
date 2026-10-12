@@ -1,0 +1,10 @@
+# Official source checkout used for reconnaissance; independently pinned in recon.
+/upstream/
+
+# Local artifacts and dependencies.
+.DS_Store
+node_modules/
+.env
+.env.*
+!.env.example
+*.log
