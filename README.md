@@ -2,7 +2,7 @@
 
 A source-preserving port of Lauren Tan / poteto's pstack engineering workflows to Codex, intended to be shareable with a friend.
 
-**Status:** implemented review candidate, awaiting final review and recipient installation. No plugin has been installed or publicly released. The [self-contained package guide](plugin/pstack/README.md) describes setup, invocation and limits; [whole-package qualification](plugin/pstack/qualification/issue-15.md) records the source-backed argument.
+**Status:** implemented candidate, pending human review/recipient installation. No plugin has been installed or publicly released. The [self-contained package guide](plugin/pstack/README.md) describes setup, invocation and limits; [whole-package qualification](plugin/pstack/qualification/issue-15.md) records the source-backed argument.
 
 Build an offline friend artifact with `python3 scripts/build-package.py --output-dir <recipient-artifact-directory>`. This assembles a reproducible archive and companion digest; it does not install or share it. Run `python3 scripts/validate-provenance.py` first.
 
