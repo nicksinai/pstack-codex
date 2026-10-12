@@ -1,6 +1,6 @@
 # pstack port design interview
 
-Status: scope agreed; consolidated design and interpretation of proof-oriented verification await final confirmation. No implementation or installation authorized by this interview.
+Status: scope agreed, including friend-shareable distribution and proof-oriented qualification. This interview does not itself authorize implementation or installation.
 
 ## User's objective
 
@@ -38,9 +38,9 @@ Fourth frontier, answered October 12, 2026:
 
 12. Explicit invocation persistence: preserve both one-request attachment and explicitly entered sticky chat mode.
 13. Distribution: a shareable, namespaced Codex plugin that the user can give to a friend, developed locally first and preserving existing skills. Include source attribution/license, pinned provenance, setup instructions, capability requirements, and explicit limitations. Do not embed personal paths, history, credentials, or account-specific model choices. Sharing does not itself request public publication.
-14. Release gate: the user rejects a required testing program for port qualification and prefers proof-like verification. Proposed interpretation: establish a source-backed argument for each included workflow, with upstream requirements linked to adapted instructions/helpers, supported Codex capabilities, and explicit assumptions/deviations. Review reference closure, metadata/configuration, dependency requirements, authority, and writer isolation directly. Record any runtime-dependent claim as unestablished by source review; do not claim formal proof of agent compliance or observed execution. No mandatory end-to-end task suite. This changes how the port is qualified, not pstack's own TDD, reproduction, or real-artifact verification requirements when used for engineering work.
+14. Release gate: the user rejects a required testing program for port qualification and prefers proof-like verification. Establish a source-backed argument for each included workflow, with upstream requirements linked to adapted instructions/helpers, supported Codex capabilities, and explicit assumptions/deviations. Review reference closure, metadata/configuration, dependency requirements, authority, and writer isolation directly. Record any runtime-dependent claim as unestablished by source review; do not claim formal proof of agent compliance or observed execution. No mandatory end-to-end task suite. This changes how the port is qualified, not pstack's own TDD, reproduction, or real-artifact verification requirements when used for engineering work.
 
-## Consolidated proposed design
+## Consolidated agreed design
 
 - Adapt the pinned official source directly, preserving workflow contracts and documenting necessary Codex substitutions.
 - Include engineering principles/playbooks, independent attempts/reviews, local isolated delegation, history/learning, PR workflows, and unattended work with recovery. Inspect/adapt original companion requirements and helpers.
@@ -49,6 +49,6 @@ Fourth frontier, answered October 12, 2026:
 - Produce a portable, shareable namespaced plugin with friend-facing installation/setup documentation and upstream attribution; perform no global install or public publication as part of the design interview.
 - Qualify by a source-backed fidelity/compatibility argument with honest limits, not a mandatory behavioral test suite.
 
-Final confirmation of shared understanding remains before implementation, including the proposed interpretation of proof-oriented verification.
+The user's fourth-round answers settle friend-shareable distribution and proof-oriented qualification; the remaining recommendations are accepted.
 
 Recommendations remain proposals until the user answers. Create glossary terms when their meanings are settled. Create ADRs only for accepted consequential tradeoffs.
