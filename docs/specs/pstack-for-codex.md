@@ -1,6 +1,6 @@
 # Faithful pstack port for Codex
 
-Created October 12, 2026. Status: synthesized design specification; implementation, installation, and publication have not begun. This document records the agreed scope and the proposed interpretation of proof-oriented verification. It is not a claim of implemented compatibility.
+Created October 12, 2026. Status: synthesized design specification, published as [GitHub issue #1](https://github.com/nicksinai/pstack-codex/issues/1); implementation and installation have not begun. This document records the agreed scope and the proposed interpretation of proof-oriented verification. It is not a claim of implemented compatibility.
 
 ## Problem Statement
 
@@ -169,4 +169,4 @@ These are dependency-ordered delivery milestones, not generated tracker tickets 
 
 ### Publication status
 
-The checkout has no Git remote or configured project issue-tracker/triage vocabulary. The spec is saved locally; it has not been published or labeled ready-for-agent in an external tracker. Configure the project's engineering-skill tracker before the publication step. The previously discussed personal backlog issue is historical context, not a configured destination for this repository.
+The project repository is `nicksinai/pstack-codex`, with GitHub Issues configured as its tracker. This specification is published as [issue #1](https://github.com/nicksinai/pstack-codex/issues/1) with the `ready-for-agent` label. Project tracker, triage, and domain conventions are recorded in the repository. Readiness does not independently authorize implementation or installation.
