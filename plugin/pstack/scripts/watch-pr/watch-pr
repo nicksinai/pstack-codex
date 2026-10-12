@@ -1,0 +1,14 @@
+#!/usr/bin/env bun
+import { existsSync } from "node:fs";
+import { join } from "node:path";
+
+// Shared helper packaging is supplied by the orchestration slice.
+for (const name of ["bootstrap.ts", "package.json", "bun.lock"]) {
+  if (!existsSync(join(import.meta.dir, "..", name))) {
+    throw new Error(`pstack watch-pr prerequisite missing: scripts/${name}. Use a complete package; see references/pr-delivery.md.`);
+  }
+}
+const { ensureDependenciesInstalled } = await import("../bootstrap.ts");
+ensureDependenciesInstalled();
+const { main } = await import("./cli.ts");
+process.exitCode = await main(process.argv.slice(2));
