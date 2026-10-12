@@ -18,6 +18,8 @@ Keep investigation, code changes, PR preparation, babysitting, merge, and deploy
 
 For any parallel workflow, read [delegation](delegation.md) for initialization, lifecycle, writer isolation, and shared resources. Resolve role names and budgets through [models](models.md); role labels are not recipient model identifiers. The [poteto-agent wrapper](poteto-agent.md) establishes the required full-mode reads for mode delegates.
 
+For transcript or execution-trace reads, follow [scoped history](history.md). Bind the actual reader schema and fidelity, inspect metadata before conversation content, and account for missing or summarized records. For interrupted work, [session pickup](session-pickup.md) reconstructs current artifacts rather than assuming old workers remain alive.
+
 ## Qualification
 
 The authoritative per-ticket arguments are in [qualification](../qualification/README.md). Their statuses describe source/configuration properties under stated premises, not guaranteed agent compliance. A tool observed in an implementation chat is not evidence that a friend's installed plugin receives that tool. UI outcomes, runtime availability, and successful installation remain conditional until observed in the recipient's environment.
