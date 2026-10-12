@@ -14,6 +14,12 @@ If the Codex CLI is available, run:
 codex plugin marketplace add nicksinai/pstack-codex --ref main
 ```
 
+Clients with `codex plugin add` can also install from the terminal:
+
+```sh
+codex plugin add pstack-codex@pstack-codex-marketplace
+```
+
 Restart the desktop app, choose **PStack for Codex** in the Plugins Directory, and install **pstack-codex**. Then follow step 5 below. To pin a reviewed revision, replace `main` with its commit or release tag. The CLI command adds a marketplace source; installation happens in the desktop app. See the [official repository marketplace guidance](https://developers.openai.com/plugins/build/plugins#add-a-marketplace-from-the-cli).
 
 Without the CLI, clone/download the repository and open it as a Codex project. Its committed `.agents/plugins/marketplace.json` points at `./plugin/pstack`; restart desktop and install from **PStack for Codex**, then follow step 5. Local marketplace availability depends on the recipient client and account policy and has not been observed on the recipient's machine.

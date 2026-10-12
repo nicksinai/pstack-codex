@@ -1,0 +1,12 @@
+{
+  "name": "pstack-codex",
+  "version": "0.1.1",
+  "description": "Codex adaptation of Lauren Tan\u2019s pstack engineering workflows. Qualification is recorded per workflow.",
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "PStack for Codex",
+    "shortDescription": "Lauren Tan\u2019s PStack engineering workflows adapted for Codex",
+    "developerName": "PStack for Codex contributors",
+    "category": "Productivity"
+  }
+}
