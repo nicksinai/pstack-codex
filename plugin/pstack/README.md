@@ -1,12 +1,26 @@
 # pstack for Codex
 
-A shareable adaptation of Lauren Tan / poteto's pstack 0.15.15, pinned to Cursor plugins commit `d0ef80d86795816da932a153458c5dbe192d294e`. This independent review candidate includes 50 original top-level workflows plus the deslop companion: 51 explicit skills, all 24 principles, all 23 playbooks and both original agent roles as instruction wrappers. See [whole-package qualification](qualification/issue-15.md), [source inventory](qualification/source-inventory.json), [capabilities](qualification/capabilities.md) and [notices](NOTICE.md). It is not an official Cursor or OpenAI plugin.
+A shareable adaptation of Lauren Tan / poteto's pstack 0.15.15, pinned to Cursor plugins commit `d0ef80d86795816da932a153458c5dbe192d294e`. This independent port includes 50 original top-level workflows plus the deslop companion: 51 explicit skills, all 24 principles, all 23 playbooks and both original agent roles as instruction wrappers. See [whole-package qualification](qualification/issue-15.md), [source inventory](qualification/source-inventory.json), [capabilities](qualification/capabilities.md) and [notices](NOTICE.md). It is not an official Cursor or OpenAI plugin.
 
 ## Recipient setup
 
 Use Codex desktop with local marketplace support and an account/organization policy allowing local plugins. A plugin supplies instructions and helpers; it cannot grant tools. Read [compatibility](references/compatibility.md) before use. Installation and task authorization are separate.
 
-1. Obtain the maintainer's offline archive or repository copy. The repository is private; receiving an archive does not require repository access. Extract the archive and verify its companion SHA-256 digest and included `MANIFEST.json` before trusting its contents. The archive includes `plugin/pstack`, notices, source accounting and a local marketplace catalog.
+### Install from the repository
+
+If the Codex CLI is available, run:
+
+```sh
+codex plugin marketplace add nicksinai/pstack-codex --ref main
+```
+
+Restart the desktop app, choose **PStack for Codex** in the Plugins Directory, and install **pstack-codex**. Then follow step 5 below. To pin a reviewed revision, replace `main` with its commit or release tag. The CLI command adds a marketplace source; installation happens in the desktop app. See the [official repository marketplace guidance](https://developers.openai.com/plugins/build/plugins#add-a-marketplace-from-the-cli).
+
+Without the CLI, clone/download the repository and open it as a Codex project. Its committed `.agents/plugins/marketplace.json` points at `./plugin/pstack`; restart desktop and install from **PStack for Codex**, then follow step 5. Local marketplace availability depends on the recipient client and account policy and has not been observed on the recipient's machine.
+
+### Copy into another project or use an offline archive
+
+1. Obtain the public [source repository](https://github.com/nicksinai/pstack-codex) or an offline archive. For an archive, extract it and verify its companion SHA-256 digest and included `MANIFEST.json` before trusting its contents. The archive includes `plugin/pstack`, notices, source accounting and a local marketplace catalog.
 2. Copy the complete `plugin/pstack` directory into your own project's `plugin/pstack`. Preserve the relative layout. If the destination already exists, choose a new path rather than overwriting it.
 3. Merge the entry from this package's `marketplace.example.json` into your project's `.agents/plugins/marketplace.json`. For a new catalog, copy its complete content. Preserve existing catalog names and entries. The entry's `source.path` must begin `./` and resolve from the project/marketplace root to the copied package. Adjust it if you chose another location. Merely copying or adding a catalog does not install or enable anything.
 4. Restart Codex desktop. In the Plugins Directory, select your project's marketplace and install `pstack-codex`. Confirm its displayed skills in a new chat. If the catalog is unavailable, check the [official local installation guidance](https://developers.openai.com/plugins/build/plugins#install-a-local-plugin-manually) and account policy; this package does not bypass either. No automatic installation or configuration edit is supplied.

@@ -114,3 +114,9 @@ assert entry["source"] == {"source": "local", "path": "./plugin/pstack"}
 assert entry["policy"]["installation"] == "AVAILABLE"
 assert (root / entry["source"]["path"]).resolve() == package.resolve()
 print(f"Reviewed file allowlist matches {len(actual_files)} package files; local catalog resolves package root.")
+
+repo_catalog = json.loads((root / ".agents/plugins/marketplace.json").read_text())
+assert repo_catalog["name"] == "pstack-codex-marketplace"
+assert repo_catalog["plugins"] == marketplace["plugins"]
+assert repo_catalog["interface"]["displayName"] == "PStack for Codex"
+print("Repository marketplace catalog matches the qualified plugin entry.")
