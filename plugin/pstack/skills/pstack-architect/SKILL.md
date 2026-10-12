@@ -11,7 +11,7 @@ Design before implementing. Sketch types, function signatures, class shapes, and
 
 Invoke `$pstack-architect` with the design task; add "with checkpoint" to review the synthesized sketch before implementation. Read [delegation](../../references/delegation.md) and [models](../../references/models.md). This workflow explicitly requests independent local delegates. Use actual host operations, bounded concurrent batches and isolated writer worktrees. Independent GPT attempts retain separate prompts and artifacts but lose upstream Claude/Grok provider diversity.
 
-Read [how](../pstack-how/SKILL.md) for grounding and [arena](../pstack-arena/SKILL.md) for exploration. When existing ownership or layering is redefined, read the package-relative `skills/pstack-why/SKILL.md`; if unavailable, the required rationale grounding is BLOCKED rather than guessed. Core principle references below name source disciplines; when full mode/principles are required by the caller, read that mode explicitly. This skill's operational design discipline is fully specified here and in its runner template.
+Read [how](../pstack-how/SKILL.md) for grounding and [arena](../pstack-arena/SKILL.md) for exploration. When existing ownership or layering is redefined, read the package-relative [skills/pstack-why/SKILL.md](../pstack-why/SKILL.md); if unavailable, the required rationale grounding is BLOCKED rather than guessed. Core principle references below name source disciplines; when full mode/principles are required by the caller, read that mode explicitly. This skill's operational design discipline is fully specified here and in its runner template.
 
 ## Start
 
@@ -33,7 +33,7 @@ Skip Phase A only when the work is genuinely greenfield with no surrounding syst
 
 ## Phase B: Sketch
 
-Run the **arena** skill with the design-sketch task and the Phase A grounding artifacts. Pass `references/runner-prompt.md` as each runner's prompt. Each candidate produces a design package shaped per `references/rationale-template.md`.
+Run the **arena** skill with the design-sketch task and the Phase A grounding artifacts. Pass [references/runner-prompt.md](references/runner-prompt.md) as each runner's prompt. Each candidate produces a design package shaped per [references/rationale-template.md](references/rationale-template.md).
 
 Resolve the `architect runners` panel through models.md, replacing the `arena runners` panel for this run. Preserve every configured seat, including repeated inherited entries. Missing configuration defaults to two inherited native GPT seats. Validate real model identities and reasoning efforts separately; a rejected selection needs a supported replacement rather than a guessed Cursor slug. At least two structurally distinct completed designs are required; a dropout cannot waive that gate.
 
@@ -85,4 +85,4 @@ When you scrap:
 
 ## Outputs
 
-The caller's usage is written first and the type sketch derived from it. One file with new types and signatures for small changes. Module map plus type definitions for larger work. The rationale ships alongside, shaped per `references/rationale-template.md`, including the usage sketch and the synthesis decision.
+The caller's usage is written first and the type sketch derived from it. One file with new types and signatures for small changes. Module map plus type definitions for larger work. The rationale ships alongside, shaped per [references/rationale-template.md](references/rationale-template.md), including the usage sketch and the synthesis decision.

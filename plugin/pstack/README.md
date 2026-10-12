@@ -1,34 +1,45 @@
 # pstack for Codex
 
-A Codex adaptation of Lauren Tan / poteto's pstack. This candidate currently provides explicit `pstack-bro`, `pstack-unslop`, and `pstack-technical-writing` workflows. Other workflows remain under implementation; see the source repository's ownership inventory. The source-backed argument is in [qualification](qualification/README.md).
+A shareable adaptation of Lauren Tan / poteto's pstack 0.15.15, pinned to Cursor plugins commit `d0ef80d86795816da932a153458c5dbe192d294e`. This independent review candidate includes 50 original top-level workflows plus the deslop companion: 51 explicit skills, all 24 principles, all 23 playbooks and both original agent roles as instruction wrappers. See [whole-package qualification](qualification/issue-15.md), [source inventory](qualification/source-inventory.json), [capabilities](qualification/capabilities.md) and [notices](NOTICE.md). It is not an official Cursor or OpenAI plugin.
 
-## Install this candidate in a project
+## Recipient setup
 
-Use a Codex desktop version with local/repo marketplace support. Your organization's policy must allow local plugins. These prose workflows require no credentials, extra tools, or chosen model. Review the [compatibility contract](references/compatibility.md) and [capability evidence](qualification/capabilities.md).
+Use Codex desktop with local marketplace support and an account/organization policy allowing local plugins. A plugin supplies instructions and helpers; it cannot grant tools. Read [compatibility](references/compatibility.md) before use. Installation and task authorization are separate.
 
-1. Obtain this repository or a copy of this package from its maintainer. Access to a private repository requires an invitation. Copy the entire package directory to `plugin/pstack` inside your own project. Preserve its relative layout. If that path exists, choose a distinct path and adjust the catalog entry.
-2. Review `marketplace.example.json` in this directory. Merge its plugin entry into your project's `.agents/plugins/marketplace.json`. If you create a catalog, copy the example's full content. If a catalog exists, keep its name and existing entries. Set `source.path` to your package's location relative to the project root, beginning with `./`. Keep the path inside the project.
-3. Restart desktop. In the Plugins Directory, choose the project's marketplace and install `pstack-codex`. Confirm its displayed skills. If your client does not expose that local source, stop and check the linked official guidance and account policy.
-4. In a new chat, explicitly select a skill in the skill picker. Where `$` mentions are supported, use `$pstack-bro`, `$pstack-unslop`, or `$pstack-technical-writing`. Use the selector's actual identity if the host adds a plugin prefix.
+1. Obtain the maintainer's offline archive or repository copy. The repository is private; receiving an archive does not require repository access. Extract the archive and verify its companion SHA-256 digest and included `MANIFEST.json` before trusting its contents. The archive includes `plugin/pstack`, notices, source accounting and a local marketplace catalog.
+2. Copy the complete `plugin/pstack` directory into your own project's `plugin/pstack`. Preserve the relative layout. If the destination already exists, choose a new path rather than overwriting it.
+3. Merge the entry from this package's `marketplace.example.json` into your project's `.agents/plugins/marketplace.json`. For a new catalog, copy its complete content. Preserve existing catalog names and entries. The entry's `source.path` must begin `./` and resolve from the project/marketplace root to the copied package. Adjust it if you chose another location. Merely copying or adding a catalog does not install or enable anything.
+4. Restart Codex desktop. In the Plugins Directory, select your project's marketplace and install `pstack-codex`. Confirm its displayed skills in a new chat. If the catalog is unavailable, check the [official local installation guidance](https://developers.openai.com/plugins/build/plugins#install-a-local-plugin-manually) and account policy; this package does not bypass either. No automatic installation or configuration edit is supplied.
+5. Explicitly select `pstack-setup-pstack` to configure recipient-owned roles, budgets and capability checks. Existing user settings/skills remain under your control. Model identity and effort are separate, validated choices; inheritance aliases avoid hardcoded account model IDs. Read [models](references/models.md). No global custom-agent installation is required: [delegation](references/delegation.md) injects instruction wrappers into supported local children.
 
-Example requests:
+Use the actual picker identity if the host adds a plugin prefix. Documented `$` syntax depends on the recipient surface. The catalog may omit entries due to its size/context cap; select the main mode and use its complete bundled lookup rather than assuming every leaf appears in the picker.
 
-- Select `pstack-bro` after an assistant response to restate that response plainly.
-- Select `pstack-unslop` and provide text to edit, preserving meaning and tone.
-- Select `pstack-technical-writing` and provide a document or authorized file path. The workflow also reads the bundled unslop instructions.
+## Activation and examples
 
-Installation makes skills available. It does not activate a continuing mode or authorize file edits. The sample marketplace is deliberately outside automatic discovery paths. This repository does not enable the plugin in `.codex/config.toml` or install anything globally.
+Select `pstack-poteto-mode` with a request for the full workflow router, or select an individual leaf. A leaf or normal mode invocation applies to that request. Enter sticky mode explicitly with “Enter sticky PStack mode for this conversation.” End it with “Exit PStack mode.” Read [continuation](references/continuation.md) for scope, private checkpoint, interruption and recovery. Persistence requires available context or a valid scoped entry record; this is not a native enforced mode.
 
-## Remove this candidate
+- `pstack-how`: explain a named subsystem from source; `pstack-why`: reconstruct its rationale; `pstack-recall`: recover scoped recent work; `pstack-teach`: explain it interactively.
+- `pstack-architect` or `pstack-arena`: compare independent designs/artifacts; `pstack-interrogate`: adversarial review; `pstack-swarm`: partition investigation or implementation coverage.
+- `pstack-poteto-mode`: investigate, fix a bug, build a feature, refactor, prototype, assess visual parity, diagnose performance or measure a benchmark. The mode routes to its playbook, principles, cleanup and verification gates.
+- “Prepare a PR,” “Babysit this PR” and “Ship this PR” are distinct requests under [PR delivery](references/pr-delivery.md). Installation/activation does not authorize merging or deployment.
+- `pstack-reflect`: propose Accepted/Rejected/Backlog lessons and wait for approval before durable Accepted edits. `pstack-automate-me`: draft your own preferences and review them with you.
+- “Plan a multi-phase change,” “orchestrate this program,” or “autopilot stack/full” routes through the corresponding playbook. [Program state](references/orchestration.md) and [continuation](references/continuation.md) retain ownership, evidence, recovery and stop boundaries.
+- `pstack-poteto-help` provides recipes and the workflow map; `pstack-bro`, `pstack-unslop` and `pstack-technical-writing` cover prose.
 
-1. Uninstall or disable `pstack-codex` in the Plugins Directory. If you explicitly added a project enablement entry, remove only that entry, preserving unrelated settings.
-2. Remove only this plugin's entry from the project marketplace. Preserve the catalog and other entries.
-3. Remove the package copy you created, then restart desktop. Keep documents you created with the workflows unless you want to delete them separately.
+## Capability and dependency requirements
 
-Project config can disable a local plugin using `[plugins."pstack-codex@YOUR-MARKETPLACE-NAME"]` and `enabled = false`. Use your catalog's actual name. Disabling is not deletion, and refresh may still refresh files. See [official package guidance](https://developers.openai.com/plugins/build/plugins#enable-or-disable-a-plugin-for-a-repo).
+Text editing/explanation needs selected text or authorized file reads. Parallel/design/review/program workflows require actual spawn/result/control operations, available capacity and isolated writer locations. Blind/private-rubric workflows additionally require a verified fresh-context/no-inherited-history operation. Read-only instructions are not sandbox enforcement. Native GPT independence preserves separate attempts but lacks upstream Claude/Grok provider diversity. Missing required capabilities block the affected gate, never become successful evidence.
 
-## Source and limits
+History requires an actual scoped host reader or metadata-verified supported local transcript format; see [history](references/history.md). Shared sources require recipient connectors and authorization. Browser/terminal verification requires available controls and the target app: [verification controls](references/verification-controls.md), [UI](references/control-ui.md), [CLI](references/control-cli.md). Missing tools remain explicit blockers. The bundled [authoring adapter](references/skill-authoring.md) preserves visible pstack obligations; fidelity to the unavailable full Cursor built-in creator source remains unresolved.
 
-Derived from [Lauren Tan's official pstack](https://github.com/cursor/plugins/tree/d0ef80d86795816da932a153458c5dbe192d294e/pstack), version `0.15.15`. The port's version is independent. The [MIT license](LICENSE) covers original source; see [NOTICE](NOTICE.md). This is an independent adaptation, not an official Cursor or OpenAI plugin.
+Git delivery/cleanup requires Git and relevant authenticated forge tools. Program/PR-watch helpers require Bun, Git, authenticated `gh` for GitHub, and a private writable dependency cache selected by the recipient. Explicit dependency setup may fetch pinned dependencies; no bundled `node_modules` or credentials are included. Follow [program setup](references/orchestration.md) and [PR delivery](references/pr-delivery.md), quote actual paths, and keep cache/store outside the installed plugin. Plan checking uses Node; worktree audit uses Python 3 and Git. Unix local filesystem/PID semantics qualify helper locking; Windows/network-shared stores are not qualified. Existing Graphite is optional; other forges lack the GitHub-specific helper adapter.
 
-The source repository retains the unmodified baseline, SHA-256 inventory, ownership, and generated adaptation diffs outside the installable package. Updates are reviewed and pinned. No automatic upstream sync occurs. Source/configuration checks do not prove agent compliance or successful installation. No runtime or UI installation was observed during creation.
+Unattended work runs while the computer/app/project/services remain available. Requested schedules require actual host automation support. Active waits are not durable schedulers. Operation through sleep, app closure, lost workers or offline services is excluded. Grok Bot UI and Benny are excluded (13 source files total). Cloud workers and external-provider bridges are deferred. Host rules and user limits govern authority, including explicit authorization for external messages.
+
+## Remove
+
+Disable or uninstall `pstack-codex` through Plugins Directory. Remove only its marketplace entry, preserving other entries and configuration. If you explicitly enabled it in project config, remove only that enablement; the documented key is `pstack-codex@YOUR-MARKETPLACE-NAME`. Remove only the package copy you created, then restart desktop. Stop owned processes before removing a recipient-selected dependency cache. Keep or separately remove your own task records, generated skills and artifacts; uninstalling does not erase them. See [official enable/disable guidance](https://developers.openai.com/plugins/build/plugins#enable-or-disable-a-plugin-for-a-repo).
+
+## Maintenance and evidence
+
+Updates require a new pinned source review; no automatic upstream synchronization occurs. Immutable original sources remain in the source repository, outside this package. The inventory records every original item, unique owner, adaptation/deferment and target. Per-ticket ledgers preserve the source-to-target argument. Deterministic checks establish content, hashes, reference closure and reproducible assembly; they do not establish observed recipient installation, service access, full agent compliance or real-app outcomes. The port requires no new behavioral qualification suite; pstack's own TDD/reproduction/live-verification requirements remain product behavior.

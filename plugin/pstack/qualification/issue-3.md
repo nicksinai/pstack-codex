@@ -35,3 +35,7 @@ No new executable runtime, hard-coded model entitlement, global custom-agent ins
 ## Deterministic inspection
 
 Inspected both prompt templates against the pinned originals: their only edits replace Cursor read/search tool names. Compared all 17 model-role labels and four budget labels against the source. Inspected fresh/resume, cancellation and writer-isolation paths directly. Checked namespaced skill metadata, explicit invocation policies, Markdown reference closure and private-path exclusion. No delegates were run to qualify these instructions, no plugin was installed and no behavioral test suite was introduced. The port preserves measurement/testing obligations when workers perform those tasks.
+
+## Final integration closure
+
+The [whole-package argument](issue-15.md) supersedes implementation-frontier missing-target/staged statements above: all included mode, principle, control, history, bootstrap, orchestration and autopilot prerequisites now exist in this candidate and are checked against the complete source inventory. Earlier direct observations remain historical evidence of that slice. Actual recipient tools, installation, authorization, fresh-context isolation, live execution and agent compliance remain conditional; inclusion never turns these premises into observed success.

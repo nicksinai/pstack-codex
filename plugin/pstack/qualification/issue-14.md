@@ -28,3 +28,7 @@ Source control-flow inspection: subprocess calls are Git discovery/status/log/re
 Package provenance/reference validator passed with this slice. No live agent, recipient install, history reader, archive, PR query or simulator operation is claimed established. Remaining conditional prerequisites are ordinary declared runtime dependencies, not silently omitted cleanup requirements.
 
 Integration review correction: an unreadable size originally became `bytes: null` without a hold reason. The helper now records `size-inspection-incomplete` and prioritizes `hold-review`. Direct deterministic substitution supplied fully eligible clean/pushed/integrated/inactive metadata: readable size yielded candidate-needs-confirmation; `PermissionError` yielded hold-review with exactly that reason. This establishes size failure cannot pass the candidate gate under those premises. Package validator passed again; no real cleanup operation ran.
+
+## Final integration closure
+
+The [whole-package argument](issue-15.md) supersedes implementation-frontier missing-target/staged statements above: all included mode, principle, control, history, bootstrap, orchestration and autopilot prerequisites now exist in this candidate and are checked against the complete source inventory. Earlier direct observations remain historical evidence of that slice. Actual recipient tools, installation, authorization, fresh-context isolation, live execution and agent compliance remain conditional; inclusion never turns these premises into observed success.

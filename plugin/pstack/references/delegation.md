@@ -10,6 +10,10 @@ Determine available concurrency, current live children, remaining nesting allowa
 
 A missing spawn or result-receipt capability blocks delegated workflows. A missing required cancellation capability blocks races using first-pass cancellation and unattended control; select another race rule only with user agreement. Missing close support means record terminal agents as retained and respect the host's slot accounting. Never substitute invented outputs or silently simulate a panel with one agent. Prefer native asynchronous children; if spawn itself blocks, disclose loss of parallelism and request a scope decision for workflows requiring parallel workers.
 
+## Context isolation and withheld information
+
+When a workflow withholds a private rubric, candidate identity, competing result, or prior reviewer view, bind a supported fresh-context/no-inherited-history spawn option before dispatch. Supply a self-contained sanitized brief and only the permitted file pointers; a new agent ID alone does not establish context isolation. Confirm the operation actually omits parent history, and keep forbidden metadata out of the shared files as well as the brief. Read-only scope does not provide this separation. If the host cannot isolate context, report the blind/private-rubric requirement BLOCKED; do not claim a blinded independent judgment or silently use inherited context. Ordinary independent reviews still need separate workers and their stated scopes.
+
 ## Brief and isolation
 
 Create one ledger row per worker: stable role/ID, parent owner, goal, consolidated directives, read/write scope, exact base SHA, checkout and branch, model/effort, required instruction paths, evidence/output location, runtime resource ownership, state and result. Supply file pointers rather than bulk pasted context where recipients can read those files. If the package is inaccessible from the worker, supply the exact required instruction contents explicitly; a path to an unreadable package is not initialization.

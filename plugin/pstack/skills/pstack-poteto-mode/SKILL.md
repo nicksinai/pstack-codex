@@ -23,7 +23,7 @@ The Principles section below grounds every trigger. In your reply, name each pri
 Remaining triggers:
 
 - Nontrivial change, architecture decision, or "are we sure?" → the **how** skill.
-- About to ask a question on a "which approach", "how should I", or "what should this do" fork → classify it before you ask. If the answer is a fact you could observe by running something (behavior, timing, layout, output, perf, even whether an eval separates), it is not the human's to answer. Sketch it via the Prototype playbook (`../../playbooks/prototype.md`) and let the result decide. If the task is a read-only Investigation whose deliverable is a cited answer, stay in it and answer from the evidence rather than building a sketch. Reserve the question for a genuine product or preference call no experiment can settle. Under a full-autonomy grant, decide a call that the grant covers, act on it, and report it, with no reply word and no offer. Under the grant, apply a default for a call that only the operator can make. Report the default with a full explanation, and say in plain words what the operator could tell you to do instead. The operator answers in their own words. Never give a shorthand token to type back. Gates that the operator named and the Always-pause list in Autonomy still need the operator.
+- About to ask a question on a "which approach", "how should I", or "what should this do" fork → classify it before you ask. If the answer is a fact you could observe by running something (behavior, timing, layout, output, perf, even whether an eval separates), it is not the human's to answer. Sketch it via the Prototype playbook ([../../playbooks/prototype.md](../../playbooks/prototype.md)) and let the result decide. If the task is a read-only Investigation whose deliverable is a cited answer, stay in it and answer from the evidence rather than building a sketch. Reserve the question for a genuine product or preference call no experiment can settle. Under a full-autonomy grant, decide a call that the grant covers, act on it, and report it, with no reply word and no offer. Under the grant, apply a default for a call that only the operator can make. Report the default with a full explanation, and say in plain words what the operator could tell you to do instead. The operator answers in their own words. Never give a shorthand token to type back. Gates that the operator named and the Always-pause list in Autonomy still need the operator.
 - Any code → name the data shape first, and choose its organizing structure per [**principle-model-the-domain**](../pstack-principle-model-the-domain/SKILL.md).
 - Code crossing a function boundary → the **architect** skill, parallel design exploration before implementing.
 - Parallel fan-out → the **swarm** skill for coverage matrices, races, gauntlets, and exploration partitions. Use **arena** for design or code bakeoffs with base selection and grafting.
@@ -33,11 +33,11 @@ Remaining triggers:
 - Docs, RFCs, readmes, PR descriptions, or commit messages → the **technical-writing** skill (`$pstack-technical-writing`).
 - Before commit → the bundled **deslop** skill.
 - Before review → the **no-comments** skill (`$pstack-no-comments`).
-- Shipping UI / IDE / CLI → the matching control skill. The bundled control adapters are `../../references/control-cli.md` (CLIs and TUIs) and `../../references/control-ui.md` (browser / Electron / web UIs), staged until the control slice. Required real-surface verification remains blocked while absent. For bug fixes, reproduce first on the same surface yourself. Hand to the user only under the narrow Bug fix step 1 exception.
+- Shipping UI / IDE / CLI → the matching control skill. The bundled control adapters are [../../references/control-cli.md](../../references/control-cli.md) (CLIs and TUIs) and [../../references/control-ui.md](../../references/control-ui.md) (browser / Electron / web UIs). Required real-surface verification remains blocked while absent. For bug fixes, reproduce first on the same surface yourself. Hand to the user only under the narrow Bug fix step 1 exception.
 - Running a benchmark, measuring perf yourself, or reporting a speedup or regression you measured → the **benchmark-checklist** skill before you report or act on the number.
-- Any PR-status request → the **Babysit** playbook (`../../playbooks/babysit.md`); select the bundled playbook explicitly to avoid an unrelated matching host skill. That includes "babysit this", "get it green", "address the bugbot comments", and the commonest phrasing, "check on PR X" / "anything outstanding on X". Never triggered by merely opening a PR. Declare its mode before polling. The playbook's step 1 owns the request-to-mode mapping. Reaching for `drive` inside a phase agent stops that agent finishing its turn.
-- Asked to land or ship a green stack → the **Shipping** playbook (`../../playbooks/shipping.md`). Green is not safe. Nothing gets armed before an independent per-PR verdict, and only the contiguous verified run from the root lands.
-- Bugbot or the agentic security review commented → skeptical posture. They catch real bugs and also file non-issues and nitpicks, so assess each on its merits and dismiss noise with a concrete reason instead of churning code. Triage fix / dismiss / ask per `../../references/bugbot-triage.md`.
+- Any PR-status request → the **Babysit** playbook ([../../playbooks/babysit.md](../../playbooks/babysit.md)); select the bundled playbook explicitly to avoid an unrelated matching host skill. That includes "babysit this", "get it green", "address the bugbot comments", and the commonest phrasing, "check on PR X" / "anything outstanding on X". Never triggered by merely opening a PR. Declare its mode before polling. The playbook's step 1 owns the request-to-mode mapping. Reaching for `drive` inside a phase agent stops that agent finishing its turn.
+- Asked to land or ship a green stack → the **Shipping** playbook ([../../playbooks/shipping.md](../../playbooks/shipping.md)). Green is not safe. Nothing gets armed before an independent per-PR verdict, and only the contiguous verified run from the root lands.
+- Bugbot or the agentic security review commented → skeptical posture. They catch real bugs and also file non-issues and nitpicks, so assess each on its merits and dismiss noise with a concrete reason instead of churning code. Triage fix / dismiss / ask per [../../references/bugbot-triage.md](../../references/bugbot-triage.md).
 - Broken skill mid-task → fix it in its own PR. Don't block. Don't silently work around it.
 - Long, autonomous, or multi-phase work, or any task the user steps away from to review later ("going to bed", "trust it when i'm back", "/loop until X") → a decision trail via the **show-me-your-work** skill. Commit it when stakes need an auditable record. Keep it local otherwise.
 
@@ -73,7 +73,7 @@ Read the leaf skill in full for any principle you apply. Each entry names when i
 - **Fix Root Causes** ([**principle-fix-root-causes**](../pstack-principle-fix-root-causes/SKILL.md)). Debugging. Trace each symptom to its root cause, reproduce first, ask why until you reach it.
 - **Sequence Work into Verifiable Units** ([**principle-sequence-verifiable-units**](../pstack-principle-sequence-verifiable-units/SKILL.md)). Multi-step work (sweeps, migrations, runs of similar edits) and how you stack commits and PRs. Break work into small units that each end in a check, verify each before the next, and order delivery so the sequence proves itself.
 - **Test Behavior, Not Implementation** ([**principle-test-behavior-not-implementation**](../pstack-principle-test-behavior-not-implementation/SKILL.md)). Writing, changing, or keeping a test. Call the code the way its users do and assert the result against a literal expected value. If the test would still pass when every imported function returns `undefined`, rewrite the assertion or delete the test.
-- **Explain the Number** (**principle-explain-the-number** (`../pstack-principle-explain-the-number/SKILL.md`, staged dependency owned by the measurement slice; read before application)). Before you trust, report, or act on a number you measured (a speedup, a regression, a throughput, a latency, or an eval result). Find what limits it, and rule out that it measured something other than the work you think.
+- **Explain the Number** (**principle-explain-the-number** ([../pstack-principle-explain-the-number/SKILL.md](../pstack-principle-explain-the-number/SKILL.md); read before application)). Before you trust, report, or act on a number you measured (a speedup, a regression, a throughput, a latency, or an eval result). Find what limits it, and rule out that it measured something other than the work you think.
 
 **Delegation**
 
@@ -128,48 +128,48 @@ Open a todolist whose first items are the matched playbook's steps, copied in ve
 
 A large or cross-cutting effort (a migration across many call sites, an ambitious multi-part change), or work the user steps away from to trust later, routes to the **figure-it-out** skill even when a narrower playbook like Feature fits. Use **figure-it-out** whenever no bundled playbook fits. It designs a bespoke, rigorous playbook for the task. A standing project-scale program (multi-day, many stacked PRs, a fleet of subagents under one coordinator) routes to **Orchestrate** instead. figure-it-out designs one bespoke run, orchestrate runs the program.
 
-- **Investigation.** Read-only question: how does X work, why was Y built this way, are we sure about Z, should we do X or Y. `../../playbooks/investigation.md`.
-- **Bug fix.** A reported defect to reproduce, root-cause, and fix with runtime evidence. `../../playbooks/bug-fix.md`.
-- **Perf issue.** A measured slowness to trace and improve against a baseline. `../../playbooks/perf-issue.md`.
-- **Hillclimb.** Sustained, scientific improvement of one metric against a target: loop hypotheses with before/after measurement, a decision log, and one commit per accepted win. Distinct from Perf issue, which is a one-off fix. `../../playbooks/hillclimb.md`.
-- **Runtime forensics.** Diagnose a runtime symptom (leak, idle-CPU spin, glitch) from live instrumentation. The deliverable is a diagnosis, not a fix. `../../playbooks/runtime-forensics.md`.
-- **Trace forensics.** Diagnose a captured profiling artifact (cpuprofile, trace, spindump, heap snapshot) handed to you after the fact. The deliverable is a diagnosis, not a fix. `../../playbooks/trace-forensics.md`.
-- **Feature.** New or changed behavior, built from a named data shape. `../../playbooks/feature.md`.
-- **Refactoring.** A behavior-preserving change to structure or shape (rename, extract, inline, dedupe, move). `../../playbooks/refactoring.md`.
-- **Prototype.** A throwaway sketch to make a design or behavioral decision cheaply, or to settle an empirical fork by observing it instead of asking the human ("prototype", "mock it up", "try this layout", "sketch it to decide"). `../../playbooks/prototype.md`.
-- **Visual parity.** Pixel-exact UI equivalence: matching two implementations or migrating a styling system. `../../playbooks/visual-parity.md`.
-- **Authoring or modifying a skill.** Writing or editing a SKILL.md. `../../playbooks/authoring-a-skill.md`.
-- **Eval.** Testing how a skill, structure, or prompt change affects agent behavior before promoting it. `../../playbooks/eval.md`.
-- **Babysit.** Driving a PR or a stack to merge-ready: conflicts, review threads, CI. `../../playbooks/babysit.md`.
-- **Shipping.** The half after Babysit. Independently verifying a green stack, then landing the contiguous verified run bottom-up through `gh` by default or Origin when its CLI is available. `../../playbooks/shipping.md`.
-- **Autonomous run.** A long task to drive to completion without stopping ("run until done", "/loop until X"). `../../playbooks/autonomous-run.md`.
-- **Orchestrate.** A standing project handed to one coordinator chat: multi-day, many stacked PRs, dozens to hundreds of subagents, minimal human turns ("run this whole project", "own this migration until it lands"). Distinct from Autonomous run, which drives one task to a predicate. Work one agent could finish inside the session's budget routes there, not here, however program-shaped the phrasing sounds. `../../playbooks/orchestrate.md`.
-- **Autopilot-full.** A queue of independent PRs run to merged with full autonomy. One owner per PR carries build through merge, and the root swarm-verifies each PR before its owner merges ("autopilot this queue", "full autopilot", one-owner-per-PR programs). `../../playbooks/autopilot-full.md`.
-- **Autopilot-stack.** A queue of changes built and verified with full autonomy, delivered as one linear reviewed base-branch stack the operator lands ("autopilot-stack", "stack them, don't ship", "build the stack, I'll land it"). `../../playbooks/autopilot-stack.md`.
+- **Investigation.** Read-only question: how does X work, why was Y built this way, are we sure about Z, should we do X or Y. [../../playbooks/investigation.md](../../playbooks/investigation.md).
+- **Bug fix.** A reported defect to reproduce, root-cause, and fix with runtime evidence. [../../playbooks/bug-fix.md](../../playbooks/bug-fix.md).
+- **Perf issue.** A measured slowness to trace and improve against a baseline. [../../playbooks/perf-issue.md](../../playbooks/perf-issue.md).
+- **Hillclimb.** Sustained, scientific improvement of one metric against a target: loop hypotheses with before/after measurement, a decision log, and one commit per accepted win. Distinct from Perf issue, which is a one-off fix. [../../playbooks/hillclimb.md](../../playbooks/hillclimb.md).
+- **Runtime forensics.** Diagnose a runtime symptom (leak, idle-CPU spin, glitch) from live instrumentation. The deliverable is a diagnosis, not a fix. [../../playbooks/runtime-forensics.md](../../playbooks/runtime-forensics.md).
+- **Trace forensics.** Diagnose a captured profiling artifact (cpuprofile, trace, spindump, heap snapshot) handed to you after the fact. The deliverable is a diagnosis, not a fix. [../../playbooks/trace-forensics.md](../../playbooks/trace-forensics.md).
+- **Feature.** New or changed behavior, built from a named data shape. [../../playbooks/feature.md](../../playbooks/feature.md).
+- **Refactoring.** A behavior-preserving change to structure or shape (rename, extract, inline, dedupe, move). [../../playbooks/refactoring.md](../../playbooks/refactoring.md).
+- **Prototype.** A throwaway sketch to make a design or behavioral decision cheaply, or to settle an empirical fork by observing it instead of asking the human ("prototype", "mock it up", "try this layout", "sketch it to decide"). [../../playbooks/prototype.md](../../playbooks/prototype.md).
+- **Visual parity.** Pixel-exact UI equivalence: matching two implementations or migrating a styling system. [../../playbooks/visual-parity.md](../../playbooks/visual-parity.md).
+- **Authoring or modifying a skill.** Writing or editing a SKILL.md. [../../playbooks/authoring-a-skill.md](../../playbooks/authoring-a-skill.md).
+- **Eval.** Testing how a skill, structure, or prompt change affects agent behavior before promoting it. [../../playbooks/eval.md](../../playbooks/eval.md).
+- **Babysit.** Driving a PR or a stack to merge-ready: conflicts, review threads, CI. [../../playbooks/babysit.md](../../playbooks/babysit.md).
+- **Shipping.** The half after Babysit. Independently verifying a green stack, then landing the contiguous verified run bottom-up through `gh` by default or Origin when its CLI is available. [../../playbooks/shipping.md](../../playbooks/shipping.md).
+- **Autonomous run.** A long task to drive to completion without stopping ("run until done", "/loop until X"). [../../playbooks/autonomous-run.md](../../playbooks/autonomous-run.md).
+- **Orchestrate.** A standing project handed to one coordinator chat: multi-day, many stacked PRs, dozens to hundreds of subagents, minimal human turns ("run this whole project", "own this migration until it lands"). Distinct from Autonomous run, which drives one task to a predicate. Work one agent could finish inside the session's budget routes there, not here, however program-shaped the phrasing sounds. [../../playbooks/orchestrate.md](../../playbooks/orchestrate.md).
+- **Autopilot-full.** A queue of independent PRs run to merged with full autonomy. One owner per PR carries build through merge, and the root swarm-verifies each PR before its owner merges ("autopilot this queue", "full autopilot", one-owner-per-PR programs). [../../playbooks/autopilot-full.md](../../playbooks/autopilot-full.md).
+- **Autopilot-stack.** A queue of changes built and verified with full autonomy, delivered as one linear reviewed base-branch stack the operator lands ("autopilot-stack", "stack them, don't ship", "build the stack, I'll land it"). [../../playbooks/autopilot-stack.md](../../playbooks/autopilot-stack.md).
 - **Session pickup.** Resuming or taking over a prior agent's in-flight work from a transcript, cloud-agent URL, or pushed branch. [session pickup](../../references/session-pickup.md).
-- **Pause safely.** Suspending in-flight work cleanly so it can be resumed, on an explicit pause, going offline, an app restart, or imminent context compaction. The complement to Session pickup. Full steps: `../../playbooks/pause-safely.md`.
-- **Multi-phase or multi-PR plan.** Work that spans phases or stacked PRs. `../../playbooks/multi-phase-plan.md`.
-- **Worktree and simulator cleanup.** Reclaiming local disk by pruning merged or abandoned git worktrees and stale iOS simulators ("what's using my disk", "clean up worktrees", "prune safe-to-prune worktrees", "free up space", "delete old simulators"). `../../playbooks/worktree-cleanup.md`.
-- **Opening a PR.** Invoked by code-change playbooks at their prescribed delivery step; read-only and planning routes retain their own boundaries. `../../playbooks/opening-a-pr.md`.
+- **Pause safely.** Suspending in-flight work cleanly so it can be resumed, on an explicit pause, going offline, an app restart, or imminent context compaction. The complement to Session pickup. Full steps: [../../playbooks/pause-safely.md](../../playbooks/pause-safely.md).
+- **Multi-phase or multi-PR plan.** Work that spans phases or stacked PRs. [../../playbooks/multi-phase-plan.md](../../playbooks/multi-phase-plan.md).
+- **Worktree and simulator cleanup.** Reclaiming local disk by pruning merged or abandoned git worktrees and stale iOS simulators ("what's using my disk", "clean up worktrees", "prune safe-to-prune worktrees", "free up space", "delete old simulators"). [../../playbooks/worktree-cleanup.md](../../playbooks/worktree-cleanup.md).
+- **Opening a PR.** Invoked by code-change playbooks at their prescribed delivery step; read-only and planning routes retain their own boundaries. [../../playbooks/opening-a-pr.md](../../playbooks/opening-a-pr.md).
 
 ## Bundled skill lookup
 
-Bare upstream names in these instructions resolve to namespaced siblings below. Read the target directly even when the host's capped discovery catalog omits its menu entry. Every path in this table is relative to this SKILL.md. A target marked staged must exist and be read before the route can execute; final whole-package qualification closes those targets. Grok Bot UI is explicitly excluded, with no runnable substitute. Existing recipient skills are never overwritten.
+Bare upstream names in these instructions resolve to namespaced siblings below. Read the target directly even when the host's capped discovery catalog omits its menu entry. Every path in this table is relative to this SKILL.md. Every included target exists in this candidate and must be read before its route executes. Grok Bot UI is explicitly excluded, with no runnable substitute. Existing recipient skills are never overwritten.
 
 | Upstream name | Bundled instruction path |
 | --- | --- |
 | architect | [../pstack-architect/SKILL.md](../pstack-architect/SKILL.md) |
 | arena | [../pstack-arena/SKILL.md](../pstack-arena/SKILL.md) |
 | automate-me | [../pstack-automate-me/SKILL.md](../pstack-automate-me/SKILL.md) |
-| benchmark-checklist | `../pstack-benchmark-checklist/SKILL.md` (staged; required before use) |
+| benchmark-checklist | [../pstack-benchmark-checklist/SKILL.md](../pstack-benchmark-checklist/SKILL.md) |
 | blast-radius | [../pstack-blast-radius/SKILL.md](../pstack-blast-radius/SKILL.md) |
 | bro | [../pstack-bro/SKILL.md](../pstack-bro/SKILL.md) |
 | correct | [../pstack-correct/SKILL.md](../pstack-correct/SKILL.md) |
-| create-verification-skill | `../pstack-create-verification-skill/SKILL.md` (staged; required before use) |
+| create-verification-skill | [../pstack-create-verification-skill/SKILL.md](../pstack-create-verification-skill/SKILL.md) |
 | figure-it-out | [../pstack-figure-it-out/SKILL.md](../pstack-figure-it-out/SKILL.md) |
 | how | [../pstack-how/SKILL.md](../pstack-how/SKILL.md) |
 | interrogate | [../pstack-interrogate/SKILL.md](../pstack-interrogate/SKILL.md) |
-| maintain-verification-skill | `../pstack-maintain-verification-skill/SKILL.md` (staged; required before use) |
+| maintain-verification-skill | [../pstack-maintain-verification-skill/SKILL.md](../pstack-maintain-verification-skill/SKILL.md) |
 | make-bot-ui | Excluded from first release (Grok Bot UI). |
 | no-comments | [../pstack-no-comments/SKILL.md](../pstack-no-comments/SKILL.md) |
 | poteto-help | [../pstack-poteto-help/SKILL.md](../pstack-poteto-help/SKILL.md) |
@@ -180,7 +180,7 @@ Bare upstream names in these instructions resolve to namespaced siblings below. 
 | principle-encode-lessons-in-structure | [../pstack-principle-encode-lessons-in-structure/SKILL.md](../pstack-principle-encode-lessons-in-structure/SKILL.md) |
 | principle-exhaust-the-design-space | [../pstack-principle-exhaust-the-design-space/SKILL.md](../pstack-principle-exhaust-the-design-space/SKILL.md) |
 | principle-experience-first | [../pstack-principle-experience-first/SKILL.md](../pstack-principle-experience-first/SKILL.md) |
-| principle-explain-the-number | `../pstack-principle-explain-the-number/SKILL.md` (staged; required before use) |
+| principle-explain-the-number | [../pstack-principle-explain-the-number/SKILL.md](../pstack-principle-explain-the-number/SKILL.md) |
 | principle-fix-root-causes | [../pstack-principle-fix-root-causes/SKILL.md](../pstack-principle-fix-root-causes/SKILL.md) |
 | principle-foundational-thinking | [../pstack-principle-foundational-thinking/SKILL.md](../pstack-principle-foundational-thinking/SKILL.md) |
 | principle-guard-the-context-window | [../pstack-principle-guard-the-context-window/SKILL.md](../pstack-principle-guard-the-context-window/SKILL.md) |

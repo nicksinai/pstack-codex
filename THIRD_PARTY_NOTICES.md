@@ -23,3 +23,5 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+The distributable additionally adapts deslop/control-ui/control-cli from Cursor team kit 1.2.0, author Eric Zakariasson, at the same pinned commit. Copyright (c) 2026 Cursor. Its unmodified MIT notice accompanies the package at [cursor-team-kit-LICENSE](plugin/pstack/licenses/cursor-team-kit-LICENSE). See the [package attribution](plugin/pstack/NOTICE.md).
