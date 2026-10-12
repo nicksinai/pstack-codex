@@ -8,3 +8,6 @@ node_modules/
 .env.*
 !.env.example
 *.log
+
+# Reproducible friend archives are generated outside the source tree.
+/dist/
