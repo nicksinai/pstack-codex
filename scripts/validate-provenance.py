@@ -120,3 +120,9 @@ assert repo_catalog["name"] == "pstack-codex-marketplace"
 assert repo_catalog["plugins"] == marketplace["plugins"]
 assert repo_catalog["interface"]["displayName"] == "PStack for Codex"
 print("Repository marketplace catalog matches the qualified plugin entry.")
+
+compat_manifest = json.loads((package / ".codex-plugin/plugin.json").read_text())
+for field in ("name", "version", "description"):
+    assert compat_manifest[field] == meta[field], field
+assert compat_manifest["skills"] == "./skills/"
+print("Portable and Codex compatibility manifests agree; skills path resolves.")

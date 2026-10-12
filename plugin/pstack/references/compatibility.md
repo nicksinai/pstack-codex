@@ -4,7 +4,7 @@ Read this contract when a pstack skill requests it. Apply the workflow within th
 
 ## Package and invocation
 
-The portable package uses root `plugin.json` and root `skills/`. Names use the `pstack-` prefix as well as the host's plugin namespace. Resolve links relative to the file containing the link, never a developer's checkout. Read linked workflow instructions when a caller requires their behavior. Directly reading bundled instructions does not require a second user selection.
+The portable package uses root `plugin.json` and root `skills/`, with a matching `.codex-plugin/plugin.json` compatibility manifest for Codex clients that require it. Names use the `pstack-` prefix as well as the host's plugin namespace. Resolve links relative to the file containing the link, never a developer's checkout. Read linked workflow instructions when a caller requires their behavior. Directly reading bundled instructions does not require a second user selection.
 
 Each user-facing entry sets `policy.allow_implicit_invocation: false` in `agents/openai.yaml`. Select the installed skill explicitly in the desktop skill picker. Where the Codex host supports `$` mentions, use `$pstack-<name>`. A recipient must confirm the actual picker identity; presentation and namespacing can differ across clients. One invocation covers the current request. Sticky mode requires its separate entry/exit contract; plugin metadata alone does not establish persistence.
 
