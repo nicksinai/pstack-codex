@@ -109,7 +109,7 @@ Each source numbered step below maps to the same numbered adapted step. The comp
 Inspection checks performed in the assigned checkout:
 
 - Provenance validator passed: 164 immutable baseline hashes and unique ownership entries; 47 current skill names/explicit policies; package-local Markdown links. This count includes integrated other slices and is not a final release count.
-- Direct normalized source-body comparison passed for 31 owned artifacts: all 23 principle bodies, TDD, correct, TypeScript skill/patterns, and all four core playbook bodies. Normalization removes Markdown link destinations/whitespace and permits only declared namespace/model/loop substitutions. This establishes text preservation under those substitutions, not task behavior.
+- Direct normalized ordered source-paragraph comparison passed for 31 owned artifacts: all 23 principle bodies, TDD, correct, TypeScript skill/patterns, and all four core playbook bodies. Normalization removes Markdown link destinations/whitespace and permits only declared namespace/model/loop substitutions. Added binding/scope paragraphs do not remove or reorder source paragraphs. This establishes text preservation under those substitutions, not task behavior.
 - Mode/source section comparison accounted for every non-negotiable trigger, all 24 principle entries, autonomy, subagent defaults/freshness, reply/comment rules and every original playbook route. Help/source section comparison accounted for need/setup questions, setup/cost/state, invocation, skill distinctions, playbook/help boundaries, symptom remedies, personalization and output.
 - `git diff --check` passed. No baseline edits, install, public release, recipient configuration or real-app task execution occurred.
 
