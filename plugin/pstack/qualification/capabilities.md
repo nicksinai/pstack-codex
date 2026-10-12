@@ -1,0 +1,16 @@
+# Capability evidence
+
+Retrieved October 12, 2026 from official OpenAI documentation. Product contracts can change; recheck these sources when updating the port or adopting it in another client.
+
+| ID | Supported contract | Authoritative source | Limit |
+| --- | --- | --- | --- |
+| C1 | Portable root `plugin.json` declares Agent Plugins schema; root `skills/` is discovered without a `skills` field. | [Package your plugin, Create a plugin manually](https://developers.openai.com/plugins/build/plugins#create-a-plugin-manually) | Not an observed installation in this repository. |
+| C2 | Repo marketplace file is `.agents/plugins/marketplace.json`; local `source.path` is relative to the marketplace root, begins `./`, and stays inside that root. Entries include installation/authentication policies and category. | [Package your plugin, Marketplace metadata](https://developers.openai.com/plugins/build/plugins#marketplace-metadata) | Directory availability varies by surface and account policy. |
+| C3 | `agents/openai.yaml` supports `policy.allow_implicit_invocation: false`; explicit selection remains available. | [Build skills, Optional metadata](https://developers.openai.com/codex/skills#optional-metadata) | Instruction compliance remains probabilistic. |
+| C4 | Skill instructions require name and description; full instructions load on selection. Explicit invocation uses the skill picker; documented Codex CLI/IDE syntax includes `$` mentions. | [Build skills, How ChatGPT and Codex use skills](https://developers.openai.com/codex/skills#how-codex-uses-skills) | Confirm the installed identity and mention syntax in the recipient's desktop version. |
+| C5 | The documented repo install sequence copies the package, adds/updates a marketplace entry, restarts desktop, and selects the plugin. Trusted project config can enable or disable it by `plugin-name@marketplace-name`. | [Package your plugin, Install a local plugin manually](https://developers.openai.com/plugins/build/plugins#install-a-local-plugin-manually), [Enable or disable a plugin for a repo](https://developers.openai.com/plugins/build/plugins#enable-or-disable-a-plugin-for-a-repo) | Trust, installation, and enablement remain recipient choices. No files outside this checkout were changed. |
+| C6 | Plugins bundle instructions, optional MCP connections, assets, and supported hooks; arbitrary Cursor `Task` tools and Markdown agent files are not granted by packaging. | [Package your plugin](https://developers.openai.com/plugins/build/plugins), [Claude plugin conversion](https://developers.openai.com/plugins/guides/submit-claude-plugin#review-what-openai-supports) | Later workflow tickets must bind actual recipient capabilities. |
+
+The issue #2 prose workflows need selected text or conversation context, ordinary response generation, and optional authorized document editing. They require no connector, external model, delegate, script, credential, hook, or executable dependency. A text-only response is sufficient when no file edit was requested. Missing context must be requested or stated; it cannot be inferred from inaccessible files.
+
+No sticky-mode field, cloud worker, durable scheduler, history parser, or additional tool surface is established by C1–C6. Their contracts belong to later tickets. Operating through app closure or sleep is outside the release scope.
