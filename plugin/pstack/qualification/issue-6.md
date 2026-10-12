@@ -46,3 +46,7 @@ GitHub watcher API behavior is inherited from the inspected pinned helper and co
 4. Issue 15 must map this slice's source targets/dispositions, connect staged references and qualify the complete package. The source ownership registry was deliberately left to its single integration owner.
 
 These are dependency-frontier obligations, not scope omissions. They must close before the whole package can be called complete. Probabilistic agent compliance and recipient capabilities remain conditional even after source closure.
+
+## Final integration closure
+
+The [whole-package argument](issue-15.md) supersedes implementation-frontier missing-target/staged statements above: all included mode, principle, control, history, bootstrap, orchestration and autopilot prerequisites now exist in this candidate and are checked against the complete source inventory. Earlier direct observations remain historical evidence of that slice. Actual recipient tools, installation, authorization, fresh-context isolation, live execution and agent compliance remain conditional; inclusion never turns these premises into observed success.

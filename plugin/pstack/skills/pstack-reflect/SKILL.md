@@ -29,7 +29,7 @@ Spawn a fresh synthesizer using `reflect judgment, divergent, synthesizer`, the 
 
 ## 4. Structural enforcement check
 
-Sanity-check every Accepted row. Move any rule more reliably enforced by a lint rule, script, metadata flag or runtime check into Backlog. Read the bundled encode-lessons-in-structure principle when present through core mode's principle index; if unavailable, retain this explicit mechanism check and disclose the missing optional reference. Prose is for judgment that structure cannot enforce cheaply.
+Sanity-check every Accepted row. Move any rule more reliably enforced by a lint rule, script, metadata flag or runtime check into Backlog. Read the bundled [encode-lessons-in-structure principle](../pstack-principle-encode-lessons-in-structure/SKILL.md). Prose is for judgment that structure cannot enforce cheaply.
 
 ## 5. Apply approved rows
 

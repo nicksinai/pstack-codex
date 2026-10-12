@@ -21,3 +21,7 @@ Unresolved for the complete port: runtime-bound delegation, models, history, sti
 `python3 scripts/validate-provenance.py` checked all 164 pinned files, SHA-256 equality with reconnaissance, one owner per file, mapped-target existence, manifest's minimal documented shape, skill-name/policy declarations, package-local Markdown links, and private absolute-path exclusion. `scripts/adaptation-diff.py` generated the committed explicit diff. A manual package scan found no personal username, account identifier, credentials, or private path. Original whitespace is retained in the immutable baseline and in unified-diff context.
 
 The optional skill-creator `quick_validate.py` could not run because both available Python runtimes lacked PyYAML. No dependency was installed. The small frontmatter declarations and invocation policies were inspected directly and checked by the repository validator; this is not a claim of full YAML or remote JSON-schema validation.
+
+## Final integration closure
+
+The [whole-package argument](issue-15.md) supersedes implementation-frontier missing-target/staged statements above: all included mode, principle, control, history, bootstrap, orchestration and autopilot prerequisites now exist in this candidate and are checked against the complete source inventory. Earlier direct observations remain historical evidence of that slice. Actual recipient tools, installation, authorization, fresh-context isolation, live execution and agent compliance remain conditional; inclusion never turns these premises into observed success.

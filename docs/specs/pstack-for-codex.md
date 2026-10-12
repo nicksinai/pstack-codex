@@ -1,6 +1,6 @@
 # Faithful pstack port for Codex
 
-Created October 12, 2026. Status: agreed design specification, published as [GitHub issue #1](https://github.com/nicksinai/pstack-codex/issues/1). This document records the accepted scope and proof-oriented qualification standard. Implementation progress is tracked separately; this specification is not a claim of implemented compatibility or installation.
+Created October 12, 2026. Status: agreed design specification, published as [GitHub issue #1](https://github.com/nicksinai/pstack-codex/issues/1). This document records the accepted scope and proof-oriented qualification standard. Implementation has reached a source-accounted review candidate; progress and qualification are tracked separately in the package ledgers. This specification is not a claim of observed installation or unconditional runtime compatibility.
 
 ## Problem Statement
 

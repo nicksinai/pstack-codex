@@ -30,3 +30,7 @@ On October 12, 2026:
 - Reviewed interruption, changing-patch, missing-live-lane, stuck-writer and uncertain-merge branches as preservation arguments. No behavioral suite or autonomous-run result is claimed.
 
 No unresolved authored reference remains in this slice. Recipient capability and actual execution assumptions are conditional, not established compatibility or observed passing workflows.
+
+## Final integration closure
+
+The [whole-package argument](issue-15.md) supersedes implementation-frontier missing-target/staged statements above: all included mode, principle, control, history, bootstrap, orchestration and autopilot prerequisites now exist in this candidate and are checked against the complete source inventory. Earlier direct observations remain historical evidence of that slice. Actual recipient tools, installation, authorization, fresh-context isolation, live execution and agent compliance remain conditional; inclusion never turns these premises into observed success.

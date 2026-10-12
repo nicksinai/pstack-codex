@@ -42,3 +42,7 @@ Model role resolution, inheritance, rejection handling, bounded lifecycle and is
 ## Deterministic inspection
 
 Compared all owned source files with their counterparts. Four references are byte-identical; rationale changes only the arena link, runner changes only its read pointer/provider statement, rubric changes only host-tool wording. Main workflows retain all phases, output sections, screens and evidence gates with the explicit execution substitutions above. Ran the repository provenance/link/metadata/privacy validator successfully: 164 immutable baseline hashes/unique owners and nine current skill policies validated. No behavioral testing program, plugin installation or recipient runtime execution was used to qualify the port. Upstream artifact verification and reviewer verification lenses remain product requirements.
+
+## Final integration closure
+
+The [whole-package argument](issue-15.md) supersedes implementation-frontier missing-target/staged statements above: all included mode, principle, control, history, bootstrap, orchestration and autopilot prerequisites now exist in this candidate and are checked against the complete source inventory. Earlier direct observations remain historical evidence of that slice. Actual recipient tools, installation, authorization, fresh-context isolation, live execution and agent compliance remain conditional; inclusion never turns these premises into observed success.
