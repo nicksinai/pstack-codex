@@ -1,0 +1,5 @@
+interface:
+  display_name: "pstack: setup-pstack"
+  short_description: "Lauren Tan’s setup-pstack workflow adapted for Codex"
+policy:
+  allow_implicit_invocation: false
