@@ -1,0 +1,18 @@
+---
+name: pstack-principle-guard-the-context-window
+description: Apply guard the context window when PStack selects this principle.
+---
+
+
+Resolve named skills through the [mode lookup](../pstack-poteto-mode/SKILL.md). The [compatibility contract](../../references/compatibility.md) and current user/host authority govern any delegated, durable or external action.
+
+# Guard the Context Window
+
+The context window is finite and non-renewable within a session. Every token should be worth its cost.
+
+**Why:** Context overflow degrades reasoning quality, creates compression artifacts, and halts progress.
+
+**Pattern:**
+- **Isolate large payloads.** Route verbose outputs, screenshots, and large documents to subagents. The main context gets summaries, not raw data.
+- **Keep frequently used content inline.** Templates and references used on every invocation belong in the skill file, not in separate files that cost a read each time.
+- **Size phases and cap scope.** Limit files per phase, set turn budgets, account for mechanism costs.
