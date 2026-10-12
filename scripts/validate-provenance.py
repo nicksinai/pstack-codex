@@ -4,6 +4,8 @@ from pathlib import Path
 import hashlib
 import json
 import re
+import subprocess
+import sys
 from urllib.parse import unquote
 
 root = Path(__file__).resolve().parents[1]
@@ -25,6 +27,13 @@ for item in items:
         target = (root / item["target"]).resolve()
         assert target.is_relative_to(root), item["target"]
         assert target.is_file(), item["target"]
+current_diff = subprocess.check_output(
+    [sys.executable, str(root / "scripts/adaptation-diff.py")], cwd=root,
+)
+assert (root / "provenance/adaptations.patch").read_bytes() == current_diff, (
+    "Stale adaptation diff; regenerate with "
+    "python3 scripts/adaptation-diff.py > provenance/adaptations.patch"
+)
 package = root / "plugin/pstack"
 meta = json.loads((package / "plugin.json").read_text())
 assert meta["$schema"] == "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json"
