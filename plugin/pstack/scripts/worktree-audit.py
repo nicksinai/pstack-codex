@@ -120,6 +120,7 @@ def audit(args):
             row['bytes'] = disk_size(path)
         except OSError:
             row['bytes'] = None
+            row['reasons'].append('size-inspection-incomplete')
         try:
             head = git(path, 'rev-parse', 'HEAD').decode().strip()
             row['head'] = head
@@ -169,7 +170,8 @@ def audit(args):
                 pr['state'] == 'MERGED' and pr['headRefOid'] == head for pr in row['pr'])
             if row['merged'] != 'yes' and not exact_merged_pr:
                 reasons.append('head-not-proven-integrated')
-            row['bucket'] = ('candidate-needs-confirmation' if not reasons else
+            row['bucket'] = ('hold-review' if 'size-inspection-incomplete' in reasons else
+                             'candidate-needs-confirmation' if not reasons else
                              'hold-wip' if row['dirty']['tracked'] else
                              'hold-open-pr' if 'open-pr' in reasons else
                              'verify-recent-chat' if row['activity']['state'] == 'recent' else 'hold-review')
