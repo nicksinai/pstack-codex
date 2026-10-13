@@ -1,6 +1,8 @@
 # pstack for Codex
 
-A shareable adaptation of Lauren Tan / poteto's pstack 0.15.15, pinned to Cursor plugins commit `d0ef80d86795816da932a153458c5dbe192d294e`. This independent port includes 50 original top-level workflows plus the deslop companion: 51 explicit skills, all 24 principles, all 23 playbooks and both original agent roles as instruction wrappers. See [whole-package qualification](qualification/issue-15.md), [source inventory](qualification/source-inventory.json), [capabilities](qualification/capabilities.md) and [notices](NOTICE.md). It is not an official Cursor or OpenAI plugin.
+A shareable adaptation of Lauren Tan / poteto's pstack, updated to reviewed source 0.15.23 at Cursor plugins commit `dbf49813a39c1a5389c5e28cb8e4c1c2379e2454`. Port version 0.1.3 includes 50 original top-level workflows plus deslop and two new explicit skills: 53 skills, all 24 principles, all 23 playbooks and both original agent roles as instruction wrappers. See [complete update qualification](qualification/issue-30.md), [source inventory](qualification/source-inventory.json), [capabilities](qualification/capabilities.md) and [notices](NOTICE.md). It is not an official Cursor or OpenAI plugin.
+
+The chat receiving PStack mode owns the playbook, ordered checklist and delegation. Comment Sicko remains a portable [review wrapper](references/comment-sicko.md), normally reached through `pstack-no-comments`, rather than a registered Cursor agent. The poteto-agent instruction wrapper initializes code-writing and helper delegates within that run. See the [coordinator and instruction-access qualification](qualification/issue-25.md) for the reviewed 0.15.23 slice and its limits.
 
 ## Recipient setup
 
@@ -36,8 +38,10 @@ Use the actual picker identity if the host adds a plugin prefix. Documented `$` 
 
 ## Activation and examples
 
-Select `pstack-poteto-mode` with a request for the full workflow router, or select an individual leaf. A leaf or normal mode invocation applies to that request. Enter sticky mode explicitly with “Enter sticky PStack mode for this conversation.” End it with “Exit PStack mode.” Read [continuation](references/continuation.md) for scope, private checkpoint, interruption and recovery. Persistence requires available context or a valid scoped entry record; this is not a native enforced mode.
+Select `pstack-poteto-mode` in the picker before entering your request for the full workflow router, or select an individual leaf. A leaf or normal mode invocation applies to that request. Enter sticky mode explicitly with “Enter sticky PStack mode for this conversation.” End it with “Exit PStack mode.” Read [continuation](references/continuation.md) for scope, private checkpoint, interruption and recovery. Persistence requires available context or a valid scoped entry record; this is not a native enforced mode.
 
+- `pstack-in-your-own-words`: play back your goals and problem before work begins; explicit selection does not start implementation or an interview.
+- `pstack-ketchup`: checked visual catch-up on this conversation, including earlier pending user decisions; read-only except for reply visuals. History, state readers and a real visual channel remain [recipient prerequisites](references/ketchup-capabilities.md); see [qualification](qualification/issue-27.md).
 - `pstack-how`: explain a named subsystem from source; `pstack-why`: reconstruct its rationale; `pstack-recall`: recover scoped recent work; `pstack-teach`: explain it interactively.
 - `pstack-architect` or `pstack-arena`: compare independent designs/artifacts; `pstack-interrogate`: adversarial review; `pstack-swarm`: partition investigation or implementation coverage.
 - `pstack-poteto-mode`: investigate, fix a bug, build a feature, refactor, prototype, assess visual parity, diagnose performance or measure a benchmark. The mode routes to its playbook, principles, cleanup and verification gates.
@@ -61,5 +65,7 @@ Unattended work runs while the computer/app/project/services remain available. R
 Disable or uninstall `pstack-codex` through Plugins Directory. Remove only its marketplace entry, preserving other entries and configuration. If you explicitly enabled it in project config, remove only that enablement; the documented key is `pstack-codex@YOUR-MARKETPLACE-NAME`. Remove only the package copy you created, then restart desktop. Stop owned processes before removing a recipient-selected dependency cache. Keep or separately remove your own task records, generated skills and artifacts; uninstalling does not erase them. See [official enable/disable guidance](https://developers.openai.com/plugins/build/plugins#enable-or-disable-a-plugin-for-a-repo).
 
 ## Maintenance and evidence
+
+The immutable original 0.15.15 and reviewed 0.15.23 archives remain separately pinned in the source repository. All 65 [transition obligations](qualification/upstream-transition.json) are source-qualified; the active inventory accounts for 168 source items with per-file revision selection and 13 agreed exclusions. [Final update qualification](qualification/issue-30.md) records exact requirement evidence, integrated checks and conditional runtime limits. Earlier qualification records describe their historical delivery states.
 
 Updates require a new pinned source review; no automatic upstream synchronization occurs. Immutable original sources remain in the source repository, outside this package. The inventory records every original item, unique owner, adaptation/deferment and target. Per-ticket ledgers preserve the source-to-target argument. Deterministic checks establish content, hashes, reference closure and reproducible assembly; they do not establish observed recipient installation, service access, full agent compliance or real-app outcomes. The port requires no new behavioral qualification suite; pstack's own TDD/reproduction/live-verification requirements remain product behavior.

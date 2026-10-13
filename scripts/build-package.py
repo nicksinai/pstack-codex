@@ -14,7 +14,7 @@ parser.add_argument('--output-dir', type=Path, required=True)
 args = parser.parse_args()
 if args.output_dir.resolve().is_relative_to((root / 'plugin/pstack').resolve()):
     raise SystemExit('Artifact directory must be outside the installed package tree.')
-subprocess.run(['python3', str(root / 'scripts/validate-provenance.py')], check=True)
+subprocess.run(['python3', str(root / 'scripts/validate-provenance.py'), '--require-complete'], check=True)
 package = root / 'plugin/pstack'
 version = json.loads((package / 'plugin.json').read_text())['version']
 entries = {}

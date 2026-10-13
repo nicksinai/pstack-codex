@@ -31,6 +31,23 @@ class MonitorTests(unittest.TestCase):
         self.assertEqual(state, other_state)
         self.assertEqual(monitor.changes(self.manifest, {x['source']: x['sha256'] for x in self.manifest['items']}), [])
 
+    def test_archived_reviewed_source_does_not_complete_pending_adaptations(self):
+        self.manifest['transition'] = {
+            'from_commit': '0' * 40,
+            'items': [{'source': 'skills/a/SKILL.md', 'owner_issue': 22,
+                       'disposition': 'pending', 'reason': 'Pagination adaptation not yet qualified.'}],
+        }
+        hashes = {x['source']: x['sha256'] for x in self.manifest['items']}
+        delta = monitor.changes(self.manifest, hashes)
+        self.assertEqual(delta, [])
+        state, body = monitor.report(self.manifest, 'b' * 40, hashes, delta, 'owner/port')
+        self.assertIn('1 pending adaptation', body)
+        self.assertIn('#22', body)
+        issue = {'number': 9, 'state': 'open', 'body': monitor.MARKER + '\nold-state'}
+        with patch.object(monitor, 'run', side_effect=[json.dumps([[issue]]), 'edited']) as run:
+            monitor.sync_issue('owner/port', state, body, monitor.needs_review(self.manifest, delta))
+        self.assertEqual(run.call_args.args[:4], ('gh', 'issue', 'edit', '9'))
+
     def test_create_one_issue_with_triage_label(self):
         with patch.object(monitor, 'run', side_effect=['[[]]', 'issue-url']) as run:
             monitor.sync_issue('owner/port', 'state', 'body', True)

@@ -10,6 +10,8 @@ description: Apply explicit PStack mode to an engineering request.
 
 Explicit `$pstack-poteto-mode <request>` applies to that request. Sticky mode requires an explicit instruction such as “enter sticky PStack mode for this conversation.” “Exit PStack mode” ends it. Read [continuation](../../references/continuation.md) on entry, exit, unattended routing and recovery; record conversation/workspace scope and preserve the latest user limits. Installation and a leaf invocation never activate sticky mode. The host has no claimed native Cursor mode or reminder; persistence after lost context is conditional on a valid scoped entry record.
 
+The chat receiving mode activation owns the selected playbook, its ordered checklist and every delegation decision. Run the playbook in that chat. Dispatch code-writing and helper tasks within its steps; the mode delegate wrapper is not a replacement playbook coordinator.
+
 Read [compatibility](../../references/compatibility.md), [delegation](../../references/delegation.md), [models](../../references/models.md), and [PR delivery](../../references/pr-delivery.md) before their operations. Every bold skill name below resolves through the Bundled skill lookup. Read its full SKILL.md and required references, then follow them; a universal Skill tool is not assumed. Resolve all paths from this actual package location, including paths containing spaces. Missing instructions or operations block their required step; identify the exact dependency, never mark it skipped merely because the tool is absent.
 
 Copy the selected adapted playbook's ordered steps verbatim into the host todo facility before task-specific items. If no todo API exists, maintain the same ordered checklist in the task's private record. A genuinely inapplicable step remains with `skip: <reason>`; mandatory review, reproduction and evidence gates retain their own explicit exceptions only. “Verbatim” means the packaged adapted steps, whose source-to-port changes are recorded in qualification, not obsolete Cursor syntax.
@@ -23,13 +25,13 @@ The Principles section below grounds every trigger. In your reply, name each pri
 Remaining triggers:
 
 - Nontrivial change, architecture decision, or "are we sure?" → the **how** skill.
-- About to ask a question on a "which approach", "how should I", or "what should this do" fork → classify it before you ask. If the answer is a fact you could observe by running something (behavior, timing, layout, output, perf, even whether an eval separates), it is not the human's to answer. Sketch it via the Prototype playbook ([../../playbooks/prototype.md](../../playbooks/prototype.md)) and let the result decide. If the task is a read-only Investigation whose deliverable is a cited answer, stay in it and answer from the evidence rather than building a sketch. Reserve the question for a genuine product or preference call no experiment can settle. Under a full-autonomy grant, decide a call that the grant covers, act on it, and report it, with no reply word and no offer. Under the grant, apply a default for a call that only the operator can make. Report the default with a full explanation, and say in plain words what the operator could tell you to do instead. The operator answers in their own words. Never give a shorthand token to type back. Gates that the operator named and the Always-pause list in Autonomy still need the operator.
+- About to ask a question on a "which approach", "how should I", or "what should this do" fork → classify it before you ask. If the answer is a fact you could observe by running something (behavior, timing, layout, output, perf, even whether an eval separates), it is not the human's to answer. Sketch it via the Prototype playbook ([../../playbooks/prototype.md](../../playbooks/prototype.md)) and let the result decide. If the task is a read-only Investigation whose deliverable is a cited answer, stay in it and answer from the evidence rather than building a sketch. Reserve the question for a genuine product or preference call no experiment can settle. Under a full-autonomy grant, decide a call the grant covers, act on it, and report it, with no reply word and no offer. Under the grant, for a call only the operator can make, apply a default, report it with a full explanation, and say in plain words what the operator could tell you to do instead. The operator answers in their own words. Never give a shorthand token to type back. Gates the operator named and the Always-pause list in Autonomy still need the operator.
 - Any code → name the data shape first, and choose its organizing structure per [**principle-model-the-domain**](../pstack-principle-model-the-domain/SKILL.md).
 - Code crossing a function boundary → the **architect** skill, parallel design exploration before implementing.
 - Parallel fan-out → the **swarm** skill for coverage matrices, races, gauntlets, and exploration partitions. Use **arena** for design or code bakeoffs with base selection and grafting.
 - Contested design → the **interrogate** skill (independent GPT adversarial review) before shipping.
 - Nontrivial multi-step → write the throughput checkpoint (Feature step 3).
-- Any prose surface → the **unslop** skill. Your reply is a prose surface. Write it per **Writing the reply**. Agent-facing prose also follows the authoring playbook ([authoring a skill](../../playbooks/authoring-a-skill.md)); it supplies the inspected Codex authoring counterpart and discloses the unavailable Cursor built-in source.
+- Any prose surface, your reply to the user included → the **unslop** skill. Write the reply per **Writing the reply**. Agent-facing prose also follows the authoring playbook ([authoring a skill](../../playbooks/authoring-a-skill.md)); it supplies the inspected Codex authoring counterpart and discloses the unavailable Cursor built-in source.
 - Docs, RFCs, readmes, PR descriptions, or commit messages → the **technical-writing** skill (`$pstack-technical-writing`).
 - Before commit → the bundled **deslop** skill.
 - Before review → the **no-comments** skill (`$pstack-no-comments`).
@@ -96,7 +98,7 @@ Read the leaf skill in full for any principle you apply. Each entry names when i
 
 ## Subagents
 
-**Playbook delegates read [poteto-agent initialization](../../references/poteto-agent.md).** This explicit wrapper replaces Cursor's registered `subagent_type`. Routed workflow skills (`how`, `why`, `interrogate`, `reflect`, `swarm`) retain their own specialized prompts. Do not replace their instructions with the generic wrapper.
+**Playbook delegates read [poteto-agent initialization](../../references/poteto-agent.md).** Include the actual absolute paths to that wrapper, this mode file, the assigned playbook/workflow and other required bundled instructions in every brief, resolved from this package. Follow delegation's access check and exact-content fallback before task work. This explicit wrapper replaces Cursor's registered `subagent_type`. Routed workflow skills (`how`, `why`, `interrogate`, `reflect`, `swarm`) retain their own specialized prompts. Do not replace their instructions with the generic wrapper.
 
 **Defaults for every dispatch.** Follow the delegation preflight, local worker isolation, bounded concurrency, lifecycle and resource ledger. Use asynchronous background workers where supported; read-only is a scoped instruction unless the host enforces a sandbox. Supply file pointers and consolidated directives. Resolve feature/refactoring, bug-fix, perf-issue and hillclimb from their exact role labels in models. Resolve hardest cross-cutting design, concurrency and algorithms from `hardest tasks`; trivial mechanical edits use the configured code role. Resolve prose/judgment from `judgment and prose`. Setup overrides each role separately, and `auto`/`inherit-parent` omit model and effort overrides. Validate real GPT identities and effort independently against the actual spawn schema. No Claude/Grok defaults or cloud machines are available in this port. Independent attempts retain review separation while losing provider diversity.
 
@@ -116,7 +118,7 @@ Write the reply clean as you draft it. A cleanup pass after drafting does not re
 - **Never fabricate a link, citation, or transcript reference.** Link only artifacts you produced or read this session.
 - **Every claim carries its evidence or its label in the same sentence.** Measured, inferred, or guess. A prediction or an unseen cause is a guess. Never hand the human a check you could run.
 
-Every playbook ends with a reply written this way. Code-change delivery normally includes a PR; read-only investigation, diagnosis, planning and an explicit local-only user limit retain their specific output contract. Format an actual created PR link as `https://github.com/<owner>/<repo>/pull/<number>`. The per-playbook lines below name only the content unique to that playbook.
+Every playbook ends with a reply written this way. Code-change delivery normally includes a PR; read-only investigation, diagnosis, planning and an explicit local-only user limit retain their specific output contract. Format an actual created PR link as `https://github.com/<owner>/<repo>/pull/<number>`. Each playbook's own reply lines name only the content unique to that playbook.
 
 ## Comments
 
@@ -164,10 +166,12 @@ Bare upstream names in these instructions resolve to namespaced siblings below. 
 | benchmark-checklist | [../pstack-benchmark-checklist/SKILL.md](../pstack-benchmark-checklist/SKILL.md) |
 | blast-radius | [../pstack-blast-radius/SKILL.md](../pstack-blast-radius/SKILL.md) |
 | bro | [../pstack-bro/SKILL.md](../pstack-bro/SKILL.md) |
+| ketchup | [../pstack-ketchup/SKILL.md](../pstack-ketchup/SKILL.md) |
 | correct | [../pstack-correct/SKILL.md](../pstack-correct/SKILL.md) |
 | create-verification-skill | [../pstack-create-verification-skill/SKILL.md](../pstack-create-verification-skill/SKILL.md) |
 | figure-it-out | [../pstack-figure-it-out/SKILL.md](../pstack-figure-it-out/SKILL.md) |
 | how | [../pstack-how/SKILL.md](../pstack-how/SKILL.md) |
+| in-your-own-words | [../pstack-in-your-own-words/SKILL.md](../pstack-in-your-own-words/SKILL.md) |
 | interrogate | [../pstack-interrogate/SKILL.md](../pstack-interrogate/SKILL.md) |
 | maintain-verification-skill | [../pstack-maintain-verification-skill/SKILL.md](../pstack-maintain-verification-skill/SKILL.md) |
 | make-bot-ui | Excluded from first release (Grok Bot UI). |

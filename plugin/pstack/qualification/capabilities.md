@@ -17,7 +17,7 @@ No sticky-mode field, cloud worker, durable scheduler, history parser, or additi
 
 ## Whole-package host capability evidence
 
-The complete candidate closes the later source targets; these host premises remain conditional at runtime. Per-ticket source/control-flow arguments and the [final qualification](issue-15.md) distinguish content from actual operation.
+The complete candidate closes the later source targets; these host premises remain conditional at runtime. Per-ticket source/control-flow arguments and the [final update qualification](issue-30.md) distinguish content from actual operation.
 
 | ID | Supported contract | Authoritative source | Limit |
 | --- | --- | --- | --- |
@@ -26,6 +26,10 @@ The complete candidate closes the later source targets; these host premises rema
 | C9 | Plugins distribute instructions/resources and optional supported integrations, not arbitrary browser/terminal/GitHub control. Skills can read bundled resources when selected. | [Plugin packaging](https://developers.openai.com/plugins/build/plugins), [Codex skills](https://developers.openai.com/codex/skills) | UI/CLI controls, Git/GitHub authentication and profiler access are recipient capabilities, checked before use. The pinned Cursor team-kit instructions provide the adapted companion contract, with included MIT notice. |
 | C10 | Requested local automation can perform scheduled follow-up while the desktop environment is available. | [Scheduled tasks](https://learn.chatgpt.com/docs/automations) | Host/account schedule schemas remain conditional. Active waits do not survive lost execution. No operation through app closure, computer sleep or offline services is claimed. |
 
-[C3/C4](https://developers.openai.com/codex/skills) establish explicit skill invocation and instruction loading. There is no claimed native enforced Cursor-style sticky mode: the [continuation contract](../references/continuation.md) uses explicit scoped entry/exit plus recipient-private checkpoint and recovery. The documented initial catalog cap is context-dependent with an 8,000-character maximum; the 5,951-character name/description total does not guarantee every entry appears. The mode's internal lookup remains the complete route.
+[C3/C4](https://developers.openai.com/codex/skills) establish explicit skill invocation and instruction loading. There is no claimed native enforced Cursor-style sticky mode: the [continuation contract](../references/continuation.md) uses explicit scoped entry/exit plus recipient-private checkpoint and recovery. The documented initial catalog cap is context-dependent with an 8,000-character maximum; the repository validator computes the current name/description total from the delivered skills and checks that ceiling. That total does not guarantee every entry appears. The mode's internal lookup remains the complete route.
 
 Helpers rely on their actual declared runtimes, locked dependency graph and inspected control flow, as qualified in [issue 11](issue-11.md), [issue 12](issue-12.md) and [issue 14](issue-14.md). A source/helper invariant is established only under its filesystem/process/auth premises. No official host page guarantees recipient helper dependencies are already installed.
+
+## Reviewed 0.15.23 update
+
+Port 0.1.3 closes all 65 fixed source differences; [issue #30](issue-30.md) accounts for all 168 source items and the 53 delivered explicit skills. Goal playback adds no tool dependency; ketchup requires authorized conversation/history and current-state reads plus real screenshots or fact-grounded reply visuals as specified in its [capability contract](../references/ketchup-capabilities.md). The update grants no additional runtime capabilities. The existing verified `--trunk` interface and portable root manifest satisfy the reviewed upstream intent under their stated premises. Recipient installation and desktop behavior remain unobserved.

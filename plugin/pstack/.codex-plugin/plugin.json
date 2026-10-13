@@ -1,6 +1,6 @@
 {
   "name": "pstack-codex",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Codex adaptation of Lauren Tan\u2019s pstack engineering workflows. Qualification is recorded per workflow.",
   "skills": "./skills/",
   "interface": {

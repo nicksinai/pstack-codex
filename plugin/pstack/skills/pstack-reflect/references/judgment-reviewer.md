@@ -19,25 +19,20 @@ Scan for:
 
 ## Scope to skills and tools the session actually used
 
-Findings must point to skills, tools, or MCPs invoked in this transcript. Speculative routings to skills the parent never opened do not count. To check whether a skill was used, scan the transcript for:
+Route findings only to skills, tools, or MCPs this transcript used. A skill counts as used when the transcript shows a file read of its `SKILL.md` in a verified repository, recipient-owned or plugin-installed location, a delegation prompt naming its path, or a tool call matching its documented commands.
 
-- File-read tool calls against any `SKILL.md` file (verified repository, recipient-owned, or plugin-installed skill locations)
-- Delegation prompts that name a skill path
-- Tool calls (shell, search, MCP, etc.) that match a skill's documented commands
+Two finding shapes are valid:
+- The parent invoked the skill and you found a gap in its body. Route to the relevant section.
+- The skill was visible in the catalog but did not trigger when it would have helped. Route as `tune description: <skill path>`.
 
-Two valid finding shapes:
+Drop any skill that was neither invoked nor a missed-trigger candidate.
 
-- The parent invoked the skill and you found a real gap in its body. Route to the skill's relevant section.
-- The skill was visible in the catalog but did not trigger when it would have helped. Tune the skill's description so future agents pick it up. Route as `tune description: <skill path>`.
-
-If a skill was neither invoked nor a missed-trigger candidate, drop it.
-
-List each durable learning you find. For each:
+List each durable learning. For each:
 - Principle: one sentence describing what generalizes. State the rule, not the label, no name-dropping.
 - Evidence: the exact moment in the transcript that surfaced it (turn number or short quote).
-- Routing: most relevant existing skill (give the `SKILL.md` path as it appears in the transcript), OR `tune description: <skill path>` when the skill should have triggered but didn't, OR "new skill: <kebab-name>" if no existing skill is a real home.
+- Routing: the most relevant existing skill (its `SKILL.md` path as the transcript shows it), OR `tune description: <skill path>` when the skill should have triggered but didn't, OR "new skill: <kebab-name>" if no existing skill is a real home.
 
-Skip trivial things (typos, tool retries, mechanical setup). Skip anything already obvious from the existing skill the parent followed. Skip implementation details that drift: specific SHAs, current file paths, version numbers, exact byte counts. Only surface principles and patterns that survive code drift.
+Skip trivial things (typos, tool retries, mechanical setup) and anything already obvious from the skill the parent followed. Skip implementation details that drift: specific SHAs, current file paths, version numbers, exact byte counts. Surface only principles and patterns that survive code drift.
 
 Return as a numbered list. No exposition.
 

@@ -16,7 +16,7 @@ Use native GPT models for this release. Model identity and reasoning effort are 
 
 Keep investigation, code changes, PR preparation, babysitting, merge, and deployment authority distinct. Upstream broad team-chat permission does not override the host requirement for explicit authorization to send messages. Preserve existing skills and configuration. Write personal settings only to recipient-owned locations established by the relevant setup workflow.
 
-For any parallel workflow, read [delegation](delegation.md) for initialization, lifecycle, writer isolation, and shared resources. Resolve role names and budgets through [models](models.md); role labels are not recipient model identifiers. The [poteto-agent wrapper](poteto-agent.md) establishes the required full-mode reads for mode delegates.
+For any parallel workflow, read [delegation](delegation.md) for initialization, lifecycle, writer isolation, and shared resources. Resolve role names and budgets through [models](models.md); role labels are not recipient model identifiers. The receiving chat owns the mode playbook, ordered checklist and dispatch decisions. The [poteto-agent wrapper](poteto-agent.md) initializes code-writing and helper delegates within that run, using the actual absolute instruction paths from the selected package instance. Delegation requires access verification and exact-content fallback or a BLOCKED report before work. Specialized how, why, interrogate, reflect and swarm prompts retain their own roles.
 
 For transcript or execution-trace reads, follow [scoped history](history.md). Bind the actual reader schema and fidelity, inspect metadata before conversation content, and account for missing or summarized records. For interrupted work, [session pickup](session-pickup.md) reconstructs current artifacts rather than assuming old workers remain alive.
 
@@ -25,5 +25,7 @@ For PR preparation, babysitting, or requested shipping, read [PR delivery](pr-de
 ## Qualification
 
 The authoritative per-ticket arguments are in [qualification](../qualification/README.md). Their statuses describe source/configuration properties under stated premises, not guaranteed agent compliance. A tool observed in an implementation chat is not evidence that a friend's installed plugin receives that tool. UI outcomes, runtime availability, and successful installation remain conditional until observed in the recipient's environment.
+
+For the explicit ketchup catch-up, bind current-conversation history, touched artifact states and real reply visuals through [catch-up capabilities](ketchup-capabilities.md). Missing required capabilities remain limitations or blockers.
 
 Current official evidence is recorded in [capabilities](../qualification/capabilities.md). Additional workflow-specific capability contracts must link here and record their authoritative evidence rather than invent a parallel runtime.
