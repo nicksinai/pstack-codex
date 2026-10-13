@@ -11,3 +11,5 @@ The [final whole-package argument](issue-15.md) closes all included source targe
 The [0.15.23 coordinator and instruction-access argument](issue-25.md) qualifies its three primary source rows and names the remaining mode-review obligation for issue #28. It supersedes earlier staged wrapper-access notes for this slice; it does not close the entire transition.
 
 [Issue 27](issue-27.md) qualifies the explicit ketchup catch-up instruction and metadata, with conditional current-conversation history, touched artifact reads and real reply visuals. Shared help qualification remains pending joint #26/#27 integration.
+
+The [explicit recipient update addition](update.md) qualifies the Codex-specific `pstack: update` skill separately from the immutable upstream inventories. Its current package accounting supplements the historical issue-15 and issue-30 candidates.

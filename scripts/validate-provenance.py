@@ -138,10 +138,16 @@ for item in items:
         if item['disposition'] == 'preserved':
             assert (baselines[item['source_revision']][0] / item['source']).read_bytes() == (root / item['target']).read_bytes()
 assert json.loads((package / 'qualification/source-inventory.json').read_text()) == manifest
-new_skill_targets = {x['target'] for x in items if x['source'] not in old_hashes
-                     and x['source'].startswith('skills/') and x['source'].endswith('/SKILL.md')
-                     and x['target']}
-assert len(skills) == 51 + len(new_skill_targets)
+upstream_skill_paths = {
+    item['target'] for item in items
+    if item['source'].startswith('skills/') and item['source'].endswith('/SKILL.md') and item['target']
+}
+package_only_skill_paths = {
+    'plugin/pstack/skills/pstack-deslop/SKILL.md',
+    'plugin/pstack/skills/pstack-update/SKILL.md',
+}
+assert not upstream_skill_paths & package_only_skill_paths
+assert {str(skill.relative_to(root)) for skill in skills} == upstream_skill_paths | package_only_skill_paths
 assert len(list((package / 'skills').glob('pstack-principle-*/SKILL.md'))) == 24
 source_playbooks = [x for x in items if '/playbooks/' in x['source']]
 assert len(source_playbooks) == 23

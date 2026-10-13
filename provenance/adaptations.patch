@@ -33,7 +33,7 @@
 -	"agents": "./agents/"
 +  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
 +  "name": "pstack-codex",
-+  "version": "0.1.3",
++  "version": "0.1.4",
 +  "description": "Codex adaptation of Lauren Tan\u2019s pstack engineering workflows. Qualification is recorded per workflow."
  }
 --- upstream/d0ef80d86795816da932a153458c5dbe192d294e/pstack/.gitignore
@@ -55,12 +55,12 @@
 +/dist/
 --- upstream/dbf49813a39c1a5389c5e28cb8e4c1c2379e2454/pstack/README.md
 +++ plugin/pstack/README.md
-@@ -1,273 +1,71 @@
+@@ -1,273 +1,77 @@
 -# pstack
 +# pstack for Codex
  
 -i'm [poteto](https://x.com/poteto). i'm not a president or ceo, but i've worked with millions of lines of code at Meta, Netflix, and Cursor. i'm also on the react core team where i help build and maintain react compiler.
-+A shareable adaptation of Lauren Tan / poteto's pstack, updated to reviewed source 0.15.23 at Cursor plugins commit `dbf49813a39c1a5389c5e28cb8e4c1c2379e2454`. Port version 0.1.3 includes 50 original top-level workflows plus deslop and two new explicit skills: 53 skills, all 24 principles, all 23 playbooks and both original agent roles as instruction wrappers. See [complete update qualification](qualification/issue-30.md), [source inventory](qualification/source-inventory.json), [capabilities](qualification/capabilities.md) and [notices](NOTICE.md). It is not an official Cursor or OpenAI plugin.
++A shareable adaptation of Lauren Tan / poteto's pstack, updated to reviewed source 0.15.23 at Cursor plugins commit `dbf49813a39c1a5389c5e28cb8e4c1c2379e2454`. Port version 0.1.4 includes 50 original top-level workflows plus deslop, in-your-own-words, ketchup and the Codex-specific update skill: 54 skills, all 24 principles, all 23 playbooks and both original agent roles as instruction wrappers. See [complete update qualification](qualification/issue-30.md), [source inventory](qualification/source-inventory.json), [capabilities](qualification/capabilities.md) and [notices](NOTICE.md). It is not an official Cursor or OpenAI plugin.
  
 -there's a growing sense that ai writes too much slop code. i agree. i don't want to ship like a team of twenty slop artists. throughput without quality is not a goal i aspire to. if you want to go fast, go deep first. 
 +The chat receiving PStack mode owns the playbook, ordered checklist and delegation. Comment Sicko remains a portable [review wrapper](references/comment-sicko.md), normally reached through `pstack-no-comments`, rather than a registered Cursor agent. The poteto-agent instruction wrapper initializes code-writing and helper delegates within that run. See the [coordinator and instruction-access qualification](qualification/issue-25.md) for the reviewed 0.15.23 slice and its limits.
@@ -196,16 +196,16 @@
 -```
 -/how do we cancel runs? do we have an n+1 when we look up every run to cancel?
 -```
-+## Remove
++## Update on request
  
 -```
 -/interrogate review this pr.
 -```
-+Disable or uninstall `pstack-codex` through Plugins Directory. Remove only its marketplace entry, preserving other entries and configuration. If you explicitly enabled it in project config, remove only that enablement; the documented key is `pstack-codex@YOUR-MARKETPLACE-NAME`. Remove only the package copy you created, then restart desktop. Stop owned processes before removing a recipient-selected dependency cache. Keep or separately remove your own task records, generated skills and artifacts; uninstalling does not erase them. See [official enable/disable guidance](https://developers.openai.com/plugins/build/plugins#enable-or-disable-a-plugin-for-a-repo).
++Select **pstack: update** or invoke `$pstack-update` with "update pstack". When the main mode or help is already loaded, that request also routes to update. Use "check for pstack updates" for a read-only comparison. Explicit-only discovery means an ordinary message in an unrelated chat may need the skill selection first.
  
 -<details>
 -<summary>all skills</summary>
-+## Maintenance and evidence
++The updater uses supported commands for an existing configured local Git marketplace. It preserves source selection, fixed pins and recipient settings, stops for uncertain baselines or conflicting customizations, and verifies installed contents independently. Other routes receive supported next-step guidance. It never installs Codex, restarts the app or edits installed cache files. See the [update skill](skills/pstack-update/SKILL.md) and [qualification](qualification/update.md).
  
 -| skill | use it when |
 -|---|---|
@@ -238,12 +238,15 @@
 -| [`/unslop`](./skills/unslop/SKILL.md) | you're cleaning up writing. removes AI tells. |
 -| [`/bro`](./skills/bro/SKILL.md) | you want the last message restated in plain human language, no jargon. |
 -| [`/technical-writing`](./skills/technical-writing/SKILL.md) | layered doc standard (Diátaxis + Google developer style + STE + Global English) for docs, RFCs, readmes, PR descriptions, commit messages. |
-+The immutable original 0.15.15 and reviewed 0.15.23 archives remain separately pinned in the source repository. All 65 [transition obligations](qualification/upstream-transition.json) are source-qualified; the active inventory accounts for 168 source items with per-file revision selection and 13 agreed exclusions. [Final update qualification](qualification/issue-30.md) records exact requirement evidence, integrated checks and conditional runtime limits. Earlier qualification records describe their historical delivery states.
++## Remove
  
 -</details>
--
--
--
++Disable or uninstall `pstack-codex` through Plugins Directory. Remove only its marketplace entry, preserving other entries and configuration. If you explicitly enabled it in project config, remove only that enablement; the documented key is `pstack-codex@YOUR-MARKETPLACE-NAME`. Remove only the package copy you created, then restart desktop. Stop owned processes before removing a recipient-selected dependency cache. Keep or separately remove your own task records, generated skills and artifacts; uninstalling does not erase them. See [official enable/disable guidance](https://developers.openai.com/plugins/build/plugins#enable-or-disable-a-plugin-for-a-repo).
+ 
++## Maintenance and evidence
+ 
++The immutable original 0.15.15 and reviewed 0.15.23 archives remain separately pinned in the source repository. All 65 [transition obligations](qualification/upstream-transition.json) are source-qualified; the active inventory accounts for 168 source items with per-file revision selection and 13 agreed exclusions. [Final update qualification](qualification/issue-30.md) records exact requirement evidence, integrated checks and conditional runtime limits. Earlier qualification records describe their historical delivery states.
+ 
 -### examples
 -
 -mostly i type [`/poteto-mode`](./skills/poteto-mode/SKILL.md) at the start of a task and let it route to a playbook. the other skills fire as the steps need them. a few i reach for directly.
@@ -370,7 +373,7 @@
 -## license
 -
 -MIT
-+Updates require a new pinned source review; no automatic upstream synchronization occurs. Immutable original sources remain in the source repository, outside this package. The inventory records every original item, unique owner, adaptation/deferment and target. Per-ticket ledgers preserve the source-to-target argument. Deterministic checks establish content, hashes, reference closure and reproducible assembly; they do not establish observed recipient installation, service access, full agent compliance or real-app outcomes. The port requires no new behavioral qualification suite; pstack's own TDD/reproduction/live-verification requirements remain product behavior.
++Maintainer updates to the pinned upstream baseline require a new source review; no automatic upstream synchronization occurs. Recipient updates use the explicit update skill to obtain an already adapted Codex package within their configured source constraints. Immutable original sources remain in the source repository, outside this package. The inventory records every original item, unique owner, adaptation/deferment and target. Per-ticket ledgers preserve the source-to-target argument. Deterministic checks establish content, hashes, reference closure and reproducible assembly; they do not establish observed recipient installation, service access, full agent compliance or real-app outcomes. The port requires no new behavioral qualification suite; pstack's own TDD/reproduction/live-verification requirements remain product behavior.
 --- upstream/d0ef80d86795816da932a153458c5dbe192d294e/pstack/agents/comment-sicko.md
 +++ plugin/pstack/references/comment-sicko.md
 @@ -1,8 +1,3 @@
@@ -413,12 +416,12 @@
 Binary files differ: assets/logo.png -> plugin/pstack/NOTICE.md
 --- upstream/d0ef80d86795816da932a153458c5dbe192d294e/pstack/docs/guide/01-setup.md
 +++ plugin/pstack/README.md
-@@ -1,62 +1,71 @@
+@@ -1,62 +1,77 @@
 -# Set up pstack
 +# pstack for Codex
  
 -In this page you install the plugin, pick which models pstack uses, and run your first task. Setup is one command plus a short conversation.
-+A shareable adaptation of Lauren Tan / poteto's pstack, updated to reviewed source 0.15.23 at Cursor plugins commit `dbf49813a39c1a5389c5e28cb8e4c1c2379e2454`. Port version 0.1.3 includes 50 original top-level workflows plus deslop and two new explicit skills: 53 skills, all 24 principles, all 23 playbooks and both original agent roles as instruction wrappers. See [complete update qualification](qualification/issue-30.md), [source inventory](qualification/source-inventory.json), [capabilities](qualification/capabilities.md) and [notices](NOTICE.md). It is not an official Cursor or OpenAI plugin.
++A shareable adaptation of Lauren Tan / poteto's pstack, updated to reviewed source 0.15.23 at Cursor plugins commit `dbf49813a39c1a5389c5e28cb8e4c1c2379e2454`. Port version 0.1.4 includes 50 original top-level workflows plus deslop, in-your-own-words, ketchup and the Codex-specific update skill: 54 skills, all 24 principles, all 23 playbooks and both original agent roles as instruction wrappers. See [complete update qualification](qualification/issue-30.md), [source inventory](qualification/source-inventory.json), [capabilities](qualification/capabilities.md) and [notices](NOTICE.md). It is not an official Cursor or OpenAI plugin.
  
 -## Install the plugin
 +The chat receiving PStack mode owns the playbook, ordered checklist and delegation. Comment Sicko remains a portable [review wrapper](references/comment-sicko.md), normally reached through `pstack-no-comments`, rather than a registered Cursor agent. The poteto-agent instruction wrapper initializes code-writing and helper delegates within that run. See the [coordinator and instruction-access qualification](qualification/issue-25.md) for the reviewed 0.15.23 slice and its limits.
@@ -506,29 +509,35 @@ Binary files differ: assets/logo.png -> plugin/pstack/NOTICE.md
 +Unattended work runs while the computer/app/project/services remain available. Requested schedules require actual host automation support. Active waits are not durable schedulers. Operation through sleep, app closure, lost workers or offline services is excluded. Grok Bot UI and Benny are excluded (13 source files total). Cloud workers and external-provider bridges are deferred. Host rules and user limits govern authority, including explicit authorization for external messages.
  
 -Pick something real but small, and describe it the way you'd describe it to a colleague:
-+## Remove
++## Update on request
  
 -```text
 -/poteto-mode add a --json flag to this command. text output stays byte-identical. verify both.
 -```
-+Disable or uninstall `pstack-codex` through Plugins Directory. Remove only its marketplace entry, preserving other entries and configuration. If you explicitly enabled it in project config, remove only that enablement; the documented key is `pstack-codex@YOUR-MARKETPLACE-NAME`. Remove only the package copy you created, then restart desktop. Stop owned processes before removing a recipient-selected dependency cache. Keep or separately remove your own task records, generated skills and artifacts; uninstalling does not erase them. See [official enable/disable guidance](https://developers.openai.com/plugins/build/plugins#enable-or-disable-a-plugin-for-a-repo).
++Select **pstack: update** or invoke `$pstack-update` with "update pstack". When the main mode or help is already loaded, that request also routes to update. Use "check for pstack updates" for a read-only comparison. Explicit-only discovery means an ordinary message in an unrelated chat may need the skill selection first.
  
 -Watch the todo list. Its first items are the matched playbook's steps copied in, the Feature playbook for this prompt. If `/poteto-mode` skips a step, the step stays in the list with `skip: <reason>`, so you can see what it chose not to do.
-+## Maintenance and evidence
++The updater uses supported commands for an existing configured local Git marketplace. It preserves source selection, fixed pins and recipient settings, stops for uncertain baselines or conflicting customizations, and verifies installed contents independently. Other routes receive supported next-step guidance. It never installs Codex, restarts the app or edits installed cache files. See the [update skill](skills/pstack-update/SKILL.md) and [qualification](qualification/update.md).
  
 -From here you can type normal follow-ups. To keep `/poteto-mode` on for the whole chat, pick it from the `/` menu with Option+Enter (Mac) or Alt+Enter (Windows) instead of Enter. That makes it a [Custom Mode](https://cursor.com/docs/skills), which stays in context on every turn until you exit it. Custom Modes are available in the Agents Window and the CLI. Plain Enter attaches the skill to one message, and it fades as the chat moves on.
-+The immutable original 0.15.15 and reviewed 0.15.23 archives remain separately pinned in the source repository. All 65 [transition obligations](qualification/upstream-transition.json) are source-qualified; the active inventory accounts for 168 source items with per-file revision selection and 13 agreed exclusions. [Final update qualification](qualification/issue-30.md) records exact requirement evidence, integrated checks and conditional runtime limits. Earlier qualification records describe their historical delivery states.
++## Remove
  
 -Next: [Route work through `/poteto-mode`](./02-poteto-mode.md).
-+Updates require a new pinned source review; no automatic upstream synchronization occurs. Immutable original sources remain in the source repository, outside this package. The inventory records every original item, unique owner, adaptation/deferment and target. Per-ticket ledgers preserve the source-to-target argument. Deterministic checks establish content, hashes, reference closure and reproducible assembly; they do not establish observed recipient installation, service access, full agent compliance or real-app outcomes. The port requires no new behavioral qualification suite; pstack's own TDD/reproduction/live-verification requirements remain product behavior.
++Disable or uninstall `pstack-codex` through Plugins Directory. Remove only its marketplace entry, preserving other entries and configuration. If you explicitly enabled it in project config, remove only that enablement; the documented key is `pstack-codex@YOUR-MARKETPLACE-NAME`. Remove only the package copy you created, then restart desktop. Stop owned processes before removing a recipient-selected dependency cache. Keep or separately remove your own task records, generated skills and artifacts; uninstalling does not erase them. See [official enable/disable guidance](https://developers.openai.com/plugins/build/plugins#enable-or-disable-a-plugin-for-a-repo).
++
++## Maintenance and evidence
++
++The immutable original 0.15.15 and reviewed 0.15.23 archives remain separately pinned in the source repository. All 65 [transition obligations](qualification/upstream-transition.json) are source-qualified; the active inventory accounts for 168 source items with per-file revision selection and 13 agreed exclusions. [Final update qualification](qualification/issue-30.md) records exact requirement evidence, integrated checks and conditional runtime limits. Earlier qualification records describe their historical delivery states.
++
++Maintainer updates to the pinned upstream baseline require a new source review; no automatic upstream synchronization occurs. Recipient updates use the explicit update skill to obtain an already adapted Codex package within their configured source constraints. Immutable original sources remain in the source repository, outside this package. The inventory records every original item, unique owner, adaptation/deferment and target. Per-ticket ledgers preserve the source-to-target argument. Deterministic checks establish content, hashes, reference closure and reproducible assembly; they do not establish observed recipient installation, service access, full agent compliance or real-app outcomes. The port requires no new behavioral qualification suite; pstack's own TDD/reproduction/live-verification requirements remain product behavior.
 --- upstream/d0ef80d86795816da932a153458c5dbe192d294e/pstack/docs/guide/02-poteto-mode.md
 +++ plugin/pstack/README.md
-@@ -1,131 +1,71 @@
+@@ -1,131 +1,77 @@
 -# Route work through `/poteto-mode`
 +# pstack for Codex
  
 -`/poteto-mode` is the front door. You give it a goal, it matches one of twenty-three playbooks, copies that playbook's steps into the todo list, and calls the other skills as the steps need them. In this page you learn what a good prompt looks like, and how little of one you actually need.
-+A shareable adaptation of Lauren Tan / poteto's pstack, updated to reviewed source 0.15.23 at Cursor plugins commit `dbf49813a39c1a5389c5e28cb8e4c1c2379e2454`. Port version 0.1.3 includes 50 original top-level workflows plus deslop and two new explicit skills: 53 skills, all 24 principles, all 23 playbooks and both original agent roles as instruction wrappers. See [complete update qualification](qualification/issue-30.md), [source inventory](qualification/source-inventory.json), [capabilities](qualification/capabilities.md) and [notices](NOTICE.md). It is not an official Cursor or OpenAI plugin.
++A shareable adaptation of Lauren Tan / poteto's pstack, updated to reviewed source 0.15.23 at Cursor plugins commit `dbf49813a39c1a5389c5e28cb8e4c1c2379e2454`. Port version 0.1.4 includes 50 original top-level workflows plus deslop, in-your-own-words, ketchup and the Codex-specific update skill: 54 skills, all 24 principles, all 23 playbooks and both original agent roles as instruction wrappers. See [complete update qualification](qualification/issue-30.md), [source inventory](qualification/source-inventory.json), [capabilities](qualification/capabilities.md) and [notices](NOTICE.md). It is not an official Cursor or OpenAI plugin.
  
 -![A dispatcher pulls a switch lever to route robots on rail handcars toward lit gates, under a /poteto-mode departure board listing BUG FIX, FEATURE, and INVESTIGATION.](./images/router.jpg)
 +The chat receiving PStack mode owns the playbook, ordered checklist and delegation. Comment Sicko remains a portable [review wrapper](references/comment-sicko.md), normally reached through `pstack-no-comments`, rather than a registered Cursor agent. The poteto-agent instruction wrapper initializes code-writing and helper delegates within that run. See the [coordinator and instruction-access qualification](qualification/issue-25.md) for the reviewed 0.15.23 slice and its limits.
@@ -639,29 +648,32 @@ Binary files differ: assets/logo.png -> plugin/pstack/NOTICE.md
 -```text
 -/poteto-mode do it
 -```
-+## Remove
++## Update on request
  
 -```text
 -continue
 -```
-+Disable or uninstall `pstack-codex` through Plugins Directory. Remove only its marketplace entry, preserving other entries and configuration. If you explicitly enabled it in project config, remove only that enablement; the documented key is `pstack-codex@YOUR-MARKETPLACE-NAME`. Remove only the package copy you created, then restart desktop. Stop owned processes before removing a recipient-selected dependency cache. Keep or separately remove your own task records, generated skills and artifacts; uninstalling does not erase them. See [official enable/disable guidance](https://developers.openai.com/plugins/build/plugins#enable-or-disable-a-plugin-for-a-repo).
++Select **pstack: update** or invoke `$pstack-update` with "update pstack". When the main mode or help is already loaded, that request also routes to update. Use "check for pstack updates" for a read-only comparison. Explicit-only discovery means an ordinary message in an unrelated chat may need the skill selection first.
  
 -```text
 -keep going until done
 -```
-+## Maintenance and evidence
++The updater uses supported commands for an existing configured local Git marketplace. It preserves source selection, fixed pins and recipient settings, stops for uncertain baselines or conflicting customizations, and verifies installed contents independently. Other routes receive supported next-step guidance. It never installs Codex, restarts the app or edits installed cache files. See the [update skill](skills/pstack-update/SKILL.md) and [qualification](qualification/update.md).
  
 -Short works because the playbook holds the structure, and a Custom Mode keeps `/poteto-mode` in context on every turn. [Set up pstack](./01-setup.md#run-your-first-task) shows how to start one. Your words carry the intent, and the skill carries the rigor.
-+The immutable original 0.15.15 and reviewed 0.15.23 archives remain separately pinned in the source repository. All 65 [transition obligations](qualification/upstream-transition.json) are source-qualified; the active inventory accounts for 168 source items with per-file revision selection and 13 agreed exclusions. [Final update qualification](qualification/issue-30.md) records exact requirement evidence, integrated checks and conditional runtime limits. Earlier qualification records describe their historical delivery states.
++## Remove
  
 -## Switch tasks with "new task"
--
++Disable or uninstall `pstack-codex` through Plugins Directory. Remove only its marketplace entry, preserving other entries and configuration. If you explicitly enabled it in project config, remove only that enablement; the documented key is `pstack-codex@YOUR-MARKETPLACE-NAME`. Remove only the package copy you created, then restart desktop. Stop owned processes before removing a recipient-selected dependency cache. Keep or separately remove your own task records, generated skills and artifacts; uninstalling does not erase them. See [official enable/disable guidance](https://developers.openai.com/plugins/build/plugins#enable-or-disable-a-plugin-for-a-repo).
+ 
 -A long chat accumulates context from the last task. When you change subjects, say so:
--
++## Maintenance and evidence
+ 
 -```text
 -/poteto-mode new task. figure out why the cache entry survives logout. don't change any code yet.
 -```
--
++The immutable original 0.15.15 and reviewed 0.15.23 archives remain separately pinned in the source repository. All 65 [transition obligations](qualification/upstream-transition.json) are source-qualified; the active inventory accounts for 168 source items with per-file revision selection and 13 agreed exclusions. [Final update qualification](qualification/issue-30.md) records exact requirement evidence, integrated checks and conditional runtime limits. Earlier qualification records describe their historical delivery states.
+ 
 -"new task" tells `/poteto-mode` to re-match rather than continue the prior playbook. "don't change any code yet" pins this one to Investigation. Without those two phrases, a mode mid-Feature tends to treat your question as the next feature step.
 -
 -## Give parallel work its own machine
@@ -699,15 +711,15 @@ Binary files differ: assets/logo.png -> plugin/pstack/NOTICE.md
 -Read [`poteto-mode`](../../skills/poteto-mode/SKILL.md) itself for the full routing rules.
 -
 -Next: [Understand the code](./03-understand.md).
-+Updates require a new pinned source review; no automatic upstream synchronization occurs. Immutable original sources remain in the source repository, outside this package. The inventory records every original item, unique owner, adaptation/deferment and target. Per-ticket ledgers preserve the source-to-target argument. Deterministic checks establish content, hashes, reference closure and reproducible assembly; they do not establish observed recipient installation, service access, full agent compliance or real-app outcomes. The port requires no new behavioral qualification suite; pstack's own TDD/reproduction/live-verification requirements remain product behavior.
++Maintainer updates to the pinned upstream baseline require a new source review; no automatic upstream synchronization occurs. Recipient updates use the explicit update skill to obtain an already adapted Codex package within their configured source constraints. Immutable original sources remain in the source repository, outside this package. The inventory records every original item, unique owner, adaptation/deferment and target. Per-ticket ledgers preserve the source-to-target argument. Deterministic checks establish content, hashes, reference closure and reproducible assembly; they do not establish observed recipient installation, service access, full agent compliance or real-app outcomes. The port requires no new behavioral qualification suite; pstack's own TDD/reproduction/live-verification requirements remain product behavior.
 --- upstream/d0ef80d86795816da932a153458c5dbe192d294e/pstack/docs/guide/03-understand.md
 +++ plugin/pstack/README.md
-@@ -1,79 +1,71 @@
+@@ -1,79 +1,77 @@
 -# Understand the code before changing it
 +# pstack for Codex
  
 -Editing code you don't understand is how subtle regressions ship, and that's as true for the agent as for you. Agents usually fail in one of two ways. They misread what you want, or they don't have the context to do the work right. [What goes in a prompt](./02-poteto-mode.md#what-goes-in-a-prompt) handles the first. This page handles the second.
-+A shareable adaptation of Lauren Tan / poteto's pstack, updated to reviewed source 0.15.23 at Cursor plugins commit `dbf49813a39c1a5389c5e28cb8e4c1c2379e2454`. Port version 0.1.3 includes 50 original top-level workflows plus deslop and two new explicit skills: 53 skills, all 24 principles, all 23 playbooks and both original agent roles as instruction wrappers. See [complete update qualification](qualification/issue-30.md), [source inventory](qualification/source-inventory.json), [capabilities](qualification/capabilities.md) and [notices](NOTICE.md). It is not an official Cursor or OpenAI plugin.
++A shareable adaptation of Lauren Tan / poteto's pstack, updated to reviewed source 0.15.23 at Cursor plugins commit `dbf49813a39c1a5389c5e28cb8e4c1c2379e2454`. Port version 0.1.4 includes 50 original top-level workflows plus deslop, in-your-own-words, ketchup and the Codex-specific update skill: 54 skills, all 24 principles, all 23 playbooks and both original agent roles as instruction wrappers. See [complete update qualification](qualification/issue-30.md), [source inventory](qualification/source-inventory.json), [capabilities](qualification/capabilities.md) and [notices](NOTICE.md). It is not an official Cursor or OpenAI plugin.
  
 -pstack gives you four ways in. `/how` explains what the code does now. `/why` digs up the reasons it's shaped that way. `/teach` blends both into one explanation. `/recall` rebuilds your own recent context on a topic. Each one also makes the agent explain itself in words you can check. That's how you supervise an agent that may know the code better than you do.
 +The chat receiving PStack mode owns the playbook, ordered checklist and delegation. Comment Sicko remains a portable [review wrapper](references/comment-sicko.md), normally reached through `pstack-no-comments`, rather than a registered Cursor agent. The poteto-agent instruction wrapper initializes code-writing and helper delegates within that run. See the [coordinator and instruction-access qualification](qualification/issue-25.md) for the reviewed 0.15.23 slice and its limits.
@@ -800,39 +812,42 @@ Binary files differ: assets/logo.png -> plugin/pstack/NOTICE.md
 +Unattended work runs while the computer/app/project/services remain available. Requested schedules require actual host automation support. Active waits are not durable schedulers. Operation through sleep, app closure, lost workers or offline services is excluded. Grok Bot UI and Benny are excluded (13 source files total). Cloud workers and external-provider bridges are deferred. Host rules and user limits govern authority, including explicit authorization for external messages.
  
 -[`/recall`](../../skills/recall/SKILL.md) mines your own recent chats plus the shared record (issues, prior fixes, errors still firing) and hands back a brief on where things stand and what's next. Your old chats hold context that a fresh agent lacks, so start new work on an old topic by loading it first, then hand over the new input:
-+## Remove
++## Update on request
  
 -```text
 -/recall my work on the virtualized list from yesterday, then read this bug report.
 -```
-+Disable or uninstall `pstack-codex` through Plugins Directory. Remove only its marketplace entry, preserving other entries and configuration. If you explicitly enabled it in project config, remove only that enablement; the documented key is `pstack-codex@YOUR-MARKETPLACE-NAME`. Remove only the package copy you created, then restart desktop. Stop owned processes before removing a recipient-selected dependency cache. Keep or separately remove your own task records, generated skills and artifacts; uninstalling does not erase them. See [official enable/disable guidance](https://developers.openai.com/plugins/build/plugins#enable-or-disable-a-plugin-for-a-repo).
++Select **pstack: update** or invoke `$pstack-update` with "update pstack". When the main mode or help is already loaded, that request also routes to update. Use "check for pstack updates" for a read-only comparison. Explicit-only discovery means an ordinary message in an unrelated chat may need the skill selection first.
  
 -If you want to resume one specific chat, that's the Session pickup playbook below, not `/recall`.
-+## Maintenance and evidence
++The updater uses supported commands for an existing configured local Git marketplace. It preserves source selection, fixed pins and recipient settings, stops for uncertain baselines or conflicting customizations, and verifies installed contents independently. Other routes receive supported next-step guidance. It never installs Codex, restarts the app or edits installed cache files. See the [update skill](skills/pstack-update/SKILL.md) and [qualification](qualification/update.md).
  
 -## Take over prior work with Session pickup
-+The immutable original 0.15.15 and reviewed 0.15.23 archives remain separately pinned in the source repository. All 65 [transition obligations](qualification/upstream-transition.json) are source-qualified; the active inventory accounts for 168 source items with per-file revision selection and 13 agreed exclusions. [Final update qualification](qualification/issue-30.md) records exact requirement evidence, integrated checks and conditional runtime limits. Earlier qualification records describe their historical delivery states.
++## Remove
  
 -When another agent (or you, last week) left a branch mid-flight:
--
++Disable or uninstall `pstack-codex` through Plugins Directory. Remove only its marketplace entry, preserving other entries and configuration. If you explicitly enabled it in project config, remove only that enablement; the documented key is `pstack-codex@YOUR-MARKETPLACE-NAME`. Remove only the package copy you created, then restart desktop. Stop owned processes before removing a recipient-selected dependency cache. Keep or separately remove your own task records, generated skills and artifacts; uninstalling does not erase them. See [official enable/disable guidance](https://developers.openai.com/plugins/build/plugins#enable-or-disable-a-plugin-for-a-repo).
+ 
 -```text
 -/poteto-mode take over this branch. read the decision log, figure out what's done, and continue from there. don't redo finished work.
 -```
--
++## Maintenance and evidence
+ 
 -The [Session pickup playbook](../../skills/poteto-mode/playbooks/session-pickup.md) treats the prior trail as authoritative. It reconstructs the branch state and decisions, names the resume point, and verifies inherited claims against the original goal instead of re-deriving everything from scratch.
--
++The immutable original 0.15.15 and reviewed 0.15.23 archives remain separately pinned in the source repository. All 65 [transition obligations](qualification/upstream-transition.json) are source-qualified; the active inventory accounts for 168 source items with per-file revision selection and 13 agreed exclusions. [Final update qualification](qualification/issue-30.md) records exact requirement evidence, integrated checks and conditional runtime limits. Earlier qualification records describe their historical delivery states.
+ 
 -**Pitfall:** don't skip this page's skills because "the agent will read the code anyway." An agent that starts editing without a traced model tends to fix the symptom at the first plausible spot. `/how` first is cheaper than the second bug.
 -
 -Next: [Design the change](./04-design.md).
-+Updates require a new pinned source review; no automatic upstream synchronization occurs. Immutable original sources remain in the source repository, outside this package. The inventory records every original item, unique owner, adaptation/deferment and target. Per-ticket ledgers preserve the source-to-target argument. Deterministic checks establish content, hashes, reference closure and reproducible assembly; they do not establish observed recipient installation, service access, full agent compliance or real-app outcomes. The port requires no new behavioral qualification suite; pstack's own TDD/reproduction/live-verification requirements remain product behavior.
++Maintainer updates to the pinned upstream baseline require a new source review; no automatic upstream synchronization occurs. Recipient updates use the explicit update skill to obtain an already adapted Codex package within their configured source constraints. Immutable original sources remain in the source repository, outside this package. The inventory records every original item, unique owner, adaptation/deferment and target. Per-ticket ledgers preserve the source-to-target argument. Deterministic checks establish content, hashes, reference closure and reproducible assembly; they do not establish observed recipient installation, service access, full agent compliance or real-app outcomes. The port requires no new behavioral qualification suite; pstack's own TDD/reproduction/live-verification requirements remain product behavior.
 --- upstream/d0ef80d86795816da932a153458c5dbe192d294e/pstack/docs/guide/04-design.md
 +++ plugin/pstack/README.md
-@@ -1,133 +1,71 @@
+@@ -1,133 +1,77 @@
 -# Design before you write code
 +# pstack for Codex
  
 -One attempt at a hard design locks in the first shape the model thought of. `/architect` settles types and boundaries before implementation. `/arena` runs several attempts at the same brief and merges the best parts. `/interrogate` has other models try to break the result. When the job is coverage rather than design synthesis, `/swarm` fans out slices or races and aggregates their results.
-+A shareable adaptation of Lauren Tan / poteto's pstack, updated to reviewed source 0.15.23 at Cursor plugins commit `dbf49813a39c1a5389c5e28cb8e4c1c2379e2454`. Port version 0.1.3 includes 50 original top-level workflows plus deslop and two new explicit skills: 53 skills, all 24 principles, all 23 playbooks and both original agent roles as instruction wrappers. See [complete update qualification](qualification/issue-30.md), [source inventory](qualification/source-inventory.json), [capabilities](qualification/capabilities.md) and [notices](NOTICE.md). It is not an official Cursor or OpenAI plugin.
++A shareable adaptation of Lauren Tan / poteto's pstack, updated to reviewed source 0.15.23 at Cursor plugins commit `dbf49813a39c1a5389c5e28cb8e4c1c2379e2454`. Port version 0.1.4 includes 50 original top-level workflows plus deslop, in-your-own-words, ketchup and the Codex-specific update skill: 54 skills, all 24 principles, all 23 playbooks and both original agent roles as instruction wrappers. See [complete update qualification](qualification/issue-30.md), [source inventory](qualification/source-inventory.json), [capabilities](qualification/capabilities.md) and [notices](NOTICE.md). It is not an official Cursor or OpenAI plugin.
  
 -The two most common design mistakes are taking the agent's first design and polishing a plan that no code has tested. This page fixes both. You plan through code: prototypes answer the open questions, a README or tutorial sets the target, and the written plan comes last.
 +The chat receiving PStack mode owns the playbook, ordered checklist and delegation. Comment Sicko remains a portable [review wrapper](references/comment-sicko.md), normally reached through `pstack-no-comments`, rather than a registered Cursor agent. The poteto-agent instruction wrapper initializes code-writing and helper delegates within that run. See the [coordinator and instruction-access qualification](qualification/issue-25.md) for the reviewed 0.15.23 slice and its limits.
@@ -936,25 +951,28 @@ Binary files differ: assets/logo.png -> plugin/pstack/NOTICE.md
 +Unattended work runs while the computer/app/project/services remain available. Requested schedules require actual host automation support. Active waits are not durable schedulers. Operation through sleep, app closure, lost workers or offline services is excluded. Grok Bot UI and Benny are excluded (13 source files total). Cloud workers and external-provider bridges are deferred. Host rules and user limits govern authority, including explicit authorization for external messages.
  
 -[`/interrogate`](../../skills/interrogate/SKILL.md) sends the same diff, intent, and rubric to reviewers on different model families. Model diversity is the point. Different models have different blind spots, so a finding two models raise independently is high-confidence signal. The lead sorts everything into `Act on`, `Consider`, `Noted`, and `Dismissed`, with a reason for each dismissal, and applies nothing automatically.
-+## Remove
++## Update on request
  
 -Read the dismissals too. The lead is a pragmatic senior engineer, not an oracle, and you can override it.
-+Disable or uninstall `pstack-codex` through Plugins Directory. Remove only its marketplace entry, preserving other entries and configuration. If you explicitly enabled it in project config, remove only that enablement; the documented key is `pstack-codex@YOUR-MARKETPLACE-NAME`. Remove only the package copy you created, then restart desktop. Stop owned processes before removing a recipient-selected dependency cache. Keep or separately remove your own task records, generated skills and artifacts; uninstalling does not erase them. See [official enable/disable guidance](https://developers.openai.com/plugins/build/plugins#enable-or-disable-a-plugin-for-a-repo).
++Select **pstack: update** or invoke `$pstack-update` with "update pstack". When the main mode or help is already loaded, that request also routes to update. Use "check for pstack updates" for a read-only comparison. Explicit-only discovery means an ordinary message in an unrelated chat may need the skill selection first.
  
 -## Prototype instead of debating
-+## Maintenance and evidence
++The updater uses supported commands for an existing configured local Git marketplace. It preserves source selection, fixed pins and recipient settings, stops for uncertain baselines or conflicting customizations, and verifies installed contents independently. Other routes receive supported next-step guidance. It never installs Codex, restarts the app or edits installed cache files. See the [update skill](skills/pstack-update/SKILL.md) and [qualification](qualification/update.md).
  
 -Never take the first design. Ask for a few, and pick from evidence you can see:
-+The immutable original 0.15.15 and reviewed 0.15.23 archives remain separately pinned in the source repository. All 65 [transition obligations](qualification/upstream-transition.json) are source-qualified; the active inventory accounts for 168 source items with per-file revision selection and 13 agreed exclusions. [Final update qualification](qualification/issue-30.md) records exact requirement evidence, integrated checks and conditional runtime limits. Earlier qualification records describe their historical delivery states.
++## Remove
  
 -```text
 -/poteto-mode prototype a few options for the new dropdown menu. take screenshots or videos for me to compare.
 -```
--
++Disable or uninstall `pstack-codex` through Plugins Directory. Remove only its marketplace entry, preserving other entries and configuration. If you explicitly enabled it in project config, remove only that enablement; the documented key is `pstack-codex@YOUR-MARKETPLACE-NAME`. Remove only the package copy you created, then restart desktop. Stop owned processes before removing a recipient-selected dependency cache. Keep or separately remove your own task records, generated skills and artifacts; uninstalling does not erase them. See [official enable/disable guidance](https://developers.openai.com/plugins/build/plugins#enable-or-disable-a-plugin-for-a-repo).
+ 
 -The [Prototype playbook](../../skills/poteto-mode/playbooks/prototype.md) builds throwaway sketches in a scratch directory, puts the variants behind one switcher, drives each one, and captures screenshots or timings. It also works for behavior and algorithms, not just UI. Prototypes are planning with code. They let the agent answer its own open questions by running something instead of asking you, and they leave room for an option you wouldn't have thought of.
--
++## Maintenance and evidence
+ 
 -The same idea scales up to a real design. Pair `/architect` with prototypes and keep a review gate:
--
++The immutable original 0.15.15 and reviewed 0.15.23 archives remain separately pinned in the source repository. All 65 [transition obligations](qualification/upstream-transition.json) are source-qualified; the active inventory accounts for 168 source items with per-file revision selection and 13 agreed exclusions. [Final update qualification](qualification/issue-30.md) records exact requirement evidence, integrated checks and conditional runtime limits. Earlier qualification records describe their historical delivery states.
+ 
 -```text
 -/poteto-mode we need rate limiting for external webhooks. /architect it first, and answer open questions with prototypes. let me review before proceeding.
 -```
@@ -1004,15 +1022,15 @@ Binary files differ: assets/logo.png -> plugin/pstack/NOTICE.md
 -`/poteto-mode` already applies this ladder. Boundary-crossing work triggers `/architect` on its own, so you reach for these directly mainly when you want more or less scrutiny than the default.
 -
 -Next: [Build and clean the change](./05-build-and-clean.md).
-+Updates require a new pinned source review; no automatic upstream synchronization occurs. Immutable original sources remain in the source repository, outside this package. The inventory records every original item, unique owner, adaptation/deferment and target. Per-ticket ledgers preserve the source-to-target argument. Deterministic checks establish content, hashes, reference closure and reproducible assembly; they do not establish observed recipient installation, service access, full agent compliance or real-app outcomes. The port requires no new behavioral qualification suite; pstack's own TDD/reproduction/live-verification requirements remain product behavior.
++Maintainer updates to the pinned upstream baseline require a new source review; no automatic upstream synchronization occurs. Recipient updates use the explicit update skill to obtain an already adapted Codex package within their configured source constraints. Immutable original sources remain in the source repository, outside this package. The inventory records every original item, unique owner, adaptation/deferment and target. Per-ticket ledgers preserve the source-to-target argument. Deterministic checks establish content, hashes, reference closure and reproducible assembly; they do not establish observed recipient installation, service access, full agent compliance or real-app outcomes. The port requires no new behavioral qualification suite; pstack's own TDD/reproduction/live-verification requirements remain product behavior.
 --- upstream/d0ef80d86795816da932a153458c5dbe192d294e/pstack/docs/guide/05-build-and-clean.md
 +++ plugin/pstack/README.md
-@@ -1,83 +1,71 @@
+@@ -1,83 +1,77 @@
 -# Build the change and clean the diff
 +# pstack for Codex
  
 -The build playbooks share one discipline. Say what you observed, let the playbook demand the evidence. This page shows what to put in the prompt for each common build task, then the cleanup habit that keeps diffs reviewable.
-+A shareable adaptation of Lauren Tan / poteto's pstack, updated to reviewed source 0.15.23 at Cursor plugins commit `dbf49813a39c1a5389c5e28cb8e4c1c2379e2454`. Port version 0.1.3 includes 50 original top-level workflows plus deslop and two new explicit skills: 53 skills, all 24 principles, all 23 playbooks and both original agent roles as instruction wrappers. See [complete update qualification](qualification/issue-30.md), [source inventory](qualification/source-inventory.json), [capabilities](qualification/capabilities.md) and [notices](NOTICE.md). It is not an official Cursor or OpenAI plugin.
++A shareable adaptation of Lauren Tan / poteto's pstack, updated to reviewed source 0.15.23 at Cursor plugins commit `dbf49813a39c1a5389c5e28cb8e4c1c2379e2454`. Port version 0.1.4 includes 50 original top-level workflows plus deslop, in-your-own-words, ketchup and the Codex-specific update skill: 54 skills, all 24 principles, all 23 playbooks and both original agent roles as instruction wrappers. See [complete update qualification](qualification/issue-30.md), [source inventory](qualification/source-inventory.json), [capabilities](qualification/capabilities.md) and [notices](NOTICE.md). It is not an official Cursor or OpenAI plugin.
  
 -## Prompt each build playbook with what you know
 +The chat receiving PStack mode owns the playbook, ordered checklist and delegation. Comment Sicko remains a portable [review wrapper](references/comment-sicko.md), normally reached through `pstack-no-comments`, rather than a registered Cursor agent. The poteto-agent instruction wrapper initializes code-writing and helper delegates within that run. See the [coordinator and instruction-access qualification](qualification/issue-25.md) for the reviewed 0.15.23 slice and its limits.
@@ -1101,25 +1119,28 @@ Binary files differ: assets/logo.png -> plugin/pstack/NOTICE.md
 +Unattended work runs while the computer/app/project/services remain available. Requested schedules require actual host automation support. Active waits are not durable schedulers. Operation through sleep, app closure, lost workers or offline services is excluded. Grok Bot UI and Benny are excluded (13 source files total). Cloud workers and external-provider bridges are deferred. Host rules and user limits govern authority, including explicit authorization for external messages.
  
 -## Load the TypeScript rules by name
-+## Remove
++## Update on request
  
 -[`typescript-best-practices`](../../skills/typescript-best-practices/SKILL.md) turns the type-system principles into concrete rules: discriminated unions, `unknown` at boundaries, exhaustive variants, schema-derived types. It doesn't load on its own, so type `/typescript-best-practices` when a task touches `.ts` or `.tsx` files.
-+Disable or uninstall `pstack-codex` through Plugins Directory. Remove only its marketplace entry, preserving other entries and configuration. If you explicitly enabled it in project config, remove only that enablement; the documented key is `pstack-codex@YOUR-MARKETPLACE-NAME`. Remove only the package copy you created, then restart desktop. Stop owned processes before removing a recipient-selected dependency cache. Keep or separately remove your own task records, generated skills and artifacts; uninstalling does not erase them. See [official enable/disable guidance](https://developers.openai.com/plugins/build/plugins#enable-or-disable-a-plugin-for-a-repo).
++Select **pstack: update** or invoke `$pstack-update` with "update pstack". When the main mode or help is already loaded, that request also routes to update. Use "check for pstack updates" for a read-only comparison. Explicit-only discovery means an ordinary message in an unrelated chat may need the skill selection first.
  
 -## Clean before you commit
-+## Maintenance and evidence
++The updater uses supported commands for an existing configured local Git marketplace. It preserves source selection, fixed pins and recipient settings, stops for uncertain baselines or conflicting customizations, and verifies installed contents independently. Other routes receive supported next-step guidance. It never installs Codex, restarts the app or edits installed cache files. See the [update skill](skills/pstack-update/SKILL.md) and [qualification](qualification/update.md).
  
 -The [Opening a PR playbook](../../skills/poteto-mode/playbooks/opening-a-pr.md) runs `/deslop` on the diff before each commit and applies [`/unslop`](../../skills/unslop/SKILL.md) to the PR description and commit bodies. `/deslop` ships in the `cursor-team-kit` plugin, not in pstack. If you don't have it, ask for the same outcome in plain words: remove narrating comments, unsupported guards, dead compatibility paths, and unrelated edits.
-+The immutable original 0.15.15 and reviewed 0.15.23 archives remain separately pinned in the source repository. All 65 [transition obligations](qualification/upstream-transition.json) are source-qualified; the active inventory accounts for 168 source items with per-file revision selection and 13 agreed exclusions. [Final update qualification](qualification/issue-30.md) records exact requirement evidence, integrated checks and conditional runtime limits. Earlier qualification records describe their historical delivery states.
++## Remove
  
 -For prose, `/unslop` takes a target and any extra rules you have:
--
++Disable or uninstall `pstack-codex` through Plugins Directory. Remove only its marketplace entry, preserving other entries and configuration. If you explicitly enabled it in project config, remove only that enablement; the documented key is `pstack-codex@YOUR-MARKETPLACE-NAME`. Remove only the package copy you created, then restart desktop. Stop owned processes before removing a recipient-selected dependency cache. Keep or separately remove your own task records, generated skills and artifacts; uninstalling does not erase them. See [official enable/disable guidance](https://developers.openai.com/plugins/build/plugins#enable-or-disable-a-plugin-for-a-repo).
+ 
 -```text
 -/unslop the readme changes, no emdashes
 -```
--
++## Maintenance and evidence
+ 
 -You'll develop your own shorthand. The skill reads intent fine from terse prompts like `unslop that, tighten it`.
--
++The immutable original 0.15.15 and reviewed 0.15.23 archives remain separately pinned in the source repository. All 65 [transition obligations](qualification/upstream-transition.json) are source-qualified; the active inventory accounts for 168 source items with per-file revision selection and 13 agreed exclusions. [Final update qualification](qualification/issue-30.md) records exact requirement evidence, integrated checks and conditional runtime limits. Earlier qualification records describe their historical delivery states.
+ 
 -## Strip the comments with `/no-comments`
 -
 -Comments need their own pass, and not from the agent that wrote them. An author defends its comments the way you'd defend yours. So before review, hand them to fresh eyes:
@@ -1135,15 +1156,15 @@ Binary files differ: assets/logo.png -> plugin/pstack/NOTICE.md
 -**Pitfall:** cleanup is not optional polish. A diff with narrating comments and defensive dead weight reads as unfinished to reviewers, and the extra code is where the next bug hides. If the diff feels padded, say `deslop it` before you commit, not after review calls it out.
 -
 -Next: [Verify and ship](./06-verify-and-ship.md).
-+Updates require a new pinned source review; no automatic upstream synchronization occurs. Immutable original sources remain in the source repository, outside this package. The inventory records every original item, unique owner, adaptation/deferment and target. Per-ticket ledgers preserve the source-to-target argument. Deterministic checks establish content, hashes, reference closure and reproducible assembly; they do not establish observed recipient installation, service access, full agent compliance or real-app outcomes. The port requires no new behavioral qualification suite; pstack's own TDD/reproduction/live-verification requirements remain product behavior.
++Maintainer updates to the pinned upstream baseline require a new source review; no automatic upstream synchronization occurs. Recipient updates use the explicit update skill to obtain an already adapted Codex package within their configured source constraints. Immutable original sources remain in the source repository, outside this package. The inventory records every original item, unique owner, adaptation/deferment and target. Per-ticket ledgers preserve the source-to-target argument. Deterministic checks establish content, hashes, reference closure and reproducible assembly; they do not establish observed recipient installation, service access, full agent compliance or real-app outcomes. The port requires no new behavioral qualification suite; pstack's own TDD/reproduction/live-verification requirements remain product behavior.
 --- upstream/d0ef80d86795816da932a153458c5dbe192d294e/pstack/docs/guide/06-verify-and-ship.md
 +++ plugin/pstack/README.md
-@@ -1,130 +1,71 @@
+@@ -1,130 +1,77 @@
 -# Verify the result and open a PR
 +# pstack for Codex
  
 -"It compiles" is not evidence. The [Prove It Works principle](../../skills/principle-prove-it-works/SKILL.md) makes the agent check the real artifact before it reports success, and your job is to make "the real artifact" checkable. This page covers stating a finish condition, vetting a measured number, generating a verification skill for your app, opening the PR, and driving it to merged.
-+A shareable adaptation of Lauren Tan / poteto's pstack, updated to reviewed source 0.15.23 at Cursor plugins commit `dbf49813a39c1a5389c5e28cb8e4c1c2379e2454`. Port version 0.1.3 includes 50 original top-level workflows plus deslop and two new explicit skills: 53 skills, all 24 principles, all 23 playbooks and both original agent roles as instruction wrappers. See [complete update qualification](qualification/issue-30.md), [source inventory](qualification/source-inventory.json), [capabilities](qualification/capabilities.md) and [notices](NOTICE.md). It is not an official Cursor or OpenAI plugin.
++A shareable adaptation of Lauren Tan / poteto's pstack, updated to reviewed source 0.15.23 at Cursor plugins commit `dbf49813a39c1a5389c5e28cb8e4c1c2379e2454`. Port version 0.1.4 includes 50 original top-level workflows plus deslop, in-your-own-words, ketchup and the Codex-specific update skill: 54 skills, all 24 principles, all 23 playbooks and both original agent roles as instruction wrappers. See [complete update qualification](qualification/issue-30.md), [source inventory](qualification/source-inventory.json), [capabilities](qualification/capabilities.md) and [notices](NOTICE.md). It is not an official Cursor or OpenAI plugin.
  
 -Verification is the slowest step in most agent work, because it's the step that usually waits on a human. Make the agent able to do it, and you stop being the bottleneck. Skip it, and running more agents only gets you more unchecked work to review.
 +The chat receiving PStack mode owns the playbook, ordered checklist and delegation. Comment Sicko remains a portable [review wrapper](references/comment-sicko.md), normally reached through `pstack-no-comments`, rather than a registered Cursor agent. The poteto-agent instruction wrapper initializes code-writing and helper delegates within that run. See the [coordinator and instruction-access qualification](qualification/issue-25.md) for the reviewed 0.15.23 slice and its limits.
@@ -1259,25 +1280,28 @@ Binary files differ: assets/logo.png -> plugin/pstack/NOTICE.md
 -- Error messages that say what to do instead.
 -- Rich `--help` text.
 -- Machine-readable output, such as JSON.
-+## Remove
++## Update on request
  
 -While you're there, make the dev setup repeatable too: seeded data, test users, and one command that brings the environment up the same way every time.
-+Disable or uninstall `pstack-codex` through Plugins Directory. Remove only its marketplace entry, preserving other entries and configuration. If you explicitly enabled it in project config, remove only that enablement; the documented key is `pstack-codex@YOUR-MARKETPLACE-NAME`. Remove only the package copy you created, then restart desktop. Stop owned processes before removing a recipient-selected dependency cache. Keep or separately remove your own task records, generated skills and artifacts; uninstalling does not erase them. See [official enable/disable guidance](https://developers.openai.com/plugins/build/plugins#enable-or-disable-a-plugin-for-a-repo).
++Select **pstack: update** or invoke `$pstack-update` with "update pstack". When the main mode or help is already loaded, that request also routes to update. Use "check for pstack updates" for a read-only comparison. Explicit-only discovery means an ordinary message in an unrelated chat may need the skill selection first.
  
 -## Keep the verification skill honest
-+## Maintenance and evidence
++The updater uses supported commands for an existing configured local Git marketplace. It preserves source selection, fixed pins and recipient settings, stops for uncertain baselines or conflicting customizations, and verifies installed contents independently. Other routes receive supported next-step guidance. It never installs Codex, restarts the app or edits installed cache files. See the [update skill](skills/pstack-update/SKILL.md) and [qualification](qualification/update.md).
  
 -Apps change and feature maps rot. Run this at least once a day, ideally from a scheduled automation so nobody has to remember:
-+The immutable original 0.15.15 and reviewed 0.15.23 archives remain separately pinned in the source repository. All 65 [transition obligations](qualification/upstream-transition.json) are source-qualified; the active inventory accounts for 168 source items with per-file revision selection and 13 agreed exclusions. [Final update qualification](qualification/issue-30.md) records exact requirement evidence, integrated checks and conditional runtime limits. Earlier qualification records describe their historical delivery states.
++## Remove
  
 -```text
 -/maintain-verification-skill
 -```
--
++Disable or uninstall `pstack-codex` through Plugins Directory. Remove only its marketplace entry, preserving other entries and configuration. If you explicitly enabled it in project config, remove only that enablement; the documented key is `pstack-codex@YOUR-MARKETPLACE-NAME`. Remove only the package copy you created, then restart desktop. Stop owned processes before removing a recipient-selected dependency cache. Keep or separately remove your own task records, generated skills and artifacts; uninstalling does not erase them. See [official enable/disable guidance](https://developers.openai.com/plugins/build/plugins#enable-or-disable-a-plugin-for-a-repo).
+ 
 -[`/maintain-verification-skill`](../../skills/maintain-verification-skill/SKILL.md) audits the generated skill: one read-only source reader per feature in parallel, then one live pass that drives every mapped feature. It ends in exactly one of three outcomes. `clean` means full coverage and nothing to ship. `changed` means one PR of proven corrections, confined to the verification skill's own directory. `blocked` names the blocker. It never edits product code. If the live pass catches a product regression, it reports the regression instead of papering over it in docs.
--
++## Maintenance and evidence
+ 
 -## Open the PR
--
++The immutable original 0.15.15 and reviewed 0.15.23 archives remain separately pinned in the source repository. All 65 [transition obligations](qualification/upstream-transition.json) are source-qualified; the active inventory accounts for 168 source items with per-file revision selection and 13 agreed exclusions. [Final update qualification](qualification/issue-30.md) records exact requirement evidence, integrated checks and conditional runtime limits. Earlier qualification records describe their historical delivery states.
+ 
 -```text
 -/poteto-mode open the pr. small ordered commits, evidence in the description.
 -```
@@ -1311,15 +1335,15 @@ Binary files differ: assets/logo.png -> plugin/pstack/NOTICE.md
 -The [Shipping playbook](../../skills/poteto-mode/playbooks/shipping.md) verifies each PR independently before it arms anything. One fresh agent per PR proves the behavior live, and the agent that judges a change is never the one that wrote it. Then Shipping lands only the contiguous verified run from the bottom, one PR at a time through GitHub by default or Origin when its CLI is available, and reports the first PR that breaks the chain. A verified PR sitting above an unverified one waits, because merging it would pull the gap in underneath.
 -
 -Next: [Run work while you sleep](./07-overnight.md).
-+Updates require a new pinned source review; no automatic upstream synchronization occurs. Immutable original sources remain in the source repository, outside this package. The inventory records every original item, unique owner, adaptation/deferment and target. Per-ticket ledgers preserve the source-to-target argument. Deterministic checks establish content, hashes, reference closure and reproducible assembly; they do not establish observed recipient installation, service access, full agent compliance or real-app outcomes. The port requires no new behavioral qualification suite; pstack's own TDD/reproduction/live-verification requirements remain product behavior.
++Maintainer updates to the pinned upstream baseline require a new source review; no automatic upstream synchronization occurs. Recipient updates use the explicit update skill to obtain an already adapted Codex package within their configured source constraints. Immutable original sources remain in the source repository, outside this package. The inventory records every original item, unique owner, adaptation/deferment and target. Per-ticket ledgers preserve the source-to-target argument. Deterministic checks establish content, hashes, reference closure and reproducible assembly; they do not establish observed recipient installation, service access, full agent compliance or real-app outcomes. The port requires no new behavioral qualification suite; pstack's own TDD/reproduction/live-verification requirements remain product behavior.
 --- upstream/d0ef80d86795816da932a153458c5dbe192d294e/pstack/docs/guide/07-overnight.md
 +++ plugin/pstack/README.md
-@@ -1,120 +1,71 @@
+@@ -1,120 +1,77 @@
 -# Run work while you sleep
 +# pstack for Codex
  
 -This is the payoff for everything before it. An agent you can trust to verify its own work is an agent you can leave alone with a hard task. What makes that safe isn't hope. It's a checkable finish condition, an isolated worktree or cloud agent, and a decision log you audit in the morning.
-+A shareable adaptation of Lauren Tan / poteto's pstack, updated to reviewed source 0.15.23 at Cursor plugins commit `dbf49813a39c1a5389c5e28cb8e4c1c2379e2454`. Port version 0.1.3 includes 50 original top-level workflows plus deslop and two new explicit skills: 53 skills, all 24 principles, all 23 playbooks and both original agent roles as instruction wrappers. See [complete update qualification](qualification/issue-30.md), [source inventory](qualification/source-inventory.json), [capabilities](qualification/capabilities.md) and [notices](NOTICE.md). It is not an official Cursor or OpenAI plugin.
++A shareable adaptation of Lauren Tan / poteto's pstack, updated to reviewed source 0.15.23 at Cursor plugins commit `dbf49813a39c1a5389c5e28cb8e4c1c2379e2454`. Port version 0.1.4 includes 50 original top-level workflows plus deslop, in-your-own-words, ketchup and the Codex-specific update skill: 54 skills, all 24 principles, all 23 playbooks and both original agent roles as instruction wrappers. See [complete update qualification](qualification/issue-30.md), [source inventory](qualification/source-inventory.json), [capabilities](qualification/capabilities.md) and [notices](NOTICE.md). It is not an official Cursor or OpenAI plugin.
  
 -![She waves goodnight from the door while robots keep the factory running, one updating a DECISION LOG wall board under a BUILD LOOP ACTIVE sign.](./images/overnight.jpg)
 +The chat receiving PStack mode owns the playbook, ordered checklist and delegation. Comment Sicko remains a portable [review wrapper](references/comment-sicko.md), normally reached through `pstack-no-comments`, rather than a registered Cursor agent. The poteto-agent instruction wrapper initializes code-writing and helper delegates within that run. See the [coordinator and instruction-access qualification](qualification/issue-25.md) for the reviewed 0.15.23 slice and its limits.
@@ -1442,28 +1466,31 @@ Binary files differ: assets/logo.png -> plugin/pstack/NOTICE.md
 -```text
 -/poteto-mode orchestrate the store migration. own it until every package is converted and merged. i'll check in twice a day.
 -```
-+## Remove
++## Update on request
  
 -## Run many projects in parallel
-+Disable or uninstall `pstack-codex` through Plugins Directory. Remove only its marketplace entry, preserving other entries and configuration. If you explicitly enabled it in project config, remove only that enablement; the documented key is `pstack-codex@YOUR-MARKETPLACE-NAME`. Remove only the package copy you created, then restart desktop. Stop owned processes before removing a recipient-selected dependency cache. Keep or separately remove your own task records, generated skills and artifacts; uninstalling does not erase them. See [official enable/disable guidance](https://developers.openai.com/plugins/build/plugins#enable-or-disable-a-plugin-for-a-repo).
++Select **pstack: update** or invoke `$pstack-update` with "update pstack". When the main mode or help is already loaded, that request also routes to update. Use "check for pstack updates" for a read-only comparison. Explicit-only discovery means an ordinary message in an unrelated chat may need the skill selection first.
  
 -A [Cursor Project](https://cursor.com/blog/projects) gives one coordinator agent a persistent thread. The coordinator doesn't write code. It directs subagents, which run in the cloud by default, so the work continues when your laptop is closed. That's the shape the Orchestrate playbook expects. Start your prompts to the coordinator with `/poteto-mode`, and the subagents it spawns follow the playbooks.
-+## Maintenance and evidence
++The updater uses supported commands for an existing configured local Git marketplace. It preserves source selection, fixed pins and recipient settings, stops for uncertain baselines or conflicting customizations, and verifies installed contents independently. Other routes receive supported next-step guidance. It never installs Codex, restarts the app or edits installed cache files. See the [update skill](skills/pstack-update/SKILL.md) and [qualification](qualification/update.md).
  
 -A few habits help:
-+The immutable original 0.15.15 and reviewed 0.15.23 archives remain separately pinned in the source repository. All 65 [transition obligations](qualification/upstream-transition.json) are source-qualified; the active inventory accounts for 168 source items with per-file revision selection and 13 agreed exclusions. [Final update qualification](qualification/issue-30.md) records exact requirement evidence, integrated checks and conditional runtime limits. Earlier qualification records describe their historical delivery states.
++## Remove
  
 -- Give each body of work its own Project, such as a feature, a migration, a perf push, or a tech-debt cleanup. Several can run side by side.
 -- Drag related chats into the Project, finished ones included. They become context for every agent in it.
 -- Give each PR a verification swarm before it merges, and let Autopilot-stack or Autopilot-full carry the queue.
 -- Ask the coordinator for a plan backed by data, and have it answer open questions with prototypes before it asks you.
--
++Disable or uninstall `pstack-codex` through Plugins Directory. Remove only its marketplace entry, preserving other entries and configuration. If you explicitly enabled it in project config, remove only that enablement; the documented key is `pstack-codex@YOUR-MARKETPLACE-NAME`. Remove only the package copy you created, then restart desktop. Stop owned processes before removing a recipient-selected dependency cache. Keep or separately remove your own task records, generated skills and artifacts; uninstalling does not erase them. See [official enable/disable guidance](https://developers.openai.com/plugins/build/plugins#enable-or-disable-a-plugin-for-a-repo).
+ 
 -One prompt can carry a whole Project, from research through execution:
--
++## Maintenance and evidence
+ 
 -```text
 -/poteto-mode refactor this repo so its architecture is more agent friendly. use /correct and /architect on past commits and review comments to find the mistakes agents make most here. use /recall for context from past chats. answer open questions with prototypes instead of asking me. come back with a plan backed by real data. once i approve it, run it with autopilot-stack or autopilot-full, and ask me which.
 -```
--
++The immutable original 0.15.15 and reviewed 0.15.23 archives remain separately pinned in the source repository. All 65 [transition obligations](qualification/upstream-transition.json) are source-qualified; the active inventory accounts for 168 source items with per-file revision selection and 13 agreed exclusions. [Final update qualification](qualification/issue-30.md) records exact requirement evidence, integrated checks and conditional runtime limits. Earlier qualification records describe their historical delivery states.
+ 
 -## Let loops start themselves
 -
 -Every loop above still waits for you to start it. A scheduled or event-driven automation removes that step. Software maintenance splits into stages that suit this well: triage a report, reproduce it, fix it, verify the fix. Two rules keep such a line trustworthy:
@@ -1476,15 +1503,15 @@ Binary files differ: assets/logo.png -> plugin/pstack/NOTICE.md
 -**Pitfall:** a duration is not a finish condition. "work on this for 4 hours" gives the agent nothing to check, and you'll wake up to four hours of motion instead of a result. Give `/loop` a predicate that can pass or fail.
 -
 -Next: [Steer with principle names](./08-principles.md).
-+Updates require a new pinned source review; no automatic upstream synchronization occurs. Immutable original sources remain in the source repository, outside this package. The inventory records every original item, unique owner, adaptation/deferment and target. Per-ticket ledgers preserve the source-to-target argument. Deterministic checks establish content, hashes, reference closure and reproducible assembly; they do not establish observed recipient installation, service access, full agent compliance or real-app outcomes. The port requires no new behavioral qualification suite; pstack's own TDD/reproduction/live-verification requirements remain product behavior.
++Maintainer updates to the pinned upstream baseline require a new source review; no automatic upstream synchronization occurs. Recipient updates use the explicit update skill to obtain an already adapted Codex package within their configured source constraints. Immutable original sources remain in the source repository, outside this package. The inventory records every original item, unique owner, adaptation/deferment and target. Per-ticket ledgers preserve the source-to-target argument. Deterministic checks establish content, hashes, reference closure and reproducible assembly; they do not establish observed recipient installation, service access, full agent compliance or real-app outcomes. The port requires no new behavioral qualification suite; pstack's own TDD/reproduction/live-verification requirements remain product behavior.
 --- upstream/d0ef80d86795816da932a153458c5dbe192d294e/pstack/docs/guide/08-principles.md
 +++ plugin/pstack/README.md
-@@ -1,72 +1,71 @@
+@@ -1,72 +1,77 @@
 -# Steer with principle names
 +# pstack for Codex
  
 -pstack ships 24 principles as individual skills. `/poteto-mode` reads their index at the start of every multi-step task, applies the ones the task triggers, and names each applied principle in its reply along with the decision it changed.
-+A shareable adaptation of Lauren Tan / poteto's pstack, updated to reviewed source 0.15.23 at Cursor plugins commit `dbf49813a39c1a5389c5e28cb8e4c1c2379e2454`. Port version 0.1.3 includes 50 original top-level workflows plus deslop and two new explicit skills: 53 skills, all 24 principles, all 23 playbooks and both original agent roles as instruction wrappers. See [complete update qualification](qualification/issue-30.md), [source inventory](qualification/source-inventory.json), [capabilities](qualification/capabilities.md) and [notices](NOTICE.md). It is not an official Cursor or OpenAI plugin.
++A shareable adaptation of Lauren Tan / poteto's pstack, updated to reviewed source 0.15.23 at Cursor plugins commit `dbf49813a39c1a5389c5e28cb8e4c1c2379e2454`. Port version 0.1.4 includes 50 original top-level workflows plus deslop, in-your-own-words, ketchup and the Codex-specific update skill: 54 skills, all 24 principles, all 23 playbooks and both original agent roles as instruction wrappers. See [complete update qualification](qualification/issue-30.md), [source inventory](qualification/source-inventory.json), [capabilities](qualification/capabilities.md) and [notices](NOTICE.md). It is not an official Cursor or OpenAI plugin.
  
 -You don't invoke principles. You use their names to steer. Each name points at a complete rule the agent has already read, so one phrase redirects the work more precisely than a paragraph of instructions.
 +The chat receiving PStack mode owns the playbook, ordered checklist and delegation. Comment Sicko remains a portable [review wrapper](references/comment-sicko.md), normally reached through `pstack-no-comments`, rather than a registered Cursor agent. The poteto-agent instruction wrapper initializes code-writing and helper delegates within that run. See the [coordinator and instruction-access qualification](qualification/issue-25.md) for the reviewed 0.15.23 slice and its limits.
@@ -1587,25 +1614,31 @@ Binary files differ: assets/logo.png -> plugin/pstack/NOTICE.md
 +Unattended work runs while the computer/app/project/services remain available. Requested schedules require actual host automation support. Active waits are not durable schedulers. Operation through sleep, app closure, lost workers or offline services is excluded. Grok Bot UI and Benny are excluded (13 source files total). Cloud workers and external-provider bridges are deferred. Host rules and user limits govern authority, including explicit authorization for external messages.
  
 -- [Encode Lessons in Structure](../../skills/principle-encode-lessons-in-structure/SKILL.md) turns advice you've repeated twice into a lint, check, or script. [`/correct`](../../skills/correct/SKILL.md) applies it to a whole repo, as shown in [Make it yours](./09-make-it-yours.md#fix-the-environment-with-correct).
-+## Remove
++## Update on request
  
 -Don't memorize the list. Skim it now, then come back when you catch the agent doing something a name here would have prevented. That's how the vocabulary sticks.
-+Disable or uninstall `pstack-codex` through Plugins Directory. Remove only its marketplace entry, preserving other entries and configuration. If you explicitly enabled it in project config, remove only that enablement; the documented key is `pstack-codex@YOUR-MARKETPLACE-NAME`. Remove only the package copy you created, then restart desktop. Stop owned processes before removing a recipient-selected dependency cache. Keep or separately remove your own task records, generated skills and artifacts; uninstalling does not erase them. See [official enable/disable guidance](https://developers.openai.com/plugins/build/plugins#enable-or-disable-a-plugin-for-a-repo).
++Select **pstack: update** or invoke `$pstack-update` with "update pstack". When the main mode or help is already loaded, that request also routes to update. Use "check for pstack updates" for a read-only comparison. Explicit-only discovery means an ordinary message in an unrelated chat may need the skill selection first.
  
 -Next: [Make it yours](./09-make-it-yours.md).
++The updater uses supported commands for an existing configured local Git marketplace. It preserves source selection, fixed pins and recipient settings, stops for uncertain baselines or conflicting customizations, and verifies installed contents independently. Other routes receive supported next-step guidance. It never installs Codex, restarts the app or edits installed cache files. See the [update skill](skills/pstack-update/SKILL.md) and [qualification](qualification/update.md).
++
++## Remove
++
++Disable or uninstall `pstack-codex` through Plugins Directory. Remove only its marketplace entry, preserving other entries and configuration. If you explicitly enabled it in project config, remove only that enablement; the documented key is `pstack-codex@YOUR-MARKETPLACE-NAME`. Remove only the package copy you created, then restart desktop. Stop owned processes before removing a recipient-selected dependency cache. Keep or separately remove your own task records, generated skills and artifacts; uninstalling does not erase them. See [official enable/disable guidance](https://developers.openai.com/plugins/build/plugins#enable-or-disable-a-plugin-for-a-repo).
++
 +## Maintenance and evidence
 +
 +The immutable original 0.15.15 and reviewed 0.15.23 archives remain separately pinned in the source repository. All 65 [transition obligations](qualification/upstream-transition.json) are source-qualified; the active inventory accounts for 168 source items with per-file revision selection and 13 agreed exclusions. [Final update qualification](qualification/issue-30.md) records exact requirement evidence, integrated checks and conditional runtime limits. Earlier qualification records describe their historical delivery states.
 +
-+Updates require a new pinned source review; no automatic upstream synchronization occurs. Immutable original sources remain in the source repository, outside this package. The inventory records every original item, unique owner, adaptation/deferment and target. Per-ticket ledgers preserve the source-to-target argument. Deterministic checks establish content, hashes, reference closure and reproducible assembly; they do not establish observed recipient installation, service access, full agent compliance or real-app outcomes. The port requires no new behavioral qualification suite; pstack's own TDD/reproduction/live-verification requirements remain product behavior.
++Maintainer updates to the pinned upstream baseline require a new source review; no automatic upstream synchronization occurs. Recipient updates use the explicit update skill to obtain an already adapted Codex package within their configured source constraints. Immutable original sources remain in the source repository, outside this package. The inventory records every original item, unique owner, adaptation/deferment and target. Per-ticket ledgers preserve the source-to-target argument. Deterministic checks establish content, hashes, reference closure and reproducible assembly; they do not establish observed recipient installation, service access, full agent compliance or real-app outcomes. The port requires no new behavioral qualification suite; pstack's own TDD/reproduction/live-verification requirements remain product behavior.
 --- upstream/d0ef80d86795816da932a153458c5dbe192d294e/pstack/docs/guide/09-make-it-yours.md
 +++ plugin/pstack/README.md
-@@ -1,100 +1,71 @@
+@@ -1,100 +1,77 @@
 -# Make it yours
 +# pstack for Codex
  
 -poteto-mode is one person's style. The machinery underneath, playbooks, routing, model roles, works just as well wearing yours. This page covers generating a personal mode, capturing lessons from a session, fixing the repo so agents stop repeating mistakes, authoring a focused skill, and testing a skill change before you trust it.
-+A shareable adaptation of Lauren Tan / poteto's pstack, updated to reviewed source 0.15.23 at Cursor plugins commit `dbf49813a39c1a5389c5e28cb8e4c1c2379e2454`. Port version 0.1.3 includes 50 original top-level workflows plus deslop and two new explicit skills: 53 skills, all 24 principles, all 23 playbooks and both original agent roles as instruction wrappers. See [complete update qualification](qualification/issue-30.md), [source inventory](qualification/source-inventory.json), [capabilities](qualification/capabilities.md) and [notices](NOTICE.md). It is not an official Cursor or OpenAI plugin.
++A shareable adaptation of Lauren Tan / poteto's pstack, updated to reviewed source 0.15.23 at Cursor plugins commit `dbf49813a39c1a5389c5e28cb8e4c1c2379e2454`. Port version 0.1.4 includes 50 original top-level workflows plus deslop, in-your-own-words, ketchup and the Codex-specific update skill: 54 skills, all 24 principles, all 23 playbooks and both original agent roles as instruction wrappers. See [complete update qualification](qualification/issue-30.md), [source inventory](qualification/source-inventory.json), [capabilities](qualification/capabilities.md) and [notices](NOTICE.md). It is not an official Cursor or OpenAI plugin.
  
 -Start smaller than you think. You don't need many skills on day one, or even this whole plugin. Prompt plainly, watch where agents fail, and add a skill or a check when the same failure shows up twice.
 +The chat receiving PStack mode owns the playbook, ordered checklist and delegation. Comment Sicko remains a portable [review wrapper](references/comment-sicko.md), normally reached through `pstack-no-comments`, rather than a registered Cursor agent. The poteto-agent instruction wrapper initializes code-writing and helper delegates within that run. See the [coordinator and instruction-access qualification](qualification/issue-25.md) for the reviewed 0.15.23 slice and its limits.
@@ -1695,27 +1728,30 @@ Binary files differ: assets/logo.png -> plugin/pstack/NOTICE.md
 +Unattended work runs while the computer/app/project/services remain available. Requested schedules require actual host automation support. Active waits are not durable schedulers. Operation through sleep, app closure, lost workers or offline services is excluded. Grok Bot UI and Benny are excluded (13 source files total). Cloud workers and external-provider bridges are deferred. Host rules and user limits govern authority, including explicit authorization for external messages.
  
 -When you already know the workflow you want to capture:
-+## Remove
++## Update on request
  
 -```text
 -/poteto-mode write a skill for verifying database migrations in this repo
 -```
-+Disable or uninstall `pstack-codex` through Plugins Directory. Remove only its marketplace entry, preserving other entries and configuration. If you explicitly enabled it in project config, remove only that enablement; the documented key is `pstack-codex@YOUR-MARKETPLACE-NAME`. Remove only the package copy you created, then restart desktop. Stop owned processes before removing a recipient-selected dependency cache. Keep or separately remove your own task records, generated skills and artifacts; uninstalling does not erase them. See [official enable/disable guidance](https://developers.openai.com/plugins/build/plugins#enable-or-disable-a-plugin-for-a-repo).
++Select **pstack: update** or invoke `$pstack-update` with "update pstack". When the main mode or help is already loaded, that request also routes to update. Use "check for pstack updates" for a read-only comparison. Explicit-only discovery means an ordinary message in an unrelated chat may need the skill selection first.
  
 -Writing a skill matches the [Authoring or modifying a skill playbook](../../skills/poteto-mode/playbooks/authoring-a-skill.md), which routes through Cursor's built-in `create-skill`, validates the frontmatter and links, and ships the result through the Opening a PR playbook. Agent-facing prose has a higher bar than human prose, because an unhelpful sentence becomes an instruction some future agent follows. Let the playbook hold that bar rather than writing a `SKILL.md` freehand.
-+## Maintenance and evidence
++The updater uses supported commands for an existing configured local Git marketplace. It preserves source selection, fixed pins and recipient settings, stops for uncertain baselines or conflicting customizations, and verifies installed contents independently. Other routes receive supported next-step guidance. It never installs Codex, restarts the app or edits installed cache files. See the [update skill](skills/pstack-update/SKILL.md) and [qualification](qualification/update.md).
  
 -One special case has its own generator. A skill that must drive your app and prove behavior is a verification skill, so use [`/create-verification-skill`](../../skills/create-verification-skill/SKILL.md) and [`/maintain-verification-skill`](../../skills/maintain-verification-skill/SKILL.md) instead. [Verify and ship](./06-verify-and-ship.md#create-a-project-verification-skill) covers both.
-+The immutable original 0.15.15 and reviewed 0.15.23 archives remain separately pinned in the source repository. All 65 [transition obligations](qualification/upstream-transition.json) are source-qualified; the active inventory accounts for 168 source items with per-file revision selection and 13 agreed exclusions. [Final update qualification](qualification/issue-30.md) records exact requirement evidence, integrated checks and conditional runtime limits. Earlier qualification records describe their historical delivery states.
++## Remove
  
 -## Write docs to a standard with `/technical-writing`
--
++Disable or uninstall `pstack-codex` through Plugins Directory. Remove only its marketplace entry, preserving other entries and configuration. If you explicitly enabled it in project config, remove only that enablement; the documented key is `pstack-codex@YOUR-MARKETPLACE-NAME`. Remove only the package copy you created, then restart desktop. Stop owned processes before removing a recipient-selected dependency cache. Keep or separately remove your own task records, generated skills and artifacts; uninstalling does not erase them. See [official enable/disable guidance](https://developers.openai.com/plugins/build/plugins#enable-or-disable-a-plugin-for-a-repo).
+ 
 -Skills aren't the only prose you ship. For docs, RFCs, readmes, PR descriptions, and commit messages:
--
++## Maintenance and evidence
+ 
 -```text
 -/technical-writing review the readme changes
 -```
--
++The immutable original 0.15.15 and reviewed 0.15.23 archives remain separately pinned in the source repository. All 65 [transition obligations](qualification/upstream-transition.json) are source-qualified; the active inventory accounts for 168 source items with per-file revision selection and 13 agreed exclusions. [Final update qualification](qualification/issue-30.md) records exact requirement evidence, integrated checks and conditional runtime limits. Earlier qualification records describe their historical delivery states.
+ 
 -[`/technical-writing`](../../skills/technical-writing/SKILL.md) applies a layered standard with one goal, prose a tired engineer understands on the first read. It picks the document's mode first (tutorial, how-to, reference, or explanation), then works sentence by sentence: who does what, one thought per sentence, nothing readable two ways. Use it to review what you or an agent just wrote, or name it up front when you ask for a doc.
 -
 -## Test a skill change blind
@@ -1745,15 +1781,15 @@ Binary files differ: assets/logo.png -> plugin/pstack/NOTICE.md
 -**Pitfall:** don't edit a skill mid-task because it's misbehaving. Fix it in its own PR and keep the task moving. A skill edit that ships tangled into feature work is invisible to review and impossible to evaluate.
 -
 -Next: [Recipes and pitfalls](./10-recipes-and-pitfalls.md).
-+Updates require a new pinned source review; no automatic upstream synchronization occurs. Immutable original sources remain in the source repository, outside this package. The inventory records every original item, unique owner, adaptation/deferment and target. Per-ticket ledgers preserve the source-to-target argument. Deterministic checks establish content, hashes, reference closure and reproducible assembly; they do not establish observed recipient installation, service access, full agent compliance or real-app outcomes. The port requires no new behavioral qualification suite; pstack's own TDD/reproduction/live-verification requirements remain product behavior.
++Maintainer updates to the pinned upstream baseline require a new source review; no automatic upstream synchronization occurs. Recipient updates use the explicit update skill to obtain an already adapted Codex package within their configured source constraints. Immutable original sources remain in the source repository, outside this package. The inventory records every original item, unique owner, adaptation/deferment and target. Per-ticket ledgers preserve the source-to-target argument. Deterministic checks establish content, hashes, reference closure and reproducible assembly; they do not establish observed recipient installation, service access, full agent compliance or real-app outcomes. The port requires no new behavioral qualification suite; pstack's own TDD/reproduction/live-verification requirements remain product behavior.
 --- upstream/d0ef80d86795816da932a153458c5dbe192d294e/pstack/docs/guide/10-recipes-and-pitfalls.md
 +++ plugin/pstack/README.md
-@@ -1,156 +1,71 @@
+@@ -1,156 +1,77 @@
 -# Recipes and pitfalls
 +# pstack for Codex
  
 -Prompts worth copying, then the mistakes everyone makes once. Swap in your own paths and finish conditions. The recipes are deliberately informal. That's how they get typed in practice, and the skills read intent fine.
-+A shareable adaptation of Lauren Tan / poteto's pstack, updated to reviewed source 0.15.23 at Cursor plugins commit `dbf49813a39c1a5389c5e28cb8e4c1c2379e2454`. Port version 0.1.3 includes 50 original top-level workflows plus deslop and two new explicit skills: 53 skills, all 24 principles, all 23 playbooks and both original agent roles as instruction wrappers. See [complete update qualification](qualification/issue-30.md), [source inventory](qualification/source-inventory.json), [capabilities](qualification/capabilities.md) and [notices](NOTICE.md). It is not an official Cursor or OpenAI plugin.
++A shareable adaptation of Lauren Tan / poteto's pstack, updated to reviewed source 0.15.23 at Cursor plugins commit `dbf49813a39c1a5389c5e28cb8e4c1c2379e2454`. Port version 0.1.4 includes 50 original top-level workflows plus deslop, in-your-own-words, ketchup and the Codex-specific update skill: 54 skills, all 24 principles, all 23 playbooks and both original agent roles as instruction wrappers. See [complete update qualification](qualification/issue-30.md), [source inventory](qualification/source-inventory.json), [capabilities](qualification/capabilities.md) and [notices](NOTICE.md). It is not an official Cursor or OpenAI plugin.
  
 -![She tastes a finished dish while robots cook from a recipe box, with pinned cards reading /how, /tdd, and /loop above the counter.](./images/recipes.jpg)
 +The chat receiving PStack mode owns the playbook, ordered checklist and delegation. Comment Sicko remains a portable [review wrapper](references/comment-sicko.md), normally reached through `pstack-no-comments`, rather than a registered Cursor agent. The poteto-agent instruction wrapper initializes code-writing and helper delegates within that run. See the [coordinator and instruction-access qualification](qualification/issue-25.md) for the reviewed 0.15.23 slice and its limits.
@@ -1844,27 +1880,30 @@ Binary files differ: assets/logo.png -> plugin/pstack/NOTICE.md
 +Unattended work runs while the computer/app/project/services remain available. Requested schedules require actual host automation support. Active waits are not durable schedulers. Operation through sleep, app closure, lost workers or offline services is excluded. Grok Bot UI and Benny are excluded (13 source files total). Cloud workers and external-provider bridges are deferred. Host rules and user limits govern authority, including explicit authorization for external messages.
  
 -## Review a branch skeptically
-+## Remove
++## Update on request
  
 -```text
 -/interrogate the whole branch, but skeptically. don't change anything yet. no nitpicks unless it's an actual bug or regression in behavior.
 -```
-+Disable or uninstall `pstack-codex` through Plugins Directory. Remove only its marketplace entry, preserving other entries and configuration. If you explicitly enabled it in project config, remove only that enablement; the documented key is `pstack-codex@YOUR-MARKETPLACE-NAME`. Remove only the package copy you created, then restart desktop. Stop owned processes before removing a recipient-selected dependency cache. Keep or separately remove your own task records, generated skills and artifacts; uninstalling does not erase them. See [official enable/disable guidance](https://developers.openai.com/plugins/build/plugins#enable-or-disable-a-plugin-for-a-repo).
++Select **pstack: update** or invoke `$pstack-update` with "update pstack". When the main mode or help is already loaded, that request also routes to update. Use "check for pstack updates" for a read-only comparison. Explicit-only discovery means an ordinary message in an unrelated chat may need the skill selection first.
  
 -The qualifiers do real work. "don't change anything yet" keeps it read-only, and the nitpick rule pre-filters the noise so `Act on` findings are worth your time.
-+## Maintenance and evidence
++The updater uses supported commands for an existing configured local Git marketplace. It preserves source selection, fixed pins and recipient settings, stops for uncertain baselines or conflicting customizations, and verifies installed contents independently. Other routes receive supported next-step guidance. It never installs Codex, restarts the app or edits installed cache files. See the [update skill](skills/pstack-update/SKILL.md) and [qualification](qualification/update.md).
  
 -## Fix a bug through a failing test
-+The immutable original 0.15.15 and reviewed 0.15.23 archives remain separately pinned in the source repository. All 65 [transition obligations](qualification/upstream-transition.json) are source-qualified; the active inventory accounts for 168 source items with per-file revision selection and 13 agreed exclusions. [Final update qualification](qualification/issue-30.md) records exact requirement evidence, integrated checks and conditional runtime limits. Earlier qualification records describe their historical delivery states.
++## Remove
  
 -```text
 -/poteto-mode repro the duplicate write first. if there's a cheap test path, /tdd it. then fix and rerun.
 -```
--
++Disable or uninstall `pstack-codex` through Plugins Directory. Remove only its marketplace entry, preserving other entries and configuration. If you explicitly enabled it in project config, remove only that enablement; the documented key is `pstack-codex@YOUR-MARKETPLACE-NAME`. Remove only the package copy you created, then restart desktop. Stop owned processes before removing a recipient-selected dependency cache. Keep or separately remove your own task records, generated skills and artifacts; uninstalling does not erase them. See [official enable/disable guidance](https://developers.openai.com/plugins/build/plugins#enable-or-disable-a-plugin-for-a-repo).
+ 
 -"if there's a cheap test path" matters. Forcing a test through brittle mocks proves less than running the real command, and the playbook is allowed to say so.
--
++## Maintenance and evidence
+ 
 -## Repro and fix a report with proof
--
++The immutable original 0.15.15 and reviewed 0.15.23 archives remain separately pinned in the source repository. All 65 [transition obligations](qualification/upstream-transition.json) are source-qualified; the active inventory accounts for 168 source items with per-file revision selection and 13 agreed exclusions. [Final update qualification](qualification/issue-30.md) records exact requirement evidence, integrated checks and conditional runtime limits. Earlier qualification records describe their historical delivery states.
+ 
 -```text
 -/poteto-mode repro this with /verify-<app>. if it repros on main, fix it and show me a video as proof.
 -```
@@ -1949,15 +1988,15 @@ Binary files differ: assets/logo.png -> plugin/pstack/NOTICE.md
 -That's the guide. If you skipped ahead, go back to [setup](./01-setup.md) and run one real task. The habits stick from use, not from reading.
 -
 -Back to the [guide index](./README.md).
-+Updates require a new pinned source review; no automatic upstream synchronization occurs. Immutable original sources remain in the source repository, outside this package. The inventory records every original item, unique owner, adaptation/deferment and target. Per-ticket ledgers preserve the source-to-target argument. Deterministic checks establish content, hashes, reference closure and reproducible assembly; they do not establish observed recipient installation, service access, full agent compliance or real-app outcomes. The port requires no new behavioral qualification suite; pstack's own TDD/reproduction/live-verification requirements remain product behavior.
++Maintainer updates to the pinned upstream baseline require a new source review; no automatic upstream synchronization occurs. Recipient updates use the explicit update skill to obtain an already adapted Codex package within their configured source constraints. Immutable original sources remain in the source repository, outside this package. The inventory records every original item, unique owner, adaptation/deferment and target. Per-ticket ledgers preserve the source-to-target argument. Deterministic checks establish content, hashes, reference closure and reproducible assembly; they do not establish observed recipient installation, service access, full agent compliance or real-app outcomes. The port requires no new behavioral qualification suite; pstack's own TDD/reproduction/live-verification requirements remain product behavior.
 --- upstream/d0ef80d86795816da932a153458c5dbe192d294e/pstack/docs/guide/README.md
 +++ plugin/pstack/README.md
-@@ -1,38 +1,71 @@
+@@ -1,38 +1,77 @@
 -# The pstack guide
 +# pstack for Codex
  
 -pstack works best when you stop micromanaging the agent. You describe what you want and how you'll know it's done. `/poteto-mode` picks the playbook, runs the other skills as the steps need them, and shows you the evidence. This guide teaches that habit with realistic prompts.
-+A shareable adaptation of Lauren Tan / poteto's pstack, updated to reviewed source 0.15.23 at Cursor plugins commit `dbf49813a39c1a5389c5e28cb8e4c1c2379e2454`. Port version 0.1.3 includes 50 original top-level workflows plus deslop and two new explicit skills: 53 skills, all 24 principles, all 23 playbooks and both original agent roles as instruction wrappers. See [complete update qualification](qualification/issue-30.md), [source inventory](qualification/source-inventory.json), [capabilities](qualification/capabilities.md) and [notices](NOTICE.md). It is not an official Cursor or OpenAI plugin.
++A shareable adaptation of Lauren Tan / poteto's pstack, updated to reviewed source 0.15.23 at Cursor plugins commit `dbf49813a39c1a5389c5e28cb8e4c1c2379e2454`. Port version 0.1.4 includes 50 original top-level workflows plus deslop, in-your-own-words, ketchup and the Codex-specific update skill: 54 skills, all 24 principles, all 23 playbooks and both original agent roles as instruction wrappers. See [complete update qualification](qualification/issue-30.md), [source inventory](qualification/source-inventory.json), [capabilities](qualification/capabilities.md) and [notices](NOTICE.md). It is not an official Cursor or OpenAI plugin.
  
 -Here's what you'll learn:
 +The chat receiving PStack mode owns the playbook, ordered checklist and delegation. Comment Sicko remains a portable [review wrapper](references/comment-sicko.md), normally reached through `pstack-no-comments`, rather than a registered Cursor agent. The poteto-agent instruction wrapper initializes code-writing and helper delegates within that run. See the [coordinator and instruction-access qualification](qualification/issue-25.md) for the reviewed 0.15.23 slice and its limits.
@@ -2041,6 +2080,12 @@ Binary files differ: assets/logo.png -> plugin/pstack/NOTICE.md
 +
 +Unattended work runs while the computer/app/project/services remain available. Requested schedules require actual host automation support. Active waits are not durable schedulers. Operation through sleep, app closure, lost workers or offline services is excluded. Grok Bot UI and Benny are excluded (13 source files total). Cloud workers and external-provider bridges are deferred. Host rules and user limits govern authority, including explicit authorization for external messages.
 +
++## Update on request
++
++Select **pstack: update** or invoke `$pstack-update` with "update pstack". When the main mode or help is already loaded, that request also routes to update. Use "check for pstack updates" for a read-only comparison. Explicit-only discovery means an ordinary message in an unrelated chat may need the skill selection first.
++
++The updater uses supported commands for an existing configured local Git marketplace. It preserves source selection, fixed pins and recipient settings, stops for uncertain baselines or conflicting customizations, and verifies installed contents independently. Other routes receive supported next-step guidance. It never installs Codex, restarts the app or edits installed cache files. See the [update skill](skills/pstack-update/SKILL.md) and [qualification](qualification/update.md).
++
 +## Remove
 +
 +Disable or uninstall `pstack-codex` through Plugins Directory. Remove only its marketplace entry, preserving other entries and configuration. If you explicitly enabled it in project config, remove only that enablement; the documented key is `pstack-codex@YOUR-MARKETPLACE-NAME`. Remove only the package copy you created, then restart desktop. Stop owned processes before removing a recipient-selected dependency cache. Keep or separately remove your own task records, generated skills and artifacts; uninstalling does not erase them. See [official enable/disable guidance](https://developers.openai.com/plugins/build/plugins#enable-or-disable-a-plugin-for-a-repo).
@@ -2049,7 +2094,7 @@ Binary files differ: assets/logo.png -> plugin/pstack/NOTICE.md
 +
 +The immutable original 0.15.15 and reviewed 0.15.23 archives remain separately pinned in the source repository. All 65 [transition obligations](qualification/upstream-transition.json) are source-qualified; the active inventory accounts for 168 source items with per-file revision selection and 13 agreed exclusions. [Final update qualification](qualification/issue-30.md) records exact requirement evidence, integrated checks and conditional runtime limits. Earlier qualification records describe their historical delivery states.
 +
-+Updates require a new pinned source review; no automatic upstream synchronization occurs. Immutable original sources remain in the source repository, outside this package. The inventory records every original item, unique owner, adaptation/deferment and target. Per-ticket ledgers preserve the source-to-target argument. Deterministic checks establish content, hashes, reference closure and reproducible assembly; they do not establish observed recipient installation, service access, full agent compliance or real-app outcomes. The port requires no new behavioral qualification suite; pstack's own TDD/reproduction/live-verification requirements remain product behavior.
++Maintainer updates to the pinned upstream baseline require a new source review; no automatic upstream synchronization occurs. Recipient updates use the explicit update skill to obtain an already adapted Codex package within their configured source constraints. Immutable original sources remain in the source repository, outside this package. The inventory records every original item, unique owner, adaptation/deferment and target. Per-ticket ledgers preserve the source-to-target argument. Deterministic checks establish content, hashes, reference closure and reproducible assembly; they do not establish observed recipient installation, service access, full agent compliance or real-app outcomes. The port requires no new behavioral qualification suite; pstack's own TDD/reproduction/live-verification requirements remain product behavior.
 Binary files differ: docs/guide/images/design.jpg -> plugin/pstack/README.md
 Binary files differ: docs/guide/images/overnight.jpg -> plugin/pstack/README.md
 Binary files differ: docs/guide/images/recipes.jpg -> plugin/pstack/README.md
@@ -2752,7 +2797,7 @@ Binary files differ: docs/guide/images/verification.jpg -> plugin/pstack/README.
  6. Report the deletion count, restored comments, reruns, architect sketch, fixes, encoding offers, encodings, unenforced constraints, and other open work.
 --- upstream/dbf49813a39c1a5389c5e28cb8e4c1c2379e2454/pstack/skills/poteto-help/SKILL.md
 +++ plugin/pstack/skills/pstack-poteto-help/SKILL.md
-@@ -1,155 +1,106 @@
+@@ -1,155 +1,109 @@
  ---
 -name: poteto-help
 -description: Guides users through pstack setup, /poteto-mode, and picking the skill, playbook, or principle for a task. Type /poteto-help with a question.
@@ -2767,9 +2812,10 @@ Binary files differ: docs/guide/images/verification.jpg -> plugin/pstack/README.
 +Answer the question, give at most one usable prompt, and link the file you actually read. A help question does not start a token-consuming run. A message asking for work, such as “use pstack to fix this bug,” routes to [mode](../pstack-poteto-mode/SKILL.md) and executes within the user's scope. Mention explicit sticky entry once when relevant.
  
 -A message that asks for work, such as "use pstack to fix this bug", is not a help question. Read [`poteto-mode`](../poteto-mode/SKILL.md), do the work under it, and mention once that a Custom Mode keeps it on.
--
--This file maps questions to the skills and guide pages that hold the answers. Those files own the details. Read the file you route to before you quote it, and trust it when it disagrees with this map. The links here point into the installed plugin, which the user may not be able to open, so give the user the file's public copy: `https://github.com/cursor/plugins/blob/main/pstack/` followed by its path.
 +The [mode lookup](../pstack-poteto-mode/SKILL.md#bundled-skill-lookup) holds the namespaced path for every included upstream skill, even when the discovery menu omits entries. Read the target before recommending or quoting it. Link the actual installed local file or a verified adapted repository revision. Do not present the upstream main branch as the installed Codex instructions. Source provenance is pinned in the package qualification records.
+ 
+-This file maps questions to the skills and guide pages that hold the answers. Those files own the details. Read the file you route to before you quote it, and trust it when it disagrees with this map. The links here point into the installed plugin, which the user may not be able to open, so give the user the file's public copy: `https://github.com/cursor/plugins/blob/main/pstack/` followed by its path.
++An explicit "update pstack" or "check for pstack updates" request routes to [update](../pstack-update/SKILL.md) and executes its update or read-only check. A question about updating stays help-only. Read that skill before explaining its supported routes or limitations.
  
  ## Find out what they need
  
@@ -2867,7 +2913,7 @@ Binary files differ: docs/guide/images/verification.jpg -> plugin/pstack/README.
 -| Stop agents from repeating the same mistakes in this repo | [`/correct`](../correct/SKILL.md) |
 -| Build a page whose buttons wake a Grok Bot over a webhook | [`/make-bot-ui`](../make-bot-ui/SKILL.md) |
 -| Find their way around pstack | `/poteto-help` |
-+| User need | Upstream skill name (invoke as `$pstack-<name>`) |
++| User need | Skill name (invoke as `$pstack-<name>`) |
 +| --- | --- |
 +| Check the agent understood your goals and problem before work begins | in-your-own-words |
 +| Current mechanics and where code belongs | how |
@@ -2894,6 +2940,7 @@ Binary files differ: docs/guide/images/verification.jpg -> plugin/pstack/README.
 +| Guided personal mode draft | automate-me |
 +| Approved post-task skill learning | reflect |
 +| Enforceable fixes for recurring mistakes | correct |
++| Check or update an installed PStack on request | update, Codex-specific addition |
 +| Help without starting work | poteto-help |
  
 -If a skill directory next to this one is missing from the table, read its frontmatter and route by its description. The `principle-*` directories are covered under principles below.
@@ -3088,7 +3135,7 @@ Binary files differ: docs/guide/images/verification.jpg -> plugin/pstack/README.
 +These prompts do not create durable schedules or promise progress through app closure or sleep. Read [continuation](../../../references/continuation.md). Reflect still requires approval before applying accepted edits.
 --- upstream/dbf49813a39c1a5389c5e28cb8e4c1c2379e2454/pstack/skills/poteto-mode/SKILL.md
 +++ plugin/pstack/skills/pstack-poteto-mode/SKILL.md
-@@ -1,14 +1,22 @@
+@@ -1,14 +1,24 @@
  ---
 -name: Poteto Mode
 -description: poteto's agent style for concise, detailed responses, deliberate subagents, unslopped prose, simple code, and verified work. Use for poteto, /poteto-mode, or requests to work in this style.
@@ -3114,10 +3161,12 @@ Binary files differ: docs/guide/images/verification.jpg -> plugin/pstack/README.
 +Copy the selected adapted playbook's ordered steps verbatim into the host todo facility before task-specific items. If no todo API exists, maintain the same ordered checklist in the task's private record. A genuinely inapplicable step remains with `skip: <reason>`; mandatory review, reproduction and evidence gates retain their own explicit exceptions only. “Verbatim” means the packaged adapted steps, whose source-to-port changes are recorded in qualification, not obsolete Cursor syntax.
 +
 +For `.ts` or `.tsx` work, read **typescript-best-practices** and its required principle first. For a requested change-safety analysis read **blast-radius**. For recurring operator corrections read **correct** within the user's repository/task authority. These skills remain distinct from investigation and review.
++
++For an explicit "update pstack" or "check for pstack updates" request, read and follow [update](../pstack-update/SKILL.md) instead of an engineering playbook. This Codex-specific route preserves update versus check-only authority and does not enter sticky mode.
  
  ## Non-negotiables
  
-@@ -17,72 +25,72 @@
+@@ -17,72 +27,72 @@
  Remaining triggers:
  
  - Nontrivial change, architecture decision, or "are we sure?" → the **how** skill.
@@ -3229,7 +3278,7 @@ Binary files differ: docs/guide/images/verification.jpg -> plugin/pstack/README.
  
  **Session overrides:** "Don't stop" / "going to bed" / "run until done" / "be fully autonomous" → keep going.
  
-@@ -90,11 +98,11 @@
+@@ -90,11 +100,11 @@
  
  ## Subagents
  
@@ -3246,7 +3295,7 @@ Binary files differ: docs/guide/images/verification.jpg -> plugin/pstack/README.
  
  **Fresh subagents by default.** Give new work to a fresh subagent with consolidated scope, meaning the original brief, every later directive, and the prior agent's report and branch. This holds for a fix round, a follow-up, a retry, and the next queue item. Resume, message, or queue a follow-up on an existing subagent only when the new work strictly needs state that lives in that agent and is costly to move: its local checkout, its uncommitted changes, or a process it still runs, such as a dev server, a simulator, or a babysit watcher. A stop or hold order to a running agent is not reuse. A role such as a PR owner outlives its agent. Once that agent returns, a fresh agent takes the role's next round. Interrupt-chained resumes silently drop directives, so fire a fresh subagent with consolidated scope rather than trusting a "done" summary.
  
-@@ -110,7 +118,7 @@
+@@ -110,7 +120,7 @@
  - **Never fabricate a link, citation, or transcript reference.** Link only artifacts you produced or read this session.
  - **Every claim carries its evidence or its label in the same sentence.** Measured, inferred, or guess. A prediction or an unseen cause is a guess. Never hand the human a check you could run.
  
@@ -3255,7 +3304,7 @@ Binary files differ: docs/guide/images/verification.jpg -> plugin/pstack/README.
  
  ## Comments
  
-@@ -118,30 +126,90 @@
+@@ -118,30 +128,91 @@
  
  ## Playbooks
  
@@ -3368,6 +3417,7 @@ Binary files differ: docs/guide/images/verification.jpg -> plugin/pstack/README.
 +| teach | [../pstack-teach/SKILL.md](../pstack-teach/SKILL.md) |
 +| technical-writing | [../pstack-technical-writing/SKILL.md](../pstack-technical-writing/SKILL.md) |
 +| typescript-best-practices | [../pstack-typescript-best-practices/SKILL.md](../pstack-typescript-best-practices/SKILL.md) |
++| update, Codex-specific addition | [../pstack-update/SKILL.md](../pstack-update/SKILL.md) |
 +| unslop | [../pstack-unslop/SKILL.md](../pstack-unslop/SKILL.md) |
 +| why | [../pstack-why/SKILL.md](../pstack-why/SKILL.md) |
 --- upstream/d0ef80d86795816da932a153458c5dbe192d294e/pstack/skills/poteto-mode/playbooks/authoring-a-skill.md
@@ -6707,6 +6757,6 @@ Binary files differ: docs/guide/images/verification.jpg -> plugin/pstack/README.
 -    "unslop"
 -  ]
 +  "name": "pstack-codex",
-+  "version": "0.1.3",
++  "version": "0.1.4",
 +  "description": "Codex adaptation of Lauren Tan\u2019s pstack engineering workflows. Qualification is recorded per workflow."
  }

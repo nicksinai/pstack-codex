@@ -33,3 +33,7 @@ Helpers rely on their actual declared runtimes, locked dependency graph and insp
 ## Reviewed 0.15.23 update
 
 Port 0.1.3 closes all 65 fixed source differences; [issue #30](issue-30.md) accounts for all 168 source items and the 53 delivered explicit skills. Goal playback adds no tool dependency; ketchup requires authorized conversation/history and current-state reads plus real screenshots or fact-grounded reply visuals as specified in its [capability contract](../references/ketchup-capabilities.md). The update grants no additional runtime capabilities. The existing verified `--trunk` interface and portable root manifest satisfy the reviewed upstream intent under their stated premises. Recipient installation and desktop behavior remain unobserved.
+
+## Explicit recipient updating
+
+[Update qualification](update.md) records current official marketplace, workspace-sync, directory-publication and restart evidence, plus inspected local CLI help. It distinguishes refresh side effects from installation, catalog availability from installed contents, and source-backed instructions from conditional recipient execution. No experimental app-server API is assumed available to recipients.
