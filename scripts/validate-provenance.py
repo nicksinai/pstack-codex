@@ -10,23 +10,83 @@ from urllib.parse import unquote
 
 root = Path(__file__).resolve().parents[1]
 manifest = json.loads((root / "provenance/ownership.json").read_text())
-baseline = root / manifest["baseline"]
+registry = json.loads((root / "provenance/baselines.json").read_text())
+assert registry["schema_version"] == 1
+assert registry["original_revision"] == "d0ef80d86795816da932a153458c5dbe192d294e"
+assert registry["reviewed_revision"] == "dbf49813a39c1a5389c5e28cb8e4c1c2379e2454"
+baselines = {}
+for entry in registry["baselines"]:
+    revision = entry["revision"]
+    assert revision not in baselines, "Duplicate baseline revision"
+    baseline = root / entry["baseline"]
+    assert baseline.resolve().is_relative_to(root), entry["baseline"]
+    assert (root / entry["manifest"]).resolve().is_relative_to(root), entry["manifest"]
+    source_manifest = json.loads((root / entry["manifest"]).read_text())
+    assert source_manifest["commit"] == revision
+    assert source_manifest["repository"] == manifest["repository"]
+    assert source_manifest["plugin_version"] == entry["version"]
+    hashes = source_manifest["files_sha256"]
+    actual = {str(p.relative_to(baseline)) for p in baseline.rglob("*") if p.is_file()}
+    assert actual == set(hashes), (revision, "Baseline inventory mismatch")
+    for path, digest in hashes.items():
+        source = baseline / path
+        assert not source.is_symlink() and source.resolve().is_relative_to(baseline.resolve()), path
+        assert hashlib.sha256(source.read_bytes()).hexdigest() == digest, (revision, path)
+    baselines[revision] = (baseline, hashes)
+assert set(baselines) == {registry["original_revision"], registry["reviewed_revision"]}
+reviewed = next(x for x in registry["baselines"] if x["revision"] == registry["reviewed_revision"])
+assert reviewed["predecessor_revision"] == registry["original_revision"]
+assert manifest["commit"] == registry["original_revision"]
+transition = json.loads((root / "provenance/upstream-transition.json").read_text())
+assert transition["schema_version"] == 1 and transition["spec_issue"] == 20
+assert transition["from_revision"] == registry["original_revision"]
+assert transition["to_revision"] == registry["reviewed_revision"]
+old_hashes = baselines[transition["from_revision"]][1]
+new_hashes = baselines[transition["to_revision"]][1]
+expected_delta = {path for path in old_hashes.keys() | new_hashes.keys()
+                  if old_hashes.get(path) != new_hashes.get(path)}
+rows = transition["items"]
+assert len(rows) == len({x["source"] for x in rows}) == 65
+assert {x["source"] for x in rows} == expected_delta
+assert sum(x["change"] == "added" for x in rows) == 4
+assert sum(x["change"] == "changed" for x in rows) == 61
+for row in rows:
+    path = row["source"]
+    assert row["previous_sha256"] == old_hashes.get(path) and row["sha256"] == new_hashes.get(path), path
+    assert row["change"] == ("added" if path not in old_hashes else "removed" if path not in new_hashes else "changed"), path
+    assert 21 <= row["owner_issue"] <= 30 and row["reason"], path
+    assert row["disposition"] in {"pending", "blocked", "adapted", "equivalent", "retained", "deferred"}, path
+    if row["disposition"] not in {"pending", "blocked"}:
+        evidence = root / row["qualification"]
+        assert evidence.resolve().is_relative_to(root) and evidence.is_file(), path
+    if row["target"]:
+        target = root / row["target"]
+        assert target.resolve().is_relative_to(root), path
+        # A pending addition can declare its intended target before it exists.
+        assert row["disposition"] == "pending" or target.is_file(), path
 items = manifest["items"]
 paths = [item["source"] for item in items]
 assert len(paths) == len(set(paths)), "Duplicate source owners"
-actual = {str(p.relative_to(baseline)) for p in baseline.rglob("*") if p.is_file()}
-assert set(paths) == actual, "Inventory does not match baseline"
-recon = json.loads((root / "recon/upstream-manifest.json").read_text())
-assert manifest["commit"] == recon["commit"]
-assert {x["source"]: x["sha256"] for x in items} == recon["files_sha256"]
+assert set(old_hashes) <= set(paths) <= set(old_hashes) | set(new_hashes), "Active inventory lost original source or added unknown source"
 for item in items:
-    assert 2 <= item["owner_issue"] <= 15, item
+    baseline, hashes = baselines[item["source_revision"]]
+    assert item["sha256"] == hashes[item["source"]], item["source"]
+    assert 2 <= item["owner_issue"] <= 30, item
     assert item["disposition"] in {"pending", "adapted", "preserved", "deferred", "blocked"}, item
-    assert hashlib.sha256((baseline / item["source"]).read_bytes()).hexdigest() == item["sha256"], item["source"]
     if item["target"]:
         target = (root / item["target"]).resolve()
         assert target.is_relative_to(root), item["target"]
         assert target.is_file(), item["target"]
+active_by_source = {item["source"]: item for item in items}
+for row in rows:
+    if row["disposition"] in {"adapted", "equivalent", "retained"}:
+        active = active_by_source[row["source"]]
+        assert row["target"] and row["target"] == active["target"], row["source"]
+        if row["disposition"] == "adapted":
+            assert active["source_revision"] == transition["to_revision"], row["source"]
+assert json.loads((root / "plugin/pstack/qualification/upstream-transition.json").read_text()) == transition
+pending = sum(row["disposition"] in {"pending", "blocked"} for row in rows)
+print(f"Validated both retained source baselines; 65 transition differences, {pending} pending adaptation obligations (not qualified).")
 current_diff = subprocess.check_output(
     [sys.executable, str(root / "scripts/adaptation-diff.py")], cwd=root,
 )
@@ -57,7 +117,8 @@ for skill in skills:
     assert "allow_implicit_invocation: false" in (skill.parent / "agents/openai.yaml").read_text(), skill
 print(f"Validated {len(items)} baseline files with unique owners and hashes; {len(skills)} skill metadata/policies; package-local Markdown links.")
 # Final closure is structural proof, not a behavioral product-use claim.
-assert len(items) == 164
+assert len(old_hashes) == 164 and len(new_hashes) == 168
+assert len(items) == len(old_hashes) + len(set(paths) - set(old_hashes))
 assert sum(x['disposition'] == 'deferred' for x in items) == 13
 assert all(x['disposition'] in {'adapted', 'preserved', 'deferred'} for x in items)
 assert all(x.get('reason') for x in items)
@@ -68,9 +129,12 @@ for item in items:
     else:
         assert item['target']
         if item['disposition'] == 'preserved':
-            assert (baseline / item['source']).read_bytes() == (root / item['target']).read_bytes()
+            assert (baselines[item['source_revision']][0] / item['source']).read_bytes() == (root / item['target']).read_bytes()
 assert json.loads((package / 'qualification/source-inventory.json').read_text()) == manifest
-assert len(skills) == 51
+new_skill_targets = {x['target'] for x in items if x['source'] not in old_hashes
+                     and x['source'].startswith('skills/') and x['source'].endswith('/SKILL.md')
+                     and x['target']}
+assert len(skills) == 51 + len(new_skill_targets)
 assert len(list((package / 'skills').glob('pstack-principle-*/SKILL.md'))) == 24
 source_playbooks = [x for x in items if '/playbooks/' in x['source']]
 assert len(source_playbooks) == 23
@@ -102,7 +166,7 @@ for file in package.rglob('*'):
                 continue
             target = file.parent / href
             assert target.exists() or target.with_suffix('.ts').exists() or target.with_suffix('.js').exists(), (file, href)
-print(f'Final closure: 164 accounted source items, 13 agreed deferred; 51 skills, 24 principles, 23 playbook targets, 2 wrappers; {catalog_chars} catalog characters; dependency/privacy/symlink checks.')
+print(f'Active adaptation closure: {len(items)} accounted source items, 13 agreed deferred; {len(skills)} skills, 24 principles, 23 playbook targets, 2 wrappers; {catalog_chars} catalog characters; dependency/privacy/symlink checks. Transition qualification tracked separately.')
 
 expected_files = json.loads((root / "provenance/package-files.json").read_text())
 actual_files = sorted(str(f.relative_to(package)) for f in package.rglob("*") if f.is_file())

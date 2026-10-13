@@ -7,10 +7,12 @@ import sys
 
 root = Path(__file__).resolve().parents[1]
 manifest = json.loads((root / "provenance/ownership.json").read_text())
+registry = json.loads((root / "provenance/baselines.json").read_text())
+baselines = {entry["revision"]: root / entry["baseline"] for entry in registry["baselines"]}
 for item in manifest["items"]:
     if not item["target"]:
         continue
-    source = root / manifest["baseline"] / item["source"]
+    source = baselines[item["source_revision"]] / item["source"]
     target = root / item["target"]
     if not target.is_file():
         raise SystemExit(f"Missing mapped target: {item['target']}")
@@ -23,6 +25,6 @@ for item in manifest["items"]:
         print(f"Binary files differ: {item['source']} -> {item['target']}")
         continue
     sys.stdout.writelines(difflib.unified_diff(
-        before, after, fromfile="upstream/pstack/" + item["source"],
+        before, after, fromfile="upstream/" + item["source_revision"] + "/pstack/" + item["source"],
         tofile=item["target"],
     ))
