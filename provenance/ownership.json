@@ -43,10 +43,10 @@
     {
       "source": "agents/comment-sicko.md",
       "sha256": "c0fd0383008da45fc78cfac17b9007d62c42f87ad1c8d5c2fb658b1fd01f7c82",
-      "owner_issue": 6,
+      "owner_issue": 28,
       "disposition": "adapted",
       "target": "plugin/pstack/references/comment-sicko.md",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
+      "reason": "Per-hunk source review and Codex preservation argument in issue-28 qualification; portable wrapper initialization already meets normalized specialist identity.",
       "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
@@ -330,12 +330,12 @@
     },
     {
       "source": "skills/architect/SKILL.md",
-      "sha256": "922238947195f2fb825e90688bb6cfa520b81a35a7bee12223c73a6cf96ae64b",
-      "owner_issue": 4,
+      "sha256": "31f8e97a52bfa5432edd61f68ade2a8632ef0bacbc2d2a6802d7a0e6821944ac",
+      "owner_issue": 28,
       "disposition": "adapted",
       "target": "plugin/pstack/skills/pstack-architect/SKILL.md",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
-      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
+      "reason": "Per-hunk source review and Codex preservation argument in issue-28 qualification; reviewed concise wording adopted while retaining explicit execution, evidence and authority contracts.",
+      "source_revision": "dbf49813a39c1a5389c5e28cb8e4c1c2379e2454"
     },
     {
       "source": "skills/architect/references/design-red-flags.md",
@@ -366,12 +366,12 @@
     },
     {
       "source": "skills/arena/SKILL.md",
-      "sha256": "6e17736b5228b661569c3af054f8302c55cf9bf1649447652d53705cce38bed6",
-      "owner_issue": 4,
+      "sha256": "f15524f216c1c63804b89edb4ff8e53bb21a7b8ed367368dedeb9468eeec6a92",
+      "owner_issue": 28,
       "disposition": "adapted",
       "target": "plugin/pstack/skills/pstack-arena/SKILL.md",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
-      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
+      "reason": "Per-hunk source review and Codex preservation argument in issue-28 qualification; reviewed concise wording adopted while retaining explicit execution, evidence and authority contracts.",
+      "source_revision": "dbf49813a39c1a5389c5e28cb8e4c1c2379e2454"
     },
     {
       "source": "skills/automate-me/SKILL.md",
@@ -384,12 +384,12 @@
     },
     {
       "source": "skills/benchmark-checklist/SKILL.md",
-      "sha256": "6a767e788a60428fa14e645ee10fe2e49896e514ff654f668b1d824deb9038e8",
-      "owner_issue": 9,
+      "sha256": "ba109e96c8f6c1c391baccf19e5d11e14370df7b3f2605e1572cd565a6c0fca0",
+      "owner_issue": 28,
       "disposition": "adapted",
       "target": "plugin/pstack/skills/pstack-benchmark-checklist/SKILL.md",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
-      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
+      "reason": "Per-hunk source review and Codex preservation argument in issue-28 qualification; reviewed concise wording adopted while retaining explicit execution, evidence and authority contracts.",
+      "source_revision": "dbf49813a39c1a5389c5e28cb8e4c1c2379e2454"
     },
     {
       "source": "skills/blast-radius/SKILL.md",
@@ -456,12 +456,12 @@
     },
     {
       "source": "skills/figure-it-out/SKILL.md",
-      "sha256": "0eb9485f0e7d84fee56b5d0f0af0faf4635e3ca87c8cba3970c01293b76ecc19",
-      "owner_issue": 7,
+      "sha256": "d9574cc24929773d5c23f40626ae1e09660afddd7de48e08dd6494d9fff9bbf0",
+      "owner_issue": 28,
       "disposition": "adapted",
       "target": "plugin/pstack/skills/pstack-figure-it-out/SKILL.md",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
-      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
+      "reason": "Per-hunk source review and Codex preservation argument in issue-28 qualification; reviewed concise wording adopted while retaining explicit execution, evidence and authority contracts.",
+      "source_revision": "dbf49813a39c1a5389c5e28cb8e4c1c2379e2454"
     },
     {
       "source": "skills/how/SKILL.md",
@@ -492,12 +492,12 @@
     },
     {
       "source": "skills/interrogate/SKILL.md",
-      "sha256": "2f7e570ec23791ed2e485a09c98ed0597c46035e2050b351b84d3dc760ddd71f",
-      "owner_issue": 4,
+      "sha256": "25341c393f515c1e1fa9bce668b7551e9f98c195113a460ff524d3c1f7f50cd9",
+      "owner_issue": 28,
       "disposition": "adapted",
       "target": "plugin/pstack/skills/pstack-interrogate/SKILL.md",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
-      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
+      "reason": "Per-hunk source review and Codex preservation argument in issue-28 qualification; reviewed concise wording adopted while retaining explicit execution, evidence and authority contracts.",
+      "source_revision": "dbf49813a39c1a5389c5e28cb8e4c1c2379e2454"
     },
     {
       "source": "skills/interrogate/references/code-quality-review.md",
@@ -519,21 +519,21 @@
     },
     {
       "source": "skills/interrogate/references/reviewer-prompt.md",
-      "sha256": "e0598e254792b56de39bb16b1e6db559b03a522fdc54b98f942d254090920ae6",
-      "owner_issue": 4,
-      "disposition": "preserved",
+      "sha256": "f6005cc2b535006fca97a96c5bfda49df57312eedf1ffd8d1aaaf3eb33817c25",
+      "owner_issue": 28,
+      "disposition": "adapted",
       "target": "plugin/pstack/skills/pstack-interrogate/references/reviewer-prompt.md",
-      "reason": "Pinned source retained byte-for-byte at its mapped counterpart; see primary issue qualification.",
-      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
+      "reason": "Per-hunk source review and Codex preservation argument in issue-28 qualification; reviewed concise wording adopted while retaining explicit execution, evidence and authority contracts.",
+      "source_revision": "dbf49813a39c1a5389c5e28cb8e4c1c2379e2454"
     },
     {
       "source": "skills/interrogate/references/rubric.md",
-      "sha256": "a85aa801abbaf14434f00579440abc0d8e2723227ba8bf57de7cca8d6e7d2f25",
-      "owner_issue": 4,
+      "sha256": "0f9c6bdb0b96e26dbde5f6407f417e0c02f54080e7a1268d8994f3c3ec6c5ac0",
+      "owner_issue": 28,
       "disposition": "adapted",
       "target": "plugin/pstack/skills/pstack-interrogate/references/rubric.md",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
-      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
+      "reason": "Per-hunk source review and Codex preservation argument in issue-28 qualification; reviewed concise wording adopted while retaining explicit execution, evidence and authority contracts.",
+      "source_revision": "dbf49813a39c1a5389c5e28cb8e4c1c2379e2454"
     },
     {
       "source": "skills/maintain-verification-skill/SKILL.md",
@@ -556,10 +556,10 @@
     {
       "source": "skills/no-comments/SKILL.md",
       "sha256": "5c5b0882297d704c3a9720c52b7a793c68b013eaf717989f0945624efdfe2b05",
-      "owner_issue": 6,
+      "owner_issue": 28,
       "disposition": "adapted",
       "target": "plugin/pstack/skills/pstack-no-comments/SKILL.md",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
+      "reason": "Per-hunk source review and Codex preservation argument in issue-28 qualification; portable wrapper initialization already meets normalized specialist identity.",
       "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
@@ -637,10 +637,10 @@
     {
       "source": "skills/poteto-mode/playbooks/babysit.md",
       "sha256": "a0346c37c2313f36a863b80f66ee7b98059c2242adf74fc7b3e48abdb9ec6f5a",
-      "owner_issue": 6,
+      "owner_issue": 28,
       "disposition": "adapted",
       "target": "plugin/pstack/playbooks/babysit.md",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
+      "reason": "Per-hunk source review and Codex preservation argument in issue-28 qualification; explicit watcher-rearm no-merge safeguard and reply contract deliberately retained.",
       "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
@@ -699,12 +699,12 @@
     },
     {
       "source": "skills/poteto-mode/playbooks/opening-a-pr.md",
-      "sha256": "ab40de7163c1c6e274f46ee559b2e53ef45673703f601f13f4931c199e6fb90f",
-      "owner_issue": 6,
+      "sha256": "931070f5674e81a191277253d4e02b1c45d091b223f93bf506d3896a428a5967",
+      "owner_issue": 28,
       "disposition": "adapted",
       "target": "plugin/pstack/playbooks/opening-a-pr.md",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
-      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
+      "reason": "Per-hunk source review and Codex preservation argument in issue-28 qualification; reviewed concise wording adopted while retaining explicit execution, evidence and authority contracts.",
+      "source_revision": "dbf49813a39c1a5389c5e28cb8e4c1c2379e2454"
     },
     {
       "source": "skills/poteto-mode/playbooks/orchestrate.md",
@@ -780,12 +780,12 @@
     },
     {
       "source": "skills/poteto-mode/playbooks/trace-forensics.md",
-      "sha256": "137ce3984fb96e45971fdff4d3c79fa4ccc647c5b30ae4945783b9fb23f8cec7",
-      "owner_issue": 9,
+      "sha256": "e8a671fd5511a894f90c933bca75815e7a1d730cb53333075a80b0927e81acfc",
+      "owner_issue": 28,
       "disposition": "adapted",
       "target": "plugin/pstack/playbooks/trace-forensics.md",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
-      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
+      "reason": "Per-hunk source review and Codex preservation argument in issue-28 qualification; reviewed concise wording adopted while retaining explicit execution, evidence and authority contracts.",
+      "source_revision": "dbf49813a39c1a5389c5e28cb8e4c1c2379e2454"
     },
     {
       "source": "skills/poteto-mode/playbooks/visual-parity.md",

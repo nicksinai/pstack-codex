@@ -31,8 +31,9 @@
       "sha256": "3e239e40b7b4b9beb2cf7f3ccc57f2388eb8b69bd1ba8ae888ef87ef6e0e2116",
       "owner_issue": 28,
       "target": "plugin/pstack/references/comment-sicko.md",
-      "disposition": "pending",
-      "reason": "Owner #28 must review changed requirements, source mapping and qualification before accepting the new revision."
+      "disposition": "equivalent",
+      "reason": "Per-hunk source review and Codex preservation argument in issue-28 qualification; portable wrapper initialization already meets normalized specialist identity.",
+      "qualification": "plugin/pstack/qualification/issue-28.md"
     },
     {
       "source": "agents/poteto-agent.md",
@@ -62,8 +63,9 @@
       "sha256": "31f8e97a52bfa5432edd61f68ade2a8632ef0bacbc2d2a6802d7a0e6821944ac",
       "owner_issue": 28,
       "target": "plugin/pstack/skills/pstack-architect/SKILL.md",
-      "disposition": "pending",
-      "reason": "Owner #28 must review changed requirements, source mapping and qualification before accepting the new revision."
+      "disposition": "adapted",
+      "reason": "Per-hunk source review and Codex preservation argument in issue-28 qualification; reviewed concise wording adopted while retaining explicit execution, evidence and authority contracts.",
+      "qualification": "plugin/pstack/qualification/issue-28.md"
     },
     {
       "source": "skills/arena/SKILL.md",
@@ -72,8 +74,9 @@
       "sha256": "f15524f216c1c63804b89edb4ff8e53bb21a7b8ed367368dedeb9468eeec6a92",
       "owner_issue": 28,
       "target": "plugin/pstack/skills/pstack-arena/SKILL.md",
-      "disposition": "pending",
-      "reason": "Owner #28 must review changed requirements, source mapping and qualification before accepting the new revision."
+      "disposition": "adapted",
+      "reason": "Per-hunk source review and Codex preservation argument in issue-28 qualification; reviewed concise wording adopted while retaining explicit execution, evidence and authority contracts.",
+      "qualification": "plugin/pstack/qualification/issue-28.md"
     },
     {
       "source": "skills/benchmark-checklist/SKILL.md",
@@ -82,8 +85,9 @@
       "sha256": "ba109e96c8f6c1c391baccf19e5d11e14370df7b3f2605e1572cd565a6c0fca0",
       "owner_issue": 28,
       "target": "plugin/pstack/skills/pstack-benchmark-checklist/SKILL.md",
-      "disposition": "pending",
-      "reason": "Owner #28 must review changed requirements, source mapping and qualification before accepting the new revision."
+      "disposition": "adapted",
+      "reason": "Per-hunk source review and Codex preservation argument in issue-28 qualification; reviewed concise wording adopted while retaining explicit execution, evidence and authority contracts.",
+      "qualification": "plugin/pstack/qualification/issue-28.md"
     },
     {
       "source": "skills/create-verification-skill/SKILL.md",
@@ -103,8 +107,9 @@
       "sha256": "d9574cc24929773d5c23f40626ae1e09660afddd7de48e08dd6494d9fff9bbf0",
       "owner_issue": 28,
       "target": "plugin/pstack/skills/pstack-figure-it-out/SKILL.md",
-      "disposition": "pending",
-      "reason": "Owner #28 must review changed requirements, source mapping and qualification before accepting the new revision."
+      "disposition": "adapted",
+      "reason": "Per-hunk source review and Codex preservation argument in issue-28 qualification; reviewed concise wording adopted while retaining explicit execution, evidence and authority contracts.",
+      "qualification": "plugin/pstack/qualification/issue-28.md"
     },
     {
       "source": "skills/how/SKILL.md",
@@ -143,8 +148,9 @@
       "sha256": "25341c393f515c1e1fa9bce668b7551e9f98c195113a460ff524d3c1f7f50cd9",
       "owner_issue": 28,
       "target": "plugin/pstack/skills/pstack-interrogate/SKILL.md",
-      "disposition": "pending",
-      "reason": "Owner #28 must review changed requirements, source mapping and qualification before accepting the new revision."
+      "disposition": "adapted",
+      "reason": "Per-hunk source review and Codex preservation argument in issue-28 qualification; reviewed concise wording adopted while retaining explicit execution, evidence and authority contracts.",
+      "qualification": "plugin/pstack/qualification/issue-28.md"
     },
     {
       "source": "skills/interrogate/references/reviewer-prompt.md",
@@ -153,8 +159,9 @@
       "sha256": "f6005cc2b535006fca97a96c5bfda49df57312eedf1ffd8d1aaaf3eb33817c25",
       "owner_issue": 28,
       "target": "plugin/pstack/skills/pstack-interrogate/references/reviewer-prompt.md",
-      "disposition": "pending",
-      "reason": "Owner #28 must review changed requirements, source mapping and qualification before accepting the new revision."
+      "disposition": "adapted",
+      "reason": "Per-hunk source review and Codex preservation argument in issue-28 qualification; reviewed concise wording adopted while retaining explicit execution, evidence and authority contracts.",
+      "qualification": "plugin/pstack/qualification/issue-28.md"
     },
     {
       "source": "skills/interrogate/references/rubric.md",
@@ -163,8 +170,9 @@
       "sha256": "0f9c6bdb0b96e26dbde5f6407f417e0c02f54080e7a1268d8994f3c3ec6c5ac0",
       "owner_issue": 28,
       "target": "plugin/pstack/skills/pstack-interrogate/references/rubric.md",
-      "disposition": "pending",
-      "reason": "Owner #28 must review changed requirements, source mapping and qualification before accepting the new revision."
+      "disposition": "adapted",
+      "reason": "Per-hunk source review and Codex preservation argument in issue-28 qualification; reviewed concise wording adopted while retaining explicit execution, evidence and authority contracts.",
+      "qualification": "plugin/pstack/qualification/issue-28.md"
     },
     {
       "source": "skills/ketchup/SKILL.md",
@@ -183,8 +191,9 @@
       "sha256": "08b9c769040c104ef7fb1902ebac97047edbb89b58c7e113e53c918287b092e6",
       "owner_issue": 28,
       "target": "plugin/pstack/skills/pstack-no-comments/SKILL.md",
-      "disposition": "pending",
-      "reason": "Owner #28 must review changed requirements, source mapping and qualification before accepting the new revision."
+      "disposition": "equivalent",
+      "reason": "Per-hunk source review and Codex preservation argument in issue-28 qualification; portable wrapper initialization already meets normalized specialist identity.",
+      "qualification": "plugin/pstack/qualification/issue-28.md"
     },
     {
       "source": "skills/poteto-help/SKILL.md",
@@ -220,7 +229,7 @@
       "owner_issue": 25,
       "target": "plugin/pstack/skills/pstack-poteto-mode/SKILL.md",
       "disposition": "adapted",
-      "reason": "Receiving chat owns playbook, ordered checklist and delegation; briefs carry exact absolute required instruction paths with access/fallback gate. Primary coordinator/path hunks qualified; remaining mode shortening requires issue #28 hunk review explicitly listed in issue-25 qualification.",
+      "reason": "Receiving chat owns playbook, ordered checklist and delegation; briefs carry exact absolute required instruction paths with access/fallback gate. Primary coordinator/path hunks qualified; remaining mode shortening requires issue #28 hunk review explicitly listed in issue-25 qualification. Remaining mode shortening hunks reviewed by #28 in plugin/pstack/qualification/issue-28.md; explicit principle/playbook links retained.",
       "qualification": "plugin/pstack/qualification/issue-25.md"
     },
     {
@@ -230,8 +239,9 @@
       "sha256": "e261c1ff5581e0f8fc6c686f34de4b535f87473e77beabea7dd8323021214610",
       "owner_issue": 28,
       "target": "plugin/pstack/playbooks/babysit.md",
-      "disposition": "pending",
-      "reason": "Owner #28 must review changed requirements, source mapping and qualification before accepting the new revision."
+      "disposition": "retained",
+      "reason": "Per-hunk source review and Codex preservation argument in issue-28 qualification; explicit watcher-rearm no-merge safeguard and reply contract deliberately retained.",
+      "qualification": "plugin/pstack/qualification/issue-28.md"
     },
     {
       "source": "skills/poteto-mode/playbooks/opening-a-pr.md",
@@ -240,8 +250,9 @@
       "sha256": "931070f5674e81a191277253d4e02b1c45d091b223f93bf506d3896a428a5967",
       "owner_issue": 28,
       "target": "plugin/pstack/playbooks/opening-a-pr.md",
-      "disposition": "pending",
-      "reason": "Owner #28 must review changed requirements, source mapping and qualification before accepting the new revision."
+      "disposition": "adapted",
+      "reason": "Per-hunk source review and Codex preservation argument in issue-28 qualification; reviewed concise wording adopted while retaining explicit execution, evidence and authority contracts.",
+      "qualification": "plugin/pstack/qualification/issue-28.md"
     },
     {
       "source": "skills/poteto-mode/playbooks/trace-forensics.md",
@@ -250,8 +261,9 @@
       "sha256": "e8a671fd5511a894f90c933bca75815e7a1d730cb53333075a80b0927e81acfc",
       "owner_issue": 28,
       "target": "plugin/pstack/playbooks/trace-forensics.md",
-      "disposition": "pending",
-      "reason": "Owner #28 must review changed requirements, source mapping and qualification before accepting the new revision."
+      "disposition": "adapted",
+      "reason": "Per-hunk source review and Codex preservation argument in issue-28 qualification; reviewed concise wording adopted while retaining explicit execution, evidence and authority contracts.",
+      "qualification": "plugin/pstack/qualification/issue-28.md"
     },
     {
       "source": "skills/poteto-mode/playbooks/worktree-cleanup.md",
