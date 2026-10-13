@@ -55,12 +55,12 @@
 +/dist/
 --- upstream/d0ef80d86795816da932a153458c5dbe192d294e/pstack/README.md
 +++ plugin/pstack/README.md
-@@ -1,267 +1,69 @@
+@@ -1,267 +1,70 @@
 -# pstack
 +# pstack for Codex
  
 -i'm [poteto](https://x.com/poteto). i'm not a president or ceo, but i've worked with millions of lines of code at Meta, Netflix, and Cursor. i'm also on the react core team where i help build and maintain react compiler.
-+A shareable adaptation of Lauren Tan / poteto's pstack 0.15.15, pinned to Cursor plugins commit `d0ef80d86795816da932a153458c5dbe192d294e`. This independent port includes 50 original top-level workflows plus the deslop companion: 51 explicit skills, all 24 principles, all 23 playbooks and both original agent roles as instruction wrappers. See [whole-package qualification](qualification/issue-15.md), [source inventory](qualification/source-inventory.json), [capabilities](qualification/capabilities.md) and [notices](NOTICE.md). It is not an official Cursor or OpenAI plugin.
++A shareable adaptation of Lauren Tan / poteto's pstack 0.15.15, pinned to Cursor plugins commit `d0ef80d86795816da932a153458c5dbe192d294e`. This independent port includes 50 original top-level workflows plus the deslop companion: 52 explicit skills (including the reviewed 0.15.23 ketchup addition), all 24 principles, all 23 playbooks and both original agent roles as instruction wrappers. See [whole-package qualification](qualification/issue-15.md), [source inventory](qualification/source-inventory.json), [capabilities](qualification/capabilities.md) and [notices](NOTICE.md). It is not an official Cursor or OpenAI plugin.
  
 -there's a growing sense that ai writes too much slop code. i agree. i don't want to ship like a team of twenty slop artists. throughput without quality is not a goal i aspire to. if you want to go fast, go deep first. 
 +The chat receiving PStack mode owns the playbook, ordered checklist and delegation. The poteto-agent instruction wrapper initializes code-writing and helper delegates within that run. See the [coordinator and instruction-access qualification](qualification/issue-25.md) for the reviewed 0.15.23 slice and its limits.
@@ -166,6 +166,7 @@
 -1. matches your task to a [playbook](./skills/poteto-mode/playbooks/) and opens a todo list whose first items are its steps, copied in verbatim.
 -2. routes to the other skills as the steps fire.
 -3. writes unslopped replies framed for the consumer and the maintainer.
++- `pstack-ketchup`: checked visual catch-up on this conversation, including earlier pending user decisions; read-only except for reply visuals. History, state readers and a real visual channel remain [recipient prerequisites](references/ketchup-capabilities.md); see [qualification](qualification/issue-27.md).
 +- `pstack-how`: explain a named subsystem from source; `pstack-why`: reconstruct its rationale; `pstack-recall`: recover scoped recent work; `pstack-teach`: explain it interactively.
 +- `pstack-architect` or `pstack-arena`: compare independent designs/artifacts; `pstack-interrogate`: adversarial review; `pstack-swarm`: partition investigation or implementation coverage.
 +- `pstack-poteto-mode`: investigate, fix a bug, build a feature, refactor, prototype, assess visual parity, diagnose performance or measure a benchmark. The mode routes to its playbook, principles, cleanup and verification gates.
@@ -405,12 +406,12 @@
 Binary files differ: assets/logo.png -> plugin/pstack/NOTICE.md
 --- upstream/d0ef80d86795816da932a153458c5dbe192d294e/pstack/docs/guide/01-setup.md
 +++ plugin/pstack/README.md
-@@ -1,62 +1,69 @@
+@@ -1,62 +1,70 @@
 -# Set up pstack
 +# pstack for Codex
  
 -In this page you install the plugin, pick which models pstack uses, and run your first task. Setup is one command plus a short conversation.
-+A shareable adaptation of Lauren Tan / poteto's pstack 0.15.15, pinned to Cursor plugins commit `d0ef80d86795816da932a153458c5dbe192d294e`. This independent port includes 50 original top-level workflows plus the deslop companion: 51 explicit skills, all 24 principles, all 23 playbooks and both original agent roles as instruction wrappers. See [whole-package qualification](qualification/issue-15.md), [source inventory](qualification/source-inventory.json), [capabilities](qualification/capabilities.md) and [notices](NOTICE.md). It is not an official Cursor or OpenAI plugin.
++A shareable adaptation of Lauren Tan / poteto's pstack 0.15.15, pinned to Cursor plugins commit `d0ef80d86795816da932a153458c5dbe192d294e`. This independent port includes 50 original top-level workflows plus the deslop companion: 52 explicit skills (including the reviewed 0.15.23 ketchup addition), all 24 principles, all 23 playbooks and both original agent roles as instruction wrappers. See [whole-package qualification](qualification/issue-15.md), [source inventory](qualification/source-inventory.json), [capabilities](qualification/capabilities.md) and [notices](NOTICE.md). It is not an official Cursor or OpenAI plugin.
  
 -## Install the plugin
 +The chat receiving PStack mode owns the playbook, ordered checklist and delegation. The poteto-agent instruction wrapper initializes code-writing and helper delegates within that run. See the [coordinator and instruction-access qualification](qualification/issue-25.md) for the reviewed 0.15.23 slice and its limits.
@@ -469,6 +470,7 @@ Binary files differ: assets/logo.png -> plugin/pstack/NOTICE.md
 +Select `pstack-poteto-mode` with a request for the full workflow router, or select an individual leaf. A leaf or normal mode invocation applies to that request. Enter sticky mode explicitly with “Enter sticky PStack mode for this conversation.” End it with “Exit PStack mode.” Read [continuation](references/continuation.md) for scope, private checkpoint, interruption and recovery. Persistence requires available context or a valid scoped entry record; this is not a native enforced mode.
  
 -If you're new to pstack, say yes. An agent that can check its own work keeps going until the check passes. An agent that can't hands every result back to you to check by hand. Of everything in this guide, the verification skill pays off the most.
++- `pstack-ketchup`: checked visual catch-up on this conversation, including earlier pending user decisions; read-only except for reply visuals. History, state readers and a real visual channel remain [recipient prerequisites](references/ketchup-capabilities.md); see [qualification](qualification/issue-27.md).
 +- `pstack-how`: explain a named subsystem from source; `pstack-why`: reconstruct its rationale; `pstack-recall`: recover scoped recent work; `pstack-teach`: explain it interactively.
 +- `pstack-architect` or `pstack-arena`: compare independent designs/artifacts; `pstack-interrogate`: adversarial review; `pstack-swarm`: partition investigation or implementation coverage.
 +- `pstack-poteto-mode`: investigate, fix a bug, build a feature, refactor, prototype, assess visual parity, diagnose performance or measure a benchmark. The mode routes to its playbook, principles, cleanup and verification gates.
@@ -513,12 +515,12 @@ Binary files differ: assets/logo.png -> plugin/pstack/NOTICE.md
 +Updates require a new pinned source review; no automatic upstream synchronization occurs. Immutable original sources remain in the source repository, outside this package. The inventory records every original item, unique owner, adaptation/deferment and target. Per-ticket ledgers preserve the source-to-target argument. Deterministic checks establish content, hashes, reference closure and reproducible assembly; they do not establish observed recipient installation, service access, full agent compliance or real-app outcomes. The port requires no new behavioral qualification suite; pstack's own TDD/reproduction/live-verification requirements remain product behavior.
 --- upstream/d0ef80d86795816da932a153458c5dbe192d294e/pstack/docs/guide/02-poteto-mode.md
 +++ plugin/pstack/README.md
-@@ -1,131 +1,69 @@
+@@ -1,131 +1,70 @@
 -# Route work through `/poteto-mode`
 +# pstack for Codex
  
 -`/poteto-mode` is the front door. You give it a goal, it matches one of twenty-three playbooks, copies that playbook's steps into the todo list, and calls the other skills as the steps need them. In this page you learn what a good prompt looks like, and how little of one you actually need.
-+A shareable adaptation of Lauren Tan / poteto's pstack 0.15.15, pinned to Cursor plugins commit `d0ef80d86795816da932a153458c5dbe192d294e`. This independent port includes 50 original top-level workflows plus the deslop companion: 51 explicit skills, all 24 principles, all 23 playbooks and both original agent roles as instruction wrappers. See [whole-package qualification](qualification/issue-15.md), [source inventory](qualification/source-inventory.json), [capabilities](qualification/capabilities.md) and [notices](NOTICE.md). It is not an official Cursor or OpenAI plugin.
++A shareable adaptation of Lauren Tan / poteto's pstack 0.15.15, pinned to Cursor plugins commit `d0ef80d86795816da932a153458c5dbe192d294e`. This independent port includes 50 original top-level workflows plus the deslop companion: 52 explicit skills (including the reviewed 0.15.23 ketchup addition), all 24 principles, all 23 playbooks and both original agent roles as instruction wrappers. See [whole-package qualification](qualification/issue-15.md), [source inventory](qualification/source-inventory.json), [capabilities](qualification/capabilities.md) and [notices](NOTICE.md). It is not an official Cursor or OpenAI plugin.
  
 -![A dispatcher pulls a switch lever to route robots on rail handcars toward lit gates, under a /poteto-mode departure board listing BUG FIX, FEATURE, and INVESTIGATION.](./images/router.jpg)
 +The chat receiving PStack mode owns the playbook, ordered checklist and delegation. The poteto-agent instruction wrapper initializes code-writing and helper delegates within that run. See the [coordinator and instruction-access qualification](qualification/issue-25.md) for the reviewed 0.15.23 slice and its limits.
@@ -599,6 +601,7 @@ Binary files differ: assets/logo.png -> plugin/pstack/NOTICE.md
  
 -- **The how.** Say what to achieve, and leave the agent room to find a better path than the one you'd pick. The same goes for a list of skills, covered in the pitfall below.
 -- **Your theory of the cause, at first.** A stated guess narrows the search to wherever you pointed. Let the agent restate the problem before you share your hunch.
++- `pstack-ketchup`: checked visual catch-up on this conversation, including earlier pending user decisions; read-only except for reply visuals. History, state readers and a real visual channel remain [recipient prerequisites](references/ketchup-capabilities.md); see [qualification](qualification/issue-27.md).
 +- `pstack-how`: explain a named subsystem from source; `pstack-why`: reconstruct its rationale; `pstack-recall`: recover scoped recent work; `pstack-teach`: explain it interactively.
 +- `pstack-architect` or `pstack-arena`: compare independent designs/artifacts; `pstack-interrogate`: adversarial review; `pstack-swarm`: partition investigation or implementation coverage.
 +- `pstack-poteto-mode`: investigate, fix a bug, build a feature, refactor, prototype, assess visual parity, diagnose performance or measure a benchmark. The mode routes to its playbook, principles, cleanup and verification gates.
@@ -690,12 +693,12 @@ Binary files differ: assets/logo.png -> plugin/pstack/NOTICE.md
 +Updates require a new pinned source review; no automatic upstream synchronization occurs. Immutable original sources remain in the source repository, outside this package. The inventory records every original item, unique owner, adaptation/deferment and target. Per-ticket ledgers preserve the source-to-target argument. Deterministic checks establish content, hashes, reference closure and reproducible assembly; they do not establish observed recipient installation, service access, full agent compliance or real-app outcomes. The port requires no new behavioral qualification suite; pstack's own TDD/reproduction/live-verification requirements remain product behavior.
 --- upstream/d0ef80d86795816da932a153458c5dbe192d294e/pstack/docs/guide/03-understand.md
 +++ plugin/pstack/README.md
-@@ -1,79 +1,69 @@
+@@ -1,79 +1,70 @@
 -# Understand the code before changing it
 +# pstack for Codex
  
 -Editing code you don't understand is how subtle regressions ship, and that's as true for the agent as for you. Agents usually fail in one of two ways. They misread what you want, or they don't have the context to do the work right. [What goes in a prompt](./02-poteto-mode.md#what-goes-in-a-prompt) handles the first. This page handles the second.
-+A shareable adaptation of Lauren Tan / poteto's pstack 0.15.15, pinned to Cursor plugins commit `d0ef80d86795816da932a153458c5dbe192d294e`. This independent port includes 50 original top-level workflows plus the deslop companion: 51 explicit skills, all 24 principles, all 23 playbooks and both original agent roles as instruction wrappers. See [whole-package qualification](qualification/issue-15.md), [source inventory](qualification/source-inventory.json), [capabilities](qualification/capabilities.md) and [notices](NOTICE.md). It is not an official Cursor or OpenAI plugin.
++A shareable adaptation of Lauren Tan / poteto's pstack 0.15.15, pinned to Cursor plugins commit `d0ef80d86795816da932a153458c5dbe192d294e`. This independent port includes 50 original top-level workflows plus the deslop companion: 52 explicit skills (including the reviewed 0.15.23 ketchup addition), all 24 principles, all 23 playbooks and both original agent roles as instruction wrappers. See [whole-package qualification](qualification/issue-15.md), [source inventory](qualification/source-inventory.json), [capabilities](qualification/capabilities.md) and [notices](NOTICE.md). It is not an official Cursor or OpenAI plugin.
  
 -pstack gives you four ways in. `/how` explains what the code does now. `/why` digs up the reasons it's shaped that way. `/teach` blends both into one explanation. `/recall` rebuilds your own recent context on a topic. Each one also makes the agent explain itself in words you can check. That's how you supervise an agent that may know the code better than you do.
 +The chat receiving PStack mode owns the playbook, ordered checklist and delegation. The poteto-agent instruction wrapper initializes code-writing and helper delegates within that run. See the [coordinator and instruction-access qualification](qualification/issue-25.md) for the reviewed 0.15.23 slice and its limits.
@@ -758,6 +761,7 @@ Binary files differ: assets/logo.png -> plugin/pstack/NOTICE.md
 +Select `pstack-poteto-mode` with a request for the full workflow router, or select an individual leaf. A leaf or normal mode invocation applies to that request. Enter sticky mode explicitly with “Enter sticky PStack mode for this conversation.” End it with “Exit PStack mode.” Read [continuation](references/continuation.md) for scope, private checkpoint, interruption and recovery. Persistence requires available context or a valid scoped entry record; this is not a native enforced mode.
  
 -[`/teach`](../../skills/teach/SKILL.md) is for when a summary isn't enough. It runs `/how` and `/why`, for a small change maybe just one of them, and weaves the findings into a plain explanation that builds up diagram by diagram. The "convince me" framing is worth stealing. It turns the explanation into an argument you can poke at instead of a tour.
++- `pstack-ketchup`: checked visual catch-up on this conversation, including earlier pending user decisions; read-only except for reply visuals. History, state readers and a real visual channel remain [recipient prerequisites](references/ketchup-capabilities.md); see [qualification](qualification/issue-27.md).
 +- `pstack-how`: explain a named subsystem from source; `pstack-why`: reconstruct its rationale; `pstack-recall`: recover scoped recent work; `pstack-teach`: explain it interactively.
 +- `pstack-architect` or `pstack-arena`: compare independent designs/artifacts; `pstack-interrogate`: adversarial review; `pstack-swarm`: partition investigation or implementation coverage.
 +- `pstack-poteto-mode`: investigate, fix a bug, build a feature, refactor, prototype, assess visual parity, diagnose performance or measure a benchmark. The mode routes to its playbook, principles, cleanup and verification gates.
@@ -813,12 +817,12 @@ Binary files differ: assets/logo.png -> plugin/pstack/NOTICE.md
 +Updates require a new pinned source review; no automatic upstream synchronization occurs. Immutable original sources remain in the source repository, outside this package. The inventory records every original item, unique owner, adaptation/deferment and target. Per-ticket ledgers preserve the source-to-target argument. Deterministic checks establish content, hashes, reference closure and reproducible assembly; they do not establish observed recipient installation, service access, full agent compliance or real-app outcomes. The port requires no new behavioral qualification suite; pstack's own TDD/reproduction/live-verification requirements remain product behavior.
 --- upstream/d0ef80d86795816da932a153458c5dbe192d294e/pstack/docs/guide/04-design.md
 +++ plugin/pstack/README.md
-@@ -1,133 +1,69 @@
+@@ -1,133 +1,70 @@
 -# Design before you write code
 +# pstack for Codex
  
 -One attempt at a hard design locks in the first shape the model thought of. `/architect` settles types and boundaries before implementation. `/arena` runs several attempts at the same brief and merges the best parts. `/interrogate` has other models try to break the result. When the job is coverage rather than design synthesis, `/swarm` fans out slices or races and aggregates their results.
-+A shareable adaptation of Lauren Tan / poteto's pstack 0.15.15, pinned to Cursor plugins commit `d0ef80d86795816da932a153458c5dbe192d294e`. This independent port includes 50 original top-level workflows plus the deslop companion: 51 explicit skills, all 24 principles, all 23 playbooks and both original agent roles as instruction wrappers. See [whole-package qualification](qualification/issue-15.md), [source inventory](qualification/source-inventory.json), [capabilities](qualification/capabilities.md) and [notices](NOTICE.md). It is not an official Cursor or OpenAI plugin.
++A shareable adaptation of Lauren Tan / poteto's pstack 0.15.15, pinned to Cursor plugins commit `d0ef80d86795816da932a153458c5dbe192d294e`. This independent port includes 50 original top-level workflows plus the deslop companion: 52 explicit skills (including the reviewed 0.15.23 ketchup addition), all 24 principles, all 23 playbooks and both original agent roles as instruction wrappers. See [whole-package qualification](qualification/issue-15.md), [source inventory](qualification/source-inventory.json), [capabilities](qualification/capabilities.md) and [notices](NOTICE.md). It is not an official Cursor or OpenAI plugin.
  
 -The two most common design mistakes are taking the agent's first design and polishing a plan that no code has tested. This page fixes both. You plan through code: prototypes answer the open questions, a README or tutorial sets the target, and the written plan comes last.
 +The chat receiving PStack mode owns the playbook, ordered checklist and delegation. The poteto-agent instruction wrapper initializes code-writing and helper delegates within that run. See the [coordinator and instruction-access qualification](qualification/issue-25.md) for the reviewed 0.15.23 slice and its limits.
@@ -892,6 +896,7 @@ Binary files differ: assets/logo.png -> plugin/pstack/NOTICE.md
 +Select `pstack-poteto-mode` with a request for the full workflow router, or select an individual leaf. A leaf or normal mode invocation applies to that request. Enter sticky mode explicitly with “Enter sticky PStack mode for this conversation.” End it with “Exit PStack mode.” Read [continuation](references/continuation.md) for scope, private checkpoint, interruption and recovery. Persistence requires available context or a valid scoped entry record; this is not a native enforced mode.
  
 -## Cover slices and races with `/swarm`
++- `pstack-ketchup`: checked visual catch-up on this conversation, including earlier pending user decisions; read-only except for reply visuals. History, state readers and a real visual channel remain [recipient prerequisites](references/ketchup-capabilities.md); see [qualification](qualification/issue-27.md).
 +- `pstack-how`: explain a named subsystem from source; `pstack-why`: reconstruct its rationale; `pstack-recall`: recover scoped recent work; `pstack-teach`: explain it interactively.
 +- `pstack-architect` or `pstack-arena`: compare independent designs/artifacts; `pstack-interrogate`: adversarial review; `pstack-swarm`: partition investigation or implementation coverage.
 +- `pstack-poteto-mode`: investigate, fix a bug, build a feature, refactor, prototype, assess visual parity, diagnose performance or measure a benchmark. The mode routes to its playbook, principles, cleanup and verification gates.
@@ -991,12 +996,12 @@ Binary files differ: assets/logo.png -> plugin/pstack/NOTICE.md
 +Updates require a new pinned source review; no automatic upstream synchronization occurs. Immutable original sources remain in the source repository, outside this package. The inventory records every original item, unique owner, adaptation/deferment and target. Per-ticket ledgers preserve the source-to-target argument. Deterministic checks establish content, hashes, reference closure and reproducible assembly; they do not establish observed recipient installation, service access, full agent compliance or real-app outcomes. The port requires no new behavioral qualification suite; pstack's own TDD/reproduction/live-verification requirements remain product behavior.
 --- upstream/d0ef80d86795816da932a153458c5dbe192d294e/pstack/docs/guide/05-build-and-clean.md
 +++ plugin/pstack/README.md
-@@ -1,83 +1,69 @@
+@@ -1,83 +1,70 @@
 -# Build the change and clean the diff
 +# pstack for Codex
  
 -The build playbooks share one discipline. Say what you observed, let the playbook demand the evidence. This page shows what to put in the prompt for each common build task, then the cleanup habit that keeps diffs reviewable.
-+A shareable adaptation of Lauren Tan / poteto's pstack 0.15.15, pinned to Cursor plugins commit `d0ef80d86795816da932a153458c5dbe192d294e`. This independent port includes 50 original top-level workflows plus the deslop companion: 51 explicit skills, all 24 principles, all 23 playbooks and both original agent roles as instruction wrappers. See [whole-package qualification](qualification/issue-15.md), [source inventory](qualification/source-inventory.json), [capabilities](qualification/capabilities.md) and [notices](NOTICE.md). It is not an official Cursor or OpenAI plugin.
++A shareable adaptation of Lauren Tan / poteto's pstack 0.15.15, pinned to Cursor plugins commit `d0ef80d86795816da932a153458c5dbe192d294e`. This independent port includes 50 original top-level workflows plus the deslop companion: 52 explicit skills (including the reviewed 0.15.23 ketchup addition), all 24 principles, all 23 playbooks and both original agent roles as instruction wrappers. See [whole-package qualification](qualification/issue-15.md), [source inventory](qualification/source-inventory.json), [capabilities](qualification/capabilities.md) and [notices](NOTICE.md). It is not an official Cursor or OpenAI plugin.
  
 -## Prompt each build playbook with what you know
 +The chat receiving PStack mode owns the playbook, ordered checklist and delegation. The poteto-agent instruction wrapper initializes code-writing and helper delegates within that run. See the [coordinator and instruction-access qualification](qualification/issue-25.md) for the reviewed 0.15.23 slice and its limits.
@@ -1055,6 +1060,7 @@ Binary files differ: assets/logo.png -> plugin/pstack/NOTICE.md
 +Select `pstack-poteto-mode` with a request for the full workflow router, or select an individual leaf. A leaf or normal mode invocation applies to that request. Enter sticky mode explicitly with “Enter sticky PStack mode for this conversation.” End it with “Exit PStack mode.” Read [continuation](references/continuation.md) for scope, private checkpoint, interruption and recovery. Persistence requires available context or a valid scoped entry record; this is not a native enforced mode.
  
 -Sometimes you want the cause before any fix. For a live symptom, such as a leak, an idle CPU spin, or a visual glitch, the [Runtime forensics playbook](../../skills/poteto-mode/playbooks/runtime-forensics.md) instruments the running process. For a profile you already captured, the [Trace forensics playbook](../../skills/poteto-mode/playbooks/trace-forensics.md) reads the artifact and maps the hot frame to source. Both return a diagnosis, not a fix:
++- `pstack-ketchup`: checked visual catch-up on this conversation, including earlier pending user decisions; read-only except for reply visuals. History, state readers and a real visual channel remain [recipient prerequisites](references/ketchup-capabilities.md); see [qualification](qualification/issue-27.md).
 +- `pstack-how`: explain a named subsystem from source; `pstack-why`: reconstruct its rationale; `pstack-recall`: recover scoped recent work; `pstack-teach`: explain it interactively.
 +- `pstack-architect` or `pstack-arena`: compare independent designs/artifacts; `pstack-interrogate`: adversarial review; `pstack-swarm`: partition investigation or implementation coverage.
 +- `pstack-poteto-mode`: investigate, fix a bug, build a feature, refactor, prototype, assess visual parity, diagnose performance or measure a benchmark. The mode routes to its playbook, principles, cleanup and verification gates.
@@ -1120,12 +1126,12 @@ Binary files differ: assets/logo.png -> plugin/pstack/NOTICE.md
 +Updates require a new pinned source review; no automatic upstream synchronization occurs. Immutable original sources remain in the source repository, outside this package. The inventory records every original item, unique owner, adaptation/deferment and target. Per-ticket ledgers preserve the source-to-target argument. Deterministic checks establish content, hashes, reference closure and reproducible assembly; they do not establish observed recipient installation, service access, full agent compliance or real-app outcomes. The port requires no new behavioral qualification suite; pstack's own TDD/reproduction/live-verification requirements remain product behavior.
 --- upstream/d0ef80d86795816da932a153458c5dbe192d294e/pstack/docs/guide/06-verify-and-ship.md
 +++ plugin/pstack/README.md
-@@ -1,130 +1,69 @@
+@@ -1,130 +1,70 @@
 -# Verify the result and open a PR
 +# pstack for Codex
  
 -"It compiles" is not evidence. The [Prove It Works principle](../../skills/principle-prove-it-works/SKILL.md) makes the agent check the real artifact before it reports success, and your job is to make "the real artifact" checkable. This page covers stating a finish condition, vetting a measured number, generating a verification skill for your app, opening the PR, and driving it to merged.
-+A shareable adaptation of Lauren Tan / poteto's pstack 0.15.15, pinned to Cursor plugins commit `d0ef80d86795816da932a153458c5dbe192d294e`. This independent port includes 50 original top-level workflows plus the deslop companion: 51 explicit skills, all 24 principles, all 23 playbooks and both original agent roles as instruction wrappers. See [whole-package qualification](qualification/issue-15.md), [source inventory](qualification/source-inventory.json), [capabilities](qualification/capabilities.md) and [notices](NOTICE.md). It is not an official Cursor or OpenAI plugin.
++A shareable adaptation of Lauren Tan / poteto's pstack 0.15.15, pinned to Cursor plugins commit `d0ef80d86795816da932a153458c5dbe192d294e`. This independent port includes 50 original top-level workflows plus the deslop companion: 52 explicit skills (including the reviewed 0.15.23 ketchup addition), all 24 principles, all 23 playbooks and both original agent roles as instruction wrappers. See [whole-package qualification](qualification/issue-15.md), [source inventory](qualification/source-inventory.json), [capabilities](qualification/capabilities.md) and [notices](NOTICE.md). It is not an official Cursor or OpenAI plugin.
  
 -Verification is the slowest step in most agent work, because it's the step that usually waits on a human. Make the agent able to do it, and you stop being the bottleneck. Skip it, and running more agents only gets you more unchecked work to review.
 +The chat receiving PStack mode owns the playbook, ordered checklist and delegation. The poteto-agent instruction wrapper initializes code-writing and helper delegates within that run. See the [coordinator and instruction-access qualification](qualification/issue-25.md) for the reviewed 0.15.23 slice and its limits.
@@ -1206,6 +1212,7 @@ Binary files differ: assets/logo.png -> plugin/pstack/NOTICE.md
 +Select `pstack-poteto-mode` with a request for the full workflow router, or select an individual leaf. A leaf or normal mode invocation applies to that request. Enter sticky mode explicitly with “Enter sticky PStack mode for this conversation.” End it with “Exit PStack mode.” Read [continuation](references/continuation.md) for scope, private checkpoint, interruption and recovery. Persistence requires available context or a valid scoped entry record; this is not a native enforced mode.
  
 -It writes `.cursor/skills/verify-<app>/`, agent-facing instructions with exact Launch, Doctor, Drive, Evidence, and Cleanup sections, plus a feature map under `features/` that indexes what the app does and what result proves each feature works. The skill ships a [worked feature-map example](../../skills/create-verification-skill/references/feature-map-example/) with a README index and one file per feature using the four required H2s. Before handing it over, the generator proves the skill once end to end: launch, doctor check, drive one feature, capture evidence, clean up. If that proof fails, don't use the output.
++- `pstack-ketchup`: checked visual catch-up on this conversation, including earlier pending user decisions; read-only except for reply visuals. History, state readers and a real visual channel remain [recipient prerequisites](references/ketchup-capabilities.md); see [qualification](qualification/issue-27.md).
 +- `pstack-how`: explain a named subsystem from source; `pstack-why`: reconstruct its rationale; `pstack-recall`: recover scoped recent work; `pstack-teach`: explain it interactively.
 +- `pstack-architect` or `pstack-arena`: compare independent designs/artifacts; `pstack-interrogate`: adversarial review; `pstack-swarm`: partition investigation or implementation coverage.
 +- `pstack-poteto-mode`: investigate, fix a bug, build a feature, refactor, prototype, assess visual parity, diagnose performance or measure a benchmark. The mode routes to its playbook, principles, cleanup and verification gates.
@@ -1294,12 +1301,12 @@ Binary files differ: assets/logo.png -> plugin/pstack/NOTICE.md
 +Updates require a new pinned source review; no automatic upstream synchronization occurs. Immutable original sources remain in the source repository, outside this package. The inventory records every original item, unique owner, adaptation/deferment and target. Per-ticket ledgers preserve the source-to-target argument. Deterministic checks establish content, hashes, reference closure and reproducible assembly; they do not establish observed recipient installation, service access, full agent compliance or real-app outcomes. The port requires no new behavioral qualification suite; pstack's own TDD/reproduction/live-verification requirements remain product behavior.
 --- upstream/d0ef80d86795816da932a153458c5dbe192d294e/pstack/docs/guide/07-overnight.md
 +++ plugin/pstack/README.md
-@@ -1,120 +1,69 @@
+@@ -1,120 +1,70 @@
 -# Run work while you sleep
 +# pstack for Codex
  
 -This is the payoff for everything before it. An agent you can trust to verify its own work is an agent you can leave alone with a hard task. What makes that safe isn't hope. It's a checkable finish condition, an isolated worktree or cloud agent, and a decision log you audit in the morning.
-+A shareable adaptation of Lauren Tan / poteto's pstack 0.15.15, pinned to Cursor plugins commit `d0ef80d86795816da932a153458c5dbe192d294e`. This independent port includes 50 original top-level workflows plus the deslop companion: 51 explicit skills, all 24 principles, all 23 playbooks and both original agent roles as instruction wrappers. See [whole-package qualification](qualification/issue-15.md), [source inventory](qualification/source-inventory.json), [capabilities](qualification/capabilities.md) and [notices](NOTICE.md). It is not an official Cursor or OpenAI plugin.
++A shareable adaptation of Lauren Tan / poteto's pstack 0.15.15, pinned to Cursor plugins commit `d0ef80d86795816da932a153458c5dbe192d294e`. This independent port includes 50 original top-level workflows plus the deslop companion: 52 explicit skills (including the reviewed 0.15.23 ketchup addition), all 24 principles, all 23 playbooks and both original agent roles as instruction wrappers. See [whole-package qualification](qualification/issue-15.md), [source inventory](qualification/source-inventory.json), [capabilities](qualification/capabilities.md) and [notices](NOTICE.md). It is not an official Cursor or OpenAI plugin.
  
 -![She waves goodnight from the door while robots keep the factory running, one updating a DECISION LOG wall board under a BUILD LOOP ACTIVE sign.](./images/overnight.jpg)
 +The chat receiving PStack mode owns the playbook, ordered checklist and delegation. The poteto-agent instruction wrapper initializes code-writing and helper delegates within that run. See the [coordinator and instruction-access qualification](qualification/issue-25.md) for the reviewed 0.15.23 slice and its limits.
@@ -1390,6 +1397,7 @@ Binary files differ: assets/logo.png -> plugin/pstack/NOTICE.md
 +Select `pstack-poteto-mode` with a request for the full workflow router, or select an individual leaf. A leaf or normal mode invocation applies to that request. Enter sticky mode explicitly with “Enter sticky PStack mode for this conversation.” End it with “Exit PStack mode.” Read [continuation](references/continuation.md) for scope, private checkpoint, interruption and recovery. Persistence requires available context or a valid scoped entry record; this is not a native enforced mode.
  
 -The contract above drives one task to one finish condition. Some nights hold more, a queue of independent changes or a whole program. Three playbooks scale the same trust up.
++- `pstack-ketchup`: checked visual catch-up on this conversation, including earlier pending user decisions; read-only except for reply visuals. History, state readers and a real visual channel remain [recipient prerequisites](references/ketchup-capabilities.md); see [qualification](qualification/issue-27.md).
 +- `pstack-how`: explain a named subsystem from source; `pstack-why`: reconstruct its rationale; `pstack-recall`: recover scoped recent work; `pstack-teach`: explain it interactively.
 +- `pstack-architect` or `pstack-arena`: compare independent designs/artifacts; `pstack-interrogate`: adversarial review; `pstack-swarm`: partition investigation or implementation coverage.
 +- `pstack-poteto-mode`: investigate, fix a bug, build a feature, refactor, prototype, assess visual parity, diagnose performance or measure a benchmark. The mode routes to its playbook, principles, cleanup and verification gates.
@@ -1457,12 +1465,12 @@ Binary files differ: assets/logo.png -> plugin/pstack/NOTICE.md
 +Updates require a new pinned source review; no automatic upstream synchronization occurs. Immutable original sources remain in the source repository, outside this package. The inventory records every original item, unique owner, adaptation/deferment and target. Per-ticket ledgers preserve the source-to-target argument. Deterministic checks establish content, hashes, reference closure and reproducible assembly; they do not establish observed recipient installation, service access, full agent compliance or real-app outcomes. The port requires no new behavioral qualification suite; pstack's own TDD/reproduction/live-verification requirements remain product behavior.
 --- upstream/d0ef80d86795816da932a153458c5dbe192d294e/pstack/docs/guide/08-principles.md
 +++ plugin/pstack/README.md
-@@ -1,72 +1,69 @@
+@@ -1,72 +1,70 @@
 -# Steer with principle names
 +# pstack for Codex
  
 -pstack ships 24 principles as individual skills. `/poteto-mode` reads their index at the start of every multi-step task, applies the ones the task triggers, and names each applied principle in its reply along with the decision it changed.
-+A shareable adaptation of Lauren Tan / poteto's pstack 0.15.15, pinned to Cursor plugins commit `d0ef80d86795816da932a153458c5dbe192d294e`. This independent port includes 50 original top-level workflows plus the deslop companion: 51 explicit skills, all 24 principles, all 23 playbooks and both original agent roles as instruction wrappers. See [whole-package qualification](qualification/issue-15.md), [source inventory](qualification/source-inventory.json), [capabilities](qualification/capabilities.md) and [notices](NOTICE.md). It is not an official Cursor or OpenAI plugin.
++A shareable adaptation of Lauren Tan / poteto's pstack 0.15.15, pinned to Cursor plugins commit `d0ef80d86795816da932a153458c5dbe192d294e`. This independent port includes 50 original top-level workflows plus the deslop companion: 52 explicit skills (including the reviewed 0.15.23 ketchup addition), all 24 principles, all 23 playbooks and both original agent roles as instruction wrappers. See [whole-package qualification](qualification/issue-15.md), [source inventory](qualification/source-inventory.json), [capabilities](qualification/capabilities.md) and [notices](NOTICE.md). It is not an official Cursor or OpenAI plugin.
  
 -You don't invoke principles. You use their names to steer. Each name points at a complete rule the agent has already read, so one phrase redirects the work more precisely than a paragraph of instructions.
 +The chat receiving PStack mode owns the playbook, ordered checklist and delegation. The poteto-agent instruction wrapper initializes code-writing and helper delegates within that run. See the [coordinator and instruction-access qualification](qualification/issue-25.md) for the reviewed 0.15.23 slice and its limits.
@@ -1534,6 +1542,7 @@ Binary files differ: assets/logo.png -> plugin/pstack/NOTICE.md
 -- [Make Operations Idempotent](../../skills/principle-make-operations-idempotent/SKILL.md) converges retries on the same end state.
 -- [Migrate Callers Then Delete Legacy APIs](../../skills/principle-migrate-callers-then-delete-legacy-apis/SKILL.md) migrates and deletes in one wave.
 -- [Separate Before Serializing Shared State](../../skills/principle-separate-before-serializing-shared-state/SKILL.md) removes the sharing before adding coordination.
++- `pstack-ketchup`: checked visual catch-up on this conversation, including earlier pending user decisions; read-only except for reply visuals. History, state readers and a real visual channel remain [recipient prerequisites](references/ketchup-capabilities.md); see [qualification](qualification/issue-27.md).
 +- `pstack-how`: explain a named subsystem from source; `pstack-why`: reconstruct its rationale; `pstack-recall`: recover scoped recent work; `pstack-teach`: explain it interactively.
 +- `pstack-architect` or `pstack-arena`: compare independent designs/artifacts; `pstack-interrogate`: adversarial review; `pstack-swarm`: partition investigation or implementation coverage.
 +- `pstack-poteto-mode`: investigate, fix a bug, build a feature, refactor, prototype, assess visual parity, diagnose performance or measure a benchmark. The mode routes to its playbook, principles, cleanup and verification gates.
@@ -1576,12 +1585,12 @@ Binary files differ: assets/logo.png -> plugin/pstack/NOTICE.md
 +Updates require a new pinned source review; no automatic upstream synchronization occurs. Immutable original sources remain in the source repository, outside this package. The inventory records every original item, unique owner, adaptation/deferment and target. Per-ticket ledgers preserve the source-to-target argument. Deterministic checks establish content, hashes, reference closure and reproducible assembly; they do not establish observed recipient installation, service access, full agent compliance or real-app outcomes. The port requires no new behavioral qualification suite; pstack's own TDD/reproduction/live-verification requirements remain product behavior.
 --- upstream/d0ef80d86795816da932a153458c5dbe192d294e/pstack/docs/guide/09-make-it-yours.md
 +++ plugin/pstack/README.md
-@@ -1,100 +1,69 @@
+@@ -1,100 +1,70 @@
 -# Make it yours
 +# pstack for Codex
  
 -poteto-mode is one person's style. The machinery underneath, playbooks, routing, model roles, works just as well wearing yours. This page covers generating a personal mode, capturing lessons from a session, fixing the repo so agents stop repeating mistakes, authoring a focused skill, and testing a skill change before you trust it.
-+A shareable adaptation of Lauren Tan / poteto's pstack 0.15.15, pinned to Cursor plugins commit `d0ef80d86795816da932a153458c5dbe192d294e`. This independent port includes 50 original top-level workflows plus the deslop companion: 51 explicit skills, all 24 principles, all 23 playbooks and both original agent roles as instruction wrappers. See [whole-package qualification](qualification/issue-15.md), [source inventory](qualification/source-inventory.json), [capabilities](qualification/capabilities.md) and [notices](NOTICE.md). It is not an official Cursor or OpenAI plugin.
++A shareable adaptation of Lauren Tan / poteto's pstack 0.15.15, pinned to Cursor plugins commit `d0ef80d86795816da932a153458c5dbe192d294e`. This independent port includes 50 original top-level workflows plus the deslop companion: 52 explicit skills (including the reviewed 0.15.23 ketchup addition), all 24 principles, all 23 playbooks and both original agent roles as instruction wrappers. See [whole-package qualification](qualification/issue-15.md), [source inventory](qualification/source-inventory.json), [capabilities](qualification/capabilities.md) and [notices](NOTICE.md). It is not an official Cursor or OpenAI plugin.
  
 -Start smaller than you think. You don't need many skills on day one, or even this whole plugin. Prompt plainly, watch where agents fail, and add a skill or a check when the same failure shows up twice.
 +The chat receiving PStack mode owns the playbook, ordered checklist and delegation. The poteto-agent instruction wrapper initializes code-writing and helper delegates within that run. See the [coordinator and instruction-access qualification](qualification/issue-25.md) for the reviewed 0.15.23 slice and its limits.
@@ -1643,6 +1652,7 @@ Binary files differ: assets/logo.png -> plugin/pstack/NOTICE.md
 -2. Block it with types, or with a lint or CI check whose error names the fix.
 -3. Catch it with a test.
 -4. Write it down as a doc or agent rule. Nothing fails when an agent skips a rule, so this comes last.
++- `pstack-ketchup`: checked visual catch-up on this conversation, including earlier pending user decisions; read-only except for reply visuals. History, state readers and a real visual channel remain [recipient prerequisites](references/ketchup-capabilities.md); see [qualification](qualification/issue-27.md).
 +- `pstack-how`: explain a named subsystem from source; `pstack-why`: reconstruct its rationale; `pstack-recall`: recover scoped recent work; `pstack-teach`: explain it interactively.
 +- `pstack-architect` or `pstack-arena`: compare independent designs/artifacts; `pstack-interrogate`: adversarial review; `pstack-swarm`: partition investigation or implementation coverage.
 +- `pstack-poteto-mode`: investigate, fix a bug, build a feature, refactor, prototype, assess visual parity, diagnose performance or measure a benchmark. The mode routes to its playbook, principles, cleanup and verification gates.
@@ -1722,12 +1732,12 @@ Binary files differ: assets/logo.png -> plugin/pstack/NOTICE.md
 +Updates require a new pinned source review; no automatic upstream synchronization occurs. Immutable original sources remain in the source repository, outside this package. The inventory records every original item, unique owner, adaptation/deferment and target. Per-ticket ledgers preserve the source-to-target argument. Deterministic checks establish content, hashes, reference closure and reproducible assembly; they do not establish observed recipient installation, service access, full agent compliance or real-app outcomes. The port requires no new behavioral qualification suite; pstack's own TDD/reproduction/live-verification requirements remain product behavior.
 --- upstream/d0ef80d86795816da932a153458c5dbe192d294e/pstack/docs/guide/10-recipes-and-pitfalls.md
 +++ plugin/pstack/README.md
-@@ -1,156 +1,69 @@
+@@ -1,156 +1,70 @@
 -# Recipes and pitfalls
 +# pstack for Codex
  
 -Prompts worth copying, then the mistakes everyone makes once. Swap in your own paths and finish conditions. The recipes are deliberately informal. That's how they get typed in practice, and the skills read intent fine.
-+A shareable adaptation of Lauren Tan / poteto's pstack 0.15.15, pinned to Cursor plugins commit `d0ef80d86795816da932a153458c5dbe192d294e`. This independent port includes 50 original top-level workflows plus the deslop companion: 51 explicit skills, all 24 principles, all 23 playbooks and both original agent roles as instruction wrappers. See [whole-package qualification](qualification/issue-15.md), [source inventory](qualification/source-inventory.json), [capabilities](qualification/capabilities.md) and [notices](NOTICE.md). It is not an official Cursor or OpenAI plugin.
++A shareable adaptation of Lauren Tan / poteto's pstack 0.15.15, pinned to Cursor plugins commit `d0ef80d86795816da932a153458c5dbe192d294e`. This independent port includes 50 original top-level workflows plus the deslop companion: 52 explicit skills (including the reviewed 0.15.23 ketchup addition), all 24 principles, all 23 playbooks and both original agent roles as instruction wrappers. See [whole-package qualification](qualification/issue-15.md), [source inventory](qualification/source-inventory.json), [capabilities](qualification/capabilities.md) and [notices](NOTICE.md). It is not an official Cursor or OpenAI plugin.
  
 -![She tastes a finished dish while robots cook from a recipe box, with pinned cards reading /how, /tdd, and /loop above the counter.](./images/recipes.jpg)
 +The chat receiving PStack mode owns the playbook, ordered checklist and delegation. The poteto-agent instruction wrapper initializes code-writing and helper delegates within that run. See the [coordinator and instruction-access qualification](qualification/issue-25.md) for the reviewed 0.15.23 slice and its limits.
@@ -1788,6 +1798,7 @@ Binary files differ: assets/logo.png -> plugin/pstack/NOTICE.md
 +Select `pstack-poteto-mode` with a request for the full workflow router, or select an individual leaf. A leaf or normal mode invocation applies to that request. Enter sticky mode explicitly with “Enter sticky PStack mode for this conversation.” End it with “Exit PStack mode.” Read [continuation](references/continuation.md) for scope, private checkpoint, interruption and recovery. Persistence requires available context or a valid scoped entry record; this is not a native enforced mode.
  
 -## Get a second opinion on a design
++- `pstack-ketchup`: checked visual catch-up on this conversation, including earlier pending user decisions; read-only except for reply visuals. History, state readers and a real visual channel remain [recipient prerequisites](references/ketchup-capabilities.md); see [qualification](qualification/issue-27.md).
 +- `pstack-how`: explain a named subsystem from source; `pstack-why`: reconstruct its rationale; `pstack-recall`: recover scoped recent work; `pstack-teach`: explain it interactively.
 +- `pstack-architect` or `pstack-arena`: compare independent designs/artifacts; `pstack-interrogate`: adversarial review; `pstack-swarm`: partition investigation or implementation coverage.
 +- `pstack-poteto-mode`: investigate, fix a bug, build a feature, refactor, prototype, assess visual parity, diagnose performance or measure a benchmark. The mode routes to its playbook, principles, cleanup and verification gates.
@@ -1924,12 +1935,12 @@ Binary files differ: assets/logo.png -> plugin/pstack/NOTICE.md
 +Updates require a new pinned source review; no automatic upstream synchronization occurs. Immutable original sources remain in the source repository, outside this package. The inventory records every original item, unique owner, adaptation/deferment and target. Per-ticket ledgers preserve the source-to-target argument. Deterministic checks establish content, hashes, reference closure and reproducible assembly; they do not establish observed recipient installation, service access, full agent compliance or real-app outcomes. The port requires no new behavioral qualification suite; pstack's own TDD/reproduction/live-verification requirements remain product behavior.
 --- upstream/d0ef80d86795816da932a153458c5dbe192d294e/pstack/docs/guide/README.md
 +++ plugin/pstack/README.md
-@@ -1,38 +1,69 @@
+@@ -1,38 +1,70 @@
 -# The pstack guide
 +# pstack for Codex
  
 -pstack works best when you stop micromanaging the agent. You describe what you want and how you'll know it's done. `/poteto-mode` picks the playbook, runs the other skills as the steps need them, and shows you the evidence. This guide teaches that habit with realistic prompts.
-+A shareable adaptation of Lauren Tan / poteto's pstack 0.15.15, pinned to Cursor plugins commit `d0ef80d86795816da932a153458c5dbe192d294e`. This independent port includes 50 original top-level workflows plus the deslop companion: 51 explicit skills, all 24 principles, all 23 playbooks and both original agent roles as instruction wrappers. See [whole-package qualification](qualification/issue-15.md), [source inventory](qualification/source-inventory.json), [capabilities](qualification/capabilities.md) and [notices](NOTICE.md). It is not an official Cursor or OpenAI plugin.
++A shareable adaptation of Lauren Tan / poteto's pstack 0.15.15, pinned to Cursor plugins commit `d0ef80d86795816da932a153458c5dbe192d294e`. This independent port includes 50 original top-level workflows plus the deslop companion: 52 explicit skills (including the reviewed 0.15.23 ketchup addition), all 24 principles, all 23 playbooks and both original agent roles as instruction wrappers. See [whole-package qualification](qualification/issue-15.md), [source inventory](qualification/source-inventory.json), [capabilities](qualification/capabilities.md) and [notices](NOTICE.md). It is not an official Cursor or OpenAI plugin.
  
 -Here's what you'll learn:
 +The chat receiving PStack mode owns the playbook, ordered checklist and delegation. The poteto-agent instruction wrapper initializes code-writing and helper delegates within that run. See the [coordinator and instruction-access qualification](qualification/issue-25.md) for the reviewed 0.15.23 slice and its limits.
@@ -1993,6 +2004,7 @@ Binary files differ: assets/logo.png -> plugin/pstack/NOTICE.md
 +
 +Select `pstack-poteto-mode` with a request for the full workflow router, or select an individual leaf. A leaf or normal mode invocation applies to that request. Enter sticky mode explicitly with “Enter sticky PStack mode for this conversation.” End it with “Exit PStack mode.” Read [continuation](references/continuation.md) for scope, private checkpoint, interruption and recovery. Persistence requires available context or a valid scoped entry record; this is not a native enforced mode.
 +
++- `pstack-ketchup`: checked visual catch-up on this conversation, including earlier pending user decisions; read-only except for reply visuals. History, state readers and a real visual channel remain [recipient prerequisites](references/ketchup-capabilities.md); see [qualification](qualification/issue-27.md).
 +- `pstack-how`: explain a named subsystem from source; `pstack-why`: reconstruct its rationale; `pstack-recall`: recover scoped recent work; `pstack-teach`: explain it interactively.
 +- `pstack-architect` or `pstack-arena`: compare independent designs/artifacts; `pstack-interrogate`: adversarial review; `pstack-swarm`: partition investigation or implementation coverage.
 +- `pstack-poteto-mode`: investigate, fix a bug, build a feature, refactor, prototype, assess visual parity, diagnose performance or measure a benchmark. The mode routes to its playbook, principles, cleanup and verification gates.
@@ -2513,6 +2525,20 @@ Binary files differ: docs/guide/images/verification.jpg -> plugin/pstack/README.
  
  Follow this pattern:
  1. **Find the entry point.** What triggers this behavior? A user action, an API call, a scheduled job? Find where it starts.
+--- upstream/dbf49813a39c1a5389c5e28cb8e4c1c2379e2454/pstack/skills/in-your-own-words/SKILL.md
++++ plugin/pstack/skills/pstack-in-your-own-words/SKILL.md
+@@ -1,7 +1,8 @@
+ ---
+-name: in-your-own-words
+-description: "Restate in your own words what you think the user's goals are and what problem they're trying to solve. Use for /in-your-own-words."
+-disable-model-invocation: true
++name: pstack-in-your-own-words
++description: Restate the user's goals and problem before work begins.
+ ---
+ 
+ Restate in your own words what you think the user's goals are and what problem they're trying to solve.
++
++Return the restatement for the user to check. This invocation does not start implementation or a discovery interview.
 --- upstream/d0ef80d86795816da932a153458c5dbe192d294e/pstack/skills/interrogate/SKILL.md
 +++ plugin/pstack/skills/pstack-interrogate/SKILL.md
 @@ -1,12 +1,11 @@
@@ -2600,6 +2626,56 @@ Binary files differ: docs/guide/images/verification.jpg -> plugin/pstack/README.
  
  - Guard clauses that mask a deeper invariant violation
  - Retry logic that hides a broken contract
+--- upstream/dbf49813a39c1a5389c5e28cb8e4c1c2379e2454/pstack/skills/ketchup/SKILL.md
++++ plugin/pstack/skills/pstack-ketchup/SKILL.md
+@@ -1,33 +1,30 @@
+ ---
+-name: ketchup
+-description: "Catch the user up on what changed in this chat since their last message, in a short reply built on real visuals. Give each action item just enough context to make the call. Use for /ketchup."
+-disable-model-invocation: true
++name: pstack-ketchup
++description: Catch up on this conversation with checked states, real visuals, and pending user decisions.
+ ---
+ 
+ # Ketchup
+ 
+-Catch the user up on what changed in this chat since the last message they wrote before `/ketchup`. Notifications and subagent results are not their messages. Write in the plain voice of [`/bro`](../bro/SKILL.md), and skip its restating step. Assume the user remembers their last message and nothing after it. Call each PR, branch, or agent by a name they would know, not by a label you invented during the work.
++Read the [compatibility contract](../../references/compatibility.md) and [catch-up capability binding](../../references/ketchup-capabilities.md) before gathering evidence. This explicit invocation produces a catch-up reply, then stops; it does not resume the underlying task.
+ 
+-## Gather what changed
++Catch the user up since the last message they wrote before this invocation. Notifications, tool messages and delegate results do not move that boundary. Assume the user remembers their message and nothing after it. Use the plain voice of [bro](../pstack-bro/SKILL.md), skipping its restating step. Call each PR, branch and agent by a recognizable name, rather than an invented internal label.
+ 
+-Keep this turn read-only, except for visuals you make for the reply from what you already have. Do not change code, start an app or a job, or post anything to make them. Collect your own work since that message, reports from subagents, and messages from anyone else in this chat. Check the current state of each PR, CI run, or agent this chat touched. Check each number you will show against the facts it comes from, and say so when you correct one.
++## Gather
+ 
+-An action item is a decision or step only the user can take, such as a product choice, an approval, an irreversible action, or access you lack. Include any still waiting on the user, even one raised before their last message. Work you can still do yourself is not an action item.
++Keep the turn read-only, except for reply visuals made from available facts. Do not change code, start apps or jobs, post externally, or continue task work to improve the report. Stay within this conversation and artifacts it touched. Collect your work, delegate reports and other messages since the boundary; include earlier unresolved user actions. Check the current state of every touched PR, CI run and agent with an available read operation. Verify every displayed number against its underlying facts, and disclose corrections. Mark unavailable state “unknown” or “not checked,” never inferred success.
+ 
+-## Write the reply
++An action item is a decision or step only the user can take: a product choice, approval, irreversible action or missing access. Agent-owned work is not a user action item.
+ 
+-Keep the text under 250 words. Markdown tables are text, so their words count. Visuals do not count. A visual replaces the text it shows, so never give a fact in both. Leave out work that changed nothing for the user.
++## Reply
+ 
+-Open with one sentence that says how many action items there are, or that there are none. If nothing happened and nothing waits on the user, say so and stop.
++Keep text under 250 words, including Markdown tables; visuals do not count. Each visual replaces the facts it shows: avoid repeating them in text. Omit work that changed nothing for the user.
+ 
+-Then show what happened in one visual: each PR, run, or agent this chat touched, with its state (done, running, failed, or not checked). Under it, give at most three one-line results that change what the user knows or must do. Keep a result's key number in its line unless the visual shows it. Then name in one line any work left that you can do yourself.
++Open with one sentence giving the action-item count, or saying there are none. If nothing happened and nothing waits on the user, say so and stop.
+ 
+-Then give each action item in three lines: the decision, your recommendation and why, and what happens if the user does not answer. Write "unknown" for a part you do not know. Link to the detail.
++Show progress in one visual containing each touched PR, run and agent with its state: done, running, failed or not checked. Give at most three one-line results that change what the user knows or must do. Keep a key number in its result line unless already visualized. Name remaining agent-owned work in one line.
+ 
+-Show each action item as a before and after, side by side, in a visual. For a choice, put the current state beside each option, or the options alone when there is no current state. Put the options and what each costs in the visual, not in the text. Skip the visual only for a request for access.
++For each user action, give three lines: the decision; your recommendation and reason; the consequence of no answer. Write “unknown” for anything unknown and link existing detail. Show before/after side by side in a visual; for choices show the current state beside each option, or options alone when there is no current state. Put options and costs in the visual rather than repeating them in text. Only access requests may omit their action visual.
+ 
+-## Visuals
++## Real visuals
+ 
+-A visual is a picture: a screenshot, a video, a Mermaid diagram, a chart or diagram from `/visualize`, or a generated image. A Markdown table is not a visual, even with a before column and an after column.
+-
+-Use screenshots or a video when the change is visible. If a visible change has none, add it to the visual of what happened, marked "No screenshot yet." For anything else, draw the visual from facts you have: a Mermaid diagram for states, flows, and structures, and a `/visualize` chart for numbers. Never invent a number, and never draw or generate a picture of a screen you did not capture. Link only artifacts that exist.
++Use real screenshots or video for visible changes. When none exists, mark that change “No screenshot yet” in the progress visual. Never draw or generate an uncaptured screen. For other changes use fact-grounded Mermaid state/flow/structure diagrams or charts of verified numbers through an available visualization capability. Screenshots, video, diagrams and charts qualify; Markdown tables do not. Link only existing artifacts. Missing required history or visualization capabilities remain explicit limitations or blockers under the capability binding; text or tables do not silently substitute for a required visual.
 --- upstream/d0ef80d86795816da932a153458c5dbe192d294e/pstack/skills/maintain-verification-skill/SKILL.md
 +++ plugin/pstack/skills/pstack-maintain-verification-skill/SKILL.md
 @@ -1,12 +1,14 @@
@@ -2663,7 +2739,7 @@ Binary files differ: docs/guide/images/verification.jpg -> plugin/pstack/README.
  6. Report the deletion count, restored comments, reruns, architect sketch, fixes, encoding offers, encodings, unenforced constraints, and other open work.
 --- upstream/d0ef80d86795816da932a153458c5dbe192d294e/pstack/skills/poteto-help/SKILL.md
 +++ plugin/pstack/skills/pstack-poteto-help/SKILL.md
-@@ -1,153 +1,104 @@
+@@ -1,153 +1,106 @@
  ---
 -name: poteto-help
 -description: Guides users through pstack setup, /poteto-mode, and picking the skill, playbook, or principle for a task. Type /poteto-help with a question.
@@ -2778,10 +2854,12 @@ Binary files differ: docs/guide/images/verification.jpg -> plugin/pstack/README.
 -| Find their way around pstack | `/poteto-help` |
 +| User need | Upstream skill name (invoke as `$pstack-<name>`) |
 +| --- | --- |
++| Check the agent understood your goals and problem before work begins | in-your-own-words |
 +| Current mechanics and where code belongs | how |
 +| Reasons, regression history or a number's origin | why |
 +| Plain explanation and tradeoffs | teach |
 +| Recent scoped working context | recall |
++| Checked catch-up on this conversation and pending decisions | ketchup |
 +| Breakage outside the diff and a proven safety fact | blast-radius |
 +| Parallel design before crossing a function boundary | architect |
 +| Competing attempts with base selection and grafting | arena |
@@ -2807,7 +2885,7 @@ Binary files differ: docs/guide/images/verification.jpg -> plugin/pstack/README.
 +A new sibling not in this table is discoverable by its frontmatter. Principles live in the mode index; read their leaves before applying/citing them. They also support explicit `$pstack-principle-<name>` entry.
  
 -Close calls:
-+Close calls preserve upstream distinctions. How explains mechanics; why explains reasons; teach explains their result. Arena gives the same brief to competing workers; swarm partitions or races. Architect implements after design unless the user asks for a checkpoint. Interrogate reviews the diff; blast-radius proves safety beyond it. Recall spans scoped recent work; [session pickup](../../references/session-pickup.md) resumes a specific run. Figure-it-out designs one bespoke run; Orchestrate manages a standing program; Autonomous run drives one task to a predicate.
++Close calls preserve upstream distinctions. How explains mechanics; why explains reasons; teach explains their result. Arena gives the same brief to competing workers; swarm partitions or races. Architect implements after design unless the user asks for a checkpoint. Interrogate reviews the diff; blast-radius proves safety beyond it. Ketchup reports this conversation since the last user message, retaining earlier pending user actions, without resuming work. Recall spans scoped recent work; [session pickup](../../references/session-pickup.md) resumes a specific run. Figure-it-out designs one bespoke run; Orchestrate manages a standing program; Autonomous run drives one task to a predicate.
  
 -- `/how` explains what the code does. `/why` explains the reasons. `/teach` runs one or both and explains the result plainly.
 -- `/arena` gives every worker the same brief and merges the best parts. `/swarm` splits work into slices or a race and returns one report.
@@ -2913,7 +2991,7 @@ Binary files differ: docs/guide/images/verification.jpg -> plugin/pstack/README.
  - Ask for a decision log to audit later.
 --- upstream/d0ef80d86795816da932a153458c5dbe192d294e/pstack/skills/poteto-help/references/recipes.md
 +++ plugin/pstack/skills/pstack-poteto-help/references/recipes.md
-@@ -4,44 +4,46 @@
+@@ -4,44 +4,49 @@
  
  ## Understand
  
@@ -2924,6 +3002,7 @@ Binary files differ: docs/guide/images/verification.jpg -> plugin/pstack/README.
 -- `/teach me why you implemented it this way and not <other way>. what did you trade off?`
 -- `/poteto-mode take over this branch. read the decision log, find what's done, and continue. don't redo finished work.`
 +- `$pstack-poteto-mode read <thread>. restate the underlying issue in your own words, in plain english.`
++- `$pstack-in-your-own-words <long or messy ask>`
 +- `$pstack-poteto-mode investigate why <symptom>. give me what we know, what data you used, and your best hypotheses. don't change any code yet.`
 +- `use $pstack-how to understand <subsystem>. then use $pstack-why to find out why it broke recently.`
 +- `$pstack-recall my work on <topic> from last week, then read <issue>.`
@@ -2981,6 +3060,8 @@ Binary files differ: docs/guide/images/verification.jpg -> plugin/pstack/README.
 -- `/poteto-mode autopilot these changes but stack them, don't ship. i'll land the stack.`
 -- `/reflect capture what we learned so the next run doesn't repeat it.` Approve only edits that change a future decision.
 -- `/bro` restates the last reply in plain words.
++- `$pstack-ketchup` gives a read-only visual catch-up on this conversation and pending user decisions.
++
 +- `$pstack-poteto-mode im going to bed. <goal> in a fresh worktree off <base>. done means <checks>. keep a decision log. don't ask me before committing. keep working in the active session until done. if you're truly stuck after a few hours, stop and write up why.`
 +- `$pstack-show-me-your-work catch me up on what you did last night.` Read its Attention section first.
 +- `$pstack-poteto-mode full autopilot on this queue. each item is independent.`
@@ -3158,7 +3239,7 @@ Binary files differ: docs/guide/images/verification.jpg -> plugin/pstack/README.
  
  ## Comments
  
-@@ -118,30 +126,88 @@
+@@ -118,30 +126,90 @@
  
  ## Playbooks
  
@@ -3226,10 +3307,12 @@ Binary files differ: docs/guide/images/verification.jpg -> plugin/pstack/README.
 +| benchmark-checklist | [../pstack-benchmark-checklist/SKILL.md](../pstack-benchmark-checklist/SKILL.md) |
 +| blast-radius | [../pstack-blast-radius/SKILL.md](../pstack-blast-radius/SKILL.md) |
 +| bro | [../pstack-bro/SKILL.md](../pstack-bro/SKILL.md) |
++| ketchup | [../pstack-ketchup/SKILL.md](../pstack-ketchup/SKILL.md) |
 +| correct | [../pstack-correct/SKILL.md](../pstack-correct/SKILL.md) |
 +| create-verification-skill | [../pstack-create-verification-skill/SKILL.md](../pstack-create-verification-skill/SKILL.md) |
 +| figure-it-out | [../pstack-figure-it-out/SKILL.md](../pstack-figure-it-out/SKILL.md) |
 +| how | [../pstack-how/SKILL.md](../pstack-how/SKILL.md) |
++| in-your-own-words | [../pstack-in-your-own-words/SKILL.md](../pstack-in-your-own-words/SKILL.md) |
 +| interrogate | [../pstack-interrogate/SKILL.md](../pstack-interrogate/SKILL.md) |
 +| maintain-verification-skill | [../pstack-maintain-verification-skill/SKILL.md](../pstack-maintain-verification-skill/SKILL.md) |
 +| make-bot-ui | Excluded from first release (Grok Bot UI). |
@@ -5003,6 +5086,174 @@ Binary files differ: docs/guide/images/verification.jpg -> plugin/pstack/README.
    "private": true,
    "type": "module",
    "scripts": {
+--- upstream/dbf49813a39c1a5389c5e28cb8e4c1c2379e2454/pstack/skills/poteto-mode/scripts/watch-pr/github.test.ts
++++ plugin/pstack/scripts/watch-pr/github.test.ts
+@@ -2,14 +2,14 @@
+ import {
+   ChecksUnavailable,
+   WatcherQueryError,
+-  buildReviewThreads,
+   mapRollupNode,
+   orderStack,
+   parsePullRequest,
++  buildReviewThreads,
+   parseReviewThreadPage,
++  resolveReviewThreads,
+   resolveChecks,
+   resolveContext,
+-  resolveReviewThreads,
+ } from "./github.ts";
+ import {
+   fakeReader,
+@@ -402,3 +402,38 @@
+     expect(ordered.map((item) => Number(item.number))).toEqual([41, 42, 43]);
+   });
+ });
++
++
++describe("review-thread pagination metadata", () => {
++  it.each([
++    undefined,
++    null,
++    {},
++    { hasNextPage: "true", endCursor: "next" },
++    { hasNextPage: true },
++    { hasNextPage: true, endCursor: null },
++    { hasNextPage: true, endCursor: "" },
++    { hasNextPage: true, endCursor: "  " },
++    { hasNextPage: true, endCursor: 7 },
++    { hasNextPage: false },
++    { hasNextPage: false, endCursor: 7 },
++  ])("rejects incomplete or malformed metadata: %j", (pageInfo) => {
++    expect(() => parseReviewThreadPage({
++      data: { repository: { pullRequest: {
++        reviewThreads: { nodes: [], pageInfo },
++      } } },
++    })).toThrow(WatcherQueryError);
++  });
++
++  it.each([
++    { cursors: ["next", "next", null] },
++    { cursors: ["next", "last", "next", null] },
++  ])("rejects repeated or cyclic continuations: %j", async ({ cursors }) => {
++    const reader = fakeReader({
++      threadPages: cursors.map((endCursor) => ({ threads: [], endCursor })),
++    });
++    await expect(resolveReviewThreads(reader, context)).rejects.toBeInstanceOf(
++      WatcherQueryError
++    );
++  });
++});
+--- upstream/dbf49813a39c1a5389c5e28cb8e4c1c2379e2454/pstack/skills/poteto-mode/scripts/watch-pr/github.ts
++++ plugin/pstack/scripts/watch-pr/github.ts
+@@ -385,7 +385,9 @@
+     page.endCursor,
+     "reviewThreads.pageInfo.endCursor"
+   );
+-  return { threads, endCursor: page.hasNextPage && cursor ? cursor : null };
++  if (page.hasNextPage && (cursor === null || cursor.trim() === ""))
++    missing("reviewThreads.pageInfo.endCursor", page.endCursor);
++  return { threads, endCursor: page.hasNextPage ? cursor : null };
+ }
+ export function buildReviewThreads(
+   threads: readonly T.RawReviewThread[]
+@@ -638,11 +640,17 @@
+   context: T.PrContext
+ ): Promise<readonly T.ReviewThread[]> {
+   const threads: T.RawReviewThread[] = [];
++  const seenCursors = new Set<string>();
+   let after: string | null = null;
+   do {
+     const page = await reader.reviewThreadPage(context, after);
+     threads.push(...page.threads);
+     after = page.endCursor;
++    if (after !== null) {
++      if (seenCursors.has(after))
++        missing("reviewThreads repeated endCursor", after);
++      seenCursors.add(after);
++    }
+   } while (after !== null);
+   return buildReviewThreads(threads);
+ }
+--- upstream/dbf49813a39c1a5389c5e28cb8e4c1c2379e2454/pstack/skills/poteto-mode/scripts/watch-pr/policy.test.ts
++++ plugin/pstack/scripts/watch-pr/policy.test.ts
+@@ -1,5 +1,5 @@
+ import { describe, expect, it } from "bun:test";
+-import { WatcherQueryError } from "./github.ts";
++import { WatcherQueryError, parseReviewThreadPage } from "./github.ts";
+ import {
+   applyQueueSnapshot,
+   assessGitHubMerge,
+@@ -10,6 +10,7 @@
+   queryBackoffSeconds,
+   readSnapshot,
+   runQueued,
++  runSimple,
+   selectTierMajorStackDecision,
+ } from "./policy.ts";
+ import {
+@@ -418,3 +419,61 @@
+   expect(queryBackoffSeconds(1, 2)).toBe(120);
+   expect(queryBackoffSeconds(60, 4)).toBe(300);
+ });
++
++it("blocks readiness for unresolved feedback after the first review-thread page", async () => {
++  const reader = {
++    ...fakeReader(),
++    async reviewThreadPage(_context: PrContext, after: string | null) {
++      return after === null
++        ? {
++            threads: [{ id: "early", resolved: true, firstComment: null }],
++            endCursor: "next",
++          }
++        : {
++            threads: [{ id: "late", resolved: false, firstComment: null }],
++            endCursor: null,
++          };
++    },
++  };
++  const snapshot = await readSnapshot({
++    reader,
++    context: context(1),
++    pendingHistory: "include",
++    allowDraft: false,
++  });
++  expect(classifyPr(snapshot)).toMatchObject({
++    kind: "blocker",
++    blocker: { kind: "review-threads", threads: [{ id: "late" }] },
++  });
++});
++
++it("fails closed when a later page announces more threads without a usable cursor", async () => {
++  const reader = {
++    ...fakeReader(),
++    async reviewThreadPage(_context: PrContext, after: string | null) {
++      if (after === null) return { threads: [], endCursor: "next" };
++      return parseReviewThreadPage({
++        data: { repository: { pullRequest: {
++          reviewThreads: {
++            nodes: [], pageInfo: { hasNextPage: true, endCursor: null },
++          },
++        } } },
++      });
++    },
++  };
++  const verdict = await runSimple({
++    dependencies: {
++      reader,
++      clock: { now: () => 0, observedAt: () => "now", sleep: async () => {} },
++      emit: () => {},
++    },
++    contexts: [context(1)],
++    mode: "single",
++    statusOnly: false,
++    options: { ...options, maxQueryErrors: 1 },
++  });
++  expect(verdict).toMatchObject({
++    kind: "BLOCKER", exitCode: 7,
++    blocker: { kind: "status-query", failure: { kind: "missing-key" } },
++  });
++});
 --- upstream/d0ef80d86795816da932a153458c5dbe192d294e/pstack/skills/poteto-mode/scripts/watch-pr/watch-pr
 +++ plugin/pstack/scripts/watch-pr/watch-pr
 @@ -1,6 +1,14 @@

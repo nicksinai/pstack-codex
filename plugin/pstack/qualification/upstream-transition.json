@@ -134,9 +134,10 @@
       "previous_sha256": null,
       "sha256": "fa8ba74e27d7be371dc270ec78bbf816411477d0dfab185356c861ac8dd413ad",
       "owner_issue": 26,
-      "target": null,
-      "disposition": "pending",
-      "reason": "Owner #26 must review changed requirements, source mapping and qualification before accepting the new revision."
+      "target": "plugin/pstack/skills/pstack-in-your-own-words/SKILL.md",
+      "disposition": "adapted",
+      "reason": "Restatement instruction retained with namespaced Codex explicit-only entry; source-backed scope and discovery argument in issue #26.",
+      "qualification": "plugin/pstack/qualification/issue-26.md"
     },
     {
       "source": "skills/interrogate/SKILL.md",
@@ -174,9 +175,10 @@
       "previous_sha256": null,
       "sha256": "13b3a4e5dbce25a07f6bda558bbac7e5194012c51d80af4ef83415ba26eaadc6",
       "owner_issue": 27,
-      "target": null,
-      "disposition": "pending",
-      "reason": "Owner #27 must review changed requirements, source mapping and qualification before accepting the new revision."
+      "target": "plugin/pstack/skills/pstack-ketchup/SKILL.md",
+      "disposition": "adapted",
+      "reason": "Complete added ketchup instruction adapted to explicit Codex invocation and conditional current-chat/state/visual bindings; source-backed qualification, no runtime claim.",
+      "qualification": "plugin/pstack/qualification/issue-27.md"
     },
     {
       "source": "skills/no-comments/SKILL.md",
@@ -196,7 +198,7 @@
       "owner_issue": 26,
       "target": "plugin/pstack/skills/pstack-poteto-help/SKILL.md",
       "disposition": "pending",
-      "reason": "Primary owner #26 integrates goal-playback discovery; #27 supplies catch-up discovery. Both requirements need source-backed qualification.",
+      "reason": "Goal-playback portion is delivered and reviewed in qualification/issue-26.md; ketchup portion is delivered and reviewed in qualification/issue-27.md. Both are integrated; consolidated shared-source mapping and final joint qualification remain for #30.",
       "dependency_issues": [
         27
       ]
@@ -209,7 +211,7 @@
       "owner_issue": 26,
       "target": "plugin/pstack/skills/pstack-poteto-help/references/recipes.md",
       "disposition": "pending",
-      "reason": "Primary owner #26 integrates goal-playback discovery; #27 supplies catch-up discovery. Both requirements need source-backed qualification.",
+      "reason": "Goal-playback portion is delivered and reviewed in qualification/issue-26.md; ketchup portion is delivered and reviewed in qualification/issue-27.md. Both are integrated; consolidated shared-source mapping and final joint qualification remain for #30.",
       "dependency_issues": [
         27
       ]
@@ -305,8 +307,9 @@
       "sha256": "cf0c5ee61b4a73444c1b775cfb6c81a40d312e055dd21a1f5eae6276e54de13f",
       "owner_issue": 22,
       "target": "plugin/pstack/scripts/watch-pr/fakes.test-helper.ts",
-      "disposition": "pending",
-      "reason": "Owner #22 must review changed requirements, source mapping and qualification before accepting the new revision."
+      "disposition": "adapted",
+      "reason": "Reviewed pagination source adapted through the existing Codex watcher reader/assessment seam; stricter required metadata and continuation validation. See qualification/issue-22.md.",
+      "qualification": "plugin/pstack/qualification/issue-22.md"
     },
     {
       "source": "skills/poteto-mode/scripts/watch-pr/github.test.ts",
@@ -315,8 +318,9 @@
       "sha256": "035f4a0f1ab5a17ebf94ad1f7c14d1abd948852be30987c0e9d107b5ea5028ab",
       "owner_issue": 22,
       "target": "plugin/pstack/scripts/watch-pr/github.test.ts",
-      "disposition": "pending",
-      "reason": "Owner #22 must review changed requirements, source mapping and qualification before accepting the new revision."
+      "disposition": "adapted",
+      "reason": "Reviewed pagination source adapted through the existing Codex watcher reader/assessment seam; stricter required metadata and continuation validation. See qualification/issue-22.md.",
+      "qualification": "plugin/pstack/qualification/issue-22.md"
     },
     {
       "source": "skills/poteto-mode/scripts/watch-pr/github.ts",
@@ -325,8 +329,9 @@
       "sha256": "9ea8de77e019de19929fbe4a86bc88492ffbecd89d6816d9857ed49db904c151",
       "owner_issue": 22,
       "target": "plugin/pstack/scripts/watch-pr/github.ts",
-      "disposition": "pending",
-      "reason": "Owner #22 must review changed requirements, source mapping and qualification before accepting the new revision."
+      "disposition": "adapted",
+      "reason": "Reviewed pagination source adapted through the existing Codex watcher reader/assessment seam; stricter required metadata and continuation validation. See qualification/issue-22.md.",
+      "qualification": "plugin/pstack/qualification/issue-22.md"
     },
     {
       "source": "skills/poteto-mode/scripts/watch-pr/policy.test.ts",
@@ -335,8 +340,9 @@
       "sha256": "146acabcfee9b6fa3342358eb0a9504aa65fd081bbc15b10adf9c1c5485067d2",
       "owner_issue": 22,
       "target": "plugin/pstack/scripts/watch-pr/policy.test.ts",
-      "disposition": "pending",
-      "reason": "Owner #22 must review changed requirements, source mapping and qualification before accepting the new revision."
+      "disposition": "adapted",
+      "reason": "Reviewed pagination source adapted through the existing Codex watcher reader/assessment seam; stricter required metadata and continuation validation. See qualification/issue-22.md.",
+      "qualification": "plugin/pstack/qualification/issue-22.md"
     },
     {
       "source": "skills/poteto-mode/scripts/watch-pr/policy.ts",
@@ -345,8 +351,9 @@
       "sha256": "f2a3e31223d05edc05e5473cc3f8f3cb9bd20c202c30c6abe7f21f0f7aee8fbb",
       "owner_issue": 22,
       "target": "plugin/pstack/scripts/watch-pr/policy.ts",
-      "disposition": "pending",
-      "reason": "Owner #22 must review changed requirements, source mapping and qualification before accepting the new revision."
+      "disposition": "adapted",
+      "reason": "Reviewed pagination source adapted through the existing Codex watcher reader/assessment seam; stricter required metadata and continuation validation. See qualification/issue-22.md.",
+      "qualification": "plugin/pstack/qualification/issue-22.md"
     },
     {
       "source": "skills/poteto-mode/scripts/watch-pr/types.ts",
@@ -355,8 +362,9 @@
       "sha256": "0cac435294dc85ce1ba755e8e67f6c5ab163dfa252f2722d6e3a2d68c58fec59",
       "owner_issue": 22,
       "target": "plugin/pstack/scripts/watch-pr/types.ts",
-      "disposition": "pending",
-      "reason": "Owner #22 must review changed requirements, source mapping and qualification before accepting the new revision."
+      "disposition": "adapted",
+      "reason": "Reviewed pagination source adapted through the existing Codex watcher reader/assessment seam; stricter required metadata and continuation validation. See qualification/issue-22.md.",
+      "qualification": "plugin/pstack/qualification/issue-22.md"
     },
     {
       "source": "skills/poteto-mode/scripts/worktree-audit.sh",

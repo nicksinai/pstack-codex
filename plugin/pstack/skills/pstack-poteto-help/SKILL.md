@@ -45,10 +45,12 @@ Default to mode for a nontrivial engineering request; recommend a leaf when the 
 
 | User need | Upstream skill name (invoke as `$pstack-<name>`) |
 | --- | --- |
+| Check the agent understood your goals and problem before work begins | in-your-own-words |
 | Current mechanics and where code belongs | how |
 | Reasons, regression history or a number's origin | why |
 | Plain explanation and tradeoffs | teach |
 | Recent scoped working context | recall |
+| Checked catch-up on this conversation and pending decisions | ketchup |
 | Breakage outside the diff and a proven safety fact | blast-radius |
 | Parallel design before crossing a function boundary | architect |
 | Competing attempts with base selection and grafting | arena |
@@ -72,7 +74,7 @@ Default to mode for a nontrivial engineering request; recommend a leaf when the 
 
 A new sibling not in this table is discoverable by its frontmatter. Principles live in the mode index; read their leaves before applying/citing them. They also support explicit `$pstack-principle-<name>` entry.
 
-Close calls preserve upstream distinctions. How explains mechanics; why explains reasons; teach explains their result. Arena gives the same brief to competing workers; swarm partitions or races. Architect implements after design unless the user asks for a checkpoint. Interrogate reviews the diff; blast-radius proves safety beyond it. Recall spans scoped recent work; [session pickup](../../references/session-pickup.md) resumes a specific run. Figure-it-out designs one bespoke run; Orchestrate manages a standing program; Autonomous run drives one task to a predicate.
+Close calls preserve upstream distinctions. How explains mechanics; why explains reasons; teach explains their result. Arena gives the same brief to competing workers; swarm partitions or races. Architect implements after design unless the user asks for a checkpoint. Interrogate reviews the diff; blast-radius proves safety beyond it. Ketchup reports this conversation since the last user message, retaining earlier pending user actions, without resuming work. Recall spans scoped recent work; [session pickup](../../references/session-pickup.md) resumes a specific run. Figure-it-out designs one bespoke run; Orchestrate manages a standing program; Autonomous run drives one task to a predicate.
 
 ## Playbooks
 
