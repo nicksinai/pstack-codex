@@ -113,8 +113,9 @@
       "sha256": "47cfe3e6fe55c49c3bdf8ad1b645dcd5fece8f0c36fd22d2e7221f9faa71f648",
       "owner_issue": 29,
       "target": "plugin/pstack/skills/pstack-how/SKILL.md",
-      "disposition": "pending",
-      "reason": "Owner #29 must review changed requirements, source mapping and qualification before accepting the new revision."
+      "disposition": "retained",
+      "reason": "Per-file and per-hunk requirement review in issue-29 qualification; retained existing scoped Codex contract; deleted upstream requirements and provider-specific mechanics are explicitly accounted for.",
+      "qualification": "plugin/pstack/qualification/issue-29.md"
     },
     {
       "source": "skills/how/references/explorer-prompt.md",
@@ -123,8 +124,9 @@
       "sha256": "6300128385ee940fd42ecb84b0e623435440a2dc283eae54ee4a52ba56947ba1",
       "owner_issue": 29,
       "target": "plugin/pstack/skills/pstack-how/references/explorer-prompt.md",
-      "disposition": "pending",
-      "reason": "Owner #29 must review changed requirements, source mapping and qualification before accepting the new revision."
+      "disposition": "retained",
+      "reason": "Per-file and per-hunk requirement review in issue-29 qualification; retained existing scoped Codex contract; deleted upstream requirements and provider-specific mechanics are explicitly accounted for.",
+      "qualification": "plugin/pstack/qualification/issue-29.md"
     },
     {
       "source": "skills/in-your-own-words/SKILL.md",
@@ -373,8 +375,9 @@
       "sha256": "3434b0ad0c640c6f1d7960be7a8986c3bcdc14e26060360dec29903df60074ff",
       "owner_issue": 29,
       "target": "plugin/pstack/skills/pstack-principle-build-the-lever/SKILL.md",
-      "disposition": "pending",
-      "reason": "Owner #29 must review changed requirements, source mapping and qualification before accepting the new revision."
+      "disposition": "adapted",
+      "reason": "Per-file and per-hunk requirement review in issue-29 qualification; adopted equivalent wording while preserving Codex contracts and substantive requirements.",
+      "qualification": "plugin/pstack/qualification/issue-29.md"
     },
     {
       "source": "skills/principle-encode-lessons-in-structure/SKILL.md",
@@ -383,8 +386,9 @@
       "sha256": "228963799189f481827d6f28065f278bc2008ffa37030b1234cbd5814d36b9e9",
       "owner_issue": 29,
       "target": "plugin/pstack/skills/pstack-principle-encode-lessons-in-structure/SKILL.md",
-      "disposition": "pending",
-      "reason": "Owner #29 must review changed requirements, source mapping and qualification before accepting the new revision."
+      "disposition": "retained",
+      "reason": "Per-file and per-hunk requirement review in issue-29 qualification; retained existing scoped Codex contract; deleted upstream requirements and provider-specific mechanics are explicitly accounted for.",
+      "qualification": "plugin/pstack/qualification/issue-29.md"
     },
     {
       "source": "skills/principle-exhaust-the-design-space/SKILL.md",
@@ -393,8 +397,9 @@
       "sha256": "2de83d99f93f60ec6313455b0bc9aa9f0bfb93dd59f414f403691322db00d4db",
       "owner_issue": 29,
       "target": "plugin/pstack/skills/pstack-principle-exhaust-the-design-space/SKILL.md",
-      "disposition": "pending",
-      "reason": "Owner #29 must review changed requirements, source mapping and qualification before accepting the new revision."
+      "disposition": "retained",
+      "reason": "Per-file and per-hunk requirement review in issue-29 qualification; retained existing scoped Codex contract; deleted upstream requirements and provider-specific mechanics are explicitly accounted for.",
+      "qualification": "plugin/pstack/qualification/issue-29.md"
     },
     {
       "source": "skills/principle-explain-the-number/SKILL.md",
@@ -403,8 +408,9 @@
       "sha256": "cd5a25f9e7cf023627ccb470dc5faa97542f29b4319496a32b839a8e1e988047",
       "owner_issue": 29,
       "target": "plugin/pstack/skills/pstack-principle-explain-the-number/SKILL.md",
-      "disposition": "pending",
-      "reason": "Owner #29 must review changed requirements, source mapping and qualification before accepting the new revision."
+      "disposition": "adapted",
+      "reason": "Per-file and per-hunk requirement review in issue-29 qualification; adopted equivalent wording while preserving Codex contracts and substantive requirements.",
+      "qualification": "plugin/pstack/qualification/issue-29.md"
     },
     {
       "source": "skills/principle-fix-root-causes/SKILL.md",
@@ -424,8 +430,9 @@
       "sha256": "af0b9dd70b43628ce4a59a4d332e9d9ad055084e460f430e7a757495c627e81a",
       "owner_issue": 29,
       "target": "plugin/pstack/skills/pstack-principle-guard-the-context-window/SKILL.md",
-      "disposition": "pending",
-      "reason": "Owner #29 must review changed requirements, source mapping and qualification before accepting the new revision."
+      "disposition": "retained",
+      "reason": "Per-file and per-hunk requirement review in issue-29 qualification; retained existing scoped Codex contract; deleted upstream requirements and provider-specific mechanics are explicitly accounted for.",
+      "qualification": "plugin/pstack/qualification/issue-29.md"
     },
     {
       "source": "skills/principle-laziness-protocol/SKILL.md",
@@ -434,8 +441,9 @@
       "sha256": "1be6e7a435f26a75a76eb848b9c3d611b9977d0f5822361753244da25ca3ca45",
       "owner_issue": 29,
       "target": "plugin/pstack/skills/pstack-principle-laziness-protocol/SKILL.md",
-      "disposition": "pending",
-      "reason": "Owner #29 must review changed requirements, source mapping and qualification before accepting the new revision."
+      "disposition": "retained",
+      "reason": "Per-file and per-hunk requirement review in issue-29 qualification; retained existing scoped Codex contract; deleted upstream requirements and provider-specific mechanics are explicitly accounted for.",
+      "qualification": "plugin/pstack/qualification/issue-29.md"
     },
     {
       "source": "skills/principle-minimize-reader-load/SKILL.md",
@@ -444,8 +452,9 @@
       "sha256": "1ea2b7fef2391cae5844c4efdbd59031f775e8a52d06b7495d707229a200dcca",
       "owner_issue": 29,
       "target": "plugin/pstack/skills/pstack-principle-minimize-reader-load/SKILL.md",
-      "disposition": "pending",
-      "reason": "Owner #29 must review changed requirements, source mapping and qualification before accepting the new revision."
+      "disposition": "adapted",
+      "reason": "Per-file and per-hunk requirement review in issue-29 qualification; adopted equivalent wording while preserving Codex contracts and substantive requirements.",
+      "qualification": "plugin/pstack/qualification/issue-29.md"
     },
     {
       "source": "skills/principle-model-the-domain/SKILL.md",
@@ -454,8 +463,9 @@
       "sha256": "52c0d85e0c3827c41c18299b642657d7b47eaf77b7b31609e42e0df42b84c75f",
       "owner_issue": 29,
       "target": "plugin/pstack/skills/pstack-principle-model-the-domain/SKILL.md",
-      "disposition": "pending",
-      "reason": "Owner #29 must review changed requirements, source mapping and qualification before accepting the new revision."
+      "disposition": "adapted",
+      "reason": "Per-file and per-hunk requirement review in issue-29 qualification; adopted equivalent wording while preserving Codex contracts and substantive requirements.",
+      "qualification": "plugin/pstack/qualification/issue-29.md"
     },
     {
       "source": "skills/principle-never-block-on-the-human/SKILL.md",
@@ -464,8 +474,9 @@
       "sha256": "05030a7a083c337676f793881b4e93cd218e8f1dd676529f56e6ac1d3efb8d1f",
       "owner_issue": 29,
       "target": "plugin/pstack/skills/pstack-principle-never-block-on-the-human/SKILL.md",
-      "disposition": "pending",
-      "reason": "Owner #29 must review changed requirements, source mapping and qualification before accepting the new revision."
+      "disposition": "adapted",
+      "reason": "Per-file and per-hunk requirement review in issue-29 qualification; adopted equivalent wording while preserving Codex contracts and substantive requirements.",
+      "qualification": "plugin/pstack/qualification/issue-29.md"
     },
     {
       "source": "skills/principle-redesign-from-first-principles/SKILL.md",
@@ -474,8 +485,9 @@
       "sha256": "170e0a658783e43fee8ec5a8c2422a4abb8f69cef621dd1819a95910b8207034",
       "owner_issue": 29,
       "target": "plugin/pstack/skills/pstack-principle-redesign-from-first-principles/SKILL.md",
-      "disposition": "pending",
-      "reason": "Owner #29 must review changed requirements, source mapping and qualification before accepting the new revision."
+      "disposition": "adapted",
+      "reason": "Per-file and per-hunk requirement review in issue-29 qualification; adopted equivalent wording while preserving Codex contracts and substantive requirements.",
+      "qualification": "plugin/pstack/qualification/issue-29.md"
     },
     {
       "source": "skills/principle-subtract-before-you-add/SKILL.md",
@@ -484,8 +496,9 @@
       "sha256": "8c93bb9d1a7f38e2ef37655d93f0e790fa59903105af3d500cc8a663ebe45f3f",
       "owner_issue": 29,
       "target": "plugin/pstack/skills/pstack-principle-subtract-before-you-add/SKILL.md",
-      "disposition": "pending",
-      "reason": "Owner #29 must review changed requirements, source mapping and qualification before accepting the new revision."
+      "disposition": "adapted",
+      "reason": "Per-file and per-hunk requirement review in issue-29 qualification; adopted equivalent wording while preserving Codex contracts and substantive requirements.",
+      "qualification": "plugin/pstack/qualification/issue-29.md"
     },
     {
       "source": "skills/principle-test-behavior-not-implementation/SKILL.md",
@@ -494,8 +507,9 @@
       "sha256": "b2b73ba42920f9c3174ecdf808ec6e4591b3a9266ada9a05814f386004266d3a",
       "owner_issue": 29,
       "target": "plugin/pstack/skills/pstack-principle-test-behavior-not-implementation/SKILL.md",
-      "disposition": "pending",
-      "reason": "Owner #29 must review changed requirements, source mapping and qualification before accepting the new revision."
+      "disposition": "adapted",
+      "reason": "Per-file and per-hunk requirement review in issue-29 qualification; adopted equivalent wording while preserving Codex contracts and substantive requirements.",
+      "qualification": "plugin/pstack/qualification/issue-29.md"
     },
     {
       "source": "skills/principle-type-system-discipline/SKILL.md",
@@ -504,8 +518,9 @@
       "sha256": "2e492cef34bb25a20b9115df61f9ef3a9837e3fda144ffda8079e5f45a1b72e8",
       "owner_issue": 29,
       "target": "plugin/pstack/skills/pstack-principle-type-system-discipline/SKILL.md",
-      "disposition": "pending",
-      "reason": "Owner #29 must review changed requirements, source mapping and qualification before accepting the new revision."
+      "disposition": "adapted",
+      "reason": "Per-file and per-hunk requirement review in issue-29 qualification; adopted equivalent wording while preserving Codex contracts and substantive requirements.",
+      "qualification": "plugin/pstack/qualification/issue-29.md"
     },
     {
       "source": "skills/reflect/SKILL.md",
@@ -514,8 +529,9 @@
       "sha256": "f5e9200f37e2a4567c0eeb0ba244fde66c1b3f35e3b7a883de2f85b3bda7365a",
       "owner_issue": 29,
       "target": "plugin/pstack/skills/pstack-reflect/SKILL.md",
-      "disposition": "pending",
-      "reason": "Owner #29 must review changed requirements, source mapping and qualification before accepting the new revision."
+      "disposition": "retained",
+      "reason": "Per-file and per-hunk requirement review in issue-29 qualification; retained existing scoped Codex contract; deleted upstream requirements and provider-specific mechanics are explicitly accounted for.",
+      "qualification": "plugin/pstack/qualification/issue-29.md"
     },
     {
       "source": "skills/reflect/references/divergent-reviewer.md",
@@ -524,8 +540,9 @@
       "sha256": "f6030d88e20e906ef5e2d9ba44cb013ce610c49c2fe2ef74c377d32e0dc9e939",
       "owner_issue": 29,
       "target": "plugin/pstack/skills/pstack-reflect/references/divergent-reviewer.md",
-      "disposition": "pending",
-      "reason": "Owner #29 must review changed requirements, source mapping and qualification before accepting the new revision."
+      "disposition": "adapted",
+      "reason": "Per-file and per-hunk requirement review in issue-29 qualification; adopted equivalent wording while preserving Codex contracts and substantive requirements.",
+      "qualification": "plugin/pstack/qualification/issue-29.md"
     },
     {
       "source": "skills/reflect/references/judgment-reviewer.md",
@@ -534,8 +551,9 @@
       "sha256": "38f917619fbf346062d643e0ad6b12fc952d58678dfcbbf42ffcf6d8b9c08307",
       "owner_issue": 29,
       "target": "plugin/pstack/skills/pstack-reflect/references/judgment-reviewer.md",
-      "disposition": "pending",
-      "reason": "Owner #29 must review changed requirements, source mapping and qualification before accepting the new revision."
+      "disposition": "adapted",
+      "reason": "Per-file and per-hunk requirement review in issue-29 qualification; adopted equivalent wording while preserving Codex contracts and substantive requirements.",
+      "qualification": "plugin/pstack/qualification/issue-29.md"
     },
     {
       "source": "skills/reflect/references/synthesizer.md",
@@ -544,8 +562,9 @@
       "sha256": "6af816963de74d1a1aef4070273c1ff533d2072732e488e159ddc0b299fec3cd",
       "owner_issue": 29,
       "target": "plugin/pstack/skills/pstack-reflect/references/synthesizer.md",
-      "disposition": "pending",
-      "reason": "Owner #29 must review changed requirements, source mapping and qualification before accepting the new revision."
+      "disposition": "adapted",
+      "reason": "Per-file and per-hunk requirement review in issue-29 qualification; adopted equivalent wording while preserving Codex contracts and substantive requirements.",
+      "qualification": "plugin/pstack/qualification/issue-29.md"
     },
     {
       "source": "skills/reflect/references/tooling-reviewer.md",
@@ -554,8 +573,9 @@
       "sha256": "f81b8697e7366fbbc18feba52c6e3253a101f751091364ebc4396a1d9b5753b4",
       "owner_issue": 29,
       "target": "plugin/pstack/skills/pstack-reflect/references/tooling-reviewer.md",
-      "disposition": "pending",
-      "reason": "Owner #29 must review changed requirements, source mapping and qualification before accepting the new revision."
+      "disposition": "adapted",
+      "reason": "Per-file and per-hunk requirement review in issue-29 qualification; adopted equivalent wording while preserving Codex contracts and substantive requirements.",
+      "qualification": "plugin/pstack/qualification/issue-29.md"
     },
     {
       "source": "skills/technical-writing/SKILL.md",
@@ -564,8 +584,9 @@
       "sha256": "61fe9c424a798ebf36ad94941f87be049cb8827bdf86d21474a0dde37b513c43",
       "owner_issue": 29,
       "target": "plugin/pstack/skills/pstack-technical-writing/SKILL.md",
-      "disposition": "pending",
-      "reason": "Owner #29 must review changed requirements, source mapping and qualification before accepting the new revision."
+      "disposition": "adapted",
+      "reason": "Per-file and per-hunk requirement review in issue-29 qualification; adopted equivalent wording while preserving Codex contracts and substantive requirements.",
+      "qualification": "plugin/pstack/qualification/issue-29.md"
     },
     {
       "source": "skills/unslop/SKILL.md",
@@ -574,8 +595,9 @@
       "sha256": "ccab208e315ce05e2fab8eeee2f7879f1289b5c6844840b2d307adf31c79144f",
       "owner_issue": 29,
       "target": "plugin/pstack/skills/pstack-unslop/SKILL.md",
-      "disposition": "pending",
-      "reason": "Owner #29 must review changed requirements, source mapping and qualification before accepting the new revision."
+      "disposition": "adapted",
+      "reason": "Per-file and per-hunk requirement review in issue-29 qualification; adopted equivalent wording while preserving Codex contracts and substantive requirements.",
+      "qualification": "plugin/pstack/qualification/issue-29.md"
     },
     {
       "source": "skills/why/SKILL.md",
@@ -584,8 +606,9 @@
       "sha256": "fa1d1e9dec14b15381c1ccccad74044d6b6ea3b4af56821f59ba2d8e59b07545",
       "owner_issue": 29,
       "target": "plugin/pstack/skills/pstack-why/SKILL.md",
-      "disposition": "pending",
-      "reason": "Owner #29 must review changed requirements, source mapping and qualification before accepting the new revision."
+      "disposition": "adapted",
+      "reason": "Per-file and per-hunk requirement review in issue-29 qualification; adopted equivalent wording while preserving Codex contracts and substantive requirements.",
+      "qualification": "plugin/pstack/qualification/issue-29.md"
     },
     {
       "source": "skills/why/references/epistemics.md",
@@ -594,8 +617,9 @@
       "sha256": "d54a2361b2d5973bc3fe2edf62f446d87935974d4b40d47f23b9529f956ca758",
       "owner_issue": 29,
       "target": "plugin/pstack/skills/pstack-why/references/epistemics.md",
-      "disposition": "pending",
-      "reason": "Owner #29 must review changed requirements, source mapping and qualification before accepting the new revision."
+      "disposition": "adapted",
+      "reason": "Per-file and per-hunk requirement review in issue-29 qualification; adopted equivalent wording while preserving Codex contracts and substantive requirements.",
+      "qualification": "plugin/pstack/qualification/issue-29.md"
     },
     {
       "source": "skills/why/references/investigator-prompt.md",
@@ -604,8 +628,9 @@
       "sha256": "c44afba186f899094f3694e6c9d6de5d14ff7c4ce28b787a9f50fc789c9a7fc3",
       "owner_issue": 29,
       "target": "plugin/pstack/skills/pstack-why/references/investigator-prompt.md",
-      "disposition": "pending",
-      "reason": "Owner #29 must review changed requirements, source mapping and qualification before accepting the new revision."
+      "disposition": "adapted",
+      "reason": "Per-file and per-hunk requirement review in issue-29 qualification; adopted equivalent wording while preserving Codex contracts and substantive requirements.",
+      "qualification": "plugin/pstack/qualification/issue-29.md"
     },
     {
       "source": "skills/why/references/sources/code-archaeology.md",
@@ -614,8 +639,9 @@
       "sha256": "a4a3970e9db448054aed676f3f7feeee667b4b69f0bd57c8fd72b751be687cc7",
       "owner_issue": 29,
       "target": "plugin/pstack/skills/pstack-why/references/sources/code-archaeology.md",
-      "disposition": "pending",
-      "reason": "Owner #29 must review changed requirements, source mapping and qualification before accepting the new revision."
+      "disposition": "retained",
+      "reason": "Per-file and per-hunk requirement review in issue-29 qualification; retained existing scoped Codex contract; deleted upstream requirements and provider-specific mechanics are explicitly accounted for.",
+      "qualification": "plugin/pstack/qualification/issue-29.md"
     },
     {
       "source": "skills/why/references/sources/datadog.md",
@@ -624,8 +650,9 @@
       "sha256": "b139faac5dc11b8f26c8255dce6033c1a6ac143b038d3dd103f2034c5dbec9cd",
       "owner_issue": 29,
       "target": "plugin/pstack/skills/pstack-why/references/sources/datadog.md",
-      "disposition": "pending",
-      "reason": "Owner #29 must review changed requirements, source mapping and qualification before accepting the new revision."
+      "disposition": "adapted",
+      "reason": "Per-file and per-hunk requirement review in issue-29 qualification; adopted equivalent wording while preserving Codex contracts and substantive requirements.",
+      "qualification": "plugin/pstack/qualification/issue-29.md"
     },
     {
       "source": "skills/why/references/sources/incident-postmortem.md",
@@ -634,8 +661,9 @@
       "sha256": "bf2661f1a81c37700884a45b77d6289be0c802b065febced31990e6564510839",
       "owner_issue": 29,
       "target": "plugin/pstack/skills/pstack-why/references/sources/incident-postmortem.md",
-      "disposition": "pending",
-      "reason": "Owner #29 must review changed requirements, source mapping and qualification before accepting the new revision."
+      "disposition": "retained",
+      "reason": "Per-file and per-hunk requirement review in issue-29 qualification; retained existing scoped Codex contract; deleted upstream requirements and provider-specific mechanics are explicitly accounted for.",
+      "qualification": "plugin/pstack/qualification/issue-29.md"
     },
     {
       "source": "skills/why/references/sources/sentry.md",
@@ -644,8 +672,9 @@
       "sha256": "2d4f83048eac1df530b399e2aed75dd7c9c18577b7665420aaeb96d0ceb0b702",
       "owner_issue": 29,
       "target": "plugin/pstack/skills/pstack-why/references/sources/sentry.md",
-      "disposition": "pending",
-      "reason": "Owner #29 must review changed requirements, source mapping and qualification before accepting the new revision."
+      "disposition": "retained",
+      "reason": "Per-file and per-hunk requirement review in issue-29 qualification; retained existing scoped Codex contract; deleted upstream requirements and provider-specific mechanics are explicitly accounted for.",
+      "qualification": "plugin/pstack/qualification/issue-29.md"
     },
     {
       "source": "skills/why/references/sources/slack.md",
@@ -654,8 +683,9 @@
       "sha256": "3bc6309f5c7b26ace3b919dbd7f7b048861dd2020f910fe24f656cc74b3b661c",
       "owner_issue": 29,
       "target": "plugin/pstack/skills/pstack-why/references/sources/slack.md",
-      "disposition": "pending",
-      "reason": "Owner #29 must review changed requirements, source mapping and qualification before accepting the new revision."
+      "disposition": "retained",
+      "reason": "Per-file and per-hunk requirement review in issue-29 qualification; retained existing scoped Codex contract; deleted upstream requirements and provider-specific mechanics are explicitly accounted for.",
+      "qualification": "plugin/pstack/qualification/issue-29.md"
     },
     {
       "source": "skills/why/references/synthesizer-prompt.md",
@@ -664,8 +694,9 @@
       "sha256": "11c62671aa7b7a6e3d36929ffe2b59bf95e6ca664eee4d93e6ee527dd3390ddb",
       "owner_issue": 29,
       "target": "plugin/pstack/skills/pstack-why/references/synthesizer-prompt.md",
-      "disposition": "pending",
-      "reason": "Owner #29 must review changed requirements, source mapping and qualification before accepting the new revision."
+      "disposition": "adapted",
+      "reason": "Per-file and per-hunk requirement review in issue-29 qualification; adopted equivalent wording while preserving Codex contracts and substantive requirements.",
+      "qualification": "plugin/pstack/qualification/issue-29.md"
     }
   ]
 }
