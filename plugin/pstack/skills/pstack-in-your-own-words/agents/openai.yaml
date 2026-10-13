@@ -1,0 +1,4 @@
+interface:
+  display_name: "pstack: in-your-own-words"
+policy:
+  allow_implicit_invocation: false

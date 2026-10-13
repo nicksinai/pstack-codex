@@ -24,6 +24,8 @@ Without the CLI, clone or download this repository, open its directory as a proj
 
 Select an individual skill for one request, or explicitly say “Enter sticky PStack mode for this conversation.” Exit with “Exit PStack mode.” Required tools, authentication, model choices and local helper dependencies are checked during setup; the plugin cannot grant them.
 
+Explicitly select **pstack: ketchup** for a read-only visual catch-up on the current conversation and pending user decisions. Its [qualification](plugin/pstack/qualification/issue-27.md) keeps missing history/state/visual capabilities explicit.
+
 ## Source and qualification
 
 Build an offline friend artifact with `python3 scripts/build-package.py --output-dir <recipient-artifact-directory>`. This assembles a reproducible archive and companion digest; it does not install or share it. Run `python3 scripts/validate-provenance.py` first.
