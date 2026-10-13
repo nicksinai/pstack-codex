@@ -92,8 +92,9 @@
       "sha256": "d353973547bf8ad8977eca645f4cd4feaed0d32f4b43d1448f906b0a76c4d694",
       "owner_issue": 23,
       "target": "plugin/pstack/skills/pstack-create-verification-skill/SKILL.md",
-      "disposition": "pending",
-      "reason": "Owner #23 must review changed requirements, source mapping and qualification before accepting the new revision."
+      "disposition": "adapted",
+      "reason": "Adopted empty-data usable launch, failed journeys with missing seed prerequisites and feature gotchas, and explicit stand-in versus target setup proof; preserved existing Codex control and authoring contracts.",
+      "qualification": "plugin/pstack/qualification/issue-23.md"
     },
     {
       "source": "skills/figure-it-out/SKILL.md",
