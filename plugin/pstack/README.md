@@ -62,4 +62,6 @@ Disable or uninstall `pstack-codex` through Plugins Directory. Remove only its m
 
 ## Maintenance and evidence
 
+The 0.15.23 source snapshot is separately pinned for review. This transitional package still maps each delivered adaptation to its recorded source revision; archiving newer source does not qualify it. [Transition obligations](qualification/upstream-transition.json) identify the pending owners and [baseline evidence](qualification/issue-21.md) explains the retained source relationship. The earlier qualification records describe the 0.15.15 delivery and do not establish completion of the newer update.
+
 Updates require a new pinned source review; no automatic upstream synchronization occurs. Immutable original sources remain in the source repository, outside this package. The inventory records every original item, unique owner, adaptation/deferment and target. Per-ticket ledgers preserve the source-to-target argument. Deterministic checks establish content, hashes, reference closure and reproducible assembly; they do not establish observed recipient installation, service access, full agent compliance or real-app outcomes. The port requires no new behavioral qualification suite; pstack's own TDD/reproduction/live-verification requirements remain product behavior.

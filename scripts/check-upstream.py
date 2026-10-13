@@ -45,10 +45,19 @@ def changes(manifest, hashes):
             for path in sorted(old.keys() | hashes.keys()) if old.get(path) != hashes.get(path)]
 
 
+def pending_adaptations(manifest):
+    return [item for item in manifest.get('transition', {}).get('items', [])
+            if item['disposition'] in {'pending', 'blocked'}]
+
+
+def needs_review(manifest, delta):
+    return bool(delta or pending_adaptations(manifest))
+
+
 def report(manifest, revision, hashes, delta, repository):
     # Content fingerprint prevents unrelated commits in Cursor's monorepo causing updates.
     fingerprint = hashlib.sha256(json.dumps(
-        [manifest['commit'], hashes], sort_keys=True
+        [manifest['commit'], hashes, manifest.get('transition')], sort_keys=True
     ).encode()).hexdigest()
     state = f'<!-- pstack-upstream-state:{fingerprint} -->'
     owners = {item['source']: item for item in manifest['items']}
@@ -77,6 +86,12 @@ def report(manifest, revision, hashes, delta, repository):
         # Escape table delimiters and HTML in paths supplied by upstream.
         label = path.replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;').replace('|', '&#124;').replace('`', '&#96;').replace('\n', ' ')
         lines.append(f'| {status} | [{label}]({UPSTREAM}/blob/{ref}/pstack/{quote(path)}) | {counterpart} |')
+    pending = pending_adaptations(manifest)
+    if manifest.get('transition'):
+        lines += ['', f'{len(pending)} pending adaptation obligations for the reviewed transition.', '',
+                  'Archiving reviewed source does not qualify these adaptations.']
+        for item in pending:
+            lines.append(f"- `{item['source']}` — #{item['owner_issue']}: {item['reason']}")
     lines += ['', 'Review steps:', '',
               '- Review changed requirements and all callers/dependencies; additions need an explicit scope decision.',
               '- Preserve the original baseline; pin the new revision separately and account for each adaptation or omission.',
@@ -121,28 +136,51 @@ def sync_issue(repository, state, body, has_changes):
                       '--label', 'needs-triage', '--body-file', str(file)))
 
 
+def reviewed_manifest(root):
+    registry = json.loads((root / 'provenance/baselines.json').read_text())
+    reviewed = next(item for item in registry['baselines']
+                    if item['revision'] == registry['reviewed_revision'])
+    source = json.loads((root / reviewed['manifest']).read_text())
+    if source['commit'] != reviewed['revision']:
+        raise ValueError('Reviewed baseline revision does not match source manifest')
+    active = json.loads((root / 'provenance/ownership.json').read_text())
+    transition = json.loads((root / 'provenance/upstream-transition.json').read_text())
+    if transition['to_revision'] != source['commit']:
+        raise ValueError('Transition does not match reviewed baseline')
+    owners = {item['source']: item for item in active['items']}
+    owners.update({item['source']: item for item in transition['items']})
+    return {'repository': source['repository'], 'version': source['plugin_version'],
+            'commit': source['commit'], 'transition': transition,
+            'items': [dict(owners.get(path, {}), source=path, sha256=digest)
+                      for path, digest in source['files_sha256'].items()]}
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--publish', action='store_true', help='Create/update the tracking issue')
     parser.add_argument('--repository', default='nicksinai/pstack-codex')
     parser.add_argument('--output', type=Path, required=True)
+    parser.add_argument('--source-checkout', type=Path, help='Read an existing official-repository checkout instead of fetching upstream')
     args = parser.parse_args()
-    manifest = json.loads((ROOT / 'provenance/ownership.json').read_text())
+    manifest = reviewed_manifest(ROOT)
     if manifest['repository'] != UPSTREAM:
         raise ValueError('Unexpected upstream repository')
-    with tempfile.TemporaryDirectory(prefix='pstack-upstream-') as temp:
-        checkout = Path(temp) / 'source'
-        subprocess.run(['git', 'clone', '--depth=1', '--filter=blob:none', '--sparse',
-                        UPSTREAM + '.git', str(checkout)], check=True)
-        subprocess.run(['git', '-C', str(checkout), 'sparse-checkout', 'set', 'pstack'], check=True)
-        revision, hashes = snapshot(checkout)
+    if args.source_checkout:
+        revision, hashes = snapshot(args.source_checkout)
+    else:
+        with tempfile.TemporaryDirectory(prefix='pstack-upstream-') as temp:
+            checkout = Path(temp) / 'source'
+            subprocess.run(['git', 'clone', '--depth=1', '--filter=blob:none', '--sparse',
+                            UPSTREAM + '.git', str(checkout)], check=True)
+            subprocess.run(['git', '-C', str(checkout), 'sparse-checkout', 'set', 'pstack'], check=True)
+            revision, hashes = snapshot(checkout)
     delta = changes(manifest, hashes)
     state, body = report(manifest, revision, hashes, delta, args.repository)
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(body)
     print(f'{len(delta)} upstream file differences; report: {args.output}')
     if args.publish:
-        sync_issue(args.repository, state, body, bool(delta))
+        sync_issue(args.repository, state, body, needs_review(manifest, delta))
 
 
 if __name__ == '__main__':

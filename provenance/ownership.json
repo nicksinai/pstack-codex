@@ -10,7 +10,8 @@
       "owner_issue": 2,
       "disposition": "adapted",
       "target": "plugin/pstack/plugin.json",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification."
+      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": ".gitignore",
@@ -18,7 +19,8 @@
       "owner_issue": 15,
       "disposition": "adapted",
       "target": ".gitignore",
-      "reason": "Repository exclusion policy replaces upstream developer ignore rules; not a runtime instruction."
+      "reason": "Repository exclusion policy replaces upstream developer ignore rules; not a runtime instruction.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "LICENSE",
@@ -26,7 +28,8 @@
       "owner_issue": 2,
       "disposition": "preserved",
       "target": "plugin/pstack/LICENSE",
-      "reason": "Pinned source retained byte-for-byte at its mapped counterpart; see primary issue qualification."
+      "reason": "Pinned source retained byte-for-byte at its mapped counterpart; see primary issue qualification.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "README.md",
@@ -34,7 +37,8 @@
       "owner_issue": 15,
       "disposition": "adapted",
       "target": "plugin/pstack/README.md",
-      "reason": "Cursor-specific onboarding and illustrative guide images replaced by Codex recipient setup, workflow map and capability limits; immutable originals retained in source provenance."
+      "reason": "Cursor-specific onboarding and illustrative guide images replaced by Codex recipient setup, workflow map and capability limits; immutable originals retained in source provenance.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "agents/comment-sicko.md",
@@ -42,7 +46,8 @@
       "owner_issue": 6,
       "disposition": "adapted",
       "target": "plugin/pstack/references/comment-sicko.md",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification."
+      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "agents/poteto-agent.md",
@@ -50,7 +55,8 @@
       "owner_issue": 3,
       "disposition": "adapted",
       "target": "plugin/pstack/references/poteto-agent.md",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification."
+      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "assets/logo.png",
@@ -58,7 +64,8 @@
       "owner_issue": 15,
       "disposition": "adapted",
       "target": "plugin/pstack/NOTICE.md",
-      "reason": "Upstream branded logo omitted from independent adaptation; attribution replaces branding, original retained in provenance."
+      "reason": "Upstream branded logo omitted from independent adaptation; attribution replaces branding, original retained in provenance.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "automations/benny/FOR_AGENTS.md",
@@ -66,7 +73,8 @@
       "owner_issue": 15,
       "disposition": "deferred",
       "target": null,
-      "reason": "Explicit first-release exclusion: Benny automation pack or Grok Bot UI."
+      "reason": "Explicit first-release exclusion: Benny automation pack or Grok Bot UI.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "automations/benny/README.md",
@@ -74,7 +82,8 @@
       "owner_issue": 15,
       "disposition": "deferred",
       "target": null,
-      "reason": "Explicit first-release exclusion: Benny automation pack or Grok Bot UI."
+      "reason": "Explicit first-release exclusion: Benny automation pack or Grok Bot UI.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "automations/benny/skills/reproduce-and-fix-issues/SKILL.md",
@@ -82,7 +91,8 @@
       "owner_issue": 15,
       "disposition": "deferred",
       "target": null,
-      "reason": "Explicit first-release exclusion: Benny automation pack or Grok Bot UI."
+      "reason": "Explicit first-release exclusion: Benny automation pack or Grok Bot UI.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "automations/benny/skills/reproduce-and-fix-issues/references/control-adapter.md",
@@ -90,7 +100,8 @@
       "owner_issue": 15,
       "disposition": "deferred",
       "target": null,
-      "reason": "Explicit first-release exclusion: Benny automation pack or Grok Bot UI."
+      "reason": "Explicit first-release exclusion: Benny automation pack or Grok Bot UI.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "automations/benny/skills/reproduce-and-fix-issues/references/feature-map.example.md",
@@ -98,7 +109,8 @@
       "owner_issue": 15,
       "disposition": "deferred",
       "target": null,
-      "reason": "Explicit first-release exclusion: Benny automation pack or Grok Bot UI."
+      "reason": "Explicit first-release exclusion: Benny automation pack or Grok Bot UI.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "automations/benny/skills/reproduce-and-fix-issues/references/verify-existing-fix.md",
@@ -106,7 +118,8 @@
       "owner_issue": 15,
       "disposition": "deferred",
       "target": null,
-      "reason": "Explicit first-release exclusion: Benny automation pack or Grok Bot UI."
+      "reason": "Explicit first-release exclusion: Benny automation pack or Grok Bot UI.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "automations/benny/skills/setup-benny/SKILL.md",
@@ -114,7 +127,8 @@
       "owner_issue": 15,
       "disposition": "deferred",
       "target": null,
-      "reason": "Explicit first-release exclusion: Benny automation pack or Grok Bot UI."
+      "reason": "Explicit first-release exclusion: Benny automation pack or Grok Bot UI.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "automations/benny/skills/triage-issue-reports/SKILL.md",
@@ -122,7 +136,8 @@
       "owner_issue": 15,
       "disposition": "deferred",
       "target": null,
-      "reason": "Explicit first-release exclusion: Benny automation pack or Grok Bot UI."
+      "reason": "Explicit first-release exclusion: Benny automation pack or Grok Bot UI.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "automations/benny/skills/triage-issue-reports/references/routing.example.md",
@@ -130,7 +145,8 @@
       "owner_issue": 15,
       "disposition": "deferred",
       "target": null,
-      "reason": "Explicit first-release exclusion: Benny automation pack or Grok Bot UI."
+      "reason": "Explicit first-release exclusion: Benny automation pack or Grok Bot UI.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "automations/benny/templates/configuration.example.yaml",
@@ -138,7 +154,8 @@
       "owner_issue": 15,
       "disposition": "deferred",
       "target": null,
-      "reason": "Explicit first-release exclusion: Benny automation pack or Grok Bot UI."
+      "reason": "Explicit first-release exclusion: Benny automation pack or Grok Bot UI.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "automations/benny/templates/reproduce-automation-prompt.md",
@@ -146,7 +163,8 @@
       "owner_issue": 15,
       "disposition": "deferred",
       "target": null,
-      "reason": "Explicit first-release exclusion: Benny automation pack or Grok Bot UI."
+      "reason": "Explicit first-release exclusion: Benny automation pack or Grok Bot UI.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "automations/benny/templates/triage-automation-prompt.md",
@@ -154,7 +172,8 @@
       "owner_issue": 15,
       "disposition": "deferred",
       "target": null,
-      "reason": "Explicit first-release exclusion: Benny automation pack or Grok Bot UI."
+      "reason": "Explicit first-release exclusion: Benny automation pack or Grok Bot UI.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "docs/guide/01-setup.md",
@@ -162,7 +181,8 @@
       "owner_issue": 15,
       "disposition": "adapted",
       "target": "plugin/pstack/README.md",
-      "reason": "Cursor-specific onboarding and illustrative guide images replaced by Codex recipient setup, workflow map and capability limits; immutable originals retained in source provenance."
+      "reason": "Cursor-specific onboarding and illustrative guide images replaced by Codex recipient setup, workflow map and capability limits; immutable originals retained in source provenance.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "docs/guide/02-poteto-mode.md",
@@ -170,7 +190,8 @@
       "owner_issue": 15,
       "disposition": "adapted",
       "target": "plugin/pstack/README.md",
-      "reason": "Cursor-specific onboarding and illustrative guide images replaced by Codex recipient setup, workflow map and capability limits; immutable originals retained in source provenance."
+      "reason": "Cursor-specific onboarding and illustrative guide images replaced by Codex recipient setup, workflow map and capability limits; immutable originals retained in source provenance.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "docs/guide/03-understand.md",
@@ -178,7 +199,8 @@
       "owner_issue": 15,
       "disposition": "adapted",
       "target": "plugin/pstack/README.md",
-      "reason": "Cursor-specific onboarding and illustrative guide images replaced by Codex recipient setup, workflow map and capability limits; immutable originals retained in source provenance."
+      "reason": "Cursor-specific onboarding and illustrative guide images replaced by Codex recipient setup, workflow map and capability limits; immutable originals retained in source provenance.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "docs/guide/04-design.md",
@@ -186,7 +208,8 @@
       "owner_issue": 15,
       "disposition": "adapted",
       "target": "plugin/pstack/README.md",
-      "reason": "Cursor-specific onboarding and illustrative guide images replaced by Codex recipient setup, workflow map and capability limits; immutable originals retained in source provenance."
+      "reason": "Cursor-specific onboarding and illustrative guide images replaced by Codex recipient setup, workflow map and capability limits; immutable originals retained in source provenance.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "docs/guide/05-build-and-clean.md",
@@ -194,7 +217,8 @@
       "owner_issue": 15,
       "disposition": "adapted",
       "target": "plugin/pstack/README.md",
-      "reason": "Cursor-specific onboarding and illustrative guide images replaced by Codex recipient setup, workflow map and capability limits; immutable originals retained in source provenance."
+      "reason": "Cursor-specific onboarding and illustrative guide images replaced by Codex recipient setup, workflow map and capability limits; immutable originals retained in source provenance.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "docs/guide/06-verify-and-ship.md",
@@ -202,7 +226,8 @@
       "owner_issue": 15,
       "disposition": "adapted",
       "target": "plugin/pstack/README.md",
-      "reason": "Cursor-specific onboarding and illustrative guide images replaced by Codex recipient setup, workflow map and capability limits; immutable originals retained in source provenance."
+      "reason": "Cursor-specific onboarding and illustrative guide images replaced by Codex recipient setup, workflow map and capability limits; immutable originals retained in source provenance.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "docs/guide/07-overnight.md",
@@ -210,7 +235,8 @@
       "owner_issue": 15,
       "disposition": "adapted",
       "target": "plugin/pstack/README.md",
-      "reason": "Cursor-specific onboarding and illustrative guide images replaced by Codex recipient setup, workflow map and capability limits; immutable originals retained in source provenance."
+      "reason": "Cursor-specific onboarding and illustrative guide images replaced by Codex recipient setup, workflow map and capability limits; immutable originals retained in source provenance.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "docs/guide/08-principles.md",
@@ -218,7 +244,8 @@
       "owner_issue": 15,
       "disposition": "adapted",
       "target": "plugin/pstack/README.md",
-      "reason": "Cursor-specific onboarding and illustrative guide images replaced by Codex recipient setup, workflow map and capability limits; immutable originals retained in source provenance."
+      "reason": "Cursor-specific onboarding and illustrative guide images replaced by Codex recipient setup, workflow map and capability limits; immutable originals retained in source provenance.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "docs/guide/09-make-it-yours.md",
@@ -226,7 +253,8 @@
       "owner_issue": 15,
       "disposition": "adapted",
       "target": "plugin/pstack/README.md",
-      "reason": "Cursor-specific onboarding and illustrative guide images replaced by Codex recipient setup, workflow map and capability limits; immutable originals retained in source provenance."
+      "reason": "Cursor-specific onboarding and illustrative guide images replaced by Codex recipient setup, workflow map and capability limits; immutable originals retained in source provenance.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "docs/guide/10-recipes-and-pitfalls.md",
@@ -234,7 +262,8 @@
       "owner_issue": 15,
       "disposition": "adapted",
       "target": "plugin/pstack/README.md",
-      "reason": "Cursor-specific onboarding and illustrative guide images replaced by Codex recipient setup, workflow map and capability limits; immutable originals retained in source provenance."
+      "reason": "Cursor-specific onboarding and illustrative guide images replaced by Codex recipient setup, workflow map and capability limits; immutable originals retained in source provenance.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "docs/guide/README.md",
@@ -242,7 +271,8 @@
       "owner_issue": 15,
       "disposition": "adapted",
       "target": "plugin/pstack/README.md",
-      "reason": "Cursor-specific onboarding and illustrative guide images replaced by Codex recipient setup, workflow map and capability limits; immutable originals retained in source provenance."
+      "reason": "Cursor-specific onboarding and illustrative guide images replaced by Codex recipient setup, workflow map and capability limits; immutable originals retained in source provenance.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "docs/guide/images/design.jpg",
@@ -250,7 +280,8 @@
       "owner_issue": 15,
       "disposition": "adapted",
       "target": "plugin/pstack/README.md",
-      "reason": "Cursor-specific onboarding and illustrative guide images replaced by Codex recipient setup, workflow map and capability limits; immutable originals retained in source provenance."
+      "reason": "Cursor-specific onboarding and illustrative guide images replaced by Codex recipient setup, workflow map and capability limits; immutable originals retained in source provenance.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "docs/guide/images/overnight.jpg",
@@ -258,7 +289,8 @@
       "owner_issue": 15,
       "disposition": "adapted",
       "target": "plugin/pstack/README.md",
-      "reason": "Cursor-specific onboarding and illustrative guide images replaced by Codex recipient setup, workflow map and capability limits; immutable originals retained in source provenance."
+      "reason": "Cursor-specific onboarding and illustrative guide images replaced by Codex recipient setup, workflow map and capability limits; immutable originals retained in source provenance.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "docs/guide/images/recipes.jpg",
@@ -266,7 +298,8 @@
       "owner_issue": 15,
       "disposition": "adapted",
       "target": "plugin/pstack/README.md",
-      "reason": "Cursor-specific onboarding and illustrative guide images replaced by Codex recipient setup, workflow map and capability limits; immutable originals retained in source provenance."
+      "reason": "Cursor-specific onboarding and illustrative guide images replaced by Codex recipient setup, workflow map and capability limits; immutable originals retained in source provenance.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "docs/guide/images/router.jpg",
@@ -274,7 +307,8 @@
       "owner_issue": 15,
       "disposition": "adapted",
       "target": "plugin/pstack/README.md",
-      "reason": "Cursor-specific onboarding and illustrative guide images replaced by Codex recipient setup, workflow map and capability limits; immutable originals retained in source provenance."
+      "reason": "Cursor-specific onboarding and illustrative guide images replaced by Codex recipient setup, workflow map and capability limits; immutable originals retained in source provenance.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "docs/guide/images/understanding.jpg",
@@ -282,7 +316,8 @@
       "owner_issue": 15,
       "disposition": "adapted",
       "target": "plugin/pstack/README.md",
-      "reason": "Cursor-specific onboarding and illustrative guide images replaced by Codex recipient setup, workflow map and capability limits; immutable originals retained in source provenance."
+      "reason": "Cursor-specific onboarding and illustrative guide images replaced by Codex recipient setup, workflow map and capability limits; immutable originals retained in source provenance.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "docs/guide/images/verification.jpg",
@@ -290,7 +325,8 @@
       "owner_issue": 15,
       "disposition": "adapted",
       "target": "plugin/pstack/README.md",
-      "reason": "Cursor-specific onboarding and illustrative guide images replaced by Codex recipient setup, workflow map and capability limits; immutable originals retained in source provenance."
+      "reason": "Cursor-specific onboarding and illustrative guide images replaced by Codex recipient setup, workflow map and capability limits; immutable originals retained in source provenance.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "skills/architect/SKILL.md",
@@ -298,7 +334,8 @@
       "owner_issue": 4,
       "disposition": "adapted",
       "target": "plugin/pstack/skills/pstack-architect/SKILL.md",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification."
+      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "skills/architect/references/design-red-flags.md",
@@ -306,7 +343,8 @@
       "owner_issue": 4,
       "disposition": "preserved",
       "target": "plugin/pstack/skills/pstack-architect/references/design-red-flags.md",
-      "reason": "Pinned source retained byte-for-byte at its mapped counterpart; see primary issue qualification."
+      "reason": "Pinned source retained byte-for-byte at its mapped counterpart; see primary issue qualification.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "skills/architect/references/rationale-template.md",
@@ -314,7 +352,8 @@
       "owner_issue": 4,
       "disposition": "adapted",
       "target": "plugin/pstack/skills/pstack-architect/references/rationale-template.md",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification."
+      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "skills/architect/references/runner-prompt.md",
@@ -322,7 +361,8 @@
       "owner_issue": 4,
       "disposition": "adapted",
       "target": "plugin/pstack/skills/pstack-architect/references/runner-prompt.md",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification."
+      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "skills/arena/SKILL.md",
@@ -330,7 +370,8 @@
       "owner_issue": 4,
       "disposition": "adapted",
       "target": "plugin/pstack/skills/pstack-arena/SKILL.md",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification."
+      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "skills/automate-me/SKILL.md",
@@ -338,7 +379,8 @@
       "owner_issue": 8,
       "disposition": "adapted",
       "target": "plugin/pstack/skills/pstack-automate-me/SKILL.md",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification."
+      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "skills/benchmark-checklist/SKILL.md",
@@ -346,7 +388,8 @@
       "owner_issue": 9,
       "disposition": "adapted",
       "target": "plugin/pstack/skills/pstack-benchmark-checklist/SKILL.md",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification."
+      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "skills/blast-radius/SKILL.md",
@@ -354,7 +397,8 @@
       "owner_issue": 7,
       "disposition": "adapted",
       "target": "plugin/pstack/skills/pstack-blast-radius/SKILL.md",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification."
+      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "skills/bro/SKILL.md",
@@ -362,7 +406,8 @@
       "owner_issue": 2,
       "disposition": "adapted",
       "target": "plugin/pstack/skills/pstack-bro/SKILL.md",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification."
+      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "skills/correct/SKILL.md",
@@ -370,7 +415,8 @@
       "owner_issue": 7,
       "disposition": "adapted",
       "target": "plugin/pstack/skills/pstack-correct/SKILL.md",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification."
+      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "skills/create-verification-skill/SKILL.md",
@@ -378,7 +424,8 @@
       "owner_issue": 10,
       "disposition": "adapted",
       "target": "plugin/pstack/skills/pstack-create-verification-skill/SKILL.md",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification."
+      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "skills/create-verification-skill/references/feature-map-example/README.md",
@@ -386,7 +433,8 @@
       "owner_issue": 10,
       "disposition": "preserved",
       "target": "plugin/pstack/skills/pstack-create-verification-skill/references/feature-map-example/README.md",
-      "reason": "Pinned source retained byte-for-byte at its mapped counterpart; see primary issue qualification."
+      "reason": "Pinned source retained byte-for-byte at its mapped counterpart; see primary issue qualification.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "skills/create-verification-skill/references/feature-map-example/create-note.md",
@@ -394,7 +442,8 @@
       "owner_issue": 10,
       "disposition": "preserved",
       "target": "plugin/pstack/skills/pstack-create-verification-skill/references/feature-map-example/create-note.md",
-      "reason": "Pinned source retained byte-for-byte at its mapped counterpart; see primary issue qualification."
+      "reason": "Pinned source retained byte-for-byte at its mapped counterpart; see primary issue qualification.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "skills/create-verification-skill/references/feature-map-example/search.md",
@@ -402,7 +451,8 @@
       "owner_issue": 10,
       "disposition": "preserved",
       "target": "plugin/pstack/skills/pstack-create-verification-skill/references/feature-map-example/search.md",
-      "reason": "Pinned source retained byte-for-byte at its mapped counterpart; see primary issue qualification."
+      "reason": "Pinned source retained byte-for-byte at its mapped counterpart; see primary issue qualification.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "skills/figure-it-out/SKILL.md",
@@ -410,7 +460,8 @@
       "owner_issue": 7,
       "disposition": "adapted",
       "target": "plugin/pstack/skills/pstack-figure-it-out/SKILL.md",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification."
+      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "skills/how/SKILL.md",
@@ -418,7 +469,8 @@
       "owner_issue": 3,
       "disposition": "adapted",
       "target": "plugin/pstack/skills/pstack-how/SKILL.md",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification."
+      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "skills/how/references/explainer-prompt.md",
@@ -426,7 +478,8 @@
       "owner_issue": 3,
       "disposition": "adapted",
       "target": "plugin/pstack/skills/pstack-how/references/explainer-prompt.md",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification."
+      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "skills/how/references/explorer-prompt.md",
@@ -434,7 +487,8 @@
       "owner_issue": 3,
       "disposition": "adapted",
       "target": "plugin/pstack/skills/pstack-how/references/explorer-prompt.md",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification."
+      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "skills/interrogate/SKILL.md",
@@ -442,7 +496,8 @@
       "owner_issue": 4,
       "disposition": "adapted",
       "target": "plugin/pstack/skills/pstack-interrogate/SKILL.md",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification."
+      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "skills/interrogate/references/code-quality-review.md",
@@ -450,7 +505,8 @@
       "owner_issue": 4,
       "disposition": "preserved",
       "target": "plugin/pstack/skills/pstack-interrogate/references/code-quality-review.md",
-      "reason": "Pinned source retained byte-for-byte at its mapped counterpart; see primary issue qualification."
+      "reason": "Pinned source retained byte-for-byte at its mapped counterpart; see primary issue qualification.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "skills/interrogate/references/lead-judgment.md",
@@ -458,7 +514,8 @@
       "owner_issue": 4,
       "disposition": "preserved",
       "target": "plugin/pstack/skills/pstack-interrogate/references/lead-judgment.md",
-      "reason": "Pinned source retained byte-for-byte at its mapped counterpart; see primary issue qualification."
+      "reason": "Pinned source retained byte-for-byte at its mapped counterpart; see primary issue qualification.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "skills/interrogate/references/reviewer-prompt.md",
@@ -466,7 +523,8 @@
       "owner_issue": 4,
       "disposition": "preserved",
       "target": "plugin/pstack/skills/pstack-interrogate/references/reviewer-prompt.md",
-      "reason": "Pinned source retained byte-for-byte at its mapped counterpart; see primary issue qualification."
+      "reason": "Pinned source retained byte-for-byte at its mapped counterpart; see primary issue qualification.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "skills/interrogate/references/rubric.md",
@@ -474,7 +532,8 @@
       "owner_issue": 4,
       "disposition": "adapted",
       "target": "plugin/pstack/skills/pstack-interrogate/references/rubric.md",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification."
+      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "skills/maintain-verification-skill/SKILL.md",
@@ -482,7 +541,8 @@
       "owner_issue": 10,
       "disposition": "adapted",
       "target": "plugin/pstack/skills/pstack-maintain-verification-skill/SKILL.md",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification."
+      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "skills/make-bot-ui/SKILL.md",
@@ -490,7 +550,8 @@
       "owner_issue": 15,
       "disposition": "deferred",
       "target": null,
-      "reason": "Explicit first-release exclusion: Benny automation pack or Grok Bot UI."
+      "reason": "Explicit first-release exclusion: Benny automation pack or Grok Bot UI.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "skills/no-comments/SKILL.md",
@@ -498,7 +559,8 @@
       "owner_issue": 6,
       "disposition": "adapted",
       "target": "plugin/pstack/skills/pstack-no-comments/SKILL.md",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification."
+      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "skills/poteto-help/SKILL.md",
@@ -506,7 +568,8 @@
       "owner_issue": 7,
       "disposition": "adapted",
       "target": "plugin/pstack/skills/pstack-poteto-help/SKILL.md",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification."
+      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "skills/poteto-help/references/prompting.md",
@@ -514,7 +577,8 @@
       "owner_issue": 7,
       "disposition": "adapted",
       "target": "plugin/pstack/skills/pstack-poteto-help/references/prompting.md",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification."
+      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "skills/poteto-help/references/recipes.md",
@@ -522,7 +586,8 @@
       "owner_issue": 7,
       "disposition": "adapted",
       "target": "plugin/pstack/skills/pstack-poteto-help/references/recipes.md",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification."
+      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "skills/poteto-mode/SKILL.md",
@@ -530,7 +595,8 @@
       "owner_issue": 7,
       "disposition": "adapted",
       "target": "plugin/pstack/skills/pstack-poteto-mode/SKILL.md",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification."
+      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "skills/poteto-mode/playbooks/authoring-a-skill.md",
@@ -538,7 +604,8 @@
       "owner_issue": 8,
       "disposition": "adapted",
       "target": "plugin/pstack/playbooks/authoring-a-skill.md",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification."
+      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "skills/poteto-mode/playbooks/autonomous-run.md",
@@ -546,7 +613,8 @@
       "owner_issue": 11,
       "disposition": "adapted",
       "target": "plugin/pstack/playbooks/autonomous-run.md",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification."
+      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "skills/poteto-mode/playbooks/autopilot-full.md",
@@ -554,7 +622,8 @@
       "owner_issue": 13,
       "disposition": "adapted",
       "target": "plugin/pstack/playbooks/autopilot-full.md",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification."
+      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "skills/poteto-mode/playbooks/autopilot-stack.md",
@@ -562,7 +631,8 @@
       "owner_issue": 13,
       "disposition": "adapted",
       "target": "plugin/pstack/playbooks/autopilot-stack.md",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification."
+      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "skills/poteto-mode/playbooks/babysit.md",
@@ -570,7 +640,8 @@
       "owner_issue": 6,
       "disposition": "adapted",
       "target": "plugin/pstack/playbooks/babysit.md",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification."
+      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "skills/poteto-mode/playbooks/bug-fix.md",
@@ -578,7 +649,8 @@
       "owner_issue": 7,
       "disposition": "adapted",
       "target": "plugin/pstack/playbooks/bug-fix.md",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification."
+      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "skills/poteto-mode/playbooks/eval.md",
@@ -586,7 +658,8 @@
       "owner_issue": 4,
       "disposition": "adapted",
       "target": "plugin/pstack/playbooks/eval.md",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification."
+      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "skills/poteto-mode/playbooks/feature.md",
@@ -594,7 +667,8 @@
       "owner_issue": 7,
       "disposition": "adapted",
       "target": "plugin/pstack/playbooks/feature.md",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification."
+      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "skills/poteto-mode/playbooks/hillclimb.md",
@@ -602,7 +676,8 @@
       "owner_issue": 9,
       "disposition": "adapted",
       "target": "plugin/pstack/playbooks/hillclimb.md",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification."
+      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "skills/poteto-mode/playbooks/investigation.md",
@@ -610,7 +685,8 @@
       "owner_issue": 7,
       "disposition": "adapted",
       "target": "plugin/pstack/playbooks/investigation.md",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification."
+      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "skills/poteto-mode/playbooks/multi-phase-plan.md",
@@ -618,7 +694,8 @@
       "owner_issue": 11,
       "disposition": "adapted",
       "target": "plugin/pstack/playbooks/multi-phase-plan.md",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification."
+      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "skills/poteto-mode/playbooks/opening-a-pr.md",
@@ -626,7 +703,8 @@
       "owner_issue": 6,
       "disposition": "adapted",
       "target": "plugin/pstack/playbooks/opening-a-pr.md",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification."
+      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "skills/poteto-mode/playbooks/orchestrate.md",
@@ -634,7 +712,8 @@
       "owner_issue": 12,
       "disposition": "adapted",
       "target": "plugin/pstack/playbooks/orchestrate.md",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification."
+      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "skills/poteto-mode/playbooks/pause-safely.md",
@@ -642,7 +721,8 @@
       "owner_issue": 11,
       "disposition": "adapted",
       "target": "plugin/pstack/playbooks/pause-safely.md",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification."
+      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "skills/poteto-mode/playbooks/perf-issue.md",
@@ -650,7 +730,8 @@
       "owner_issue": 9,
       "disposition": "adapted",
       "target": "plugin/pstack/playbooks/perf-issue.md",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification."
+      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "skills/poteto-mode/playbooks/prototype.md",
@@ -658,7 +739,8 @@
       "owner_issue": 10,
       "disposition": "adapted",
       "target": "plugin/pstack/playbooks/prototype.md",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification."
+      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "skills/poteto-mode/playbooks/refactoring.md",
@@ -666,7 +748,8 @@
       "owner_issue": 7,
       "disposition": "adapted",
       "target": "plugin/pstack/playbooks/refactoring.md",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification."
+      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "skills/poteto-mode/playbooks/runtime-forensics.md",
@@ -674,7 +757,8 @@
       "owner_issue": 9,
       "disposition": "adapted",
       "target": "plugin/pstack/playbooks/runtime-forensics.md",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification."
+      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "skills/poteto-mode/playbooks/session-pickup.md",
@@ -682,7 +766,8 @@
       "owner_issue": 5,
       "disposition": "adapted",
       "target": "plugin/pstack/references/session-pickup.md",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification."
+      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "skills/poteto-mode/playbooks/shipping.md",
@@ -690,7 +775,8 @@
       "owner_issue": 6,
       "disposition": "adapted",
       "target": "plugin/pstack/playbooks/shipping.md",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification."
+      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "skills/poteto-mode/playbooks/trace-forensics.md",
@@ -698,7 +784,8 @@
       "owner_issue": 9,
       "disposition": "adapted",
       "target": "plugin/pstack/playbooks/trace-forensics.md",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification."
+      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "skills/poteto-mode/playbooks/visual-parity.md",
@@ -706,7 +793,8 @@
       "owner_issue": 10,
       "disposition": "adapted",
       "target": "plugin/pstack/playbooks/visual-parity.md",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification."
+      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "skills/poteto-mode/playbooks/worktree-cleanup.md",
@@ -714,7 +802,8 @@
       "owner_issue": 14,
       "disposition": "adapted",
       "target": "plugin/pstack/playbooks/worktree-cleanup.md",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification."
+      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "skills/poteto-mode/references/bugbot-triage.md",
@@ -722,7 +811,8 @@
       "owner_issue": 6,
       "disposition": "adapted",
       "target": "plugin/pstack/references/bugbot-triage.md",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification."
+      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "skills/poteto-mode/scripts/bootstrap.ts",
@@ -730,7 +820,8 @@
       "owner_issue": 12,
       "disposition": "adapted",
       "target": "plugin/pstack/scripts/bootstrap.ts",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification."
+      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "skills/poteto-mode/scripts/bun.lock",
@@ -738,7 +829,8 @@
       "owner_issue": 12,
       "disposition": "adapted",
       "target": "plugin/pstack/scripts/bun.lock",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification."
+      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "skills/poteto-mode/scripts/check-plan.mjs",
@@ -746,7 +838,8 @@
       "owner_issue": 11,
       "disposition": "adapted",
       "target": "plugin/pstack/scripts/check-plan.mjs",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification."
+      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "skills/poteto-mode/scripts/orch/orch.test.ts",
@@ -754,7 +847,8 @@
       "owner_issue": 12,
       "disposition": "adapted",
       "target": "plugin/pstack/qualification/issue-12.md",
-      "reason": "Upstream development suite retained in immutable source baseline; replaced for qualification by documented deterministic invariant evidence, no runtime requirement removed."
+      "reason": "Upstream development suite retained in immutable source baseline; replaced for qualification by documented deterministic invariant evidence, no runtime requirement removed.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "skills/poteto-mode/scripts/orch/orch.ts",
@@ -762,7 +856,8 @@
       "owner_issue": 12,
       "disposition": "adapted",
       "target": "plugin/pstack/scripts/orch/orch.ts",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification."
+      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "skills/poteto-mode/scripts/orch/store.ts",
@@ -770,7 +865,8 @@
       "owner_issue": 12,
       "disposition": "adapted",
       "target": "plugin/pstack/scripts/orch/store.ts",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification."
+      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "skills/poteto-mode/scripts/package.json",
@@ -778,7 +874,8 @@
       "owner_issue": 12,
       "disposition": "adapted",
       "target": "plugin/pstack/scripts/package.json",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification."
+      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "skills/poteto-mode/scripts/watch-pr/cli.test.ts",
@@ -786,7 +883,8 @@
       "owner_issue": 6,
       "disposition": "preserved",
       "target": "plugin/pstack/scripts/watch-pr/cli.test.ts",
-      "reason": "Pinned source retained byte-for-byte at its mapped counterpart; see primary issue qualification."
+      "reason": "Pinned source retained byte-for-byte at its mapped counterpart; see primary issue qualification.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "skills/poteto-mode/scripts/watch-pr/cli.ts",
@@ -794,7 +892,8 @@
       "owner_issue": 6,
       "disposition": "preserved",
       "target": "plugin/pstack/scripts/watch-pr/cli.ts",
-      "reason": "Pinned source retained byte-for-byte at its mapped counterpart; see primary issue qualification."
+      "reason": "Pinned source retained byte-for-byte at its mapped counterpart; see primary issue qualification.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "skills/poteto-mode/scripts/watch-pr/fakes.test-helper.ts",
@@ -802,7 +901,8 @@
       "owner_issue": 6,
       "disposition": "preserved",
       "target": "plugin/pstack/scripts/watch-pr/fakes.test-helper.ts",
-      "reason": "Pinned source retained byte-for-byte at its mapped counterpart; see primary issue qualification."
+      "reason": "Pinned source retained byte-for-byte at its mapped counterpart; see primary issue qualification.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "skills/poteto-mode/scripts/watch-pr/github.test.ts",
@@ -810,7 +910,8 @@
       "owner_issue": 6,
       "disposition": "preserved",
       "target": "plugin/pstack/scripts/watch-pr/github.test.ts",
-      "reason": "Pinned source retained byte-for-byte at its mapped counterpart; see primary issue qualification."
+      "reason": "Pinned source retained byte-for-byte at its mapped counterpart; see primary issue qualification.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "skills/poteto-mode/scripts/watch-pr/github.ts",
@@ -818,7 +919,8 @@
       "owner_issue": 6,
       "disposition": "preserved",
       "target": "plugin/pstack/scripts/watch-pr/github.ts",
-      "reason": "Pinned source retained byte-for-byte at its mapped counterpart; see primary issue qualification."
+      "reason": "Pinned source retained byte-for-byte at its mapped counterpart; see primary issue qualification.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "skills/poteto-mode/scripts/watch-pr/policy.test.ts",
@@ -826,7 +928,8 @@
       "owner_issue": 6,
       "disposition": "preserved",
       "target": "plugin/pstack/scripts/watch-pr/policy.test.ts",
-      "reason": "Pinned source retained byte-for-byte at its mapped counterpart; see primary issue qualification."
+      "reason": "Pinned source retained byte-for-byte at its mapped counterpart; see primary issue qualification.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "skills/poteto-mode/scripts/watch-pr/policy.ts",
@@ -834,7 +937,8 @@
       "owner_issue": 6,
       "disposition": "preserved",
       "target": "plugin/pstack/scripts/watch-pr/policy.ts",
-      "reason": "Pinned source retained byte-for-byte at its mapped counterpart; see primary issue qualification."
+      "reason": "Pinned source retained byte-for-byte at its mapped counterpart; see primary issue qualification.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "skills/poteto-mode/scripts/watch-pr/render.ts",
@@ -842,7 +946,8 @@
       "owner_issue": 6,
       "disposition": "preserved",
       "target": "plugin/pstack/scripts/watch-pr/render.ts",
-      "reason": "Pinned source retained byte-for-byte at its mapped counterpart; see primary issue qualification."
+      "reason": "Pinned source retained byte-for-byte at its mapped counterpart; see primary issue qualification.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "skills/poteto-mode/scripts/watch-pr/tsconfig.json",
@@ -850,7 +955,8 @@
       "owner_issue": 6,
       "disposition": "preserved",
       "target": "plugin/pstack/scripts/watch-pr/tsconfig.json",
-      "reason": "Pinned source retained byte-for-byte at its mapped counterpart; see primary issue qualification."
+      "reason": "Pinned source retained byte-for-byte at its mapped counterpart; see primary issue qualification.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "skills/poteto-mode/scripts/watch-pr/types.compile.ts",
@@ -858,7 +964,8 @@
       "owner_issue": 6,
       "disposition": "preserved",
       "target": "plugin/pstack/scripts/watch-pr/types.compile.ts",
-      "reason": "Pinned source retained byte-for-byte at its mapped counterpart; see primary issue qualification."
+      "reason": "Pinned source retained byte-for-byte at its mapped counterpart; see primary issue qualification.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "skills/poteto-mode/scripts/watch-pr/types.ts",
@@ -866,7 +973,8 @@
       "owner_issue": 6,
       "disposition": "preserved",
       "target": "plugin/pstack/scripts/watch-pr/types.ts",
-      "reason": "Pinned source retained byte-for-byte at its mapped counterpart; see primary issue qualification."
+      "reason": "Pinned source retained byte-for-byte at its mapped counterpart; see primary issue qualification.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "skills/poteto-mode/scripts/watch-pr/watch-pr",
@@ -874,7 +982,8 @@
       "owner_issue": 6,
       "disposition": "adapted",
       "target": "plugin/pstack/scripts/watch-pr/watch-pr",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification."
+      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "skills/poteto-mode/scripts/worktree-audit.sh",
@@ -882,7 +991,8 @@
       "owner_issue": 14,
       "disposition": "adapted",
       "target": "plugin/pstack/scripts/worktree-audit.sh",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification."
+      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "skills/principle-attack-the-premise/SKILL.md",
@@ -890,7 +1000,8 @@
       "owner_issue": 7,
       "disposition": "adapted",
       "target": "plugin/pstack/skills/pstack-principle-attack-the-premise/SKILL.md",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification."
+      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "skills/principle-boundary-discipline/SKILL.md",
@@ -898,7 +1009,8 @@
       "owner_issue": 7,
       "disposition": "adapted",
       "target": "plugin/pstack/skills/pstack-principle-boundary-discipline/SKILL.md",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification."
+      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "skills/principle-build-the-lever/SKILL.md",
@@ -906,7 +1018,8 @@
       "owner_issue": 7,
       "disposition": "adapted",
       "target": "plugin/pstack/skills/pstack-principle-build-the-lever/SKILL.md",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification."
+      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "skills/principle-encode-lessons-in-structure/SKILL.md",
@@ -914,7 +1027,8 @@
       "owner_issue": 7,
       "disposition": "adapted",
       "target": "plugin/pstack/skills/pstack-principle-encode-lessons-in-structure/SKILL.md",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification."
+      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "skills/principle-exhaust-the-design-space/SKILL.md",
@@ -922,7 +1036,8 @@
       "owner_issue": 7,
       "disposition": "adapted",
       "target": "plugin/pstack/skills/pstack-principle-exhaust-the-design-space/SKILL.md",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification."
+      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "skills/principle-experience-first/SKILL.md",
@@ -930,7 +1045,8 @@
       "owner_issue": 7,
       "disposition": "adapted",
       "target": "plugin/pstack/skills/pstack-principle-experience-first/SKILL.md",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification."
+      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "skills/principle-explain-the-number/SKILL.md",
@@ -938,7 +1054,8 @@
       "owner_issue": 9,
       "disposition": "adapted",
       "target": "plugin/pstack/skills/pstack-principle-explain-the-number/SKILL.md",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification."
+      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "skills/principle-fix-root-causes/SKILL.md",
@@ -946,7 +1063,8 @@
       "owner_issue": 7,
       "disposition": "adapted",
       "target": "plugin/pstack/skills/pstack-principle-fix-root-causes/SKILL.md",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification."
+      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "skills/principle-foundational-thinking/SKILL.md",
@@ -954,7 +1072,8 @@
       "owner_issue": 7,
       "disposition": "adapted",
       "target": "plugin/pstack/skills/pstack-principle-foundational-thinking/SKILL.md",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification."
+      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "skills/principle-guard-the-context-window/SKILL.md",
@@ -962,7 +1081,8 @@
       "owner_issue": 7,
       "disposition": "adapted",
       "target": "plugin/pstack/skills/pstack-principle-guard-the-context-window/SKILL.md",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification."
+      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "skills/principle-laziness-protocol/SKILL.md",
@@ -970,7 +1090,8 @@
       "owner_issue": 7,
       "disposition": "adapted",
       "target": "plugin/pstack/skills/pstack-principle-laziness-protocol/SKILL.md",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification."
+      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "skills/principle-make-operations-idempotent/SKILL.md",
@@ -978,7 +1099,8 @@
       "owner_issue": 7,
       "disposition": "adapted",
       "target": "plugin/pstack/skills/pstack-principle-make-operations-idempotent/SKILL.md",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification."
+      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "skills/principle-migrate-callers-then-delete-legacy-apis/SKILL.md",
@@ -986,7 +1108,8 @@
       "owner_issue": 7,
       "disposition": "adapted",
       "target": "plugin/pstack/skills/pstack-principle-migrate-callers-then-delete-legacy-apis/SKILL.md",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification."
+      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "skills/principle-minimize-reader-load/SKILL.md",
@@ -994,7 +1117,8 @@
       "owner_issue": 7,
       "disposition": "adapted",
       "target": "plugin/pstack/skills/pstack-principle-minimize-reader-load/SKILL.md",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification."
+      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "skills/principle-model-the-domain/SKILL.md",
@@ -1002,7 +1126,8 @@
       "owner_issue": 7,
       "disposition": "adapted",
       "target": "plugin/pstack/skills/pstack-principle-model-the-domain/SKILL.md",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification."
+      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "skills/principle-never-block-on-the-human/SKILL.md",
@@ -1010,7 +1135,8 @@
       "owner_issue": 7,
       "disposition": "adapted",
       "target": "plugin/pstack/skills/pstack-principle-never-block-on-the-human/SKILL.md",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification."
+      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "skills/principle-outcome-oriented-execution/SKILL.md",
@@ -1018,7 +1144,8 @@
       "owner_issue": 7,
       "disposition": "adapted",
       "target": "plugin/pstack/skills/pstack-principle-outcome-oriented-execution/SKILL.md",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification."
+      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "skills/principle-prove-it-works/SKILL.md",
@@ -1026,7 +1153,8 @@
       "owner_issue": 7,
       "disposition": "adapted",
       "target": "plugin/pstack/skills/pstack-principle-prove-it-works/SKILL.md",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification."
+      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "skills/principle-redesign-from-first-principles/SKILL.md",
@@ -1034,7 +1162,8 @@
       "owner_issue": 7,
       "disposition": "adapted",
       "target": "plugin/pstack/skills/pstack-principle-redesign-from-first-principles/SKILL.md",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification."
+      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "skills/principle-separate-before-serializing-shared-state/SKILL.md",
@@ -1042,7 +1171,8 @@
       "owner_issue": 7,
       "disposition": "adapted",
       "target": "plugin/pstack/skills/pstack-principle-separate-before-serializing-shared-state/SKILL.md",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification."
+      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "skills/principle-sequence-verifiable-units/SKILL.md",
@@ -1050,7 +1180,8 @@
       "owner_issue": 7,
       "disposition": "adapted",
       "target": "plugin/pstack/skills/pstack-principle-sequence-verifiable-units/SKILL.md",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification."
+      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "skills/principle-subtract-before-you-add/SKILL.md",
@@ -1058,7 +1189,8 @@
       "owner_issue": 7,
       "disposition": "adapted",
       "target": "plugin/pstack/skills/pstack-principle-subtract-before-you-add/SKILL.md",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification."
+      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "skills/principle-test-behavior-not-implementation/SKILL.md",
@@ -1066,7 +1198,8 @@
       "owner_issue": 7,
       "disposition": "adapted",
       "target": "plugin/pstack/skills/pstack-principle-test-behavior-not-implementation/SKILL.md",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification."
+      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "skills/principle-type-system-discipline/SKILL.md",
@@ -1074,7 +1207,8 @@
       "owner_issue": 7,
       "disposition": "adapted",
       "target": "plugin/pstack/skills/pstack-principle-type-system-discipline/SKILL.md",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification."
+      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "skills/recall/SKILL.md",
@@ -1082,7 +1216,8 @@
       "owner_issue": 5,
       "disposition": "adapted",
       "target": "plugin/pstack/skills/pstack-recall/SKILL.md",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification."
+      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "skills/reflect/SKILL.md",
@@ -1090,7 +1225,8 @@
       "owner_issue": 8,
       "disposition": "adapted",
       "target": "plugin/pstack/skills/pstack-reflect/SKILL.md",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification."
+      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "skills/reflect/references/divergent-reviewer.md",
@@ -1098,7 +1234,8 @@
       "owner_issue": 8,
       "disposition": "adapted",
       "target": "plugin/pstack/skills/pstack-reflect/references/divergent-reviewer.md",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification."
+      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "skills/reflect/references/judgment-reviewer.md",
@@ -1106,7 +1243,8 @@
       "owner_issue": 8,
       "disposition": "adapted",
       "target": "plugin/pstack/skills/pstack-reflect/references/judgment-reviewer.md",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification."
+      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "skills/reflect/references/synthesizer.md",
@@ -1114,7 +1252,8 @@
       "owner_issue": 8,
       "disposition": "adapted",
       "target": "plugin/pstack/skills/pstack-reflect/references/synthesizer.md",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification."
+      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "skills/reflect/references/tooling-reviewer.md",
@@ -1122,7 +1261,8 @@
       "owner_issue": 8,
       "disposition": "adapted",
       "target": "plugin/pstack/skills/pstack-reflect/references/tooling-reviewer.md",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification."
+      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "skills/setup-pstack/SKILL.md",
@@ -1130,7 +1270,8 @@
       "owner_issue": 3,
       "disposition": "adapted",
       "target": "plugin/pstack/skills/pstack-setup-pstack/SKILL.md",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification."
+      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "skills/show-me-your-work/SKILL.md",
@@ -1138,7 +1279,8 @@
       "owner_issue": 11,
       "disposition": "adapted",
       "target": "plugin/pstack/skills/pstack-show-me-your-work/SKILL.md",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification."
+      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "skills/show-me-your-work/references/decision-log-template.tsv",
@@ -1146,7 +1288,8 @@
       "owner_issue": 11,
       "disposition": "preserved",
       "target": "plugin/pstack/skills/pstack-show-me-your-work/references/decision-log-template.tsv",
-      "reason": "Pinned source retained byte-for-byte at its mapped counterpart; see primary issue qualification."
+      "reason": "Pinned source retained byte-for-byte at its mapped counterpart; see primary issue qualification.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "skills/show-me-your-work/scripts/log.sh",
@@ -1154,7 +1297,8 @@
       "owner_issue": 11,
       "disposition": "preserved",
       "target": "plugin/pstack/skills/pstack-show-me-your-work/scripts/log.sh",
-      "reason": "Pinned source retained byte-for-byte at its mapped counterpart; see primary issue qualification."
+      "reason": "Pinned source retained byte-for-byte at its mapped counterpart; see primary issue qualification.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "skills/swarm/SKILL.md",
@@ -1162,7 +1306,8 @@
       "owner_issue": 3,
       "disposition": "adapted",
       "target": "plugin/pstack/skills/pstack-swarm/SKILL.md",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification."
+      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "skills/tdd/SKILL.md",
@@ -1170,7 +1315,8 @@
       "owner_issue": 7,
       "disposition": "adapted",
       "target": "plugin/pstack/skills/pstack-tdd/SKILL.md",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification."
+      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "skills/teach/SKILL.md",
@@ -1178,7 +1324,8 @@
       "owner_issue": 5,
       "disposition": "adapted",
       "target": "plugin/pstack/skills/pstack-teach/SKILL.md",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification."
+      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "skills/technical-writing/SKILL.md",
@@ -1186,7 +1333,8 @@
       "owner_issue": 2,
       "disposition": "adapted",
       "target": "plugin/pstack/skills/pstack-technical-writing/SKILL.md",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification."
+      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "skills/typescript-best-practices/SKILL.md",
@@ -1194,7 +1342,8 @@
       "owner_issue": 7,
       "disposition": "adapted",
       "target": "plugin/pstack/skills/pstack-typescript-best-practices/SKILL.md",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification."
+      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "skills/typescript-best-practices/references/patterns.md",
@@ -1202,7 +1351,8 @@
       "owner_issue": 7,
       "disposition": "preserved",
       "target": "plugin/pstack/skills/pstack-typescript-best-practices/references/patterns.md",
-      "reason": "Pinned source retained byte-for-byte at its mapped counterpart; see primary issue qualification."
+      "reason": "Pinned source retained byte-for-byte at its mapped counterpart; see primary issue qualification.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "skills/unslop/SKILL.md",
@@ -1210,7 +1360,8 @@
       "owner_issue": 2,
       "disposition": "adapted",
       "target": "plugin/pstack/skills/pstack-unslop/SKILL.md",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification."
+      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "skills/why/SKILL.md",
@@ -1218,7 +1369,8 @@
       "owner_issue": 5,
       "disposition": "adapted",
       "target": "plugin/pstack/skills/pstack-why/SKILL.md",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification."
+      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "skills/why/references/epistemics.md",
@@ -1226,7 +1378,8 @@
       "owner_issue": 5,
       "disposition": "preserved",
       "target": "plugin/pstack/skills/pstack-why/references/epistemics.md",
-      "reason": "Pinned source retained byte-for-byte at its mapped counterpart; see primary issue qualification."
+      "reason": "Pinned source retained byte-for-byte at its mapped counterpart; see primary issue qualification.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "skills/why/references/investigator-prompt.md",
@@ -1234,7 +1387,8 @@
       "owner_issue": 5,
       "disposition": "adapted",
       "target": "plugin/pstack/skills/pstack-why/references/investigator-prompt.md",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification."
+      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "skills/why/references/source-playbook.md",
@@ -1242,7 +1396,8 @@
       "owner_issue": 5,
       "disposition": "adapted",
       "target": "plugin/pstack/skills/pstack-why/references/source-playbook.md",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification."
+      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "skills/why/references/sources/code-archaeology.md",
@@ -1250,7 +1405,8 @@
       "owner_issue": 5,
       "disposition": "adapted",
       "target": "plugin/pstack/skills/pstack-why/references/sources/code-archaeology.md",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification."
+      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "skills/why/references/sources/databricks.md",
@@ -1258,7 +1414,8 @@
       "owner_issue": 5,
       "disposition": "adapted",
       "target": "plugin/pstack/skills/pstack-why/references/sources/databricks.md",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification."
+      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "skills/why/references/sources/datadog.md",
@@ -1266,7 +1423,8 @@
       "owner_issue": 5,
       "disposition": "adapted",
       "target": "plugin/pstack/skills/pstack-why/references/sources/datadog.md",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification."
+      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "skills/why/references/sources/incident-postmortem.md",
@@ -1274,7 +1432,8 @@
       "owner_issue": 5,
       "disposition": "adapted",
       "target": "plugin/pstack/skills/pstack-why/references/sources/incident-postmortem.md",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification."
+      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "skills/why/references/sources/linear.md",
@@ -1282,7 +1441,8 @@
       "owner_issue": 5,
       "disposition": "adapted",
       "target": "plugin/pstack/skills/pstack-why/references/sources/linear.md",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification."
+      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "skills/why/references/sources/notion.md",
@@ -1290,7 +1450,8 @@
       "owner_issue": 5,
       "disposition": "adapted",
       "target": "plugin/pstack/skills/pstack-why/references/sources/notion.md",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification."
+      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "skills/why/references/sources/sentry.md",
@@ -1298,7 +1459,8 @@
       "owner_issue": 5,
       "disposition": "adapted",
       "target": "plugin/pstack/skills/pstack-why/references/sources/sentry.md",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification."
+      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "skills/why/references/sources/slack.md",
@@ -1306,7 +1468,8 @@
       "owner_issue": 5,
       "disposition": "adapted",
       "target": "plugin/pstack/skills/pstack-why/references/sources/slack.md",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification."
+      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
       "source": "skills/why/references/synthesizer-prompt.md",
@@ -1314,7 +1477,8 @@
       "owner_issue": 5,
       "disposition": "adapted",
       "target": "plugin/pstack/skills/pstack-why/references/synthesizer-prompt.md",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification."
+      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
+      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     }
   ]
 }
