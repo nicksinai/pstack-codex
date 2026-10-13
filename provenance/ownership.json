@@ -10,7 +10,7 @@
       "owner_issue": 2,
       "disposition": "adapted",
       "target": "plugin/pstack/plugin.json",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
+      "reason": "Existing independent portable/Codex manifests satisfy source release metadata intent; port version 0.1.3 is independent of upstream 0.15.23. See issue-30 qualification.",
       "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
@@ -33,12 +33,12 @@
     },
     {
       "source": "README.md",
-      "sha256": "7f39feae81103e18b567e1fa5075cba86425cf4697a01be66a7422ef93c2c855",
+      "sha256": "4c86910ea4f5989fbfd6c86d2ed6936a48bee8f2b706f9c1b5284c4382c7bbd8",
       "owner_issue": 15,
       "disposition": "adapted",
       "target": "plugin/pstack/README.md",
-      "reason": "Cursor-specific onboarding and illustrative guide images replaced by Codex recipient setup, workflow map and capability limits; immutable originals retained in source provenance.",
-      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
+      "reason": "Recipient guide adapts explicit picker selection, both new skills, receiving-chat ownership and portable delegate/comment wrappers. See issue-30 qualification.",
+      "source_revision": "dbf49813a39c1a5389c5e28cb8e4c1c2379e2454"
     },
     {
       "source": "agents/comment-sicko.md",
@@ -582,12 +582,12 @@
     },
     {
       "source": "skills/poteto-help/SKILL.md",
-      "sha256": "ea71bcb15c023a5d9cc70686e4812144687ffe03bf80d85cc480af3e0b181d1e",
+      "sha256": "79950407d71018d0e23e018cf620a570031fbba36df6584abeaacdfac318afe5",
       "owner_issue": 7,
       "disposition": "adapted",
       "target": "plugin/pstack/skills/pstack-poteto-help/SKILL.md",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
-      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
+      "reason": "Joint #26/#27 help entries and recall/ketchup distinction are integrated and source-reviewed in issue-30 qualification.",
+      "source_revision": "dbf49813a39c1a5389c5e28cb8e4c1c2379e2454"
     },
     {
       "source": "skills/poteto-help/references/prompting.md",
@@ -600,12 +600,12 @@
     },
     {
       "source": "skills/poteto-help/references/recipes.md",
-      "sha256": "1872323419a3e5c7783b1933f7a180ca26c25a6e1f4ec83bd65e091ebbfb812b",
+      "sha256": "315b211b6cc6b19e3da7c4a1e8ddde2d8557588713d0b894509bd22821c709da",
       "owner_issue": 7,
       "disposition": "adapted",
       "target": "plugin/pstack/skills/pstack-poteto-help/references/recipes.md",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
-      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
+      "reason": "Joint #26/#27 review confirms upstream goal-playback recipe and intentional supplemental ketchup recipe. See issue-30 qualification.",
+      "source_revision": "dbf49813a39c1a5389c5e28cb8e4c1c2379e2454"
     },
     {
       "source": "skills/poteto-mode/SKILL.md",
@@ -820,7 +820,7 @@
       "owner_issue": 14,
       "disposition": "adapted",
       "target": "plugin/pstack/playbooks/worktree-cleanup.md",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
+      "reason": "Existing verified --trunk selection satisfies upstream explicit base intent while preserving read-only audit and cleanup safety gates. See issue-30 qualification.",
       "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
@@ -1018,7 +1018,7 @@
       "owner_issue": 14,
       "disposition": "adapted",
       "target": "plugin/pstack/scripts/worktree-audit.sh",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
+      "reason": "Existing --trunk overrides configured origin/HEAD, verifies ref and drives merge ancestry without fetch or mutations; equivalent explicit base intent. See issue-30 qualification.",
       "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
@@ -1505,6 +1505,15 @@
       "disposition": "adapted",
       "target": "plugin/pstack/skills/pstack-why/references/synthesizer-prompt.md",
       "reason": "Reviewed 0.15.23 wording with retained Codex bindings and source-backed deletion accounting; see plugin/pstack/qualification/issue-29.md.",
+      "source_revision": "dbf49813a39c1a5389c5e28cb8e4c1c2379e2454"
+    },
+    {
+      "source": "plugin.json",
+      "sha256": "6894bce77cfc25fb516f7c7b54248bba5d350752070ba06c6cb95ae8fa03cf0b",
+      "owner_issue": 30,
+      "disposition": "adapted",
+      "target": "plugin/pstack/plugin.json",
+      "reason": "New upstream portable root manifest is equivalent to existing independent Agent Plugins schema manifest; both source manifests map explicitly to that target. See issue-30 qualification.",
       "source_revision": "dbf49813a39c1a5389c5e28cb8e4c1c2379e2454"
     }
   ]

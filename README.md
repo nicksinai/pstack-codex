@@ -2,7 +2,7 @@
 
 A source-preserving port of Lauren Tan / poteto's pstack engineering workflows to Codex, intended to be shareable with a friend.
 
-**Status:** source-qualified port, prepared for public repository distribution. Recipient installation and runtime capabilities still require verification. The [self-contained package guide](plugin/pstack/README.md) describes setup, invocation and limits; [whole-package qualification](plugin/pstack/qualification/issue-15.md) records the source-backed argument.
+**Status:** source-qualified port, prepared for public repository distribution. Recipient installation and runtime capabilities still require verification. The [self-contained package guide](plugin/pstack/README.md) describes setup, invocation and limits; [complete 0.15.23 qualification](plugin/pstack/qualification/issue-30.md) records the source-backed argument.
 
 ## Install
 
@@ -24,11 +24,11 @@ Without the CLI, clone or download this repository, open its directory as a proj
 
 Select an individual skill for one request, or explicitly say “Enter sticky PStack mode for this conversation.” Exit with “Exit PStack mode.” Required tools, authentication, model choices and local helper dependencies are checked during setup; the plugin cannot grant them.
 
-Explicitly select **pstack: ketchup** for a read-only visual catch-up on the current conversation and pending user decisions. Its [qualification](plugin/pstack/qualification/issue-27.md) keeps missing history/state/visual capabilities explicit.
+Explicitly select **pstack: in-your-own-words** to check goal/problem understanding before work begins. Select **pstack: ketchup** for a read-only visual catch-up on the current conversation and pending user decisions. Its [qualification](plugin/pstack/qualification/issue-27.md) keeps missing history/state/visual capabilities explicit.
 
 ## Source and qualification
 
-Build an offline friend artifact with `python3 scripts/build-package.py --output-dir <recipient-artifact-directory>`. This assembles a reproducible archive and companion digest; it does not install or share it. Run `python3 scripts/validate-provenance.py` first.
+Build an offline friend artifact with `python3 scripts/build-package.py --output-dir <recipient-artifact-directory>`. This assembles a reproducible archive and companion digest; it does not install or share it. Run `python3 scripts/validate-provenance.py --require-complete` first; distribution requires zero pending or blocked transition obligations.
 
 - [Implementation specification](docs/specs/pstack-for-codex.md)
 - [Published specification issue](https://github.com/nicksinai/pstack-codex/issues/1)
@@ -45,9 +45,9 @@ Port qualification uses a source-backed fidelity and compatibility argument rath
 
 ## Upstream
 
-The official source is [cursor/plugins/pstack](https://github.com/cursor/plugins/tree/d0ef80d86795816da932a153458c5dbe192d294e/pstack), authored by Lauren Tan and distributed under MIT. The initial baseline is version 0.15.15 at repository commit `d0ef80d86795816da932a153458c5dbe192d294e`. This is an independent adaptation project, not an official Cursor or OpenAI plugin.
+Port version 0.1.3 qualifies all 65 differences in reviewed pstack 0.15.23 at `dbf49813a39c1a5389c5e28cb8e4c1c2379e2454`: 168 source items, 13 exclusions, 53 skills, 24 principles, 23 playbooks and two wrappers. The official source is [cursor/plugins/pstack](https://github.com/cursor/plugins/tree/dbf49813a39c1a5389c5e28cb8e4c1c2379e2454/pstack), authored by Lauren Tan and distributed under MIT. The initial baseline is version 0.15.15 at repository commit `d0ef80d86795816da932a153458c5dbe192d294e`. This is an independent adaptation project, not an official Cursor or OpenAI plugin.
 
-The ignored reconnaissance checkout is excluded. The immutable baseline is retained under `provenance/upstream/pstack`; [the source manifest](recon/upstream-manifest.json) records its hashes and [ownership inventory](provenance/ownership.json) accounts for every adaptation. [Third-party notices](THIRD_PARTY_NOTICES.md) and companion licenses accompany redistributed content.
+The ignored reconnaissance checkout is excluded. The immutable original and reviewed archives are retained separately under `provenance/upstream/pstack` and `provenance/upstream-0.15.23/pstack`; [the source manifest](recon/upstream-manifest.json) records its hashes and [ownership inventory](provenance/ownership.json) accounts for every adaptation. [Third-party notices](THIRD_PARTY_NOTICES.md) and companion licenses accompany redistributed content.
 
 ## Project workflow
 

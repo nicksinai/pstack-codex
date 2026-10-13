@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Check baseline integrity, complete ownership, mapped paths, and package links."""
+import argparse
 from pathlib import Path
 import hashlib
 import json
@@ -8,6 +9,9 @@ import subprocess
 import sys
 from urllib.parse import unquote
 
+parser = argparse.ArgumentParser(description=__doc__)
+parser.add_argument("--require-complete", action="store_true", help="Reject incomplete reviewed-transition qualification before distribution")
+args = parser.parse_args()
 root = Path(__file__).resolve().parents[1]
 manifest = json.loads((root / "provenance/ownership.json").read_text())
 registry = json.loads((root / "provenance/baselines.json").read_text())
@@ -86,7 +90,10 @@ for row in rows:
             assert active["source_revision"] == transition["to_revision"], row["source"]
 assert json.loads((root / "plugin/pstack/qualification/upstream-transition.json").read_text()) == transition
 pending = sum(row["disposition"] in {"pending", "blocked"} for row in rows)
-print(f"Validated both retained source baselines; 65 transition differences, {pending} pending adaptation obligations (not qualified).")
+if args.require_complete:
+    assert pending == 0, f"Final qualification requires zero pending/blocked obligations; found {pending}"
+    assert {item["source"] for item in manifest["items"]} == set(new_hashes), "Final qualification requires all 168 reviewed source items"
+print(f"Validated both retained source baselines; 65 transition differences, {pending} pending/blocked adaptation obligations.")
 current_diff = subprocess.check_output(
     [sys.executable, str(root / "scripts/adaptation-diff.py")], cwd=root,
 )

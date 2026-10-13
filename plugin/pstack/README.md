@@ -1,8 +1,8 @@
 # pstack for Codex
 
-A shareable adaptation of Lauren Tan / poteto's pstack 0.15.15, pinned to Cursor plugins commit `d0ef80d86795816da932a153458c5dbe192d294e`. This independent port includes 50 original top-level workflows plus the deslop companion: 52 explicit skills (including the reviewed 0.15.23 ketchup addition), all 24 principles, all 23 playbooks and both original agent roles as instruction wrappers. See [whole-package qualification](qualification/issue-15.md), [source inventory](qualification/source-inventory.json), [capabilities](qualification/capabilities.md) and [notices](NOTICE.md). It is not an official Cursor or OpenAI plugin.
+A shareable adaptation of Lauren Tan / poteto's pstack, updated to reviewed source 0.15.23 at Cursor plugins commit `dbf49813a39c1a5389c5e28cb8e4c1c2379e2454`. Port version 0.1.3 includes 50 original top-level workflows plus deslop and two new explicit skills: 53 skills, all 24 principles, all 23 playbooks and both original agent roles as instruction wrappers. See [complete update qualification](qualification/issue-30.md), [source inventory](qualification/source-inventory.json), [capabilities](qualification/capabilities.md) and [notices](NOTICE.md). It is not an official Cursor or OpenAI plugin.
 
-The chat receiving PStack mode owns the playbook, ordered checklist and delegation. The poteto-agent instruction wrapper initializes code-writing and helper delegates within that run. See the [coordinator and instruction-access qualification](qualification/issue-25.md) for the reviewed 0.15.23 slice and its limits.
+The chat receiving PStack mode owns the playbook, ordered checklist and delegation. Comment Sicko remains a portable [review wrapper](references/comment-sicko.md), normally reached through `pstack-no-comments`, rather than a registered Cursor agent. The poteto-agent instruction wrapper initializes code-writing and helper delegates within that run. See the [coordinator and instruction-access qualification](qualification/issue-25.md) for the reviewed 0.15.23 slice and its limits.
 
 ## Recipient setup
 
@@ -38,8 +38,9 @@ Use the actual picker identity if the host adds a plugin prefix. Documented `$` 
 
 ## Activation and examples
 
-Select `pstack-poteto-mode` with a request for the full workflow router, or select an individual leaf. A leaf or normal mode invocation applies to that request. Enter sticky mode explicitly with “Enter sticky PStack mode for this conversation.” End it with “Exit PStack mode.” Read [continuation](references/continuation.md) for scope, private checkpoint, interruption and recovery. Persistence requires available context or a valid scoped entry record; this is not a native enforced mode.
+Select `pstack-poteto-mode` in the picker before entering your request for the full workflow router, or select an individual leaf. A leaf or normal mode invocation applies to that request. Enter sticky mode explicitly with “Enter sticky PStack mode for this conversation.” End it with “Exit PStack mode.” Read [continuation](references/continuation.md) for scope, private checkpoint, interruption and recovery. Persistence requires available context or a valid scoped entry record; this is not a native enforced mode.
 
+- `pstack-in-your-own-words`: play back your goals and problem before work begins; explicit selection does not start implementation or an interview.
 - `pstack-ketchup`: checked visual catch-up on this conversation, including earlier pending user decisions; read-only except for reply visuals. History, state readers and a real visual channel remain [recipient prerequisites](references/ketchup-capabilities.md); see [qualification](qualification/issue-27.md).
 - `pstack-how`: explain a named subsystem from source; `pstack-why`: reconstruct its rationale; `pstack-recall`: recover scoped recent work; `pstack-teach`: explain it interactively.
 - `pstack-architect` or `pstack-arena`: compare independent designs/artifacts; `pstack-interrogate`: adversarial review; `pstack-swarm`: partition investigation or implementation coverage.
@@ -65,6 +66,6 @@ Disable or uninstall `pstack-codex` through Plugins Directory. Remove only its m
 
 ## Maintenance and evidence
 
-The 0.15.23 source snapshot is separately pinned for review. This transitional package still maps each delivered adaptation to its recorded source revision; archiving newer source does not qualify it. [Transition obligations](qualification/upstream-transition.json) identify the pending owners and [baseline evidence](qualification/issue-21.md) explains the retained source relationship. The earlier qualification records describe the 0.15.15 delivery and do not establish completion of the newer update.
+The immutable original 0.15.15 and reviewed 0.15.23 archives remain separately pinned in the source repository. All 65 [transition obligations](qualification/upstream-transition.json) are source-qualified; the active inventory accounts for 168 source items with per-file revision selection and 13 agreed exclusions. [Final update qualification](qualification/issue-30.md) records exact requirement evidence, integrated checks and conditional runtime limits. Earlier qualification records describe their historical delivery states.
 
 Updates require a new pinned source review; no automatic upstream synchronization occurs. Immutable original sources remain in the source repository, outside this package. The inventory records every original item, unique owner, adaptation/deferment and target. Per-ticket ledgers preserve the source-to-target argument. Deterministic checks establish content, hashes, reference closure and reproducible assembly; they do not establish observed recipient installation, service access, full agent compliance or real-app outcomes. The port requires no new behavioral qualification suite; pstack's own TDD/reproduction/live-verification requirements remain product behavior.
