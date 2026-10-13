@@ -132,9 +132,10 @@
       "previous_sha256": null,
       "sha256": "fa8ba74e27d7be371dc270ec78bbf816411477d0dfab185356c861ac8dd413ad",
       "owner_issue": 26,
-      "target": null,
-      "disposition": "pending",
-      "reason": "Owner #26 must review changed requirements, source mapping and qualification before accepting the new revision."
+      "target": "plugin/pstack/skills/pstack-in-your-own-words/SKILL.md",
+      "disposition": "adapted",
+      "reason": "Restatement instruction retained with namespaced Codex explicit-only entry; source-backed scope and discovery argument in issue #26.",
+      "qualification": "plugin/pstack/qualification/issue-26.md"
     },
     {
       "source": "skills/interrogate/SKILL.md",
@@ -194,7 +195,7 @@
       "owner_issue": 26,
       "target": "plugin/pstack/skills/pstack-poteto-help/SKILL.md",
       "disposition": "pending",
-      "reason": "Primary owner #26 integrates goal-playback discovery; #27 supplies catch-up discovery. Both requirements need source-backed qualification.",
+      "reason": "Goal-playback help/recipe portion delivered and reviewed in qualification/issue-26.md; full shared-source qualification remains pending integration of dependency #27 ketchup help and distinction.",
       "dependency_issues": [
         27
       ]
@@ -207,7 +208,7 @@
       "owner_issue": 26,
       "target": "plugin/pstack/skills/pstack-poteto-help/references/recipes.md",
       "disposition": "pending",
-      "reason": "Primary owner #26 integrates goal-playback discovery; #27 supplies catch-up discovery. Both requirements need source-backed qualification.",
+      "reason": "Goal-playback help/recipe portion delivered and reviewed in qualification/issue-26.md; full shared-source qualification remains pending integration of dependency #27 ketchup help and distinction.",
       "dependency_issues": [
         27
       ]

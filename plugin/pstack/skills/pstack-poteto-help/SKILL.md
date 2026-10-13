@@ -45,6 +45,7 @@ Default to mode for a nontrivial engineering request; recommend a leaf when the 
 
 | User need | Upstream skill name (invoke as `$pstack-<name>`) |
 | --- | --- |
+| Check the agent understood your goals and problem before work begins | in-your-own-words |
 | Current mechanics and where code belongs | how |
 | Reasons, regression history or a number's origin | why |
 | Plain explanation and tradeoffs | teach |

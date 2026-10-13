@@ -170,6 +170,7 @@ Bare upstream names in these instructions resolve to namespaced siblings below. 
 | create-verification-skill | [../pstack-create-verification-skill/SKILL.md](../pstack-create-verification-skill/SKILL.md) |
 | figure-it-out | [../pstack-figure-it-out/SKILL.md](../pstack-figure-it-out/SKILL.md) |
 | how | [../pstack-how/SKILL.md](../pstack-how/SKILL.md) |
+| in-your-own-words | [../pstack-in-your-own-words/SKILL.md](../pstack-in-your-own-words/SKILL.md) |
 | interrogate | [../pstack-interrogate/SKILL.md](../pstack-interrogate/SKILL.md) |
 | maintain-verification-skill | [../pstack-maintain-verification-skill/SKILL.md](../pstack-maintain-verification-skill/SKILL.md) |
 | make-bot-ui | Excluded from first release (Grok Bot UI). |
