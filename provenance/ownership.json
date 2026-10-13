@@ -51,12 +51,12 @@
     },
     {
       "source": "agents/poteto-agent.md",
-      "sha256": "abe41c169ecbfe65641f1725f4188d568e046c0dec7fd2dc271abb594c299201",
-      "owner_issue": 3,
+      "sha256": "979f18abd000d185a0b4c41a2a4111c0910596a7f5c81cbb571885bc721b2bf7",
+      "owner_issue": 25,
       "disposition": "adapted",
       "target": "plugin/pstack/references/poteto-agent.md",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
-      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
+      "reason": "Delegate-only wrapper preserves receiving-chat ownership and full-mode reads; exact selected package paths with access verification, explicit-content fallback or BLOCKED replace Cursor cache/version discovery. See issue-25 qualification.",
+      "source_revision": "dbf49813a39c1a5389c5e28cb8e4c1c2379e2454"
     },
     {
       "source": "assets/logo.png",
@@ -420,12 +420,12 @@
     },
     {
       "source": "skills/create-verification-skill/SKILL.md",
-      "sha256": "644f2551403c1bca01a2855b34611b6e7be0ce0dc5b204514c376c0f6a6e6ac4",
-      "owner_issue": 10,
+      "sha256": "d353973547bf8ad8977eca645f4cd4feaed0d32f4b43d1448f906b0a76c4d694",
+      "owner_issue": 23,
       "disposition": "adapted",
       "target": "plugin/pstack/skills/pstack-create-verification-skill/SKILL.md",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
-      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
+      "reason": "Reviewed 0.15.23 readiness and setup requirements adapted to existing Codex generator and control contracts; see qualification/issue-23.md and prior preservation argument in issue-10.md.",
+      "source_revision": "dbf49813a39c1a5389c5e28cb8e4c1c2379e2454"
     },
     {
       "source": "skills/create-verification-skill/references/feature-map-example/README.md",
@@ -600,12 +600,12 @@
     },
     {
       "source": "skills/poteto-mode/SKILL.md",
-      "sha256": "31cd02290360ce63564ef22b74d69fc6d90e62181d05a644cbed8f6c47cc9412",
-      "owner_issue": 7,
+      "sha256": "be90e646b623c5d2494d57ec14b8079d47904a1ca9456c10a2100c1dd90f9982",
+      "owner_issue": 25,
       "disposition": "adapted",
       "target": "plugin/pstack/skills/pstack-poteto-mode/SKILL.md",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
-      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
+      "reason": "Receiving chat owns playbook, ordered checklist and delegation; briefs carry exact absolute required instruction paths with access/fallback gate. Primary coordinator/path hunks qualified; remaining mode shortening requires issue #28 hunk review explicitly listed in issue-25 qualification.",
+      "source_revision": "dbf49813a39c1a5389c5e28cb8e4c1c2379e2454"
     },
     {
       "source": "skills/poteto-mode/playbooks/authoring-a-skill.md",
@@ -843,12 +843,21 @@
     },
     {
       "source": "skills/poteto-mode/scripts/check-plan.mjs",
-      "sha256": "4f9432d9989880b6afc2bdda503d5b12a9d07d357ecf31936b7ab5e83bc80523",
-      "owner_issue": 11,
+      "sha256": "e58c3d871b09d477be00628d69dd23ffa6c2e3a1728f5b867a841baa8e90278b",
+      "owner_issue": 24,
       "disposition": "adapted",
       "target": "plugin/pstack/scripts/check-plan.mjs",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
-      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
+      "reason": "Reviewed fence parser adopted exactly while retaining the existing Codex plan markers and all other checker rules; see issue-24 qualification.",
+      "source_revision": "dbf49813a39c1a5389c5e28cb8e4c1c2379e2454"
+    },
+    {
+      "source": "skills/poteto-mode/scripts/check-plan.test.ts",
+      "sha256": "c80f3ea043b81f219b92c4c8a3af6bdd4f8d32ea596ec15b5b9e0252645f2ae8",
+      "owner_issue": 24,
+      "disposition": "adapted",
+      "target": "plugin/pstack/scripts/check-plan.test.ts",
+      "reason": "Reviewed CLI regressions adapted to existing Codex valid-plan markers; strengthened full-length suffixed closer case; see issue-24 qualification.",
+      "source_revision": "dbf49813a39c1a5389c5e28cb8e4c1c2379e2454"
     },
     {
       "source": "skills/poteto-mode/scripts/orch/orch.test.ts",
@@ -879,12 +888,12 @@
     },
     {
       "source": "skills/poteto-mode/scripts/package.json",
-      "sha256": "d1f815091209d49763775cc188e8e06ff32d5fec648bffd2272bc25a165e87c3",
-      "owner_issue": 12,
+      "sha256": "fd511a0c01f522e0c781ddd8eccea0e91697a0856c6e6a3261de78a6a0287c72",
+      "owner_issue": 24,
       "disposition": "adapted",
       "target": "plugin/pstack/scripts/package.json",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
-      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
+      "reason": "Reviewed checker regression added to the existing helper test command; existing Codex package name, dependencies and typecheck retained; see issue-24 qualification.",
+      "source_revision": "dbf49813a39c1a5389c5e28cb8e4c1c2379e2454"
     },
     {
       "source": "skills/poteto-mode/scripts/watch-pr/cli.test.ts",
@@ -1068,12 +1077,12 @@
     },
     {
       "source": "skills/principle-fix-root-causes/SKILL.md",
-      "sha256": "ba4cd38da1dcc8fe5432feb64457cba95594736a9b21b2ebf8f8c52aee068707",
-      "owner_issue": 7,
+      "sha256": "2131069d285d82fb799458494f2e4ac8759c9c6a60f9e300828c17874f514c6e",
+      "owner_issue": 25,
       "disposition": "adapted",
       "target": "plugin/pstack/skills/pstack-principle-fix-root-causes/SKILL.md",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
-      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
+      "reason": "Deep deciding evidence triggers a cheap ongoing-signal proposal with observation point/cost; monitoring, recurring work and messages retain user/host authority gates. Issue #29 must preserve this instruction.",
+      "source_revision": "dbf49813a39c1a5389c5e28cb8e4c1c2379e2454"
     },
     {
       "source": "skills/principle-foundational-thinking/SKILL.md",

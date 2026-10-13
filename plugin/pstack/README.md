@@ -2,6 +2,8 @@
 
 A shareable adaptation of Lauren Tan / poteto's pstack 0.15.15, pinned to Cursor plugins commit `d0ef80d86795816da932a153458c5dbe192d294e`. This independent port includes 50 original top-level workflows plus the deslop companion: 52 explicit skills (including the reviewed 0.15.23 ketchup addition), all 24 principles, all 23 playbooks and both original agent roles as instruction wrappers. See [whole-package qualification](qualification/issue-15.md), [source inventory](qualification/source-inventory.json), [capabilities](qualification/capabilities.md) and [notices](NOTICE.md). It is not an official Cursor or OpenAI plugin.
 
+The chat receiving PStack mode owns the playbook, ordered checklist and delegation. The poteto-agent instruction wrapper initializes code-writing and helper delegates within that run. See the [coordinator and instruction-access qualification](qualification/issue-25.md) for the reviewed 0.15.23 slice and its limits.
+
 ## Recipient setup
 
 Use Codex desktop with local marketplace support and an account/organization policy allowing local plugins. A plugin supplies instructions and helpers; it cannot grant tools. Read [compatibility](references/compatibility.md) before use. Installation and task authorization are separate.
