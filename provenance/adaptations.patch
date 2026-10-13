@@ -2038,7 +2038,7 @@ Binary files differ: docs/guide/images/recipes.jpg -> plugin/pstack/README.md
 Binary files differ: docs/guide/images/router.jpg -> plugin/pstack/README.md
 Binary files differ: docs/guide/images/understanding.jpg -> plugin/pstack/README.md
 Binary files differ: docs/guide/images/verification.jpg -> plugin/pstack/README.md
---- upstream/d0ef80d86795816da932a153458c5dbe192d294e/pstack/skills/architect/SKILL.md
+--- upstream/dbf49813a39c1a5389c5e28cb8e4c1c2379e2454/pstack/skills/architect/SKILL.md
 +++ plugin/pstack/skills/pstack-architect/SKILL.md
 @@ -1,16 +1,21 @@
  ---
@@ -2051,7 +2051,7 @@ Binary files differ: docs/guide/images/verification.jpg -> plugin/pstack/README.
  
  # Architect
  
- Design before implementing. Sketch types, function signatures, class shapes, and module boundaries with `not implemented` bodies and pseudocode. Synthesize across multiple model perspectives, then fill in code against the chosen sketch. If implementation proves the sketch wrong, throw it out and redesign.
+ Sketch types, function signatures, class shapes, and module boundaries with `not implemented` bodies and pseudocode. Synthesize across multiple model perspectives, then fill in code against the chosen sketch.
  
 +## Entry and prerequisites
 +
@@ -2066,11 +2066,11 @@ Binary files differ: docs/guide/images/verification.jpg -> plugin/pstack/README.
  
  1. Ground
  2. Sketch
-@@ -28,9 +33,9 @@
+@@ -26,9 +31,9 @@
  
  ## Phase B: Sketch
  
--Run the **arena** skill with the design-sketch task and the Phase A grounding artifacts. Pass `references/runner-prompt.md` as each runner's prompt. Each candidate produces a design package shaped per `references/rationale-template.md`.
+-Run the **arena** skill with the design-sketch task and the Phase A grounding artifacts. Pass `references/runner-prompt.md` as each runner's prompt.
 +Run the **arena** skill with the design-sketch task and the Phase A grounding artifacts. Pass [references/runner-prompt.md](references/runner-prompt.md) as each runner's prompt. Each candidate produces a design package shaped per [references/rationale-template.md](references/rationale-template.md).
  
 -Take the runners from the `architect runners` line in the `pstack-models.mdc` rule, in place of the `arena runners` line. If the rule or that line is missing, use `claude-opus-5-5-xhigh` and `grok-4.7-xhigh-fast`. Alias and rejected entries follow the runner rules in the **arena** skill's Phase A.
@@ -2078,7 +2078,7 @@ Binary files differ: docs/guide/images/verification.jpg -> plugin/pstack/README.
  
  Design it twice. Require at least two structurally distinct candidates before synthesis, even when the first looks sufficient. This is the **exhaust-the-design-space** principle skill made concrete. Whole-shape alternatives, not point fixes inside one shape.
  
-@@ -46,7 +51,7 @@
+@@ -44,7 +49,7 @@
  
  Opt in to a checkpoint when the invoker explicitly asks: "/architect with checkpoint," "stop and show me before implementing," or similar. Then surface the synthesized design and pause for sign-off.
  
@@ -2087,7 +2087,7 @@ Binary files differ: docs/guide/images/verification.jpg -> plugin/pstack/README.
  
  If the human pushes back on the shape (in a checkpoint or after the fact), treat that as Phase A evidence. Re-ground and re-run Phase B before writing more code.
  
-@@ -80,4 +85,4 @@
+@@ -76,4 +81,4 @@
  
  ## Outputs
  
@@ -2121,9 +2121,9 @@ Binary files differ: docs/guide/images/verification.jpg -> plugin/pstack/README.
  
 -You are one of the parallel runners, each on a different model. Produce the best design your model can make. Don't hedge against the others. Differences between candidates are the signal used to pick a base and graft. Converging on a safe-looking middle defeats the exploration.
 +You are one of the parallel runners, each in an isolated context with its configured native GPT model/effort (possibly the same model). Independent contexts do not supply cross-provider diversity. Produce the best design your model can make. Don't hedge against the others. Differences between candidates are the signal used to pick a base and graft. Converging on a safe-looking middle defeats the exploration.
---- upstream/d0ef80d86795816da932a153458c5dbe192d294e/pstack/skills/arena/SKILL.md
+--- upstream/dbf49813a39c1a5389c5e28cb8e4c1c2379e2454/pstack/skills/arena/SKILL.md
 +++ plugin/pstack/skills/pstack-arena/SKILL.md
-@@ -1,16 +1,19 @@
+@@ -1,12 +1,17 @@
  ---
 -name: arena
 -description: "Spawn N parallel candidates at the same task, pick a base, graft the strongest parts of the losers into it. Use for /arena, 'arena this', 'throw it in the arena', or when one attempt at a non-trivial artifact would lock in the wrong shape."
@@ -2134,40 +2134,37 @@ Binary files differ: docs/guide/images/verification.jpg -> plugin/pstack/README.
  
  # Arena
  
- Fan out N parallel attempts at the same task. Read every candidate end to end. Pick the strongest as the base. Graft the best ideas from the others into it. Verify the synthesized result.
- 
+-Open a todolist with one entry per phase (Frame, Fan out, Cross-judge, Pick, Graft, Verify) before launching anything.
 +## Entry and execution
 +
 +Invoke `$pstack-arena` with the artifact task. Read [delegation](../../references/delegation.md) and [models](../../references/models.md). This workflow explicitly requests local parallel delegation. Bind to actual host operations and capacity before dispatch. Give every code writer its own declared worktree/branch and runtime resources; output-only writers get unique directories. Supply identical tasks and grounding, keep candidates unaware of each other's output, and let each finish before cross-judging. Independent GPT contexts retain attempt isolation; they do not reproduce Claude/Grok provider diversity.
 +
- ## Start
++## Start
++
++Open a todolist, or a visible local checklist if unavailable, with one entry per phase (Frame, Fan out, Cross-judge, Pick, Graft, Verify) before launching anything.
  
--Open a todolist with one entry per phase before launching anything.
-+Open a todolist, or a visible local checklist if unavailable, with one entry per phase before launching anything.
+ ## Phase A: Frame
  
- 1. Frame
- 2. Fan out
-@@ -25,12 +28,12 @@
+@@ -14,18 +19,18 @@
  
  1. State the artifact each candidate is producing.
- 2. Derive the rubric. State what success looks like for *this* task, then turn it into 3-6 concrete gradeable criteria. The rubric is the picker's tool in Phase D. Candidates only see the task.
--3. Pick the runners. Use the `arena runners` line in `~/.cursor/rules/pstack-models.mdc`. If the rule or that line is missing, default to one each on `claude-opus-5-5-xhigh` and `grok-4.7-xhigh-fast`. An `auto` or `inherit-parent` entry in this line or the cross-judge line means the parent model, so omit `model` for it. If the Task tool rejects a configured entry, run that seat on its family's default and say so. Families go by prefix: `claude-*` and `grok-*`. With no family match, use `claude-opus-5-5-xhigh`. If it rejects a default, use the closest valid slug of the same family from its error message. Spawn more when the arena covers multiple design directions. Same model N times when the work is generation-bound rather than judgment-sensitive.
--4. Assign output paths. Each candidate writes to its own location (a git worktree where possible, otherwise `/tmp/arena-<slug>/candidate-<n>/`), per the **separate-before-serializing-shared-state** principle skill.
+ 2. Derive the rubric, 3-6 concrete gradeable criteria for what success looks like on *this* task. It is the picker's tool in Phase D. Candidates only see the task.
+-3. Pick the runners. Use the `arena runners` line in `~/.cursor/rules/pstack-models.mdc`. If the rule or that line is missing, default to one each on `claude-opus-5-5-xhigh` and `grok-4.7-xhigh-fast`. An `auto` or `inherit-parent` entry in this line or the cross-judge line means the parent model, so omit `model` for it. If the Task tool rejects a configured entry, run that seat on its family's default and say so. Families go by prefix: `claude-*` and `grok-*`. With no family match, use `claude-opus-5-5-xhigh`. If it rejects a default, use the closest valid slug of the same family from its error message. Spawn more runners when the arena covers multiple design directions. Use the same model N times when the work is generation-bound rather than judgment-sensitive.
+-4. Give each candidate its own output location (a git worktree where possible, otherwise `/tmp/arena-<slug>/candidate-<n>/`), per the **separate-before-serializing-shared-state** principle skill.
 +3. Pick the runners. Resolve every seat in `arena runners` through models.md, unless architect supplies its own panel. Defaults are two inherited native GPT seats. Preserve alias and repeated-entry count. Spawn more when the arena covers multiple design directions. The same model N times remains suitable for generation-bound work. Validate real models and separate efforts against the current host; report rejected selections and obtain supported replacements. No external provider or guessed slug fallback.
 +4. Assign separate output locations under delegation.md. Record exact base commit, output/worktree location, branch and runtime resource ownership before launch. A candidate must inspect its assigned cwd and branch before writing.
  
  ## Phase B: Fan out
  
--Spawn all N subagents in one message with `run_in_background: true`, each with the task, the path to the shared grounding, its own output path, and instructions to produce both the artifact and a short rationale.
-+Dispatch all N subagents asynchronously in bounded concurrent batches through the actual host spawn operation, each with the same task, the path to shared grounding, its own output path, and instructions to produce both artifact and short rationale. Use the fresh-context/no-inherited-history operation required by delegation.md and a self-contained sanitized candidate brief. Keep the private picker rubric out of all candidate-accessible grounding and context. An inherited parent conversation leaks the rubric even when the brief omits it; missing context isolation blocks the private-rubric fan-out. Queue seats beyond current capacity; concurrency is not the total candidate count. Missing parallel spawn/result support blocks this workflow rather than turning it into a fabricated single-agent panel.
+-Spawn all N subagents in one message with `run_in_background: true`, each with the task, the path to the shared grounding, its own output path, and instructions to produce the artifact and a short rationale naming the alternatives it considered and what it rejected.
++Dispatch all N subagents asynchronously in bounded concurrent batches through the actual host spawn operation, each with the same task, the path to shared grounding, its own output path, and instructions to produce the artifact and a short rationale naming the alternatives considered and rejected. Use the fresh-context/no-inherited-history operation required by delegation.md and a self-contained sanitized candidate brief. Keep the private picker rubric out of all candidate-accessible grounding and context. An inherited parent conversation leaks the rubric even when the brief omits it; missing context isolation blocks the private-rubric fan-out. Queue seats beyond current capacity; concurrency is not the total candidate count. Missing parallel spawn/result support blocks this workflow rather than turning it into a fabricated single-agent panel.
  
- Each rationale names the alternatives the candidate considered and what it rejected.
- 
-@@ -38,7 +41,7 @@
+-If a candidate produces no output, proceed with N-1 and note the dropout.
++If a candidate produces no output, proceed with N-1 and note the dropout in the synthesis record.
  
  ## Phase C: Cross-judge
  
--After all Phase B candidates complete, choose one model from the `arena cross-judge pool` line in `~/.cursor/rules/pstack-models.mdc`. If the rule or that line is missing, choose from `claude-opus-5-5-xhigh` and `grok-4.7-xhigh-fast`. Prefer a different model family from the parent's. Spawn one readonly judge subagent on that model. It sees the rubric and the candidates by path label, scores each criterion, and recommends a base with rationale. It runs in parallel with the parent's reading in Phase D, not with the candidates themselves. Don't spawn the judge while candidates are still writing.
+-After all Phase B candidates complete, choose one model from the `arena cross-judge pool` line in `~/.cursor/rules/pstack-models.mdc`. If the rule or that line is missing, choose from `claude-opus-5-5-xhigh` and `grok-4.7-xhigh-fast`. Prefer a different model family from the parent's. Spawn one readonly judge subagent on that model. It sees the rubric and the candidates by path label, scores each criterion, and recommends a base with rationale. It runs in parallel with your reading in Phase D. Don't spawn it while candidates are still writing.
 +After all Phase B candidates reach terminal state, choose one validated model from `arena cross-judge pool` through models.md. Defaults are inherited native GPT choices. Prefer a different available model family from the parent's within the native GPT selection, while disclosing that provider diversity remains absent. Spawn one fresh-context read-only judge using the actual no-inherited-history operation and a sanitized stand-alone brief. A new agent ID with inherited parent history does not meet this requirement; missing context isolation blocks blinded judging. It sees the rubric and complete artifacts by path label, scores each criterion, and recommends a base with rationale. Withhold other judges' views and model identities; shared prompts, not assigned personas, are the comparison basis. Run judging in parallel with the parent's reading in Phase D, never while candidates are still writing. Read-only is an instruction unless the host enforces a sandbox. If no candidate survives, report BLOCKED; with one survivor, note lost comparison and dropout rather than claiming competing-design evidence. Architect's two-distinct-design requirement still applies.
  
  ## Phase D: Pick a base
@@ -2278,7 +2275,7 @@ Binary files differ: docs/guide/images/verification.jpg -> plugin/pstack/README.
 +- User wants a task-specific skill (not working conventions): the authoring companion alone, no mining required.
  - User wants to capture one narrow workflow (e.g. "how I write commit messages"). That's a regular skill, not a mode skill.
  
---- upstream/d0ef80d86795816da932a153458c5dbe192d294e/pstack/skills/benchmark-checklist/SKILL.md
+--- upstream/dbf49813a39c1a5389c5e28cb8e4c1c2379e2454/pstack/skills/benchmark-checklist/SKILL.md
 +++ plugin/pstack/skills/pstack-benchmark-checklist/SKILL.md
 @@ -1,12 +1,14 @@
  ---
@@ -2294,15 +2291,15 @@ Binary files differ: docs/guide/images/verification.jpg -> plugin/pstack/README.
  
  # Benchmark checklist
  
--Use this when you produce a performance number: a PR's before and after, a regression claim, a hillclimb harness, or a library or config choice. [Explain the Number](../principle-explain-the-number/SKILL.md) says why. Answer each question below with evidence from a run, not from a guess about the code.
-+Use this when you produce a performance number: a PR's before and after, a regression claim, a hillclimb harness, or a library or config choice. [Explain the Number](../pstack-principle-explain-the-number/SKILL.md) says why. Answer each question below with evidence from a run, not from a guess about the code.
+-Use this when you produce a performance number: a PR's before and after, a regression claim, a hillclimb harness, or a library or config choice. Answer each question with evidence from a run, not a guess about the code.
++Use this when you produce a performance number: a PR's before and after, a regression claim, a hillclimb harness, or a library or config choice. [Explain the Number](../pstack-principle-explain-the-number/SKILL.md) says why. Answer each question with evidence from a run, not a guess about the code.
  
  For a quick ballpark the user asked for, one run is enough. Still check questions 4 and 7, and say that it is one run. Skip the rest unless that run looks wrong. A choice between options is never a ballpark.
  
 @@ -14,7 +16,7 @@
  
  - Write down the claim you expect to make, in the words you would ship ("export is 30% faster at p50 on the 60k-row dataset"). The questions test that sentence.
- - Read the measurement script. Note what it times, what it counts, and what it ignores.
+ - Read the measurement script. Note what it times, counts, and ignores.
 -- Check the load average with `uptime` and the core count with `nproc`. If the machine is busy, find out what is running. If you cannot stop it, interleave the sides so both see the same noise, and say so in the report.
 +- Check the load average with `uptime` and the core count with the available platform core-count command (`nproc` on Linux, `sysctl -n hw.logicalcpu` on macOS). If the machine is busy, find out what is running. If you cannot stop it, interleave the sides so both see the same noise, and say so in the report.
  
@@ -2413,12 +2410,12 @@ Binary files differ: docs/guide/images/verification.jpg -> plugin/pstack/README.
  
 -Point the user at `/maintain-verification-skill` for keeping the map honest as the app changes. Suggest a cadence only if they ask.
 +Point the user at [pstack-maintain-verification-skill](../pstack-maintain-verification-skill/SKILL.md) for keeping the map honest as the app changes. Suggest a cadence only if they ask.
---- upstream/d0ef80d86795816da932a153458c5dbe192d294e/pstack/skills/figure-it-out/SKILL.md
+--- upstream/dbf49813a39c1a5389c5e28cb8e4c1c2379e2454/pstack/skills/figure-it-out/SKILL.md
 +++ plugin/pstack/skills/pstack-figure-it-out/SKILL.md
 @@ -1,8 +1,11 @@
  ---
 -name: figure-it-out
--description: "Design an auditable playbook when no narrower one fits: a large migration, an ambitious multi-part change, or work a human reviews after stepping away. Scales rigor to the task, runs a hypothesis loop, and logs decisions via show-me-your-work. Use for /figure-it-out, 'figure it out', a large migration, or when no narrower playbook applies."
+-description: "Design an auditable playbook when no narrower one fits: a large migration, an ambitious multi-part change, or work a human reviews after stepping away. Scales rigor to the task, runs a hypothesis loop, and logs decisions. Use for /figure-it-out or 'figure it out'."
 -disable-model-invocation: true
 +name: pstack-figure-it-out
 +description: Design and execute a bespoke rigorous workflow for complex work.
@@ -2539,9 +2536,9 @@ Binary files differ: docs/guide/images/verification.jpg -> plugin/pstack/README.
  Restate in your own words what you think the user's goals are and what problem they're trying to solve.
 +
 +Return the restatement for the user to check. This invocation does not start implementation or a discovery interview.
---- upstream/d0ef80d86795816da932a153458c5dbe192d294e/pstack/skills/interrogate/SKILL.md
+--- upstream/dbf49813a39c1a5389c5e28cb8e4c1c2379e2454/pstack/skills/interrogate/SKILL.md
 +++ plugin/pstack/skills/pstack-interrogate/SKILL.md
-@@ -1,12 +1,11 @@
+@@ -1,12 +1,13 @@
  ---
 -name: interrogate
 -description: "Use for \"interrogate\", \"adversarial review\", \"multi-model review\", \"challenge this\", \"stress test this code\", \"find blind spots\", or \"tear this apart\". Multiple LLM reviewers challenge changes from independent angles."
@@ -2552,16 +2549,18 @@ Binary files differ: docs/guide/images/verification.jpg -> plugin/pstack/README.
  
  # Interrogate
  
--Spawn one reviewer per configured model to adversarially review code changes. Each model gets the same prompt and rubric. The adversarial signal comes from model diversity, not assigned personas.
+-Spawn one reviewer per configured model to adversarially review code changes. The adversarial signal comes from model diversity, not assigned personas. The deliverable is a synthesized verdict. Do NOT auto-apply changes.
 +Invoke `$pstack-interrogate` with a diff, files, or recent-work scope. Read [delegation](../../references/delegation.md) and [models](../../references/models.md). This workflow explicitly requests independent local reviewers. Spawn one reviewer per configured seat with the same prompt, intent, code, rubric and code-quality lens. Independent contexts and separately validated GPT selections preserve independent attempts; the upstream cross-provider adversarial signal from Claude/Grok is absent. Repeated inherited GPT seats are allowed and are disclosed, never described as provider diversity. Use no assigned personas.
++
++The deliverable is a synthesized verdict. Do NOT auto-apply changes.
  
- The deliverable is a synthesized verdict. Do NOT auto-apply changes.
+ ## Step 1, Scope
  
-@@ -33,25 +32,16 @@
+@@ -24,31 +25,31 @@
  
  ## Step 3, Spawn Reviewers
  
--Launch all reviewers in a single message using the Task tool. Use the `interrogate reviewers` line in `~/.cursor/rules/pstack-models.mdc`, one reviewer per entry, extending or shrinking the Reviewer A/B labels below to the configured entry count. If the rule or that line is missing, use the table defaults.
+-Launch all reviewers in a single message with the Task tool, one per entry on the `interrogate reviewers` line in `~/.cursor/rules/pstack-models.mdc`, labeled Reviewer A, B, and so on to match the entry count. If the rule or that line is missing, use the table defaults.
 +Resolve the `interrogate reviewers` panel through models.md, one fresh reviewer per entry, extending or shrinking Reviewer A/B labels to the seat count. Defaults are two inherited native GPT seats. Record actual model/effort where observable; otherwise identify inheritance honestly. Validate identities and efforts separately against the host; obtain a valid replacement for rejected entries, retaining aliases as inheritance. Do not guess model slugs, install providers, or open an unrelated configuration PR.
  
 -| Subagent | Default model |
@@ -2570,43 +2569,39 @@ Binary files differ: docs/guide/images/verification.jpg -> plugin/pstack/README.
 -| Reviewer B | `grok-4.7-xhigh-fast` |
 +Launch the reviewers asynchronously in bounded concurrent batches using supported spawn/result operations. Every reviewer is read-only and receives its own fresh context; read-only scope is an instruction unless the host enforces it. They may share immutable source, but see neither other findings nor the lead's preferred verdict. Freeze review scope at an exact base/head SHA or file snapshot, include enough surrounding code to trace real callers, and identify dirty changes explicitly. Missing reviewers are recorded as coverage gaps; a dropout is not consensus. The lead waits for every launched reviewer's terminal state before the final verdict. Missing required delegation support is BLOCKED, never a simulated panel.
  
--For each reviewer:
--- `subagent_type`: `generalPurpose`
--- `model`: the configured `interrogate reviewers` entry, or the table default with no configured line. For an `auto` or `inherit-parent` entry, omit `model` so that reviewer runs on the parent model.
--- `readonly`: `true`
+-Each reviewer gets `subagent_type: generalPurpose`, `readonly: true`, and `model` set to its configured entry, or its table default when there is no configured line. Omit `model` for an `auto` or `inherit-parent` entry, so that reviewer runs on the parent model.
 +Read [reviewer prompt](references/reviewer-prompt.md) and fill in the template with:
  
--If the Task tool rejects a configured entry, run that reviewer on the table default of its family and say so. Families go by prefix: `claude-*` and `grok-*`. With no family match, use Reviewer A's default. If it rejects a table default, check the valid slugs in the Task tool's error message, pick the closest equivalent (prefer the same family and reasoning tier), spawn with it, and open a separate PR to update the default table. Do not block the review on the slug issue. Never treat an alias entry as a rejected slug or apply either fallback to it.
--
--Read `references/reviewer-prompt.md` and fill in the template with:
- 1. The stated intent
- 2. The diff or file contents
--3. The review rubric from `references/rubric.md`
--4. The code-quality lens from `references/code-quality-review.md`
+-If the Task tool rejects a configured entry, run that reviewer on its family's table default and say so. Families go by prefix: `claude-*` and `grok-*`. With no family match, use Reviewer A's default. If it rejects a table default, spawn with the closest equivalent from the valid slugs in its error message (prefer the same family and reasoning tier), and open a separate PR to update the default table. Do not block the review on the slug issue. Never treat an alias entry as a rejected slug or apply either fallback to it.
++1. The stated intent
++2. The diff or file contents
 +3. The review rubric from [review rubric](references/rubric.md)
 +4. The code-quality lens from [code-quality lens](references/code-quality-review.md)
  
- The same filled template goes to all reviewers, so every model applies the code-quality lens.
+-Read `references/reviewer-prompt.md` and fill in the same template for every reviewer with the stated intent, the diff or file contents, the rubric from `references/rubric.md`, and the code-quality lens from `references/code-quality-review.md`.
++The same filled template goes to all reviewers, so every model applies the code-quality lens.
  
-@@ -60,7 +50,7 @@
- As results come back, build a unified picture:
+ ## Step 4, Synthesize
  
- 1. **Parse all findings** from the reviewers
--2. **Identify consensus**. Findings raised by 2+ models independently are highest signal.
-+2. **Identify consensus**. Findings raised by 2+ independent reviewers are a high-signal input. Identify repeated-model seats; agreement is not independent provider confirmation and never substitutes for tracing the evidence.
- 3. **Identify lone-model findings**. Still worth reading, but weight accordingly.
- 4. **Deduplicate**. Different models may describe the same issue differently. Merge these and note which models raised it.
- 5. **Note disagreements**. If one model flags something and another explicitly says the opposite, that's useful context for the verdict.
-@@ -69,7 +59,7 @@
+-As results come back, build a unified picture. Parse every reviewer's findings. Merge findings that describe the same issue differently, and note which models raised each one. Findings two or more models raised independently are the highest signal. Read a lone model's finding, but weight it accordingly. Note disagreements. If one model flags something and another explicitly says the opposite, that is context for the verdict.
++As results come back, parse every reviewer's findings. Merge findings about the same issue and note which models raised each. Agreement by two or more independent reviewers is a high-signal input. Identify repeated-model seats; agreement is not independent provider confirmation and never substitutes for tracing the evidence. Read lone-model findings and weight them accordingly. Record disagreements, including a reviewer explicitly contradicting another finding.
  
- You are the lead reviewer, a pragmatic senior engineer, not a neutral aggregator.
+ ## Step 5, Lead Judgment
  
--Read `references/lead-judgment.md` for the full framework.
-+Read [lead judgment](references/lead-judgment.md) for the full framework.
+-You are the lead reviewer, a pragmatic senior engineer, not a neutral aggregator. Read `references/lead-judgment.md` for the full framework. Put every finding in one of four buckets, with the model(s) that raised it and a one-line rationale.
++You are the lead reviewer, a pragmatic senior engineer, not a neutral aggregator. Read [lead judgment](references/lead-judgment.md) for the full framework. Put every finding in one of four buckets, with the model(s) that raised it and a one-line rationale.
  
- Categorize every finding using these buckets:
+-- **Act on**. Real issues affecting correctness, security, or maintainability given the actual goals. They would block a real PR.
++- **Act on**. Real issues affecting correctness, security, or maintainability given the actual goals. These would block a real PR.
+ - **Consider**. Legitimate, but you're not sure they outweigh the cost of addressing them now. Worth the user's attention.
+-- **Noted**. Technically valid but not actionable. Context-dependent, premature optimization, or low-impact at this stage.
+-- **Dismissed**. Wrong, nitpicky, or missing context, with a brief reason.
++- **Noted**. Technically valid but not actionable. Context-dependent, premature optimization, or low-impact given the current stage.
++- **Dismissed**. Wrong, nitpicky, or missing context. Brief explanation why.
  
-@@ -91,7 +81,7 @@
+ ## Output Format
+ 
+@@ -56,7 +57,7 @@
  > [The stated intent paragraph from Step 2]
  
  ### Reviewers
@@ -2614,15 +2609,15 @@ Binary files differ: docs/guide/images/verification.jpg -> plugin/pstack/README.
 +- Reviewer [label]: [observed model/effort or inherited selection], [N findings], [complete/dropout/blocked] (one bullet per reviewer; disclose repeated models and absent provider diversity)
  
  ### Act On
- [Findings that should be addressed. For each: description, which models raised it, why it matters.]
---- upstream/d0ef80d86795816da932a153458c5dbe192d294e/pstack/skills/interrogate/references/rubric.md
+ [Each: description, which models raised it, why it matters.]
+--- upstream/dbf49813a39c1a5389c5e28cb8e4c1c2379e2454/pstack/skills/interrogate/references/rubric.md
 +++ plugin/pstack/skills/pstack-interrogate/references/rubric.md
 @@ -20,7 +20,7 @@
  
  Is the code fixing the actual problem or papering over a symptom?
  
--Answering this often requires looking beyond the changed files. Read the surrounding code (callers, callees, type definitions, sibling modules) and understand the architecture the change lives in. Use the tools available to you (Read, Grep, Glob) to explore. Follow the call chain. Read the types. Understand why the code exists before judging whether the change addresses the right layer.
-+Answering this often requires looking beyond the changed files. Read the surrounding code (callers, callees, type definitions, sibling modules) and understand the architecture the change lives in. Use the available host file-reading, search and listing tools to explore. Follow the call chain. Read the types. Understand why the code exists before judging whether the change addresses the right layer.
+-Answering this often requires looking beyond the changed files. Read the surrounding code (callers, callees, type definitions, sibling modules) and understand the architecture the change lives in. Use the tools available to you (Read, Grep, Glob) to follow the call chain, read the types, and understand why the code exists before judging whether the change addresses the right layer.
++Answering this often requires looking beyond the changed files. Read the surrounding code (callers, callees, type definitions, sibling modules) and understand the architecture the change lives in. Use the available host file-reading, search and listing tools to follow the call chain, read the types, and understand why the code exists before judging whether the change addresses the right layer.
  
  - Guard clauses that mask a deeper invariant violation
  - Retry logic that hides a broken contract
@@ -3107,7 +3102,7 @@ Binary files differ: docs/guide/images/verification.jpg -> plugin/pstack/README.
  - Nontrivial change, architecture decision, or "are we sure?" → the **how** skill.
 -- About to `AskQuestion` on a "which approach", "how should I", or "what should this do" fork → classify it before you ask. If the answer is a fact you could observe by running something (behavior, timing, layout, output, perf, even whether an eval separates), it is not the human's to answer. Sketch it via the Prototype playbook (`playbooks/prototype.md`) and let the result decide. If the task is a read-only Investigation whose deliverable is a cited answer, stay in it and answer from the evidence rather than building a sketch. Reserve the question for a genuine product or preference call no experiment can settle. Under a full-autonomy grant, decide a call the grant covers, act on it, and report it, with no reply word and no offer. Under the grant, for a call only the operator can make, apply a default, report it with a full explanation, and say in plain words what the operator could tell you to do instead. The operator answers in their own words. Never give a shorthand token to type back. Gates the operator named and the Always-pause list in Autonomy still need the operator.
 -- Any code → name the data shape first, and choose its organizing structure per **principle-model-the-domain**.
-+- About to ask a question on a "which approach", "how should I", or "what should this do" fork → classify it before you ask. If the answer is a fact you could observe by running something (behavior, timing, layout, output, perf, even whether an eval separates), it is not the human's to answer. Sketch it via the Prototype playbook ([../../playbooks/prototype.md](../../playbooks/prototype.md)) and let the result decide. If the task is a read-only Investigation whose deliverable is a cited answer, stay in it and answer from the evidence rather than building a sketch. Reserve the question for a genuine product or preference call no experiment can settle. Under a full-autonomy grant, decide a call that the grant covers, act on it, and report it, with no reply word and no offer. Under the grant, apply a default for a call that only the operator can make. Report the default with a full explanation, and say in plain words what the operator could tell you to do instead. The operator answers in their own words. Never give a shorthand token to type back. Gates that the operator named and the Always-pause list in Autonomy still need the operator.
++- About to ask a question on a "which approach", "how should I", or "what should this do" fork → classify it before you ask. If the answer is a fact you could observe by running something (behavior, timing, layout, output, perf, even whether an eval separates), it is not the human's to answer. Sketch it via the Prototype playbook ([../../playbooks/prototype.md](../../playbooks/prototype.md)) and let the result decide. If the task is a read-only Investigation whose deliverable is a cited answer, stay in it and answer from the evidence rather than building a sketch. Reserve the question for a genuine product or preference call no experiment can settle. Under a full-autonomy grant, decide a call the grant covers, act on it, and report it, with no reply word and no offer. Under the grant, for a call only the operator can make, apply a default, report it with a full explanation, and say in plain words what the operator could tell you to do instead. The operator answers in their own words. Never give a shorthand token to type back. Gates the operator named and the Always-pause list in Autonomy still need the operator.
 +- Any code → name the data shape first, and choose its organizing structure per [**principle-model-the-domain**](../pstack-principle-model-the-domain/SKILL.md).
  - Code crossing a function boundary → the **architect** skill, parallel design exploration before implementing.
  - Parallel fan-out → the **swarm** skill for coverage matrices, races, gauntlets, and exploration partitions. Use **arena** for design or code bakeoffs with base selection and grafting.
@@ -3119,7 +3114,7 @@ Binary files differ: docs/guide/images/verification.jpg -> plugin/pstack/README.
 -- Before commit → the `deslop` skill from the `cursor-team-kit` plugin (`/deslop`).
 -- Before review → the **no-comments** skill (`/no-comments`).
 -- Shipping UI / IDE / CLI → the matching control skill. `cursor-team-kit` publishes `control-cli` (CLIs and TUIs) and `control-ui` (browser / Electron / web UIs). For bug fixes, reproduce first on the same surface yourself. Hand to the user only under the narrow Bug fix step 1 exception.
-+- Any prose surface → the **unslop** skill. Your reply is a prose surface. Write it per **Writing the reply**. Agent-facing prose also follows the authoring playbook ([authoring a skill](../../playbooks/authoring-a-skill.md)); it supplies the inspected Codex authoring counterpart and discloses the unavailable Cursor built-in source.
++- Any prose surface, your reply to the user included → the **unslop** skill. Write the reply per **Writing the reply**. Agent-facing prose also follows the authoring playbook ([authoring a skill](../../playbooks/authoring-a-skill.md)); it supplies the inspected Codex authoring counterpart and discloses the unavailable Cursor built-in source.
 +- Docs, RFCs, readmes, PR descriptions, or commit messages → the **technical-writing** skill (`$pstack-technical-writing`).
 +- Before commit → the bundled **deslop** skill.
 +- Before review → the **no-comments** skill (`$pstack-no-comments`).
@@ -3235,7 +3230,7 @@ Binary files differ: docs/guide/images/verification.jpg -> plugin/pstack/README.
  - **Every claim carries its evidence or its label in the same sentence.** Measured, inferred, or guess. A prediction or an unseen cause is a guess. Never hand the human a check you could run.
  
 -Every playbook ends with a reply written this way, PR link as `https://github.com/<owner>/<repo>/pull/<number>`. Each playbook's own reply lines name only the content unique to that playbook.
-+Every playbook ends with a reply written this way. Code-change delivery normally includes a PR; read-only investigation, diagnosis, planning and an explicit local-only user limit retain their specific output contract. Format an actual created PR link as `https://github.com/<owner>/<repo>/pull/<number>`. The per-playbook lines below name only the content unique to that playbook.
++Every playbook ends with a reply written this way. Code-change delivery normally includes a PR; read-only investigation, diagnosis, planning and an explicit local-only user limit retain their specific output contract. Format an actual created PR link as `https://github.com/<owner>/<repo>/pull/<number>`. Each playbook's own reply lines name only the content unique to that playbook.
  
  ## Comments
  
@@ -3739,7 +3734,7 @@ Binary files differ: docs/guide/images/verification.jpg -> plugin/pstack/README.
 +The checker establishes structural constraints only. It cannot prove concrete scenario quality, model availability, application behavior, screenshot contents, evidence truth, or merge authority. Review these explicitly. Resolve every execution playbook, principle and companion instruction path before handing the plan to execution; a missing dependency is an explicit blocker, never a satisfied box.
 +
  **Reply:** the plan path, the PR ids with their dependencies and the review-gated set, what the prototypes proved and what stays unproven, and the check script's output.
---- upstream/d0ef80d86795816da932a153458c5dbe192d294e/pstack/skills/poteto-mode/playbooks/opening-a-pr.md
+--- upstream/dbf49813a39c1a5389c5e28cb8e4c1c2379e2454/pstack/skills/poteto-mode/playbooks/opening-a-pr.md
 +++ plugin/pstack/playbooks/opening-a-pr.md
 @@ -1,12 +1,14 @@
  ### Opening a PR
@@ -3752,28 +3747,29 @@ Binary files differ: docs/guide/images/verification.jpg -> plugin/pstack/README.
 +
 +**Worktree.** Work from a Git worktree off the current trunk. Each writing delegate gets its own worktree and branch, exact base SHA and explicit cwd, under [delegation](../references/delegation.md). Preserve unrelated dirty work before creating a fresh checkout. A snarled worktree requires inspecting and preserving its changes before a minimal redo; never reset or discard another actor’s work.
  
- **Commits.** Commit liberally. Rebase into small, ordered commits before opening PRs. Each commit is a future PR: landable, ordered to tell the story. Amend when the fix belongs in a just-made commit. New commit when separable.
+ **Commits.** Commit liberally. Rebase into small, ordered commits before opening PRs. Each commit is a future PR: landable, ordered to tell the story. Amend when the fix belongs in a just-made commit. New commit when separable. Commit bodies don't restate the subject.
  
--**PRs.** Run `/deslop` from `cursor-team-kit` over the diff before commit. Run `/no-comments` before review. Write every PR title, PR description, and commit body with `/technical-writing`, then apply `/unslop`. Apply every technical-writing layer except Diátaxis. Use one word for each action, keep articles, and avoid `-ing` when a plain verb works.
-+**PRs.** Read and run [deslop](../skills/pstack-deslop/SKILL.md) over the diff before commit. Read and run [no-comments](../skills/pstack-no-comments/SKILL.md) before review. Write every PR title, PR description, and commit body with [technical-writing](../skills/pstack-technical-writing/SKILL.md), then apply [unslop](../skills/pstack-unslop/SKILL.md). Apply every technical-writing layer except Diátaxis. Use one word for each action, keep articles, and avoid `-ing` when a plain verb works.
+-**PRs.** Run `/deslop` from `cursor-team-kit` over the diff before commit and `/no-comments` before review. Write every PR title, description, and commit body with `/technical-writing` (every layer except Diátaxis, and apply the STE vocabulary rules: one word per action, keep articles, a plain verb over `-ing` where one works), then apply `/unslop`.
++**PRs.** Read and run [deslop](../skills/pstack-deslop/SKILL.md) over the diff before commit. Read and run [no-comments](../skills/pstack-no-comments/SKILL.md) before review. Write every PR title, description, and commit body with [technical-writing](../skills/pstack-technical-writing/SKILL.md) (every layer except Diátaxis, including STE vocabulary rules: one word per action, keep articles, a plain verb over `-ing` where one works), then apply [unslop](../skills/pstack-unslop/SKILL.md).
  
- **Titles.** Use Conventional Commits in the form `type(scope): subject`. Use `feat`, `fix`, `docs`, `refactor`, `test`, `chore`, or `perf` as the type. Use the changed area, such as `pstack` or `poteto-mode`, as the scope. Keep the subject short and imperative. Name a real symbol when one carries the change. For example, `fix(pstack): retarget opening-a-pr babysit trigger`. Do not add a trailing period.
+ **Titles.** Conventional Commits `type(scope): subject`, no trailing period. Type such as `feat`, `fix`, `docs`, `refactor`, `test`, `chore`, or `perf`. Scope is the area, such as `pstack` or `poteto-mode`. Subject is short, imperative, and names a real symbol when one carries the change, for example `fix(pstack): retarget opening-a-pr babysit trigger`.
  
-@@ -25,7 +27,7 @@
+@@ -23,12 +25,12 @@
  
  **Forge.** Resolve the forge before the first PR operation and keep that choice for create, edit, view, watch, and merge. GitHub CLI (`gh`) is the default. If `command -v origin` succeeds and Origin can resolve the repository, prefer `origin pr ...`. If Origin is absent or cannot resolve the repository, stay on `gh` and record the fallback. Do not require Graphite (`gt`).
  
--**Built-in PR tool.** When the run provides a built-in PR tool, create, edit, retarget, and mark ready through it, never through a forge CLI. Its own instructions say how. A PR made with the CLI misses what the tool tracks, such as a description later runs can edit. Use the resolved forge for everything the tool does not cover, and for every PR operation when the run has no such tool.
+-**Built-in PR tool.** When the run provides a built-in PR tool, create, edit, retarget, and mark ready through it, never through a forge CLI. A CLI-made PR misses what the tool tracks. Use the resolved forge for everything the tool does not cover, and for every PR operation when the run has no such tool.
 +**Built-in PR tool.** When the run provides a built-in PR tool, create, edit, retarget, and mark ready through it for the operations its actual schema supports. Use the resolved forge for an unsupported operation. An attachment-only tool cannot create or edit a PR. Its own instructions say how. Honor the built-in tool’s tracking requirements. If the host exposes a PR attachment tool, attach every created PR after successful creation, including CLI-created PRs. Use the resolved forge for everything the tool does not cover, and for every PR operation when the run has no such tool.
  
- **Size and stacks.** Prefer five narrow PRs to one large PR. A stack is a base-branch chain. The root PR targets trunk. Each child branch rebases onto its parent's exact tip and its PR targets the parent branch. Without a built-in PR tool, create a child with `origin pr create --status open --base <parent-branch>` or `gh pr create --base <parent-branch>` according to the resolved forge, and retarget an existing child with `origin pr edit <pr> --base <parent-branch>` or `gh pr edit <pr> --base <parent-branch>`. Branch from trunk only for independent work. Rebase on trunk before substantial stack work.
+-**Size and stacks.** Prefer five narrow PRs to one large PR. A stack is a base-branch chain. The root PR targets trunk. Each child branch rebases onto its parent's exact tip and its PR targets the parent branch. Without a built-in PR tool, per the resolved forge, create a child with `origin pr create --status open --base <parent-branch>` or `gh pr create --base <parent-branch>`, and retarget one with `origin pr edit <pr> --base <parent-branch>` or `gh pr edit <pr> --base <parent-branch>`. Branch from trunk only for independent work. Rebase on trunk before substantial stack work.
++**Size and stacks.** Prefer five narrow PRs to one large PR. A stack is a base-branch chain. The root PR targets trunk. Each child branch rebases onto its parent's exact tip and its PR targets the parent branch. Without a built-in PR tool, create a child with `origin pr create --status open --base <parent-branch>` or `gh pr create --base <parent-branch>` according to the resolved forge, and retarget an existing child with `origin pr edit <pr> --base <parent-branch>` or `gh pr edit <pr> --base <parent-branch>`. Branch from trunk only for independent work. Rebase on trunk before substantial stack work.
  
-@@ -33,4 +35,4 @@
+ **Readiness.** Open every PR ready, never as a draft. A built-in PR tool can default to draft, so set `draft: false` on every creation call through it. With Origin, pass `--status open`. With `gh`, omit `--draft`. If a PR still opens as a draft, mark it ready through the PR tool, or run `origin pr ready <number>` or `gh pr ready <number>` according to the resolved forge. Run `origin pr view <number>` or `gh pr view <number>` before you refer to PR status.
  
- **Babysit.** Opening a PR does not start a babysit. Post the URL and keep building. Finish the phase or stack first. Run a separate babysit pass only when the user asks for one after the whole stack exists. A babysit for each new PR stalls the build and spends checks on commits that later waves restart. Push back when feedback drifts from intent.
+ **Babysit.** Opening a PR does not start a babysit. Post the URL and keep building. Finish the phase or stack first. Run a separate babysit pass only when the user asks for one after the whole stack exists. A babysit for each new PR stalls the build and spends checks on commits later waves restart. Push back when feedback drifts from intent.
  
--A subagent that opens a PR runs `interrogate`, `/deslop`, and `/no-comments`, and posts the URL. Then it returns to the parent without babysitting, unless it is an Autopilot-full or Autopilot-stack owner. That owner's brief assigns the babysit loop and is the ask `playbooks/babysit.md` waits for. The owner starts the loop after its code-ready report and reports merge-ready or STACK-READY as its playbook says. The rules here and in `playbooks/babysit.md` that hold babysitting until a whole stack is built do not apply to that owner.
-+A subagent that opens a PR reads and runs [interrogate](../skills/pstack-interrogate/SKILL.md), [deslop](../skills/pstack-deslop/SKILL.md), and [no-comments](../skills/pstack-no-comments/SKILL.md), and posts the URL. Then it returns to the parent without babysitting, unless it is an Autopilot-full or Autopilot-stack owner. That owner's brief assigns the babysit loop and is the ask [Babysit](babysit.md) waits for. The owner starts the loop after its code-ready report and reports merge-ready or STACK-READY as its playbook says. The rules here and in [Babysit](babysit.md) that hold babysitting until a whole stack is built do not apply to that owner.
+-A subagent that opens a PR runs `interrogate`, `/deslop`, and `/no-comments`, and posts the URL. It returns to the parent without babysitting, unless it is an Autopilot-full or Autopilot-stack owner. That owner's brief assigns the babysit loop and is the ask `playbooks/babysit.md` waits for. The owner starts the loop after its code-ready report, reports merge-ready or STACK-READY per its playbook, and is exempt from the rules here and in `playbooks/babysit.md` that hold babysitting until a whole stack is built.
++A subagent that opens a PR reads and runs [interrogate](../skills/pstack-interrogate/SKILL.md), [deslop](../skills/pstack-deslop/SKILL.md), and [no-comments](../skills/pstack-no-comments/SKILL.md), and posts the URL. It returns to the parent without babysitting, unless it is an Autopilot-full or Autopilot-stack owner. That owner's brief assigns the babysit loop and is the ask [Babysit](babysit.md) waits for. The owner starts the loop after its code-ready report, reports merge-ready or STACK-READY per its playbook, and is exempt from the rules here and in [Babysit](babysit.md) that hold babysitting until a whole stack is built.
 --- upstream/d0ef80d86795816da932a153458c5dbe192d294e/pstack/skills/poteto-mode/playbooks/orchestrate.md
 +++ plugin/pstack/playbooks/orchestrate.md
 @@ -1,4 +1,7 @@
@@ -4032,7 +4028,7 @@ Binary files differ: docs/guide/images/verification.jpg -> plugin/pstack/README.
  9. **Stop at the ceiling.** When the verified run is merged, report what landed, what the next unverified PR is, and what verifying it would take. Extending the run is a new pass through step 1.
  
  **Reply:** the verified run and its ceiling, each PR's verdict and who produced it, what you armed and how you confirmed it, what landed, and what the next gap needs.
---- upstream/d0ef80d86795816da932a153458c5dbe192d294e/pstack/skills/poteto-mode/playbooks/trace-forensics.md
+--- upstream/dbf49813a39c1a5389c5e28cb8e4c1c2379e2454/pstack/skills/poteto-mode/playbooks/trace-forensics.md
 +++ plugin/pstack/playbooks/trace-forensics.md
 @@ -1,4 +1,7 @@
  ### Trace forensics
@@ -4040,7 +4036,7 @@ Binary files differ: docs/guide/images/verification.jpg -> plugin/pstack/README.
 +Read [performance setup](../references/performance.md) and the main [mode lookup](../skills/pstack-poteto-mode/SKILL.md) before this route. Use [delegation](../references/delegation.md) and [models](../references/models.md) for its explicitly requested workers. The parent owns measurement, review and evidence; a missing required profiler, live control or parser blocks the affected gate.
 +
  
- **You own the diagnosis from the artifact. Load it, shape it, narrow to the cause, attribute to source.**
+ **You own the diagnosis from the artifact.**
  
 --- upstream/d0ef80d86795816da932a153458c5dbe192d294e/pstack/skills/poteto-mode/playbooks/visual-parity.md
 +++ plugin/pstack/playbooks/visual-parity.md
