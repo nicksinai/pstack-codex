@@ -11,8 +11,9 @@
       "sha256": "161ec748cb37ddb5ca4ab466045e3f7d54c8d8bb971d1a290f42874dbdafb249",
       "owner_issue": 30,
       "target": "plugin/pstack/plugin.json",
-      "disposition": "pending",
-      "reason": "Owner #30 must review changed requirements, source mapping and qualification before accepting the new revision."
+      "disposition": "equivalent",
+      "reason": "Existing independent portable/Codex manifests satisfy source release metadata intent; port version 0.1.3 is independent of upstream 0.15.23. See issue-30 qualification.",
+      "qualification": "plugin/pstack/qualification/issue-30.md"
     },
     {
       "source": "README.md",
@@ -21,8 +22,9 @@
       "sha256": "4c86910ea4f5989fbfd6c86d2ed6936a48bee8f2b706f9c1b5284c4382c7bbd8",
       "owner_issue": 30,
       "target": "plugin/pstack/README.md",
-      "disposition": "pending",
-      "reason": "Owner #30 must review changed requirements, source mapping and qualification before accepting the new revision."
+      "disposition": "adapted",
+      "reason": "Recipient guide adapts explicit picker selection, both new skills, receiving-chat ownership and portable delegate/comment wrappers. See issue-30 qualification.",
+      "qualification": "plugin/pstack/qualification/issue-30.md"
     },
     {
       "source": "agents/comment-sicko.md",
@@ -52,9 +54,10 @@
       "previous_sha256": null,
       "sha256": "6894bce77cfc25fb516f7c7b54248bba5d350752070ba06c6cb95ae8fa03cf0b",
       "owner_issue": 30,
-      "target": null,
-      "disposition": "pending",
-      "reason": "Owner #30 must review changed requirements, source mapping and qualification before accepting the new revision."
+      "target": "plugin/pstack/plugin.json",
+      "disposition": "equivalent",
+      "reason": "New upstream portable root manifest is equivalent to existing independent Agent Plugins schema manifest; both source manifests map explicitly to that target. See issue-30 qualification.",
+      "qualification": "plugin/pstack/qualification/issue-30.md"
     },
     {
       "source": "skills/architect/SKILL.md",
@@ -206,11 +209,12 @@
       "sha256": "79950407d71018d0e23e018cf620a570031fbba36df6584abeaacdfac318afe5",
       "owner_issue": 26,
       "target": "plugin/pstack/skills/pstack-poteto-help/SKILL.md",
-      "disposition": "pending",
-      "reason": "Goal-playback portion is delivered and reviewed in qualification/issue-26.md; ketchup portion is delivered and reviewed in qualification/issue-27.md. Both are integrated; consolidated shared-source mapping and final joint qualification remain for #30.",
+      "disposition": "adapted",
+      "reason": "Joint #26/#27 help entries and recall/ketchup distinction are integrated and source-reviewed in issue-30 qualification.",
       "dependency_issues": [
         27
-      ]
+      ],
+      "qualification": "plugin/pstack/qualification/issue-30.md"
     },
     {
       "source": "skills/poteto-help/references/recipes.md",
@@ -219,11 +223,12 @@
       "sha256": "315b211b6cc6b19e3da7c4a1e8ddde2d8557588713d0b894509bd22821c709da",
       "owner_issue": 26,
       "target": "plugin/pstack/skills/pstack-poteto-help/references/recipes.md",
-      "disposition": "pending",
-      "reason": "Goal-playback portion is delivered and reviewed in qualification/issue-26.md; ketchup portion is delivered and reviewed in qualification/issue-27.md. Both are integrated; consolidated shared-source mapping and final joint qualification remain for #30.",
+      "disposition": "adapted",
+      "reason": "Joint #26/#27 review confirms upstream goal-playback recipe and intentional supplemental ketchup recipe. See issue-30 qualification.",
       "dependency_issues": [
         27
-      ]
+      ],
+      "qualification": "plugin/pstack/qualification/issue-30.md"
     },
     {
       "source": "skills/poteto-mode/SKILL.md",
@@ -276,8 +281,9 @@
       "sha256": "ffecceb6d2fa7e07ca5703c968f4b7c5947309ed695d51fc73a55c3da5906480",
       "owner_issue": 30,
       "target": "plugin/pstack/playbooks/worktree-cleanup.md",
-      "disposition": "pending",
-      "reason": "Owner #30 must review changed requirements, source mapping and qualification before accepting the new revision."
+      "disposition": "equivalent",
+      "reason": "Existing verified --trunk selection satisfies upstream explicit base intent while preserving read-only audit and cleanup safety gates. See issue-30 qualification.",
+      "qualification": "plugin/pstack/qualification/issue-30.md"
     },
     {
       "source": "skills/poteto-mode/scripts/check-plan.mjs",
@@ -385,8 +391,9 @@
       "sha256": "9faa9a2534ad64069dec67ac5b5ce1dc23b8fe635ecfd7f6557b1e3ada61fd2f",
       "owner_issue": 30,
       "target": "plugin/pstack/scripts/worktree-audit.sh",
-      "disposition": "pending",
-      "reason": "Owner #30 must review changed requirements, source mapping and qualification before accepting the new revision."
+      "disposition": "equivalent",
+      "reason": "Existing --trunk overrides configured origin/HEAD, verifies ref and drives merge ancestry without fetch or mutations; equivalent explicit base intent. See issue-30 qualification.",
+      "qualification": "plugin/pstack/qualification/issue-30.md"
     },
     {
       "source": "skills/principle-build-the-lever/SKILL.md",

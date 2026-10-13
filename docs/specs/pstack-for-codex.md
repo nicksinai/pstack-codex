@@ -132,7 +132,7 @@ The qualification record must include the lost provider diversity, local-versus-
 
 Source inspection can establish properties of instructions and deterministic implementation under stated premises. It cannot prove that a probabilistic agent will always comply, that an unobserved UI interaction succeeded, or that an unavailable service works. Report those limits without converting them into invented runtime evidence or silently weakening upstream requirements.
 
-Existing reconnaissance, the dependency index, and the source hash manifest provide prior art for the evidence inventory. No implemented port or behavioral test harness currently exists in this checkout.
+Existing reconnaissance, the dependency index, and source hash manifests provide prior art for the evidence inventory. The implemented port and source-qualified 0.15.23 update are recorded separately in plugin/pstack/qualification/issue-30.md; no broad agent-behavior test harness is required or claimed.
 
 ## Out of Scope
 
