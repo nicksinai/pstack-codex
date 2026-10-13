@@ -2485,6 +2485,20 @@ Binary files differ: docs/guide/images/verification.jpg -> plugin/pstack/README.
  
  Follow this pattern:
  1. **Find the entry point.** What triggers this behavior? A user action, an API call, a scheduled job? Find where it starts.
+--- upstream/dbf49813a39c1a5389c5e28cb8e4c1c2379e2454/pstack/skills/in-your-own-words/SKILL.md
++++ plugin/pstack/skills/pstack-in-your-own-words/SKILL.md
+@@ -1,7 +1,8 @@
+ ---
+-name: in-your-own-words
+-description: "Restate in your own words what you think the user's goals are and what problem they're trying to solve. Use for /in-your-own-words."
+-disable-model-invocation: true
++name: pstack-in-your-own-words
++description: Restate the user's goals and problem before work begins.
+ ---
+ 
+ Restate in your own words what you think the user's goals are and what problem they're trying to solve.
++
++Return the restatement for the user to check. This invocation does not start implementation or a discovery interview.
 --- upstream/d0ef80d86795816da932a153458c5dbe192d294e/pstack/skills/interrogate/SKILL.md
 +++ plugin/pstack/skills/pstack-interrogate/SKILL.md
 @@ -1,12 +1,11 @@
@@ -2635,7 +2649,7 @@ Binary files differ: docs/guide/images/verification.jpg -> plugin/pstack/README.
  6. Report the deletion count, restored comments, reruns, architect sketch, fixes, encoding offers, encodings, unenforced constraints, and other open work.
 --- upstream/d0ef80d86795816da932a153458c5dbe192d294e/pstack/skills/poteto-help/SKILL.md
 +++ plugin/pstack/skills/pstack-poteto-help/SKILL.md
-@@ -1,153 +1,104 @@
+@@ -1,153 +1,105 @@
  ---
 -name: poteto-help
 -description: Guides users through pstack setup, /poteto-mode, and picking the skill, playbook, or principle for a task. Type /poteto-help with a question.
@@ -2750,6 +2764,7 @@ Binary files differ: docs/guide/images/verification.jpg -> plugin/pstack/README.
 -| Find their way around pstack | `/poteto-help` |
 +| User need | Upstream skill name (invoke as `$pstack-<name>`) |
 +| --- | --- |
++| Check the agent understood your goals and problem before work begins | in-your-own-words |
 +| Current mechanics and where code belongs | how |
 +| Reasons, regression history or a number's origin | why |
 +| Plain explanation and tradeoffs | teach |
@@ -2885,7 +2900,7 @@ Binary files differ: docs/guide/images/verification.jpg -> plugin/pstack/README.
  - Ask for a decision log to audit later.
 --- upstream/d0ef80d86795816da932a153458c5dbe192d294e/pstack/skills/poteto-help/references/recipes.md
 +++ plugin/pstack/skills/pstack-poteto-help/references/recipes.md
-@@ -4,44 +4,46 @@
+@@ -4,44 +4,47 @@
  
  ## Understand
  
@@ -2896,6 +2911,7 @@ Binary files differ: docs/guide/images/verification.jpg -> plugin/pstack/README.
 -- `/teach me why you implemented it this way and not <other way>. what did you trade off?`
 -- `/poteto-mode take over this branch. read the decision log, find what's done, and continue. don't redo finished work.`
 +- `$pstack-poteto-mode read <thread>. restate the underlying issue in your own words, in plain english.`
++- `$pstack-in-your-own-words <long or messy ask>`
 +- `$pstack-poteto-mode investigate why <symptom>. give me what we know, what data you used, and your best hypotheses. don't change any code yet.`
 +- `use $pstack-how to understand <subsystem>. then use $pstack-why to find out why it broke recently.`
 +- `$pstack-recall my work on <topic> from last week, then read <issue>.`
@@ -3127,7 +3143,7 @@ Binary files differ: docs/guide/images/verification.jpg -> plugin/pstack/README.
  
  ## Comments
  
-@@ -122,26 +128,84 @@
+@@ -122,26 +128,85 @@
  
  A large or cross-cutting effort (a migration across many call sites, an ambitious multi-part change), or work the user steps away from to trust later, routes to the **figure-it-out** skill even when a narrower playbook like Feature fits. Use **figure-it-out** whenever no bundled playbook fits. It designs a bespoke, rigorous playbook for the task. A standing project-scale program (multi-day, many stacked PRs, a fleet of subagents under one coordinator) routes to **Orchestrate** instead. figure-it-out designs one bespoke run, orchestrate runs the program.
  
@@ -3194,6 +3210,7 @@ Binary files differ: docs/guide/images/verification.jpg -> plugin/pstack/README.
 +| create-verification-skill | [../pstack-create-verification-skill/SKILL.md](../pstack-create-verification-skill/SKILL.md) |
 +| figure-it-out | [../pstack-figure-it-out/SKILL.md](../pstack-figure-it-out/SKILL.md) |
 +| how | [../pstack-how/SKILL.md](../pstack-how/SKILL.md) |
++| in-your-own-words | [../pstack-in-your-own-words/SKILL.md](../pstack-in-your-own-words/SKILL.md) |
 +| interrogate | [../pstack-interrogate/SKILL.md](../pstack-interrogate/SKILL.md) |
 +| maintain-verification-skill | [../pstack-maintain-verification-skill/SKILL.md](../pstack-maintain-verification-skill/SKILL.md) |
 +| make-bot-ui | Excluded from first release (Grok Bot UI). |
