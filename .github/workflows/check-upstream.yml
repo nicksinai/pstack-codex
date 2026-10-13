@@ -1,0 +1,34 @@
+name: Check upstream pstack
+on:
+  schedule:
+    - cron: '23 13 * * *'
+  workflow_dispatch:
+permissions:
+  contents: read
+  issues: write
+concurrency:
+  group: pstack-upstream-monitor
+  cancel-in-progress: false
+jobs:
+  check:
+    if: github.repository == 'nicksinai/pstack-codex'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - name: Verify monitor behavior
+        run: python3 -B -m unittest discover -s tests -v
+      - name: Compare upstream and maintain tracking issue
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python3 scripts/check-upstream.py --publish --output "$RUNNER_TEMP/upstream-report.md"
+      - name: Save complete report
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: upstream-report
+          path: ${{ runner.temp }}/upstream-report.md
+          if-no-files-found: ignore
+          retention-days: 30
