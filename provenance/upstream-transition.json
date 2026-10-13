@@ -41,8 +41,9 @@
       "sha256": "979f18abd000d185a0b4c41a2a4111c0910596a7f5c81cbb571885bc721b2bf7",
       "owner_issue": 25,
       "target": "plugin/pstack/references/poteto-agent.md",
-      "disposition": "pending",
-      "reason": "Owner #25 must review changed requirements, source mapping and qualification before accepting the new revision."
+      "disposition": "adapted",
+      "reason": "Delegate-only wrapper preserves receiving-chat ownership and full-mode reads; exact selected package paths with access verification, explicit-content fallback or BLOCKED replace Cursor cache/version discovery. See issue-25 qualification.",
+      "qualification": "plugin/pstack/qualification/issue-25.md"
     },
     {
       "source": "plugin.json",
@@ -218,8 +219,9 @@
       "sha256": "be90e646b623c5d2494d57ec14b8079d47904a1ca9456c10a2100c1dd90f9982",
       "owner_issue": 25,
       "target": "plugin/pstack/skills/pstack-poteto-mode/SKILL.md",
-      "disposition": "pending",
-      "reason": "Owner #25 must review changed requirements, source mapping and qualification before accepting the new revision."
+      "disposition": "adapted",
+      "reason": "Receiving chat owns playbook, ordered checklist and delegation; briefs carry exact absolute required instruction paths with access/fallback gate. Primary coordinator/path hunks qualified; remaining mode shortening requires issue #28 hunk review explicitly listed in issue-25 qualification.",
+      "qualification": "plugin/pstack/qualification/issue-25.md"
     },
     {
       "source": "skills/poteto-mode/playbooks/babysit.md",
@@ -411,8 +413,9 @@
       "sha256": "2131069d285d82fb799458494f2e4ac8759c9c6a60f9e300828c17874f514c6e",
       "owner_issue": 25,
       "target": "plugin/pstack/skills/pstack-principle-fix-root-causes/SKILL.md",
-      "disposition": "pending",
-      "reason": "Owner #25 must review changed requirements, source mapping and qualification before accepting the new revision."
+      "disposition": "adapted",
+      "reason": "Deep deciding evidence triggers a cheap ongoing-signal proposal with observation point/cost; monitoring, recurring work and messages retain user/host authority gates. Issue #29 must preserve this instruction.",
+      "qualification": "plugin/pstack/qualification/issue-25.md"
     },
     {
       "source": "skills/principle-guard-the-context-window/SKILL.md",
