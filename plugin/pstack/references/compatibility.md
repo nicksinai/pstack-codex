@@ -26,4 +26,6 @@ For PR preparation, babysitting, or requested shipping, read [PR delivery](pr-de
 
 The authoritative per-ticket arguments are in [qualification](../qualification/README.md). Their statuses describe source/configuration properties under stated premises, not guaranteed agent compliance. A tool observed in an implementation chat is not evidence that a friend's installed plugin receives that tool. UI outcomes, runtime availability, and successful installation remain conditional until observed in the recipient's environment.
 
+For the explicit ketchup catch-up, bind current-conversation history, touched artifact states and real reply visuals through [catch-up capabilities](ketchup-capabilities.md). Missing required capabilities remain limitations or blockers.
+
 Current official evidence is recorded in [capabilities](../qualification/capabilities.md). Additional workflow-specific capability contracts must link here and record their authoritative evidence rather than invent a parallel runtime.

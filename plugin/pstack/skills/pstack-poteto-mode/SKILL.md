@@ -166,6 +166,7 @@ Bare upstream names in these instructions resolve to namespaced siblings below. 
 | benchmark-checklist | [../pstack-benchmark-checklist/SKILL.md](../pstack-benchmark-checklist/SKILL.md) |
 | blast-radius | [../pstack-blast-radius/SKILL.md](../pstack-blast-radius/SKILL.md) |
 | bro | [../pstack-bro/SKILL.md](../pstack-bro/SKILL.md) |
+| ketchup | [../pstack-ketchup/SKILL.md](../pstack-ketchup/SKILL.md) |
 | correct | [../pstack-correct/SKILL.md](../pstack-correct/SKILL.md) |
 | create-verification-skill | [../pstack-create-verification-skill/SKILL.md](../pstack-create-verification-skill/SKILL.md) |
 | figure-it-out | [../pstack-figure-it-out/SKILL.md](../pstack-figure-it-out/SKILL.md) |

@@ -1,0 +1,5 @@
+interface:
+  display_name: "pstack: ketchup"
+  short_description: "Catch up with checked states and real visuals"
+policy:
+  allow_implicit_invocation: false

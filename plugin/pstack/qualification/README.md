@@ -9,3 +9,5 @@ Source inspection establishes instruction content and deterministic properties u
 The [final whole-package argument](issue-15.md) closes all included source targets and links every per-ticket argument. Early frontier observations remain historical; final integration closure notes distinguish them from the complete candidate. The [source inventory](source-inventory.json) contains every pinned locator, primary owner, disposition and target.
 
 The [0.15.23 coordinator and instruction-access argument](issue-25.md) qualifies its three primary source rows and names the remaining mode-review obligation for issue #28. It supersedes earlier staged wrapper-access notes for this slice; it does not close the entire transition.
+
+[Issue 27](issue-27.md) qualifies the explicit ketchup catch-up instruction and metadata, with conditional current-conversation history, touched artifact reads and real reply visuals. Shared help qualification remains pending joint #26/#27 integration.
