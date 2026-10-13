@@ -269,8 +269,9 @@
       "sha256": "e58c3d871b09d477be00628d69dd23ffa6c2e3a1728f5b867a841baa8e90278b",
       "owner_issue": 24,
       "target": "plugin/pstack/scripts/check-plan.mjs",
-      "disposition": "pending",
-      "reason": "Owner #24 must review changed requirements, source mapping and qualification before accepting the new revision."
+      "disposition": "adapted",
+      "reason": "Reviewed fence parser adopted exactly while retaining the existing Codex plan markers and all other checker rules; see issue-24 qualification.",
+      "qualification": "plugin/pstack/qualification/issue-24.md"
     },
     {
       "source": "skills/poteto-mode/scripts/check-plan.test.ts",
@@ -278,9 +279,10 @@
       "previous_sha256": null,
       "sha256": "c80f3ea043b81f219b92c4c8a3af6bdd4f8d32ea596ec15b5b9e0252645f2ae8",
       "owner_issue": 24,
-      "target": null,
-      "disposition": "pending",
-      "reason": "Owner #24 must review changed requirements, source mapping and qualification before accepting the new revision."
+      "target": "plugin/pstack/scripts/check-plan.test.ts",
+      "disposition": "adapted",
+      "reason": "Reviewed CLI regressions adapted to existing Codex valid-plan markers; strengthened full-length suffixed closer case; see issue-24 qualification.",
+      "qualification": "plugin/pstack/qualification/issue-24.md"
     },
     {
       "source": "skills/poteto-mode/scripts/package.json",
@@ -289,8 +291,9 @@
       "sha256": "fd511a0c01f522e0c781ddd8eccea0e91697a0856c6e6a3261de78a6a0287c72",
       "owner_issue": 24,
       "target": "plugin/pstack/scripts/package.json",
-      "disposition": "pending",
-      "reason": "Owner #24 must review changed requirements, source mapping and qualification before accepting the new revision."
+      "disposition": "adapted",
+      "reason": "Reviewed checker regression added to the existing helper test command; existing Codex package name, dependencies and typecheck retained; see issue-24 qualification.",
+      "qualification": "plugin/pstack/qualification/issue-24.md"
     },
     {
       "source": "skills/poteto-mode/scripts/watch-pr/fakes.test-helper.ts",
