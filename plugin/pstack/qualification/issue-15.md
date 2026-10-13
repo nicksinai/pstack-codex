@@ -2,6 +2,8 @@
 
 This argument qualifies the inspected review candidate at pinned upstream pstack 0.15.15, commit `d0ef80d86795816da932a153458c5dbe192d294e`. It establishes instruction/artifact properties under explicit premises. It does not assert observed installation, guaranteed agent compliance, provider parity or completed recipient workflows.
 
+This October 12 baseline argument retains its historical counts and deterministic evidence. The later [Codex-specific update addition](update.md) supplements it with current 54-skill package accounting and conditional update contracts.
+
 ## Exact accounting
 
 The machine-readable [source inventory](source-inventory.json) gives all 164 exact source locators, immutable SHA-256 values, unique primary issue owners, dispositions, target files and reasons. Its repository counterpart is `provenance/ownership.json`. Repository `scripts/validate-provenance.py` checks equality, immutable baseline/recon hashes, target confinement/existence and structural closure. `scripts/adaptation-diff.py` reproduces a deterministic source-to-target unified diff. Many-to-one documentation replacements are explicit, so this diff is a locator-based accounting artifact rather than a minimal patch to apply upstream.

@@ -18,6 +18,8 @@ Copy the selected adapted playbook's ordered steps verbatim into the host todo f
 
 For `.ts` or `.tsx` work, read **typescript-best-practices** and its required principle first. For a requested change-safety analysis read **blast-radius**. For recurring operator corrections read **correct** within the user's repository/task authority. These skills remain distinct from investigation and review.
 
+For an explicit "update pstack" or "check for pstack updates" request, read and follow [update](../pstack-update/SKILL.md) instead of an engineering playbook. This Codex-specific route preserves update versus check-only authority and does not enter sticky mode.
+
 ## Non-negotiables
 
 The Principles section below grounds every trigger. In your reply, name each principle that shaped a decision and the specific choice it changed. Cite only principles whose leaf SKILL.md you read this session.
@@ -211,5 +213,6 @@ Bare upstream names in these instructions resolve to namespaced siblings below. 
 | teach | [../pstack-teach/SKILL.md](../pstack-teach/SKILL.md) |
 | technical-writing | [../pstack-technical-writing/SKILL.md](../pstack-technical-writing/SKILL.md) |
 | typescript-best-practices | [../pstack-typescript-best-practices/SKILL.md](../pstack-typescript-best-practices/SKILL.md) |
+| update, Codex-specific addition | [../pstack-update/SKILL.md](../pstack-update/SKILL.md) |
 | unslop | [../pstack-unslop/SKILL.md](../pstack-unslop/SKILL.md) |
 | why | [../pstack-why/SKILL.md](../pstack-why/SKILL.md) |

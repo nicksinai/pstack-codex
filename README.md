@@ -26,6 +26,10 @@ Select an individual skill for one request, or explicitly say “Enter sticky PS
 
 Explicitly select **pstack: in-your-own-words** to check goal/problem understanding before work begins. Select **pstack: ketchup** for a read-only visual catch-up on the current conversation and pending user decisions. Its [qualification](plugin/pstack/qualification/issue-27.md) keeps missing history/state/visual capabilities explicit.
 
+## Update
+
+Select **pstack: update** or use `$pstack-update` with "update pstack". Use "check for pstack updates" for a read-only comparison. The skill updates existing supported Git-marketplace installations within their source and pin constraints. See [the update contract](plugin/pstack/skills/pstack-update/SKILL.md) and [source-backed qualification](plugin/pstack/qualification/update.md). Version 0.1.4 is the next unreleased candidate in this checkout.
+
 ## Source and qualification
 
 Build an offline friend artifact with `python3 scripts/build-package.py --output-dir <recipient-artifact-directory>`. This assembles a reproducible archive and companion digest; it does not install or share it. Run `python3 scripts/validate-provenance.py --require-complete` first; distribution requires zero pending or blocked transition obligations.

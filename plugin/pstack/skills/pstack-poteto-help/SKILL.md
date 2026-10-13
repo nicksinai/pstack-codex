@@ -9,6 +9,8 @@ Answer the question, give at most one usable prompt, and link the file you actua
 
 The [mode lookup](../pstack-poteto-mode/SKILL.md#bundled-skill-lookup) holds the namespaced path for every included upstream skill, even when the discovery menu omits entries. Read the target before recommending or quoting it. Link the actual installed local file or a verified adapted repository revision. Do not present the upstream main branch as the installed Codex instructions. Source provenance is pinned in the package qualification records.
 
+An explicit "update pstack" or "check for pstack updates" request routes to [update](../pstack-update/SKILL.md) and executes its update or read-only check. A question about updating stays help-only. Read that skill before explaining its supported routes or limitations.
+
 ## Find out what they need
 
 Infer the need from the message and conversation. A specific situation goes directly to its answer. If unclear, ask one multiple-choice question, then answer only that branch:
@@ -43,7 +45,7 @@ A normal `$pstack-poteto-mode <request>` is one request. Explicitly say “enter
 
 Default to mode for a nontrivial engineering request; recommend a leaf when the user wants its narrower output. Resolve every name below through the authoritative mode lookup and read it before giving an example.
 
-| User need | Upstream skill name (invoke as `$pstack-<name>`) |
+| User need | Skill name (invoke as `$pstack-<name>`) |
 | --- | --- |
 | Check the agent understood your goals and problem before work begins | in-your-own-words |
 | Current mechanics and where code belongs | how |
@@ -70,6 +72,7 @@ Default to mode for a nontrivial engineering request; recommend a leaf when the 
 | Guided personal mode draft | automate-me |
 | Approved post-task skill learning | reflect |
 | Enforceable fixes for recurring mistakes | correct |
+| Check or update an installed PStack on request | update, Codex-specific addition |
 | Help without starting work | poteto-help |
 
 A new sibling not in this table is discoverable by its frontmatter. Principles live in the mode index; read their leaves before applying/citing them. They also support explicit `$pstack-principle-<name>` entry.

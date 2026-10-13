@@ -22,6 +22,10 @@ For transcript or execution-trace reads, follow [scoped history](history.md). Bi
 
 For PR preparation, babysitting, or requested shipping, read [PR delivery](pr-delivery.md). For explicit sticky entry/exit, unattended work, or recovery, read [continuation](continuation.md). These contracts preserve distinct authority and evidence gates; installation grants neither merge authority nor recurring work.
 
+## Explicit recipient updates
+
+For an explicit update or update-check request, read [pstack-update](../skills/pstack-update/SKILL.md). Its route is a Codex-specific addition, separate from upstream synchronization. Check-only stays read-only. Execution requires an identified existing local Git-marketplace installation, preserved pins/settings and independently verified installed contents. [Update qualification](../qualification/update.md) records capability evidence and limits.
+
 ## Qualification
 
 The authoritative per-ticket arguments are in [qualification](../qualification/README.md). Their statuses describe source/configuration properties under stated premises, not guaranteed agent compliance. A tool observed in an implementation chat is not evidence that a friend's installed plugin receives that tool. UI outcomes, runtime availability, and successful installation remain conditional until observed in the recipient's environment.
