@@ -1,0 +1,31 @@
+# Issue 22 — complete review-thread pagination
+
+Parent: #20. Reviewed source: official Cursor plugins revision `dbf49813a39c1a5389c5e28cb8e4c1c2379e2454`, pstack 0.15.23. The original 0.15.15 archive remains intact. Locators below are relative to the reviewed pstack root; mapped targets are under `scripts/watch-pr/` in this package.
+
+| Reviewed source and obligation | Port mapping and preservation argument | Evidence and limits |
+| --- | --- | --- |
+| `skills/poteto-mode/scripts/watch-pr/github.ts`, `REVIEW_THREADS_QUERY`, `parseReviewThreadPage`, `buildReviewThreads`, `GhGitHubReader.reviewThreadPage`, `resolveReviewThreads` | Query requests `first: 100`, `$after`, and required `pageInfo`; adapter passes the continuation as a `gh api graphql` variable. Parser retains raw resolved state and first comment. Resolver collects every page before filtering resolved threads or calculating distinct Bugbot passes. | Established source control flow and injected-reader regression results. Real GitHub authentication/network behavior remains conditional and was not exercised. The pre-existing first-ten-comments and last-50-commit query limits remain unchanged; this change qualifies review-thread pagination only. |
+| Same source, page metadata and continuation | Required object/list/boolean/string data still uses retryable `WatcherQueryError`. Unlike upstream's `hasNextPage && cursor ? cursor : null`, a true next-page flag with null, empty or whitespace cursor fails closed. Missing or wrongly typed cursor also fails. Repeated/cyclic continuation fails before history can be accepted as complete. | Two observed red results were premature READY: ignored page-two unresolved feedback, then malformed later-page next-cursor data. Both now become blockers through the existing assessment seam. Repeated-cursor regression also failed before its fix. This stricter adaptation implements #20/#22's explicit incomplete-data contract. |
+| `skills/poteto-mode/scripts/watch-pr/types.ts`, `RawReviewThread`, `ReviewThreadPage`, `GitHubReader.reviewThreadPage` | Shared reader carries a raw thread page and nullable continuation. Implementation, caller and fakes adopt the same interface. | Established source and strict TypeScript check. No second watcher or new execution runtime. |
+| `skills/poteto-mode/scripts/watch-pr/policy.ts`, `readSnapshot` | Uses `resolveReviewThreads` before deriving snapshot readiness. Existing `WatcherQueryError` retry/status-query failure flow is retained. | Assessment regression confirms an otherwise clean PR with page-two unresolved feedback is a review-thread blocker. Runner regression confirms malformed page-two metadata yields terminal status-query blocker exit 7 after configured error exhaustion. |
+| `skills/poteto-mode/scripts/watch-pr/fakes.test-helper.ts`, page options and reader method | Adopts reviewed raw-thread conversion and paginated fake responses alongside existing check-page options. | Same existing injected GitHub-reader boundary; no prompt-string tests. |
+| `skills/poteto-mode/scripts/watch-pr/github.test.ts`, pagination cases | Six upstream pagination regressions adapted: traversal through final page, later-page unresolved thread, single-page termination, cross-page Bugbot pass counts, later-page resolved filtering and missing pageInfo. Existing Bugbot test includes resolved history in pass counts. Adds malformed-metadata and repeated/cyclic continuation cases. | Established deterministic helper behavior. Cursor requests are observed only at the injected external reader boundary. |
+| `skills/poteto-mode/scripts/watch-pr/policy.test.ts`, query planning | Expected reader method updated; adds later-page readiness blocker and malformed later-page runner failure. | Existing readiness truth table, hidden GitHub CI refusal, stack priority, queue cadence and retry tests continue to pass. |
+
+## Preserved Codex adaptations
+
+Only the six assigned watcher files changed. The adapted `Code Review Gate` check classification, GitHub `CONFLICTING` enum handling, empty `reviewDecision` handling, explicit thread/CI/gate classification, queued-stack behavior, JSON/Markdown verdicts and retry authority remain intact. Snapshot and runner behavior retain status-only boundaries. The watcher reads state; neither pagination nor a READY verdict grants merge authority or begins babysitting. Existing bootstrap, recipient-private dependency setup and launcher contracts remain unchanged.
+
+This slice introduces no new Codex desktop tool requirement. Its concrete execution premise remains Bun plus authenticated GitHub CLI/GraphQL access through the existing reader. Bundled source and local deterministic checks establish the helper contract; recipient tool availability, installation, live GitHub execution, desktop picker behavior and agent compliance are not established here.
+
+## Verification
+
+October 13, 2026, Bun 1.3.11. Confirmed ticket branch began at the integration commit. Used the already approved injected-reader/assessment seam and vertical red → green cycles, following the TDD skill.
+
+- Observed red: later-page unresolved feedback classified `ready`; after pagination, it classifies a review-thread blocker.
+- Observed red: later-page `hasNextPage: true, endCursor: null` returned READY; after validation, runner returns status-query BLOCKER, exit 7.
+- Observed red: repeated cursor resolved successfully; after continuation validation, repeated and cyclic cursor histories reject.
+- Copied packaged script sources to a private temporary verification directory outside the package. Installed the existing lock with `bun install --frozen-lockfile --ignore-scripts`; no packaged dependency directory or lock changes.
+- `bun run test`: 59 passing watcher tests, 0 failures, 147 assertions.
+- `bun --bun run typecheck`: strict TypeScript check passed. The plain `bun run typecheck` command encountered the local Node 18 extensionless TypeScript 7 executable incompatibility; explicitly running its unchanged script with Bun passed.
+- Repository provenance and Python validation recorded with this change. Original and reviewed archives were not modified or executed. No issue mutation, push, installation, publication or main merge.

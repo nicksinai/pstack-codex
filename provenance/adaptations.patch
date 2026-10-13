@@ -4947,6 +4947,174 @@ Binary files differ: docs/guide/images/verification.jpg -> plugin/pstack/README.
    "private": true,
    "type": "module",
    "scripts": {
+--- upstream/dbf49813a39c1a5389c5e28cb8e4c1c2379e2454/pstack/skills/poteto-mode/scripts/watch-pr/github.test.ts
++++ plugin/pstack/scripts/watch-pr/github.test.ts
+@@ -2,14 +2,14 @@
+ import {
+   ChecksUnavailable,
+   WatcherQueryError,
+-  buildReviewThreads,
+   mapRollupNode,
+   orderStack,
+   parsePullRequest,
++  buildReviewThreads,
+   parseReviewThreadPage,
++  resolveReviewThreads,
+   resolveChecks,
+   resolveContext,
+-  resolveReviewThreads,
+ } from "./github.ts";
+ import {
+   fakeReader,
+@@ -402,3 +402,38 @@
+     expect(ordered.map((item) => Number(item.number))).toEqual([41, 42, 43]);
+   });
+ });
++
++
++describe("review-thread pagination metadata", () => {
++  it.each([
++    undefined,
++    null,
++    {},
++    { hasNextPage: "true", endCursor: "next" },
++    { hasNextPage: true },
++    { hasNextPage: true, endCursor: null },
++    { hasNextPage: true, endCursor: "" },
++    { hasNextPage: true, endCursor: "  " },
++    { hasNextPage: true, endCursor: 7 },
++    { hasNextPage: false },
++    { hasNextPage: false, endCursor: 7 },
++  ])("rejects incomplete or malformed metadata: %j", (pageInfo) => {
++    expect(() => parseReviewThreadPage({
++      data: { repository: { pullRequest: {
++        reviewThreads: { nodes: [], pageInfo },
++      } } },
++    })).toThrow(WatcherQueryError);
++  });
++
++  it.each([
++    { cursors: ["next", "next", null] },
++    { cursors: ["next", "last", "next", null] },
++  ])("rejects repeated or cyclic continuations: %j", async ({ cursors }) => {
++    const reader = fakeReader({
++      threadPages: cursors.map((endCursor) => ({ threads: [], endCursor })),
++    });
++    await expect(resolveReviewThreads(reader, context)).rejects.toBeInstanceOf(
++      WatcherQueryError
++    );
++  });
++});
+--- upstream/dbf49813a39c1a5389c5e28cb8e4c1c2379e2454/pstack/skills/poteto-mode/scripts/watch-pr/github.ts
++++ plugin/pstack/scripts/watch-pr/github.ts
+@@ -385,7 +385,9 @@
+     page.endCursor,
+     "reviewThreads.pageInfo.endCursor"
+   );
+-  return { threads, endCursor: page.hasNextPage && cursor ? cursor : null };
++  if (page.hasNextPage && (cursor === null || cursor.trim() === ""))
++    missing("reviewThreads.pageInfo.endCursor", page.endCursor);
++  return { threads, endCursor: page.hasNextPage ? cursor : null };
+ }
+ export function buildReviewThreads(
+   threads: readonly T.RawReviewThread[]
+@@ -638,11 +640,17 @@
+   context: T.PrContext
+ ): Promise<readonly T.ReviewThread[]> {
+   const threads: T.RawReviewThread[] = [];
++  const seenCursors = new Set<string>();
+   let after: string | null = null;
+   do {
+     const page = await reader.reviewThreadPage(context, after);
+     threads.push(...page.threads);
+     after = page.endCursor;
++    if (after !== null) {
++      if (seenCursors.has(after))
++        missing("reviewThreads repeated endCursor", after);
++      seenCursors.add(after);
++    }
+   } while (after !== null);
+   return buildReviewThreads(threads);
+ }
+--- upstream/dbf49813a39c1a5389c5e28cb8e4c1c2379e2454/pstack/skills/poteto-mode/scripts/watch-pr/policy.test.ts
++++ plugin/pstack/scripts/watch-pr/policy.test.ts
+@@ -1,5 +1,5 @@
+ import { describe, expect, it } from "bun:test";
+-import { WatcherQueryError } from "./github.ts";
++import { WatcherQueryError, parseReviewThreadPage } from "./github.ts";
+ import {
+   applyQueueSnapshot,
+   assessGitHubMerge,
+@@ -10,6 +10,7 @@
+   queryBackoffSeconds,
+   readSnapshot,
+   runQueued,
++  runSimple,
+   selectTierMajorStackDecision,
+ } from "./policy.ts";
+ import {
+@@ -418,3 +419,61 @@
+   expect(queryBackoffSeconds(1, 2)).toBe(120);
+   expect(queryBackoffSeconds(60, 4)).toBe(300);
+ });
++
++it("blocks readiness for unresolved feedback after the first review-thread page", async () => {
++  const reader = {
++    ...fakeReader(),
++    async reviewThreadPage(_context: PrContext, after: string | null) {
++      return after === null
++        ? {
++            threads: [{ id: "early", resolved: true, firstComment: null }],
++            endCursor: "next",
++          }
++        : {
++            threads: [{ id: "late", resolved: false, firstComment: null }],
++            endCursor: null,
++          };
++    },
++  };
++  const snapshot = await readSnapshot({
++    reader,
++    context: context(1),
++    pendingHistory: "include",
++    allowDraft: false,
++  });
++  expect(classifyPr(snapshot)).toMatchObject({
++    kind: "blocker",
++    blocker: { kind: "review-threads", threads: [{ id: "late" }] },
++  });
++});
++
++it("fails closed when a later page announces more threads without a usable cursor", async () => {
++  const reader = {
++    ...fakeReader(),
++    async reviewThreadPage(_context: PrContext, after: string | null) {
++      if (after === null) return { threads: [], endCursor: "next" };
++      return parseReviewThreadPage({
++        data: { repository: { pullRequest: {
++          reviewThreads: {
++            nodes: [], pageInfo: { hasNextPage: true, endCursor: null },
++          },
++        } } },
++      });
++    },
++  };
++  const verdict = await runSimple({
++    dependencies: {
++      reader,
++      clock: { now: () => 0, observedAt: () => "now", sleep: async () => {} },
++      emit: () => {},
++    },
++    contexts: [context(1)],
++    mode: "single",
++    statusOnly: false,
++    options: { ...options, maxQueryErrors: 1 },
++  });
++  expect(verdict).toMatchObject({
++    kind: "BLOCKER", exitCode: 7,
++    blocker: { kind: "status-query", failure: { kind: "missing-key" } },
++  });
++});
 --- upstream/d0ef80d86795816da932a153458c5dbe192d294e/pstack/skills/poteto-mode/scripts/watch-pr/watch-pr
 +++ plugin/pstack/scripts/watch-pr/watch-pr
 @@ -1,6 +1,14 @@

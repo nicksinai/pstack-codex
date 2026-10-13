@@ -1,5 +1,5 @@
 import { describe, expect, it } from "bun:test";
-import { WatcherQueryError } from "./github.ts";
+import { WatcherQueryError, parseReviewThreadPage } from "./github.ts";
 import {
   applyQueueSnapshot,
   assessGitHubMerge,
@@ -10,6 +10,7 @@ import {
   queryBackoffSeconds,
   readSnapshot,
   runQueued,
+  runSimple,
   selectTierMajorStackDecision,
 } from "./policy.ts";
 import {
@@ -106,7 +107,7 @@ describe("snapshot query planning", () => {
     expect(snapshot.ci.kind).toBe("ci-pending");
     expect(reader.calls).toEqual([
       "pullRequest",
-      "reviewThreads",
+      "reviewThreadPage:null",
       "checksFastPath",
     ]);
   });
@@ -417,4 +418,62 @@ it("uses the specified retry floor and cap", () => {
   expect(queryBackoffSeconds(1, 1)).toBe(60);
   expect(queryBackoffSeconds(1, 2)).toBe(120);
   expect(queryBackoffSeconds(60, 4)).toBe(300);
+});
+
+it("blocks readiness for unresolved feedback after the first review-thread page", async () => {
+  const reader = {
+    ...fakeReader(),
+    async reviewThreadPage(_context: PrContext, after: string | null) {
+      return after === null
+        ? {
+            threads: [{ id: "early", resolved: true, firstComment: null }],
+            endCursor: "next",
+          }
+        : {
+            threads: [{ id: "late", resolved: false, firstComment: null }],
+            endCursor: null,
+          };
+    },
+  };
+  const snapshot = await readSnapshot({
+    reader,
+    context: context(1),
+    pendingHistory: "include",
+    allowDraft: false,
+  });
+  expect(classifyPr(snapshot)).toMatchObject({
+    kind: "blocker",
+    blocker: { kind: "review-threads", threads: [{ id: "late" }] },
+  });
+});
+
+it("fails closed when a later page announces more threads without a usable cursor", async () => {
+  const reader = {
+    ...fakeReader(),
+    async reviewThreadPage(_context: PrContext, after: string | null) {
+      if (after === null) return { threads: [], endCursor: "next" };
+      return parseReviewThreadPage({
+        data: { repository: { pullRequest: {
+          reviewThreads: {
+            nodes: [], pageInfo: { hasNextPage: true, endCursor: null },
+          },
+        } } },
+      });
+    },
+  };
+  const verdict = await runSimple({
+    dependencies: {
+      reader,
+      clock: { now: () => 0, observedAt: () => "now", sleep: async () => {} },
+      emit: () => {},
+    },
+    contexts: [context(1)],
+    mode: "single",
+    statusOnly: false,
+    options: { ...options, maxQueryErrors: 1 },
+  });
+  expect(verdict).toMatchObject({
+    kind: "BLOCKER", exitCode: 7,
+    blocker: { kind: "status-query", failure: { kind: "missing-key" } },
+  });
 });
