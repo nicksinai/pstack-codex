@@ -536,6 +536,15 @@
       "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
     },
     {
+      "source": "skills/ketchup/SKILL.md",
+      "sha256": "13b3a4e5dbce25a07f6bda558bbac7e5194012c51d80af4ef83415ba26eaadc6",
+      "owner_issue": 27,
+      "disposition": "adapted",
+      "target": "plugin/pstack/skills/pstack-ketchup/SKILL.md",
+      "reason": "Explicit namespaced read-only catch-up preserves boundary, pending decisions, checked states/numbers and real visuals; capability conditions and source proof in qualification/issue-27.md.",
+      "source_revision": "dbf49813a39c1a5389c5e28cb8e4c1c2379e2454"
+    },
+    {
       "source": "skills/maintain-verification-skill/SKILL.md",
       "sha256": "515c0eaa054b3f6be1b1fb06f2c2f173c80fddb58bbcac57576f89c479bc68e8",
       "owner_issue": 10,

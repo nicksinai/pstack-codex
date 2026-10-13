@@ -170,9 +170,10 @@
       "previous_sha256": null,
       "sha256": "13b3a4e5dbce25a07f6bda558bbac7e5194012c51d80af4ef83415ba26eaadc6",
       "owner_issue": 27,
-      "target": null,
-      "disposition": "pending",
-      "reason": "Owner #27 must review changed requirements, source mapping and qualification before accepting the new revision."
+      "target": "plugin/pstack/skills/pstack-ketchup/SKILL.md",
+      "disposition": "adapted",
+      "reason": "Complete added ketchup instruction adapted to explicit Codex invocation and conditional current-chat/state/visual bindings; source-backed qualification, no runtime claim.",
+      "qualification": "plugin/pstack/qualification/issue-27.md"
     },
     {
       "source": "skills/no-comments/SKILL.md",
@@ -192,7 +193,7 @@
       "owner_issue": 26,
       "target": "plugin/pstack/skills/pstack-poteto-help/SKILL.md",
       "disposition": "pending",
-      "reason": "Primary owner #26 integrates goal-playback discovery; #27 supplies catch-up discovery. Both requirements need source-backed qualification.",
+      "reason": "Pending joint #26/#27 qualification: #27 ketchup help/recipe portion delivered and reviewed in qualification/issue-27.md; #26 goal-playback portion and consolidated source mapping remain required.",
       "dependency_issues": [
         27
       ]
@@ -205,7 +206,7 @@
       "owner_issue": 26,
       "target": "plugin/pstack/skills/pstack-poteto-help/references/recipes.md",
       "disposition": "pending",
-      "reason": "Primary owner #26 integrates goal-playback discovery; #27 supplies catch-up discovery. Both requirements need source-backed qualification.",
+      "reason": "Pending joint #26/#27 qualification: #27 ketchup help/recipe portion delivered and reviewed in qualification/issue-27.md; #26 goal-playback portion and consolidated source mapping remain required.",
       "dependency_issues": [
         27
       ]

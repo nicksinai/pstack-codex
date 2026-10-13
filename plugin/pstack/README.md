@@ -1,6 +1,6 @@
 # pstack for Codex
 
-A shareable adaptation of Lauren Tan / poteto's pstack 0.15.15, pinned to Cursor plugins commit `d0ef80d86795816da932a153458c5dbe192d294e`. This independent port includes 50 original top-level workflows plus the deslop companion: 51 explicit skills, all 24 principles, all 23 playbooks and both original agent roles as instruction wrappers. See [whole-package qualification](qualification/issue-15.md), [source inventory](qualification/source-inventory.json), [capabilities](qualification/capabilities.md) and [notices](NOTICE.md). It is not an official Cursor or OpenAI plugin.
+A shareable adaptation of Lauren Tan / poteto's pstack 0.15.15, pinned to Cursor plugins commit `d0ef80d86795816da932a153458c5dbe192d294e`. This independent port includes 50 original top-level workflows plus the deslop companion: 52 explicit skills (including the reviewed 0.15.23 ketchup addition), all 24 principles, all 23 playbooks and both original agent roles as instruction wrappers. See [whole-package qualification](qualification/issue-15.md), [source inventory](qualification/source-inventory.json), [capabilities](qualification/capabilities.md) and [notices](NOTICE.md). It is not an official Cursor or OpenAI plugin.
 
 ## Recipient setup
 
@@ -38,6 +38,7 @@ Use the actual picker identity if the host adds a plugin prefix. Documented `$` 
 
 Select `pstack-poteto-mode` with a request for the full workflow router, or select an individual leaf. A leaf or normal mode invocation applies to that request. Enter sticky mode explicitly with “Enter sticky PStack mode for this conversation.” End it with “Exit PStack mode.” Read [continuation](references/continuation.md) for scope, private checkpoint, interruption and recovery. Persistence requires available context or a valid scoped entry record; this is not a native enforced mode.
 
+- `pstack-ketchup`: checked visual catch-up on this conversation, including earlier pending user decisions; read-only except for reply visuals. History, state readers and a real visual channel remain [recipient prerequisites](references/ketchup-capabilities.md); see [qualification](qualification/issue-27.md).
 - `pstack-how`: explain a named subsystem from source; `pstack-why`: reconstruct its rationale; `pstack-recall`: recover scoped recent work; `pstack-teach`: explain it interactively.
 - `pstack-architect` or `pstack-arena`: compare independent designs/artifacts; `pstack-interrogate`: adversarial review; `pstack-swarm`: partition investigation or implementation coverage.
 - `pstack-poteto-mode`: investigate, fix a bug, build a feature, refactor, prototype, assess visual parity, diagnose performance or measure a benchmark. The mode routes to its playbook, principles, cleanup and verification gates.
