@@ -5,9 +5,7 @@ description: Investigate design rationale, regressions, postmortems and data-bac
 
 # Why
 
-Investigate the motivation and intent behind code.
-
-Companion to the `how` skill. `how` answers what the code does and how it works. `why` answers what forces led to its shape.
+Investigate the motivation and intent behind code. The companion `how` skill answers what the code does and how it works. `why` answers what forces led to its shape.
 
 Read [compatibility](../../references/compatibility.md), [delegation](../../references/delegation.md), [models](../../references/models.md), and [source access](references/source-access.md). This workflow explicitly requests bounded local read-only investigators and a fresh synthesizer. Resolve the `why investigators` and `why synthesizer` roles through the shared contract. All workers retain their specialized prompts, not the full mode wrapper. GPT-only investigation replaces upstream provider choices; independent workers do not supply provider diversity.
 
@@ -17,46 +15,17 @@ Operate as a **careful, cautious, and precise investigator**. Be honest about wh
 
 ## Step 1. Understand the Target and the Question
 
-Parse what the user is asking. The **target** is usually a chunk of code, a pattern, a feature, or a named design decision. The **question** is usually a design rationale, a tradeoff, a motivating edge case, an external constraint, dead code, or a broad history sweep.
+The **target** is usually a chunk of code, a pattern, a feature, or a named design decision. The **question** is usually a design rationale, a tradeoff, a motivating edge case, an external constraint, dead code, or a broad history sweep.
 
 If the target is vague ("why do we do it this way?" with no clear referent), make your best guess from conversation context (open files, recent edits, cursor location, what was just discussed). State your interpretation briefly so the user can redirect if you're off, then proceed.
 
 ## Step 2. Establish the Code Anchor
 
-Before spawning investigators, anchor the investigation in concrete code. You need:
+Before spawning investigators, build the seed context inline: file paths and line ranges, key symbols (functions, classes, constants), the last few commits touching the target, PR numbers from merge commits (pattern `(#1234)` in the subject line), and any linked ticket IDs. Run `git blame -L <start>,<end> <file>` for last-touch commits, `git log --follow -p -- <file>` for full history with patches through renames, `git log --oneline -20 -- <file>` for recent commits with PR numbers visible, and `git log -1 --format=%B <commit>` to extract PR numbers. Then pull the PR bodies and discussion for any substantive commit: `gh pr view <number> --json title,body,author,createdAt,mergedAt,labels,closingIssuesReferences,comments,reviews`. This anchor goes to every investigator and to the synthesizer.
 
-- The relevant file path(s) and line range(s)
-- The key symbols (function names, class names, constants)
-- An initial commit list. The last few commits touching the target.
-- PR numbers from merge commits (pattern `(#1234)` in the subject line)
+## Step 3. Spawn Parallel Investigators
 
-Build this inline.
-
-```bash
-# Blame target lines for last-touch commits
-git blame -L <start>,<end> <file>
-
-# Full file history, with patches, through renames
-git log --follow -p -- <file>
-
-# Last N commits touching the file, PR numbers visible
-git log --oneline -20 -- <file>
-
-# Extract PR numbers from a commit message
-git log -1 --format=%B <commit>
-```
-
-Pull PR bodies and discussion via `gh` for any substantive commits:
-
-```bash
-gh pr view <number> --json title,body,author,createdAt,mergedAt,labels,closingIssuesReferences,comments,reviews
-```
-
-Capture this as seed context (file paths, symbols, commits, PR numbers, linked ticket IDs). Pass it to the investigators.
-
-## Step 3. Spawn Parallel Investigators (default posture)
-
-**Default to the full parallel investigation.**
+**Default to the full parallel investigation.** The goal is a complete coverage map, not a minimal one. Document the null, don't skip the search.
 
 ### Discovery
 
@@ -73,8 +42,6 @@ Map each available MCP to one evidence category:
 7. Product analytics warehouse
 
 Source control requires the repository and local Git; forge discussion additionally requires authenticated `gh` or a supported forge reader. Always assign the source-control investigator when its local repository is accessible; record missing Git/forge access as a gap rather than assuming success. For the other six, classify using the MCP name, server instructions, tool names, and resource descriptors. If an MCP could fit more than one category, choose the one matching its primary evidence. Record ambiguous cases in the coverage map.
-
-Aim for a complete **coverage map**, not a minimal one. Document the null, don't skip the search.
 
 Dispatch matching investigators as one parallel batch within the shared concurrency allocation. Queue excess workers. Each worker owns one source endpoint; when several endpoints match a category, dispatch separate workers and account for each under that category. Do not ask one worker to cover multiple connectors.
 
@@ -109,10 +76,10 @@ Each entry names the category and the kind of "why" it uniquely surfaces. Use it
 
 ### When to skip an investigator
 
-Only skip with an **explicit, written justification** that goes in the final "Sources Consulted" section. Two valid reasons:
+Only with an **explicit, written justification** that goes in the final Sources Consulted. Two valid reasons:
 
-- **No MCP is available for that category** in this environment. Flag this as a gap, not a choice. Example: "Real-time team chat skipped. No matching MCP available, so the conversational record was not searchable."
-- **The source is provably irrelevant**, not just "probably irrelevant." A high bar. Example: "Error / exception tracking skipped. Target is a build-time script with no runtime code path."
+- **No MCP is available for that category** in this environment. Flag it as a gap, not a choice: "Real-time team chat skipped. No matching MCP available, so the conversational record was not searchable."
+- **The source is provably irrelevant**, not just "probably irrelevant." A high bar: "Error / exception tracking skipped. Target is a build-time script with no runtime code path."
 
 If your scope assessment suggests a single-commit trivial target where the PR description already contains the complete answer, you may answer inline **only after** confirming all seven available category searches would be redundant. Say so explicitly. This should be rare.
 
@@ -122,20 +89,20 @@ Dispatch one fresh local synthesizer using `why synthesizer`. Give it read-only 
 
 The synthesizer gets:
 1. The investigator findings, including any null results and any categories skipped with justification
-2. The code anchor from Step 2 (file paths, symbols, commit hashes, PR numbers, ticket IDs)
+2. The code anchor
 3. The user's original question
 4. The epistemics framework from [references/epistemics.md](references/epistemics.md)
 5. The synthesizer prompt template from [references/synthesizer-prompt.md](references/synthesizer-prompt.md)
 
 ## Step 5. Present
 
-Take the synthesizer's output and present it to the user. You may lightly edit for clarity or add context from the conversation, but **do not rewrite the confidence language**.
+Present the synthesizer's output to the user. You may lightly edit for clarity or add context from the conversation, but **do not rewrite the confidence language**.
 
 ## Output Format
 
 The output structure is the one in [references/synthesizer-prompt.md](references/synthesizer-prompt.md): The Question, The Code in Question, What We Found, What We Can Reasonably Infer, Competing Hypotheses, What We Don't Know, Sources Consulted, Confidence Summary. Adapt as needed, but keep the confidence separation intact, and keep Sources Consulted as one line per investigator, including the ones that returned nothing or were skipped, with the reason.
 
-After the Sources Consulted block, if the user's `why` question is a precursor to actually changing this code, convert the lineage findings into a Preserve / Change / Avoid / Risk constraint set suitable for planning the change.
+After Sources Consulted, if the user's `why` question is a precursor to changing this code, convert the lineage findings into a Preserve / Change / Avoid / Risk constraint set for planning the change.
 
 ## Common Failure Modes to Avoid
 

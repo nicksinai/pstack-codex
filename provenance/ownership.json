@@ -1041,12 +1041,12 @@
     },
     {
       "source": "skills/principle-build-the-lever/SKILL.md",
-      "sha256": "458b269eab8e95a1573276955312f7d2a13ae8599879a9efc748248f6bc34b56",
-      "owner_issue": 7,
+      "sha256": "3434b0ad0c640c6f1d7960be7a8986c3bcdc14e26060360dec29903df60074ff",
+      "owner_issue": 29,
       "disposition": "adapted",
       "target": "plugin/pstack/skills/pstack-principle-build-the-lever/SKILL.md",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
-      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
+      "reason": "Reviewed 0.15.23 wording with retained Codex bindings and source-backed deletion accounting; see plugin/pstack/qualification/issue-29.md.",
+      "source_revision": "dbf49813a39c1a5389c5e28cb8e4c1c2379e2454"
     },
     {
       "source": "skills/principle-encode-lessons-in-structure/SKILL.md",
@@ -1077,12 +1077,12 @@
     },
     {
       "source": "skills/principle-explain-the-number/SKILL.md",
-      "sha256": "5aac99e7ce0bb1b37e2579acf4fe88c32a1456d9d46afd4a57cfe1df9092e89c",
-      "owner_issue": 9,
+      "sha256": "cd5a25f9e7cf023627ccb470dc5faa97542f29b4319496a32b839a8e1e988047",
+      "owner_issue": 29,
       "disposition": "adapted",
       "target": "plugin/pstack/skills/pstack-principle-explain-the-number/SKILL.md",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
-      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
+      "reason": "Reviewed 0.15.23 wording with retained Codex bindings and source-backed deletion accounting; see plugin/pstack/qualification/issue-29.md.",
+      "source_revision": "dbf49813a39c1a5389c5e28cb8e4c1c2379e2454"
     },
     {
       "source": "skills/principle-fix-root-causes/SKILL.md",
@@ -1140,30 +1140,30 @@
     },
     {
       "source": "skills/principle-minimize-reader-load/SKILL.md",
-      "sha256": "42551c5dc74cd578163c148da552db3ff67d29b78600ef216bfd311fb828fe69",
-      "owner_issue": 7,
+      "sha256": "1ea2b7fef2391cae5844c4efdbd59031f775e8a52d06b7495d707229a200dcca",
+      "owner_issue": 29,
       "disposition": "adapted",
       "target": "plugin/pstack/skills/pstack-principle-minimize-reader-load/SKILL.md",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
-      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
+      "reason": "Reviewed 0.15.23 wording with retained Codex bindings and source-backed deletion accounting; see plugin/pstack/qualification/issue-29.md.",
+      "source_revision": "dbf49813a39c1a5389c5e28cb8e4c1c2379e2454"
     },
     {
       "source": "skills/principle-model-the-domain/SKILL.md",
-      "sha256": "bbadbb9a723fac3f76e782ae45665eb94058ec10993e4bae36d4dc6b0e4eac07",
-      "owner_issue": 7,
+      "sha256": "52c0d85e0c3827c41c18299b642657d7b47eaf77b7b31609e42e0df42b84c75f",
+      "owner_issue": 29,
       "disposition": "adapted",
       "target": "plugin/pstack/skills/pstack-principle-model-the-domain/SKILL.md",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
-      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
+      "reason": "Reviewed 0.15.23 wording with retained Codex bindings and source-backed deletion accounting; see plugin/pstack/qualification/issue-29.md.",
+      "source_revision": "dbf49813a39c1a5389c5e28cb8e4c1c2379e2454"
     },
     {
       "source": "skills/principle-never-block-on-the-human/SKILL.md",
-      "sha256": "f2764bb9338cbfc788c903cf4b9cd0a5f4042d3a04dd6d59cbd525d9beaadd0a",
-      "owner_issue": 7,
+      "sha256": "05030a7a083c337676f793881b4e93cd218e8f1dd676529f56e6ac1d3efb8d1f",
+      "owner_issue": 29,
       "disposition": "adapted",
       "target": "plugin/pstack/skills/pstack-principle-never-block-on-the-human/SKILL.md",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
-      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
+      "reason": "Reviewed 0.15.23 wording with retained Codex bindings and source-backed deletion accounting; see plugin/pstack/qualification/issue-29.md.",
+      "source_revision": "dbf49813a39c1a5389c5e28cb8e4c1c2379e2454"
     },
     {
       "source": "skills/principle-outcome-oriented-execution/SKILL.md",
@@ -1185,12 +1185,12 @@
     },
     {
       "source": "skills/principle-redesign-from-first-principles/SKILL.md",
-      "sha256": "a1c7fd0a96b40e12a74bceb0e6bb20a9666dd844dcabfb624acb27da23b929fe",
-      "owner_issue": 7,
+      "sha256": "170e0a658783e43fee8ec5a8c2422a4abb8f69cef621dd1819a95910b8207034",
+      "owner_issue": 29,
       "disposition": "adapted",
       "target": "plugin/pstack/skills/pstack-principle-redesign-from-first-principles/SKILL.md",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
-      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
+      "reason": "Reviewed 0.15.23 wording with retained Codex bindings and source-backed deletion accounting; see plugin/pstack/qualification/issue-29.md.",
+      "source_revision": "dbf49813a39c1a5389c5e28cb8e4c1c2379e2454"
     },
     {
       "source": "skills/principle-separate-before-serializing-shared-state/SKILL.md",
@@ -1212,30 +1212,30 @@
     },
     {
       "source": "skills/principle-subtract-before-you-add/SKILL.md",
-      "sha256": "a983a50e732c1ed315eba7aaf47a61329e31c4794eb1ab9d25d9945265b31e03",
-      "owner_issue": 7,
+      "sha256": "8c93bb9d1a7f38e2ef37655d93f0e790fa59903105af3d500cc8a663ebe45f3f",
+      "owner_issue": 29,
       "disposition": "adapted",
       "target": "plugin/pstack/skills/pstack-principle-subtract-before-you-add/SKILL.md",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
-      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
+      "reason": "Reviewed 0.15.23 wording with retained Codex bindings and source-backed deletion accounting; see plugin/pstack/qualification/issue-29.md.",
+      "source_revision": "dbf49813a39c1a5389c5e28cb8e4c1c2379e2454"
     },
     {
       "source": "skills/principle-test-behavior-not-implementation/SKILL.md",
-      "sha256": "87e40efe4e486f7ea639d2ed1fc0abe6c93b8fd0e89a81218086909d2470a52e",
-      "owner_issue": 7,
+      "sha256": "b2b73ba42920f9c3174ecdf808ec6e4591b3a9266ada9a05814f386004266d3a",
+      "owner_issue": 29,
       "disposition": "adapted",
       "target": "plugin/pstack/skills/pstack-principle-test-behavior-not-implementation/SKILL.md",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
-      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
+      "reason": "Reviewed 0.15.23 wording with retained Codex bindings and source-backed deletion accounting; see plugin/pstack/qualification/issue-29.md.",
+      "source_revision": "dbf49813a39c1a5389c5e28cb8e4c1c2379e2454"
     },
     {
       "source": "skills/principle-type-system-discipline/SKILL.md",
-      "sha256": "c83da8031ffb4c86410030d3e261f659598fca2b7d8158fd9dc269d70a3a025e",
-      "owner_issue": 7,
+      "sha256": "2e492cef34bb25a20b9115df61f9ef3a9837e3fda144ffda8079e5f45a1b72e8",
+      "owner_issue": 29,
       "disposition": "adapted",
       "target": "plugin/pstack/skills/pstack-principle-type-system-discipline/SKILL.md",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
-      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
+      "reason": "Reviewed 0.15.23 wording with retained Codex bindings and source-backed deletion accounting; see plugin/pstack/qualification/issue-29.md.",
+      "source_revision": "dbf49813a39c1a5389c5e28cb8e4c1c2379e2454"
     },
     {
       "source": "skills/recall/SKILL.md",
@@ -1257,39 +1257,39 @@
     },
     {
       "source": "skills/reflect/references/divergent-reviewer.md",
-      "sha256": "221dfc0abf7cbcd25e1da3cd87323f5d1050fc3bf652e096d093584e183c98fb",
-      "owner_issue": 8,
+      "sha256": "f6030d88e20e906ef5e2d9ba44cb013ce610c49c2fe2ef74c377d32e0dc9e939",
+      "owner_issue": 29,
       "disposition": "adapted",
       "target": "plugin/pstack/skills/pstack-reflect/references/divergent-reviewer.md",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
-      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
+      "reason": "Reviewed 0.15.23 wording with retained Codex bindings and source-backed deletion accounting; see plugin/pstack/qualification/issue-29.md.",
+      "source_revision": "dbf49813a39c1a5389c5e28cb8e4c1c2379e2454"
     },
     {
       "source": "skills/reflect/references/judgment-reviewer.md",
-      "sha256": "a40ecb9b28bd2a3491e11a541157fe58efe158e0eda7b61a5006c14590aabe61",
-      "owner_issue": 8,
+      "sha256": "38f917619fbf346062d643e0ad6b12fc952d58678dfcbbf42ffcf6d8b9c08307",
+      "owner_issue": 29,
       "disposition": "adapted",
       "target": "plugin/pstack/skills/pstack-reflect/references/judgment-reviewer.md",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
-      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
+      "reason": "Reviewed 0.15.23 wording with retained Codex bindings and source-backed deletion accounting; see plugin/pstack/qualification/issue-29.md.",
+      "source_revision": "dbf49813a39c1a5389c5e28cb8e4c1c2379e2454"
     },
     {
       "source": "skills/reflect/references/synthesizer.md",
-      "sha256": "2f76c847eb45b182dc6fbcbf7d96c8ee7e2986ecfd9e0d640fec44e3cc5a617c",
-      "owner_issue": 8,
+      "sha256": "6af816963de74d1a1aef4070273c1ff533d2072732e488e159ddc0b299fec3cd",
+      "owner_issue": 29,
       "disposition": "adapted",
       "target": "plugin/pstack/skills/pstack-reflect/references/synthesizer.md",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
-      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
+      "reason": "Reviewed 0.15.23 wording with retained Codex bindings and source-backed deletion accounting; see plugin/pstack/qualification/issue-29.md.",
+      "source_revision": "dbf49813a39c1a5389c5e28cb8e4c1c2379e2454"
     },
     {
       "source": "skills/reflect/references/tooling-reviewer.md",
-      "sha256": "bc49ced90fa81eaba3083b88aeb430d900a6d8f14ff40c1d6b52263bacfc77b6",
-      "owner_issue": 8,
+      "sha256": "f81b8697e7366fbbc18feba52c6e3253a101f751091364ebc4396a1d9b5753b4",
+      "owner_issue": 29,
       "disposition": "adapted",
       "target": "plugin/pstack/skills/pstack-reflect/references/tooling-reviewer.md",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
-      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
+      "reason": "Reviewed 0.15.23 wording with retained Codex bindings and source-backed deletion accounting; see plugin/pstack/qualification/issue-29.md.",
+      "source_revision": "dbf49813a39c1a5389c5e28cb8e4c1c2379e2454"
     },
     {
       "source": "skills/setup-pstack/SKILL.md",
@@ -1356,12 +1356,12 @@
     },
     {
       "source": "skills/technical-writing/SKILL.md",
-      "sha256": "f5c512ffeec70bc4e0dee50f7bb4c26742e1be77967a6e8b15d1921e1c209ceb",
-      "owner_issue": 2,
+      "sha256": "61fe9c424a798ebf36ad94941f87be049cb8827bdf86d21474a0dde37b513c43",
+      "owner_issue": 29,
       "disposition": "adapted",
       "target": "plugin/pstack/skills/pstack-technical-writing/SKILL.md",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
-      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
+      "reason": "Reviewed 0.15.23 wording with retained Codex bindings and source-backed deletion accounting; see plugin/pstack/qualification/issue-29.md.",
+      "source_revision": "dbf49813a39c1a5389c5e28cb8e4c1c2379e2454"
     },
     {
       "source": "skills/typescript-best-practices/SKILL.md",
@@ -1383,39 +1383,39 @@
     },
     {
       "source": "skills/unslop/SKILL.md",
-      "sha256": "195411d320b5b328f9f642baf59757ed19aaf0931c0838740e0aca273d538dc1",
-      "owner_issue": 2,
+      "sha256": "ccab208e315ce05e2fab8eeee2f7879f1289b5c6844840b2d307adf31c79144f",
+      "owner_issue": 29,
       "disposition": "adapted",
       "target": "plugin/pstack/skills/pstack-unslop/SKILL.md",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
-      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
+      "reason": "Reviewed 0.15.23 wording with retained Codex bindings and source-backed deletion accounting; see plugin/pstack/qualification/issue-29.md.",
+      "source_revision": "dbf49813a39c1a5389c5e28cb8e4c1c2379e2454"
     },
     {
       "source": "skills/why/SKILL.md",
-      "sha256": "442215bf70e491d4d31bd200c197f2ec447445df38e074c40880fc4bf30a1f9e",
-      "owner_issue": 5,
+      "sha256": "fa1d1e9dec14b15381c1ccccad74044d6b6ea3b4af56821f59ba2d8e59b07545",
+      "owner_issue": 29,
       "disposition": "adapted",
       "target": "plugin/pstack/skills/pstack-why/SKILL.md",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
-      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
+      "reason": "Reviewed 0.15.23 wording with retained Codex bindings and source-backed deletion accounting; see plugin/pstack/qualification/issue-29.md.",
+      "source_revision": "dbf49813a39c1a5389c5e28cb8e4c1c2379e2454"
     },
     {
       "source": "skills/why/references/epistemics.md",
-      "sha256": "fcc0f559c072832c869a5ada72434b4849320a637ae63c09e8ee14f7ad787059",
-      "owner_issue": 5,
-      "disposition": "preserved",
+      "sha256": "d54a2361b2d5973bc3fe2edf62f446d87935974d4b40d47f23b9529f956ca758",
+      "owner_issue": 29,
+      "disposition": "adapted",
       "target": "plugin/pstack/skills/pstack-why/references/epistemics.md",
-      "reason": "Pinned source retained byte-for-byte at its mapped counterpart; see primary issue qualification.",
-      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
+      "reason": "Reviewed 0.15.23 wording with retained Codex bindings and source-backed deletion accounting; see plugin/pstack/qualification/issue-29.md.",
+      "source_revision": "dbf49813a39c1a5389c5e28cb8e4c1c2379e2454"
     },
     {
       "source": "skills/why/references/investigator-prompt.md",
-      "sha256": "6892956a7ab0b5ee6c4babaf4f793703abe89b350ea7cb9463b4a56eea1c8266",
-      "owner_issue": 5,
+      "sha256": "c44afba186f899094f3694e6c9d6de5d14ff7c4ce28b787a9f50fc789c9a7fc3",
+      "owner_issue": 29,
       "disposition": "adapted",
       "target": "plugin/pstack/skills/pstack-why/references/investigator-prompt.md",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
-      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
+      "reason": "Reviewed 0.15.23 wording with retained Codex bindings and source-backed deletion accounting; see plugin/pstack/qualification/issue-29.md.",
+      "source_revision": "dbf49813a39c1a5389c5e28cb8e4c1c2379e2454"
     },
     {
       "source": "skills/why/references/source-playbook.md",
@@ -1446,12 +1446,12 @@
     },
     {
       "source": "skills/why/references/sources/datadog.md",
-      "sha256": "ebe9c07bac28e47757ee7f16fb93b0c01d427a08c501957d047f395a2f37b7e7",
-      "owner_issue": 5,
+      "sha256": "b139faac5dc11b8f26c8255dce6033c1a6ac143b038d3dd103f2034c5dbec9cd",
+      "owner_issue": 29,
       "disposition": "adapted",
       "target": "plugin/pstack/skills/pstack-why/references/sources/datadog.md",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
-      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
+      "reason": "Reviewed 0.15.23 wording with retained Codex bindings and source-backed deletion accounting; see plugin/pstack/qualification/issue-29.md.",
+      "source_revision": "dbf49813a39c1a5389c5e28cb8e4c1c2379e2454"
     },
     {
       "source": "skills/why/references/sources/incident-postmortem.md",
@@ -1500,12 +1500,12 @@
     },
     {
       "source": "skills/why/references/synthesizer-prompt.md",
-      "sha256": "733a3e9cf897b1aca56aaddeae01a3832e4bfed024c2f602db2d1bf807d7a73b",
-      "owner_issue": 5,
+      "sha256": "11c62671aa7b7a6e3d36929ffe2b59bf95e6ca664eee4d93e6ee527dd3390ddb",
+      "owner_issue": 29,
       "disposition": "adapted",
       "target": "plugin/pstack/skills/pstack-why/references/synthesizer-prompt.md",
-      "reason": "Pinned instruction or helper adapted to the shared Codex contracts; see primary issue qualification.",
-      "source_revision": "d0ef80d86795816da932a153458c5dbe192d294e"
+      "reason": "Reviewed 0.15.23 wording with retained Codex bindings and source-backed deletion accounting; see plugin/pstack/qualification/issue-29.md.",
+      "source_revision": "dbf49813a39c1a5389c5e28cb8e4c1c2379e2454"
     }
   ]
 }
