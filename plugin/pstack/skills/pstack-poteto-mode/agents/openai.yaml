@@ -1,2 +1,4 @@
+interface:
+  display_name: "pstack: poteto-mode"
 policy:
   allow_implicit_invocation: false

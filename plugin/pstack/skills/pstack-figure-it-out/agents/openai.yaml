@@ -1,2 +1,4 @@
+interface:
+  display_name: "pstack: figure-it-out"
 policy:
   allow_implicit_invocation: false

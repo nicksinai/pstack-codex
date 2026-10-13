@@ -1,2 +1,4 @@
+interface:
+  display_name: "pstack: no-comments"
 policy:
   allow_implicit_invocation: false

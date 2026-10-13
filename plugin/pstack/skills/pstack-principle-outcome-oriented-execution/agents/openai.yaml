@@ -1,2 +1,4 @@
+interface:
+  display_name: "pstack: principle-outcome-oriented-execution"
 policy:
   allow_implicit_invocation: false

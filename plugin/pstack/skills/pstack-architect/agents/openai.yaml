@@ -1,2 +1,4 @@
+interface:
+  display_name: "pstack: architect"
 policy:
   allow_implicit_invocation: false
