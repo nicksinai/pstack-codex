@@ -127,6 +127,9 @@ print(f"Validated {len(items)} baseline files with unique owners and hashes; {le
 skill_sources = {item['target']: baselines[item['source_revision']][0] / item['source']
                  for item in items if item['target'] and item['target'].endswith('/SKILL.md')}
 for skill in skills:
+    if skill.parent.name == 'pstack-update':
+        # This Codex-specific addition has no upstream counterpart; see update.md.
+        continue
     source_path = skill_sources.get(str(skill.relative_to(root)))
     if source_path:
         source_text = source_path.read_text()
@@ -144,7 +147,7 @@ for skill in skills:
     short = json.loads(re.search(r'^  short_description: (.+)$', ui, re.M).group(1))
     assert 25 <= len(short) <= 64, ('Picker description length', skill)
     assert short in source_text or short in source_description, ('Picker wording differs from upstream', skill)
-print(f'Validated upstream wording for all {len(skills)} skill and picker descriptions (including the deslop companion).')
+print(f'Validated upstream wording for {len(skill_sources) + 1} skill and picker descriptions; Codex-specific update is excluded.')
 # Final closure is structural proof, not a behavioral product-use claim.
 assert len(old_hashes) == 164 and len(new_hashes) == 168
 assert len(items) == len(old_hashes) + len(set(paths) - set(old_hashes))

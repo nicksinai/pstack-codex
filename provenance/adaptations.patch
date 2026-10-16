@@ -33,7 +33,7 @@
 -	"agents": "./agents/"
 +  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
 +  "name": "pstack-codex",
-+  "version": "0.1.4",
++  "version": "0.1.5",
 +  "description": "Codex adaptation of Lauren Tan\u2019s pstack engineering workflows. Qualification is recorded per workflow."
  }
 --- upstream/d0ef80d86795816da932a153458c5dbe192d294e/pstack/.gitignore
@@ -6755,6 +6755,6 @@ Binary files differ: docs/guide/images/verification.jpg -> plugin/pstack/README.
 -    "unslop"
 -  ]
 +  "name": "pstack-codex",
-+  "version": "0.1.4",
++  "version": "0.1.5",
 +  "description": "Codex adaptation of Lauren Tan\u2019s pstack engineering workflows. Qualification is recorded per workflow."
  }
