@@ -1,6 +1,6 @@
 ---
 name: pstack-principle-exhaust-the-design-space
-description: Apply exhaust the design space when PStack selects this principle.
+description: "Apply when facing a novel UI interaction or architectural decision with no precedent in the codebase."
 ---
 
 

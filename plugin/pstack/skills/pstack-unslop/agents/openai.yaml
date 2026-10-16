@@ -1,5 +1,5 @@
 interface:
   display_name: "pstack: unslop"
-  short_description: "Lauren Tan’s unslop workflow adapted for Codex"
+  short_description: "Cut AI tells from any writing."
 policy:
   allow_implicit_invocation: false

@@ -1,4 +1,5 @@
 interface:
   display_name: "pstack: principle-redesign-from-first-principles"
+  short_description: "don't bolt it onto the existing design"
 policy:
   allow_implicit_invocation: false

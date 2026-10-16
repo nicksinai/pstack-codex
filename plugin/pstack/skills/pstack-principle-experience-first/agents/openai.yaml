@@ -1,4 +1,5 @@
 interface:
   display_name: "pstack: principle-experience-first"
+  short_description: "When implementation convenience conflicts with user delight"
 policy:
   allow_implicit_invocation: false

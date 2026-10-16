@@ -1,6 +1,6 @@
 ---
 name: pstack-principle-test-behavior-not-implementation
-description: Apply test behavior not implementation when PStack selects this principle.
+description: "Apply when you write, change, or keep a test."
 ---
 
 

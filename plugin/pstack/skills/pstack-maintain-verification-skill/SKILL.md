@@ -1,6 +1,6 @@
 ---
 name: pstack-maintain-verification-skill
-description: Audit a project verification skill with source readers and a complete live feature pass.
+description: "Periodic pass that keeps a project's verification skill and feature map honest: parallel source readers per feature, one live session driving every feature, at most one PR of proven corrections."
 ---
 
 # Maintain a verification skill

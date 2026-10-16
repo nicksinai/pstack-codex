@@ -1,4 +1,5 @@
 interface:
   display_name: "pstack: principle-separate-before-serializing-shared-state"
+  short_description: "When sharing is real, enforce serialization structurally"
 policy:
   allow_implicit_invocation: false

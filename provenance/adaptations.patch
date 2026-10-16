@@ -33,7 +33,7 @@
 -	"agents": "./agents/"
 +  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
 +  "name": "pstack-codex",
-+  "version": "0.1.4",
++  "version": "0.1.5",
 +  "description": "Codex adaptation of Lauren Tan\u2019s pstack engineering workflows. Qualification is recorded per workflow."
  }
 --- upstream/d0ef80d86795816da932a153458c5dbe192d294e/pstack/.gitignore
@@ -2109,7 +2109,7 @@ Binary files differ: docs/guide/images/verification.jpg -> plugin/pstack/README.
 -description: "Sketch types, signatures, and module structure before code, then stay in the loop while implementation fills in. Use for /architect, 'architect this', 'design this', or non-trivial work where jumping to code would lock in the wrong shape."
 -disable-model-invocation: true
 +name: pstack-architect
-+description: Design competing type and module sketches, synthesize a shape, then implement it; supports an explicit design checkpoint.
++description: "Sketch types, signatures, and module structure before code, then stay in the loop while implementation fills in."
  ---
  
  # Architect
@@ -2192,7 +2192,7 @@ Binary files differ: docs/guide/images/verification.jpg -> plugin/pstack/README.
 -description: "Spawn N parallel candidates at the same task, pick a base, graft the strongest parts of the losers into it. Use for /arena, 'arena this', 'throw it in the arena', or when one attempt at a non-trivial artifact would lock in the wrong shape."
 -disable-model-invocation: true
 +name: pstack-arena
-+description: Produce independent competing artifacts, cross-judge them, select a base, graft strengths and verify the synthesis.
++description: "Spawn N parallel candidates at the same task, pick a base, graft the strongest parts of the losers into it."
  ---
  
  # Arena
@@ -2240,7 +2240,7 @@ Binary files differ: docs/guide/images/verification.jpg -> plugin/pstack/README.
 -description: "Use for \"automate me\", \"create/update/refresh my -mode skill\", \"turn/capture my preferences or working style into a skill\", or wanting agents to follow how the user works. Drafts or revises a personal -mode skill via create-skill + unslop, optionally pulling fresh evidence from recent transcripts."
 -disable-model-invocation: true
 +name: pstack-automate-me
-+description: Draft or update a personal working-style mode when explicitly asked to automate me.
++description: "Drafts or revises a personal -mode skill via create-skill + unslop, optionally pulling fresh evidence from recent transcripts."
  ---
  
  # Automate me
@@ -2346,7 +2346,7 @@ Binary files differ: docs/guide/images/verification.jpg -> plugin/pstack/README.
 -description: "Vet a perf measurement (limiter, tuning, limits, errors, repeatability, relevance, and whether the work happened) before you report or act on it. Use when you run a benchmark or report a speedup or regression you measured."
 -disable-model-invocation: true
 +name: pstack-benchmark-checklist
-+description: Vet measured performance numbers before reporting or choosing an option.
++description: "Vet a perf measurement (limiter, tuning, limits, errors, repeatability, relevance, and whether the work happened) before you report or act on it."
  ---
 +
 +Resolve named skills and principles through the [mode lookup](../pstack-poteto-mode/SKILL.md). Read [measurement setup](../../references/performance.md) before running or profiling a target; the [compatibility contract](../../references/compatibility.md) and current user/host authority govern execution.
@@ -2376,7 +2376,7 @@ Binary files differ: docs/guide/images/verification.jpg -> plugin/pstack/README.
 -description: "Find what a change could break somewhere else before it ships, beyond the diff, and prove the one fact it's safe because of by running real code instead of writing it up. Use for 'blast radius of X', 'what could this break', or reviewing a small diff you don't trust."
 -disable-model-invocation: true
 +name: pstack-blast-radius
-+description: Prove what a change could break beyond its diff.
++description: "Find what a change could break somewhere else before it ships, beyond the diff, and prove the one fact it's safe because of by running real code instead of writing it up."
  ---
 +
 +Resolve named skills/principles through the [main mode lookup](../pstack-poteto-mode/SKILL.md). Read the leaf before applying it. Use the shared [delegation](../../references/delegation.md), [models](../../references/models.md), [continuation](../../references/continuation.md), and [PR delivery](../../references/pr-delivery.md) contracts when those operations apply. Invocation of this leaf applies only to the request; it does not enter sticky mode.
@@ -2399,9 +2399,10 @@ Binary files differ: docs/guide/images/verification.jpg -> plugin/pstack/README.
 @@ -1,7 +1,8 @@
  ---
 -name: bro
-+name: pstack-bro
- description: Restate the last message in plain human language, with no jargon.
+-description: Restate the last message in plain human language, with no jargon.
 -disable-model-invocation: true
++name: pstack-bro
++description: "Restate the last message in plain human language, with no jargon."
  ---
  
 +Read the [compatibility contract](../../references/compatibility.md) before applying this workflow.
@@ -2415,7 +2416,7 @@ Binary files differ: docs/guide/images/verification.jpg -> plugin/pstack/README.
 -description: "Find the mistakes agents keep repeating in this repo and make each one impossible. Try architecture first, then types, then a lint whose error names the fix, then a test, and write docs last. Prove each check fails on a real past mistake. Repeat this each time the operator corrects you. Use for /correct."
 -disable-model-invocation: true
 +name: pstack-correct
-+description: Prevent recurring repository mistakes with enforceable structure.
++description: "Find the mistakes agents keep repeating in this repo and make each one impossible."
  ---
 +
 +Resolve named skills/principles through the [main mode lookup](../pstack-poteto-mode/SKILL.md). Read the leaf before applying it. Use the shared [delegation](../../references/delegation.md), [models](../../references/models.md), [continuation](../../references/continuation.md), and [PR delivery](../../references/pr-delivery.md) contracts when those operations apply. Invocation of this leaf applies only to the request; it does not enter sticky mode.
@@ -2432,7 +2433,7 @@ Binary files differ: docs/guide/images/verification.jpg -> plugin/pstack/README.
 -description: "Generate a project-local verification skill that drives your app the way a user does — any language, framework, or platform. Use for /create-verification-skill, \"make a control skill for this repo\", or when a project has no scripted way to prove UI/CLI/service behavior."
 -disable-model-invocation: true
 +name: pstack-create-verification-skill
-+description: Create a project-local real-app verification skill and feature map.
++description: "Generate a project-local verification skill that drives your app the way a user does — any language, framework, or platform."
  ---
  
  # Create a verification skill
@@ -2481,7 +2482,7 @@ Binary files differ: docs/guide/images/verification.jpg -> plugin/pstack/README.
 -description: "Design an auditable playbook when no narrower one fits: a large migration, an ambitious multi-part change, or work a human reviews after stepping away. Scales rigor to the task, runs a hypothesis loop, and logs decisions. Use for /figure-it-out or 'figure it out'."
 -disable-model-invocation: true
 +name: pstack-figure-it-out
-+description: Design and execute a bespoke rigorous workflow for complex work.
++description: "Design an auditable playbook when no narrower one fits: a large migration, an ambitious multi-part change, or work a human reviews after stepping away."
  ---
 +
 +Resolve named skills/principles through the [main mode lookup](../pstack-poteto-mode/SKILL.md). Read the leaf before applying it. Use the shared [delegation](../../references/delegation.md), [models](../../references/models.md), [continuation](../../references/continuation.md), and [PR delivery](../../references/pr-delivery.md) contracts when those operations apply. Invocation of this leaf applies only to the request; it does not enter sticky mode.
@@ -2498,7 +2499,7 @@ Binary files differ: docs/guide/images/verification.jpg -> plugin/pstack/README.
 -description: "Use for \"how does X work\", code walkthroughs before changing something, and placement / ownership / layering questions (\"where should this live\", \"which package owns this\", \"is this the right layer\"). Explains subsystem architecture, runtime flow, onboarding mental models. Use why for motivation."
 -disable-model-invocation: true
 +name: pstack-how
-+description: Explain how code works, subsystem architecture, placement, ownership and layering through a source-backed walkthrough. Use why for motivation.
++description: "Explains subsystem architecture, runtime flow, onboarding mental models. Use why for motivation."
  ---
  
  # How
@@ -2593,7 +2594,7 @@ Binary files differ: docs/guide/images/verification.jpg -> plugin/pstack/README.
 -description: "Restate in your own words what you think the user's goals are and what problem they're trying to solve. Use for /in-your-own-words."
 -disable-model-invocation: true
 +name: pstack-in-your-own-words
-+description: Restate the user's goals and problem before work begins.
++description: "Restate in your own words what you think the user's goals are and what problem they're trying to solve."
  ---
  
  Restate in your own words what you think the user's goals are and what problem they're trying to solve.
@@ -2607,7 +2608,7 @@ Binary files differ: docs/guide/images/verification.jpg -> plugin/pstack/README.
 -description: "Use for \"interrogate\", \"adversarial review\", \"multi-model review\", \"challenge this\", \"stress test this code\", \"find blind spots\", or \"tear this apart\". Multiple LLM reviewers challenge changes from independent angles."
 -disable-model-invocation: true
 +name: pstack-interrogate
-+description: Review code through independent adversarial panels and return an evidence-based lead verdict without applying changes.
++description: "Multiple LLM reviewers challenge changes from independent angles."
  ---
  
  # Interrogate
@@ -2692,7 +2693,7 @@ Binary files differ: docs/guide/images/verification.jpg -> plugin/pstack/README.
 -description: "Catch the user up on what changed in this chat since their last message, in a short reply built on real visuals. Give each action item just enough context to make the call. Use for /ketchup."
 -disable-model-invocation: true
 +name: pstack-ketchup
-+description: Catch up on this conversation with checked states, real visuals, and pending user decisions.
++description: "Catch the user up on what changed in this chat since their last message, in a short reply built on real visuals."
  ---
  
  # Ketchup
@@ -2742,7 +2743,7 @@ Binary files differ: docs/guide/images/verification.jpg -> plugin/pstack/README.
 -description: "Periodic pass that keeps a project's verification skill and feature map honest: parallel source readers per feature, one live session driving every feature, at most one PR of proven corrections. Use for /maintain-verification-skill or \"audit the verify skill\"."
 -disable-model-invocation: true
 +name: pstack-maintain-verification-skill
-+description: Audit a project verification skill with source readers and a complete live feature pass.
++description: "Periodic pass that keeps a project's verification skill and feature map honest: parallel source readers per feature, one live session driving every feature, at most one PR of proven corrections."
  ---
  
  # Maintain a verification skill
@@ -2803,7 +2804,7 @@ Binary files differ: docs/guide/images/verification.jpg -> plugin/pstack/README.
 -description: Guides users through pstack setup, /poteto-mode, and picking the skill, playbook, or principle for a task. Type /poteto-help with a question.
 -disable-model-invocation: true
 +name: pstack-poteto-help
-+description: Explain PStack setup, workflows, and recovery without starting a run.
++description: "Guides users through pstack setup, /poteto-mode, and picking the skill, playbook, or principle for a task."
  ---
  
  # Poteto help
@@ -3143,7 +3144,7 @@ Binary files differ: docs/guide/images/verification.jpg -> plugin/pstack/README.
 -icon: crown
 -color: yellow
 +name: pstack-poteto-mode
-+description: Apply explicit PStack mode to an engineering request.
++description: "poteto's agent style for concise, detailed responses, deliberate subagents, unslopped prose, simple code, and verified work."
  ---
  
 +
@@ -5439,7 +5440,7 @@ Binary files differ: docs/guide/images/verification.jpg -> plugin/pstack/README.
 -description: "Apply when two or more fixes that share one premise have failed the same gate. Take a census of which actors hold the imbalance before the next fix, then question the premise instead of writing another fix that assumes it."
 -disable-model-invocation: true
 +name: pstack-principle-attack-the-premise
-+description: Apply attack the premise when PStack selects this principle.
++description: "Apply when two or more fixes that share one premise have failed the same gate."
  ---
 +
 +
@@ -5472,7 +5473,7 @@ Binary files differ: docs/guide/images/verification.jpg -> plugin/pstack/README.
 -description: "Apply when wiring validation, error handling, or framework adapters. Concentrate guards at system boundaries (CLI, config, network, external APIs); trust internal types and keep business logic in pure functions."
 -disable-model-invocation: true
 +name: pstack-principle-boundary-discipline
-+description: Apply boundary discipline when PStack selects this principle.
++description: "Apply when wiring validation, error handling, or framework adapters."
  ---
 +
 +
@@ -5488,7 +5489,7 @@ Binary files differ: docs/guide/images/verification.jpg -> plugin/pstack/README.
 -description: "Apply to any non-trivial work, not just bulk work: edits, migrations, analyses, checks. Build the tool that does it or proves it (codemod, script, generator, or a skill your subagents follow) instead of working by hand. The tool is the artifact a reviewer can rerun."
 -disable-model-invocation: true
 +name: pstack-principle-build-the-lever
-+description: Apply build the lever when PStack selects this principle.
++description: "Apply to any non-trivial work, not just bulk work: edits, migrations, analyses, checks."
  ---
 +
 +Resolve named skills through the [mode lookup](../pstack-poteto-mode/SKILL.md). The [compatibility contract](../../references/compatibility.md) and current user/host authority govern any delegated, durable or external action.
@@ -5513,7 +5514,7 @@ Binary files differ: docs/guide/images/verification.jpg -> plugin/pstack/README.
 -description: "Apply when you catch yourself writing the same instruction a second time, or notice a recurring correction. Encode the rule as a lint, metadata flag, runtime check, or script instead of more text."
 -disable-model-invocation: true
 +name: pstack-principle-encode-lessons-in-structure
-+description: Apply encode lessons in structure when PStack selects this principle.
++description: "Apply when you catch yourself writing the same instruction a second time, or notice a recurring correction."
  ---
 +
 +
@@ -5535,7 +5536,7 @@ Binary files differ: docs/guide/images/verification.jpg -> plugin/pstack/README.
 -description: "Apply when facing a novel UI interaction or architectural decision with no precedent in the codebase. Build 2-3 competing prototypes and compare side by side before committing."
 -disable-model-invocation: true
 +name: pstack-principle-exhaust-the-design-space
-+description: Apply exhaust the design space when PStack selects this principle.
++description: "Apply when facing a novel UI interaction or architectural decision with no precedent in the codebase."
  ---
 +
 +
@@ -5551,7 +5552,7 @@ Binary files differ: docs/guide/images/verification.jpg -> plugin/pstack/README.
 -description: "Apply when product, UX, or feature-scope tradeoffs come up. Choose user delight over implementation convenience; ship fewer polished features over more rough ones."
 -disable-model-invocation: true
 +name: pstack-principle-experience-first
-+description: Apply experience first when PStack selects this principle.
++description: "Apply when product, UX, or feature-scope tradeoffs come up."
  ---
 +
 +
@@ -5567,7 +5568,7 @@ Binary files differ: docs/guide/images/verification.jpg -> plugin/pstack/README.
 -description: "Apply before you trust, report, or act on a number you measured: a speedup, a regression, a throughput, a latency, or an eval result. Find what limits it, and rule out that it measured something other than the work you think."
 -disable-model-invocation: true
 +name: pstack-principle-explain-the-number
-+description: Explain the limiter and evidence behind a measured number.
++description: "Apply before you trust, report, or act on a number you measured: a speedup, a regression, a throughput, a latency, or an eval result."
  ---
 +
 +Resolve named skills and principles through the [mode lookup](../pstack-poteto-mode/SKILL.md). Read [measurement setup](../../references/performance.md) before running or profiling a target; the [compatibility contract](../../references/compatibility.md) and current user/host authority govern execution.
@@ -5591,10 +5592,9 @@ Binary files differ: docs/guide/images/verification.jpg -> plugin/pstack/README.
 @@ -1,8 +1,10 @@
  ---
 -name: principle-fix-root-causes
--description: "Apply when debugging. Trace each symptom to its root cause and fix it there; reproduce first, ask why until you reach it, resist nil-check guards that silence crashes."
--disable-model-invocation: true
 +name: pstack-principle-fix-root-causes
-+description: Apply fix root causes when PStack selects this principle.
+ description: "Apply when debugging. Trace each symptom to its root cause and fix it there; reproduce first, ask why until you reach it, resist nil-check guards that silence crashes."
+-disable-model-invocation: true
  ---
 +
 +
@@ -5619,7 +5619,7 @@ Binary files differ: docs/guide/images/verification.jpg -> plugin/pstack/README.
 -description: "Apply before writing logic: choosing core types and data structures, sequencing scaffold-vs-feature work, asking what concurrent actors share. Get the data structures right so downstream code becomes obvious."
 -disable-model-invocation: true
 +name: pstack-principle-foundational-thinking
-+description: Apply foundational thinking when PStack selects this principle.
++description: "Apply before writing logic: choosing core types and data structures, sequencing scaffold-vs-feature work, asking what concurrent actors share."
  ---
 +
 +
@@ -5635,7 +5635,7 @@ Binary files differ: docs/guide/images/verification.jpg -> plugin/pstack/README.
 -description: "Apply when context is filling up: large outputs, long files, repeated reads, fan-out planning. Route bulk to subagents; keep summaries in the main thread, not raw payloads."
 -disable-model-invocation: true
 +name: pstack-principle-guard-the-context-window
-+description: Apply guard the context window when PStack selects this principle.
++description: "Apply when context is filling up: large outputs, long files, repeated reads, fan-out planning."
  ---
 +
 +
@@ -5651,7 +5651,7 @@ Binary files differ: docs/guide/images/verification.jpg -> plugin/pstack/README.
 -description: "Apply when refactoring, evaluating diff size, or tempted to add abstractions, layers, or signal threading. Bias toward deletion and the smallest change that solves the problem."
 -disable-model-invocation: true
 +name: pstack-principle-laziness-protocol
-+description: Apply laziness protocol when PStack selects this principle.
++description: "Apply when refactoring, evaluating diff size, or tempted to add abstractions, layers, or signal threading."
  ---
 +
 +
@@ -5667,7 +5667,7 @@ Binary files differ: docs/guide/images/verification.jpg -> plugin/pstack/README.
 -description: "Apply when designing commands, lifecycle steps, or processing loops that run amid crashes, restarts, and retries. Converge to the same end state regardless of partial prior runs."
 -disable-model-invocation: true
 +name: pstack-principle-make-operations-idempotent
-+description: Apply make operations idempotent when PStack selects this principle.
++description: "Apply when designing commands, lifecycle steps, or processing loops that run amid crashes, restarts, and retries."
  ---
 +
 +
@@ -5683,7 +5683,7 @@ Binary files differ: docs/guide/images/verification.jpg -> plugin/pstack/README.
 -description: "Apply when introducing a new internal API while old callers still exist. Migrate callers and delete the old API in the same wave instead of preserving compatibility layers."
 -disable-model-invocation: true
 +name: pstack-principle-migrate-callers-then-delete-legacy-apis
-+description: Apply migrate callers then delete legacy apis when PStack selects this principle.
++description: "Apply when introducing a new internal API while old callers still exist."
  ---
 +
 +
@@ -5699,7 +5699,7 @@ Binary files differ: docs/guide/images/verification.jpg -> plugin/pstack/README.
 -description: "Apply when reviewing or shaping code that's hard to trace. Count layers between question and answer, and hidden state in the reader's head; collapse one-caller wrappers and shrink mutable scope."
 -disable-model-invocation: true
 +name: pstack-principle-minimize-reader-load
-+description: Apply minimize reader load when PStack selects this principle.
++description: "Apply when reviewing or shaping code that's hard to trace."
  ---
 +
 +
@@ -5717,10 +5717,9 @@ Binary files differ: docs/guide/images/verification.jpg -> plugin/pstack/README.
 @@ -1,8 +1,10 @@
  ---
 -name: principle-model-the-domain
--description: "Apply when writing stateful logic, or when code branches a lot or repeats a shape assumption across files."
--disable-model-invocation: true
 +name: pstack-principle-model-the-domain
-+description: Apply model the domain when PStack selects this principle.
+ description: "Apply when writing stateful logic, or when code branches a lot or repeats a shape assumption across files."
+-disable-model-invocation: true
  ---
 +
 +
@@ -5733,10 +5732,9 @@ Binary files differ: docs/guide/images/verification.jpg -> plugin/pstack/README.
 @@ -1,8 +1,10 @@
  ---
 -name: principle-never-block-on-the-human
--description: "Apply when tempted to ask 'should I do X?' on reversible work."
--disable-model-invocation: true
 +name: pstack-principle-never-block-on-the-human
-+description: Apply never block on the human when PStack selects this principle.
+ description: "Apply when tempted to ask 'should I do X?' on reversible work."
+-disable-model-invocation: true
  ---
 +
 +
@@ -5752,7 +5750,7 @@ Binary files differ: docs/guide/images/verification.jpg -> plugin/pstack/README.
 -description: "Apply during planned rewrites and migrations with explicit phase boundaries. Converge on the target architecture; don't preserve smooth intermediate states with throwaway compatibility code."
 -disable-model-invocation: true
 +name: pstack-principle-outcome-oriented-execution
-+description: Apply outcome oriented execution when PStack selects this principle.
++description: "Apply during planned rewrites and migrations with explicit phase boundaries."
  ---
 +
 +
@@ -5768,7 +5766,7 @@ Binary files differ: docs/guide/images/verification.jpg -> plugin/pstack/README.
 -description: "Apply after completing a task, before declaring done. Verify against the real artifact (run the feature, read the actual value, inspect the diff), not a proxy, self-report, or 'it compiles.'"
 -disable-model-invocation: true
 +name: pstack-principle-prove-it-works
-+description: Apply prove it works when PStack selects this principle.
++description: "Apply after completing a task, before declaring done."
  ---
 +
 +
@@ -5781,10 +5779,9 @@ Binary files differ: docs/guide/images/verification.jpg -> plugin/pstack/README.
 @@ -1,8 +1,10 @@
  ---
 -name: principle-redesign-from-first-principles
--description: "Apply when integrating a new requirement into an existing design."
--disable-model-invocation: true
 +name: pstack-principle-redesign-from-first-principles
-+description: Apply redesign from first principles when PStack selects this principle.
+ description: "Apply when integrating a new requirement into an existing design."
+-disable-model-invocation: true
  ---
 +
 +
@@ -5800,7 +5797,7 @@ Binary files differ: docs/guide/images/verification.jpg -> plugin/pstack/README.
 -description: "Apply when concurrent actors might write to the same file, branch, key, or state object. Eliminate the sharing first; serialize structurally only when one shared writer is a real invariant."
 -disable-model-invocation: true
 +name: pstack-principle-separate-before-serializing-shared-state
-+description: Apply separate before serializing shared state when PStack selects this principle.
++description: "Apply when concurrent actors might write to the same file, branch, key, or state object."
  ---
 +
 +
@@ -5816,7 +5813,7 @@ Binary files differ: docs/guide/images/verification.jpg -> plugin/pstack/README.
 -description: "Apply to multi-step work (sweeps, migrations, runs of similar edits) and to how you stack commits and PRs. Break work into small units that each end in a verifiable state, check each before the next, and order delivery so the sequence proves itself to a reviewer."
 -disable-model-invocation: true
 +name: pstack-principle-sequence-verifiable-units
-+description: Apply sequence verifiable units when PStack selects this principle.
++description: "Apply to multi-step work (sweeps, migrations, runs of similar edits) and to how you stack commits and PRs."
  ---
 +
 +
@@ -5832,7 +5829,7 @@ Binary files differ: docs/guide/images/verification.jpg -> plugin/pstack/README.
 -description: "Apply when sequencing an addition, refactor, or rewrite. Remove dead code, redundant validators, and stub references first, then build on the simpler base."
 -disable-model-invocation: true
 +name: pstack-principle-subtract-before-you-add
-+description: Apply subtract before you add when PStack selects this principle.
++description: "Apply when sequencing an addition, refactor, or rewrite."
  ---
 +
 +
@@ -5848,7 +5845,7 @@ Binary files differ: docs/guide/images/verification.jpg -> plugin/pstack/README.
 -description: "Apply when you write, change, or keep a test. Call the code as its users do and assert the exact result they see. Rewrite or delete a test that would pass if every imported function returned undefined."
 -disable-model-invocation: true
 +name: pstack-principle-test-behavior-not-implementation
-+description: Apply test behavior not implementation when PStack selects this principle.
++description: "Apply when you write, change, or keep a test."
  ---
 +
 +
@@ -5880,7 +5877,7 @@ Binary files differ: docs/guide/images/verification.jpg -> plugin/pstack/README.
 -description: "Apply when designing types, reviewing a function signature, or writing code in any statically-typed language. Make illegal states unrepresentable, brand semantic primitives, parse external data at boundaries, refuse to lie to the compiler, exhaust variants, derive from authoritative schemas."
 -disable-model-invocation: true
 +name: pstack-principle-type-system-discipline
-+description: Apply type system discipline when PStack selects this principle.
++description: "Apply when designing types, reviewing a function signature, or writing code in any statically-typed language."
  ---
 +
 +
@@ -5896,7 +5893,7 @@ Binary files differ: docs/guide/images/verification.jpg -> plugin/pstack/README.
 -description: "Reconstruct your recent working context from your own chat history, live state, and the shared record (user reports, prior fixes, incidents), then hand back a tight current-state brief. Use for 'recall my work on X', 'catch me up', 'what have I been working on', 'where did I leave off', before starting or resuming work."
 -disable-model-invocation: true
 +name: pstack-recall
-+description: Reconstruct scoped recent working context from chat history, shared sources and live artifacts, returning a tight current-state brief before work resumes.
++description: "Reconstruct your recent working context from your own chat history, live state, and the shared record (user reports, prior fixes, incidents), then hand back a tight current-state brief."
  ---
  
  # Recall
@@ -5950,7 +5947,7 @@ Binary files differ: docs/guide/images/verification.jpg -> plugin/pstack/README.
 -description: Spawn three parallel review subagents over the active transcript, surface learnings, and route each to a concrete edit on an existing skill. Use when the user says reflect.
 -disable-model-invocation: true
 +name: pstack-reflect
-+description: Review the active session for durable skill improvements when explicitly asked to reflect.
++description: "Spawn three parallel review subagents over the active transcript, surface learnings, and route each to a concrete edit on an existing skill."
  ---
  
  # Reflect
@@ -6149,7 +6146,7 @@ Binary files differ: docs/guide/images/verification.jpg -> plugin/pstack/README.
 -name: setup-pstack
 -description: Configure which models pstack uses per role and at what reasoning budget. Detects your available models and writes an always-applied rule that overrides the skill defaults. Use for /setup-pstack, "configure pstack models", "pstack budget", or changing pstack's model choices.
 +name: pstack-setup-pstack
-+description: Configure pstack native GPT model roles and separate reasoning budgets. Explicit setup or model-budget changes.
++description: "Configure which models pstack uses per role and at what reasoning budget."
  ---
  
  # Setup pstack
@@ -6237,7 +6234,7 @@ Binary files differ: docs/guide/images/verification.jpg -> plugin/pstack/README.
 -description: "Keep a reviewable decision trail for long-running or unattended work: a TSV log with one row per decision (what, why, evidence, result). Local by default; commit it when a reviewer needs the trail to trust the result. Use for /show-me-your-work, autonomous or multi-phase runs, or work a human reviews after stepping away."
 -disable-model-invocation: true
 +name: pstack-show-me-your-work
-+description: "Keep a reviewable decision trail for long-running or unattended work: a TSV log with one row per decision (what, why, evidence, result). Local by default; commit it when a reviewer needs the trail to trust the result. Use for explicit pstack-show-me-your-work, autonomous or multi-phase runs, or work a human reviews after stepping away."
++description: "Keep a reviewable decision trail for long-running or unattended work: a TSV log with one row per decision (what, why, evidence, result)."
  ---
  
  # Show me your work
@@ -6289,7 +6286,7 @@ Binary files differ: docs/guide/images/verification.jpg -> plugin/pstack/README.
 -description: "Fan out N parallel workers, drain them, and return one report. Use for /swarm, 'swarm this', or parallel coverage, races, gauntlets, and exploration."
 -disable-model-invocation: true
 +name: pstack-swarm
-+description: Fan out local pstack workers for partitioned coverage, races or exploration, drain results and return one evidenced report.
++description: "Fan out N parallel workers, drain them, and return one report."
  ---
  
  # Swarm
@@ -6355,7 +6352,7 @@ Binary files differ: docs/guide/images/verification.jpg -> plugin/pstack/README.
 -description: "Use only when the user explicitly asks for TDD, a failing test, or a regression test, OR when the bug has an obvious cheap local test target. Skip when the test path is unclear, expensive, integration-heavy, or not requested."
 -disable-model-invocation: true
 +name: pstack-tdd
-+description: Reproduce a bug test-first when a cheap local test exists.
++description: "Use only when the user explicitly asks for TDD, a failing test, or a regression test, OR when the bug has an obvious cheap local test target."
  ---
  
 +Resolve named skills/principles through the [main mode lookup](../pstack-poteto-mode/SKILL.md). Read the leaf before applying it. Use the shared [delegation](../../references/delegation.md), [models](../../references/models.md), [continuation](../../references/continuation.md), and [PR delivery](../../references/pr-delivery.md) contracts when those operations apply. Invocation of this leaf applies only to the request; it does not enter sticky mode.
@@ -6373,9 +6370,10 @@ Binary files differ: docs/guide/images/verification.jpg -> plugin/pstack/README.
 @@ -1,21 +1,22 @@
  ---
 -name: teach
-+name: pstack-teach
- description: "Explain a body of work plainly so a person actually understands it. Runs the `how` and `why` skills and weaves what they find into one clear explanation. Use for 'teach me this', 'help me really understand X', 'explain this change or subsystem to me'."
+-description: "Explain a body of work plainly so a person actually understands it. Runs the `how` and `why` skills and weaves what they find into one clear explanation. Use for 'teach me this', 'help me really understand X', 'explain this change or subsystem to me'."
 -disable-model-invocation: true
++name: pstack-teach
++description: "Explain a body of work plainly so a person actually understands it."
  ---
  
  # Teach
@@ -6406,7 +6404,7 @@ Binary files differ: docs/guide/images/verification.jpg -> plugin/pstack/README.
 -description: "Layered technical-writing standard: Diátaxis structure, Google developer style sentences, STE instruction rules, Global English syntax. Use for /technical-writing or when writing or reviewing docs, RFCs, readmes, PR descriptions, or commit messages."
 -disable-model-invocation: true
 +name: pstack-technical-writing
-+description: "Layered technical-writing standard: Diátaxis structure, Google developer style sentences, STE instruction rules, Global English syntax. Use for $pstack-technical-writing or when writing or reviewing docs, RFCs, readmes, PR descriptions, or commit messages."
++description: "Layered technical-writing standard: Diátaxis structure, Google developer style sentences, STE instruction rules, Global English syntax."
  ---
 +
 +Read the [compatibility contract](../../references/compatibility.md) before applying this workflow.
@@ -6440,7 +6438,7 @@ Binary files differ: docs/guide/images/verification.jpg -> plugin/pstack/README.
 -paths: ["**/*.ts", "**/*.tsx"]
 -disable-model-invocation: true
 +name: pstack-typescript-best-practices
-+description: Apply PStack TypeScript guidance to .ts and .tsx work.
++description: "TypeScript best practices."
  ---
 +
 +Resolve named skills/principles through the [main mode lookup](../pstack-poteto-mode/SKILL.md). Read the leaf before applying it. Use the shared [delegation](../../references/delegation.md), [models](../../references/models.md), [continuation](../../references/continuation.md), and [PR delivery](../../references/pr-delivery.md) contracts when those operations apply. Invocation of this leaf applies only to the request; it does not enter sticky mode.
@@ -6463,7 +6461,7 @@ Binary files differ: docs/guide/images/verification.jpg -> plugin/pstack/README.
 -description: Cut AI tells from any writing.
 -disable-model-invocation: true
 +name: pstack-unslop
-+description: Cut AI tells from any writing. Must always apply.
++description: "Cut AI tells from any writing."
  ---
 +
 +Read the [compatibility contract](../../references/compatibility.md) before applying this workflow.
@@ -6478,7 +6476,7 @@ Binary files differ: docs/guide/images/verification.jpg -> plugin/pstack/README.
 -description: "Use for 'why does X work this way', 'why we picked Y', design rationale, regressions, postmortems, or data-backed thresholds. Discovers available MCPs and queries each evidence category (source control, issue tracker, long-form docs, real-time chat, infrastructure observability, error tracking, product analytics warehouse) in parallel, then returns a cited read on decisions and tradeoffs. Use how for runtime behavior."
 -disable-model-invocation: true
 +name: pstack-why
-+description: Investigate design rationale, regressions, postmortems and data-backed thresholds across available historical sources, with cited confidence distinctions.
++description: "Use for 'why does X work this way', 'why we picked Y', design rationale, regressions, postmortems, or data-backed thresholds."
  ---
  
  # Why
@@ -6757,6 +6755,6 @@ Binary files differ: docs/guide/images/verification.jpg -> plugin/pstack/README.
 -    "unslop"
 -  ]
 +  "name": "pstack-codex",
-+  "version": "0.1.4",
++  "version": "0.1.5",
 +  "description": "Codex adaptation of Lauren Tan\u2019s pstack engineering workflows. Qualification is recorded per workflow."
  }

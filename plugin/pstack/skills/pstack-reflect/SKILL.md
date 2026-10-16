@@ -1,6 +1,6 @@
 ---
 name: pstack-reflect
-description: Review the active session for durable skill improvements when explicitly asked to reflect.
+description: "Spawn three parallel review subagents over the active transcript, surface learnings, and route each to a concrete edit on an existing skill."
 ---
 
 # Reflect

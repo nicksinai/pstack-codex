@@ -1,4 +1,5 @@
 interface:
   display_name: "pstack: maintain-verification-skill"
+  short_description: "keeps a project's verification skill and feature map honest"
 policy:
   allow_implicit_invocation: false

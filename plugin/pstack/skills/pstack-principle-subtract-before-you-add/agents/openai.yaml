@@ -1,4 +1,5 @@
 interface:
   display_name: "pstack: principle-subtract-before-you-add"
+  short_description: "When evolving a system, remove complexity first, then build."
 policy:
   allow_implicit_invocation: false

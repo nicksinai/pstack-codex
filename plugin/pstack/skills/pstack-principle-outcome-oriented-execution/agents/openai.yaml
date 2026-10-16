@@ -1,4 +1,5 @@
 interface:
   display_name: "pstack: principle-outcome-oriented-execution"
+  short_description: "Prioritize end-state integrity over transitional stability"
 policy:
   allow_implicit_invocation: false

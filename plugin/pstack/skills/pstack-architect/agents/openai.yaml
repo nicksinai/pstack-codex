@@ -1,4 +1,5 @@
 interface:
   display_name: "pstack: architect"
+  short_description: "Sketch types, signatures, and module structure before code"
 policy:
   allow_implicit_invocation: false

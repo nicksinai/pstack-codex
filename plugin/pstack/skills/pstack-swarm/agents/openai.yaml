@@ -1,5 +1,5 @@
 interface:
   display_name: "pstack: swarm"
-  short_description: "Lauren Tan’s swarm workflow adapted for Codex"
+  short_description: "Fan out N parallel workers, drain them, and return one report."
 policy:
   allow_implicit_invocation: false

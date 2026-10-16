@@ -13,3 +13,7 @@ The [0.15.23 coordinator and instruction-access argument](issue-25.md) qualifies
 [Issue 27](issue-27.md) qualifies the explicit ketchup catch-up instruction and metadata, with conditional current-conversation history, touched artifact reads and real reply visuals. Shared help qualification remains pending joint #26/#27 integration.
 
 The [explicit recipient update addition](update.md) qualifies the Codex-specific `pstack: update` skill separately from the immutable upstream inventories. Its current package accounting supplements the historical issue-15 and issue-30 candidates.
+
+## Description provenance in port 0.1.5
+
+All 52 pstack-derived skill descriptions use verbatim text from the source revision recorded in the ownership inventory. Picker descriptions use verbatim excerpts from the same original description or skill body. The deslop companion retains its Cursor team kit description. The Codex-specific update skill has no upstream counterpart and remains identified separately in [update qualification](update.md). The provenance validator checks source wording, picker length, and the catalog size limit. Workflow bodies and invocation policies are unchanged.

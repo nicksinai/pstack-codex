@@ -1,4 +1,5 @@
 interface:
   display_name: "pstack: deslop"
+  short_description: "Remove AI-generated code slop and clean up code style"
 policy:
   allow_implicit_invocation: false

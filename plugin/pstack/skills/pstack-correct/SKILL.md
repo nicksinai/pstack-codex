@@ -1,6 +1,6 @@
 ---
 name: pstack-correct
-description: Prevent recurring repository mistakes with enforceable structure.
+description: "Find the mistakes agents keep repeating in this repo and make each one impossible."
 ---
 
 Resolve named skills/principles through the [main mode lookup](../pstack-poteto-mode/SKILL.md). Read the leaf before applying it. Use the shared [delegation](../../references/delegation.md), [models](../../references/models.md), [continuation](../../references/continuation.md), and [PR delivery](../../references/pr-delivery.md) contracts when those operations apply. Invocation of this leaf applies only to the request; it does not enter sticky mode.

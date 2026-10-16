@@ -1,4 +1,5 @@
 interface:
   display_name: "pstack: benchmark-checklist"
+  short_description: "when you run a benchmark or report a speedup or regression"
 policy:
   allow_implicit_invocation: false

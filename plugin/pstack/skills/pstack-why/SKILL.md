@@ -1,6 +1,6 @@
 ---
 name: pstack-why
-description: Investigate design rationale, regressions, postmortems and data-backed thresholds across available historical sources, with cited confidence distinctions.
+description: "Use for 'why does X work this way', 'why we picked Y', design rationale, regressions, postmortems, or data-backed thresholds."
 ---
 
 # Why

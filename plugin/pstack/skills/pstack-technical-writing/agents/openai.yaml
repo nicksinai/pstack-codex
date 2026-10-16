@@ -1,5 +1,5 @@
 interface:
   display_name: "pstack: technical-writing"
-  short_description: "Lauren Tan’s technical-writing workflow adapted for Codex"
+  short_description: "Write so a tired engineer understands on the first read."
 policy:
   allow_implicit_invocation: false

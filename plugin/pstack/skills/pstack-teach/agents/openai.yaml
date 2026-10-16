@@ -1,5 +1,5 @@
 interface:
   display_name: "pstack: teach"
-  short_description: "Lauren Tan’s teach workflow adapted for Codex"
+  short_description: "Explain a body of work plainly"
 policy:
   allow_implicit_invocation: false

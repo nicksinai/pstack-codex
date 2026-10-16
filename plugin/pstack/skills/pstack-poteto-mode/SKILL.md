@@ -1,6 +1,6 @@
 ---
 name: pstack-poteto-mode
-description: Apply explicit PStack mode to an engineering request.
+description: "poteto's agent style for concise, detailed responses, deliberate subagents, unslopped prose, simple code, and verified work."
 ---
 
 

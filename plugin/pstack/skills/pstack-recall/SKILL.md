@@ -1,6 +1,6 @@
 ---
 name: pstack-recall
-description: Reconstruct scoped recent working context from chat history, shared sources and live artifacts, returning a tight current-state brief before work resumes.
+description: "Reconstruct your recent working context from your own chat history, live state, and the shared record (user reports, prior fixes, incidents), then hand back a tight current-state brief."
 ---
 
 # Recall

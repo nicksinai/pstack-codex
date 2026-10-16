@@ -1,5 +1,5 @@
 interface:
   display_name: "pstack: ketchup"
-  short_description: "Catch up with checked states and real visuals"
+  short_description: "Catch the user up on what changed in this chat"
 policy:
   allow_implicit_invocation: false

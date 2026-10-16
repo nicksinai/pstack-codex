@@ -1,6 +1,6 @@
 ---
 name: pstack-benchmark-checklist
-description: Vet measured performance numbers before reporting or choosing an option.
+description: "Vet a perf measurement (limiter, tuning, limits, errors, repeatability, relevance, and whether the work happened) before you report or act on it."
 ---
 
 Resolve named skills and principles through the [mode lookup](../pstack-poteto-mode/SKILL.md). Read [measurement setup](../../references/performance.md) before running or profiling a target; the [compatibility contract](../../references/compatibility.md) and current user/host authority govern execution.

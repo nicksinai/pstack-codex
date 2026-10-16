@@ -1,5 +1,5 @@
 interface:
   display_name: "pstack: how"
-  short_description: "Lauren Tan’s how workflow adapted for Codex"
+  short_description: "Explains subsystem architecture, runtime flow"
 policy:
   allow_implicit_invocation: false

@@ -1,4 +1,5 @@
 interface:
   display_name: "pstack: principle-encode-lessons-in-structure"
+  short_description: "Encode the rule as a lint, metadata flag, runtime check"
 policy:
   allow_implicit_invocation: false

@@ -1,4 +1,5 @@
 interface:
   display_name: "pstack: arena"
+  short_description: "Spawn N parallel candidates at the same task"
 policy:
   allow_implicit_invocation: false

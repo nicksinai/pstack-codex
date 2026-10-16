@@ -1,6 +1,6 @@
 ---
 name: pstack-principle-encode-lessons-in-structure
-description: Apply encode lessons in structure when PStack selects this principle.
+description: "Apply when you catch yourself writing the same instruction a second time, or notice a recurring correction."
 ---
 
 

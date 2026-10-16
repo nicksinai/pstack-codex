@@ -1,6 +1,6 @@
 ---
 name: pstack-automate-me
-description: Draft or update a personal working-style mode when explicitly asked to automate me.
+description: "Drafts or revises a personal -mode skill via create-skill + unslop, optionally pulling fresh evidence from recent transcripts."
 ---
 
 # Automate me

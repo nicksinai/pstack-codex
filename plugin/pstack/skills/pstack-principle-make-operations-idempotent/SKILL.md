@@ -1,6 +1,6 @@
 ---
 name: pstack-principle-make-operations-idempotent
-description: Apply make operations idempotent when PStack selects this principle.
+description: "Apply when designing commands, lifecycle steps, or processing loops that run amid crashes, restarts, and retries."
 ---
 
 

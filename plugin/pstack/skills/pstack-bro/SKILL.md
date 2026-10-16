@@ -1,6 +1,6 @@
 ---
 name: pstack-bro
-description: Restate the last message in plain human language, with no jargon.
+description: "Restate the last message in plain human language, with no jargon."
 ---
 
 Read the [compatibility contract](../../references/compatibility.md) before applying this workflow.

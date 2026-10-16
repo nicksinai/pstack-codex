@@ -1,6 +1,6 @@
 ---
 name: pstack-principle-build-the-lever
-description: Apply build the lever when PStack selects this principle.
+description: "Apply to any non-trivial work, not just bulk work: edits, migrations, analyses, checks."
 ---
 
 Resolve named skills through the [mode lookup](../pstack-poteto-mode/SKILL.md). The [compatibility contract](../../references/compatibility.md) and current user/host authority govern any delegated, durable or external action.

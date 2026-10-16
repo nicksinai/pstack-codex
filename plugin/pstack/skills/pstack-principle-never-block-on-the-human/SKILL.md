@@ -1,6 +1,6 @@
 ---
 name: pstack-principle-never-block-on-the-human
-description: Apply never block on the human when PStack selects this principle.
+description: "Apply when tempted to ask 'should I do X?' on reversible work."
 ---
 
 

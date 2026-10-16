@@ -1,5 +1,5 @@
 interface:
   display_name: "pstack: bro"
-  short_description: "Lauren Tan’s bro workflow adapted for Codex"
+  short_description: "Restate the last message in plain human language"
 policy:
   allow_implicit_invocation: false

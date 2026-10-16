@@ -1,4 +1,5 @@
 interface:
   display_name: "pstack: principle-sequence-verifiable-units"
+  short_description: "Order work as a sequence of small units"
 policy:
   allow_implicit_invocation: false

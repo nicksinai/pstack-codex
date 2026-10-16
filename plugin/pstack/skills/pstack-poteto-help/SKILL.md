@@ -1,6 +1,6 @@
 ---
 name: pstack-poteto-help
-description: Explain PStack setup, workflows, and recovery without starting a run.
+description: "Guides users through pstack setup, /poteto-mode, and picking the skill, playbook, or principle for a task."
 ---
 
 # Poteto help

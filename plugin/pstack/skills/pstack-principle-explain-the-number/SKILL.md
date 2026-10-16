@@ -1,6 +1,6 @@
 ---
 name: pstack-principle-explain-the-number
-description: Explain the limiter and evidence behind a measured number.
+description: "Apply before you trust, report, or act on a number you measured: a speedup, a regression, a throughput, a latency, or an eval result."
 ---
 
 Resolve named skills and principles through the [mode lookup](../pstack-poteto-mode/SKILL.md). Read [measurement setup](../../references/performance.md) before running or profiling a target; the [compatibility contract](../../references/compatibility.md) and current user/host authority govern execution.

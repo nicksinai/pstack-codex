@@ -1,6 +1,6 @@
 ---
 name: pstack-principle-type-system-discipline
-description: Apply type system discipline when PStack selects this principle.
+description: "Apply when designing types, reviewing a function signature, or writing code in any statically-typed language."
 ---
 
 

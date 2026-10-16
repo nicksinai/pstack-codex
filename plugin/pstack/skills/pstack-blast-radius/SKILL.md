@@ -1,6 +1,6 @@
 ---
 name: pstack-blast-radius
-description: Prove what a change could break beyond its diff.
+description: "Find what a change could break somewhere else before it ships, beyond the diff, and prove the one fact it's safe because of by running real code instead of writing it up."
 ---
 
 Resolve named skills/principles through the [main mode lookup](../pstack-poteto-mode/SKILL.md). Read the leaf before applying it. Use the shared [delegation](../../references/delegation.md), [models](../../references/models.md), [continuation](../../references/continuation.md), and [PR delivery](../../references/pr-delivery.md) contracts when those operations apply. Invocation of this leaf applies only to the request; it does not enter sticky mode.
