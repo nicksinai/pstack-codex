@@ -123,23 +123,27 @@ for skill in skills:
     assert f"name: {skill.parent.name}\n" in skill.read_text(), skill
     assert "allow_implicit_invocation: false" in (skill.parent / "agents/openai.yaml").read_text(), skill
 print(f"Validated {len(items)} baseline files with unique owners and hashes; {len(skills)} skill metadata/policies; package-local Markdown links.")
-# Descriptions must retain upstream wording, including short picker excerpts.
 skill_sources = {item['target']: baselines[item['source_revision']][0] / item['source']
                  for item in items if item['target'] and item['target'].endswith('/SKILL.md')}
+companion_sources = json.loads((root / 'provenance/companion-descriptions.json').read_text())
+assert len(companion_sources) == 1
+for companion in companion_sources:
+    assert companion['repository'] == manifest['repository']
+    assert companion['revision'] == registry['original_revision']
+    assert companion['source'] == 'cursor-team-kit/skills/deslop/SKILL.md'
+    assert companion['target'] == 'plugin/pstack/skills/pstack-deslop/SKILL.md'
+    baseline = root / companion['baseline']
+    assert baseline.resolve().is_relative_to(root / 'provenance')
+    assert hashlib.sha256(baseline.read_bytes()).hexdigest() == companion['sha256']
+    skill_sources[companion['target']] = baseline
 for skill in skills:
     if skill.parent.name == 'pstack-update':
-        # This Codex-specific addition has no upstream counterpart; see update.md.
         continue
     source_path = skill_sources.get(str(skill.relative_to(root)))
-    if source_path:
-        source_text = source_path.read_text()
-        source_raw = re.search(r'^description: (.+)$', source_text, re.M).group(1)
-        source_description = json.loads(source_raw) if source_raw.startswith('"') else source_raw
-    else:
-        # Companion, not a pstack-original skill: cursor/plugins at the original
-        # pinned revision, cursor-team-kit/skills/deslop/SKILL.md (issue-6.md).
-        assert skill.parent.name == 'pstack-deslop', ('Unaccounted description source', skill)
-        source_text = source_description = 'Remove AI-generated code slop and clean up code style'
+    assert source_path, ('Unaccounted description source', skill)
+    source_text = source_path.read_text()
+    source_raw = re.search(r'^description: (.+)$', source_text, re.M).group(1)
+    source_description = json.loads(source_raw) if source_raw.startswith('"') else source_raw
     raw = re.search(r'^description: (.+)$', skill.read_text(), re.M).group(1)
     description = json.loads(raw) if raw.startswith('"') else raw
     assert description in source_description, ('Description differs from upstream', skill)
@@ -147,7 +151,7 @@ for skill in skills:
     short = json.loads(re.search(r'^  short_description: (.+)$', ui, re.M).group(1))
     assert 25 <= len(short) <= 64, ('Picker description length', skill)
     assert short in source_text or short in source_description, ('Picker wording differs from upstream', skill)
-print(f'Validated upstream wording for {len(skill_sources) + 1} skill and picker descriptions; Codex-specific update is excluded.')
+print(f'Validated upstream wording for {len(skill_sources)} skill and picker descriptions; Codex-specific update is excluded.')
 # Final closure is structural proof, not a behavioral product-use claim.
 assert len(old_hashes) == 164 and len(new_hashes) == 168
 assert len(items) == len(old_hashes) + len(set(paths) - set(old_hashes))
