@@ -1,4 +1,5 @@
 interface:
   display_name: "pstack: typescript-best-practices"
+  short_description: "TypeScript best practices."
 policy:
   allow_implicit_invocation: false

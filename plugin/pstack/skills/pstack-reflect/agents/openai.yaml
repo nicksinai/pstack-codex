@@ -1,5 +1,5 @@
 interface:
   display_name: "pstack: reflect"
-  short_description: "Lauren Tan’s reflect workflow for Codex"
+  short_description: "Mine the current conversation for durable learnings"
 policy:
   allow_implicit_invocation: false

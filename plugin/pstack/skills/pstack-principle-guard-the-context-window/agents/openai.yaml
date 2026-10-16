@@ -1,4 +1,5 @@
 interface:
   display_name: "pstack: principle-guard-the-context-window"
+  short_description: "Route bulk to subagents; keep summaries in the main thread"
 policy:
   allow_implicit_invocation: false

@@ -1,6 +1,6 @@
 ---
 name: pstack-swarm
-description: Fan out local pstack workers for partitioned coverage, races or exploration, drain results and return one evidenced report.
+description: "Fan out N parallel workers, drain them, and return one report."
 ---
 
 # Swarm

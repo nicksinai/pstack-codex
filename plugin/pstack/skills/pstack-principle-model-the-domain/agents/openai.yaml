@@ -1,4 +1,5 @@
 interface:
   display_name: "pstack: principle-model-the-domain"
+  short_description: "Encode the real domain in a data structure"
 policy:
   allow_implicit_invocation: false

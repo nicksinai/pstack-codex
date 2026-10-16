@@ -1,4 +1,5 @@
 interface:
   display_name: "pstack: principle-migrate-callers-then-delete-legacy-apis"
+  short_description: "migrate callers and remove the old API in the same refactor wave"
 policy:
   allow_implicit_invocation: false

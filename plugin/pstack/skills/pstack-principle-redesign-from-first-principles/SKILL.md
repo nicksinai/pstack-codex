@@ -1,6 +1,6 @@
 ---
 name: pstack-principle-redesign-from-first-principles
-description: Apply redesign from first principles when PStack selects this principle.
+description: "Apply when integrating a new requirement into an existing design."
 ---
 
 

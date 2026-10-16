@@ -1,5 +1,5 @@
 interface:
   display_name: "pstack: automate-me"
-  short_description: "Lauren Tan’s automate-me workflow for Codex"
+  short_description: "Drafts or revises a personal -mode skill"
 policy:
   allow_implicit_invocation: false

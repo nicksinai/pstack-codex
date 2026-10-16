@@ -1,4 +1,5 @@
 interface:
   display_name: "pstack: poteto-help"
+  short_description: "Guides users through pstack setup"
 policy:
   allow_implicit_invocation: false

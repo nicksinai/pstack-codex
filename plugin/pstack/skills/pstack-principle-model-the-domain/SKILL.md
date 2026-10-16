@@ -1,6 +1,6 @@
 ---
 name: pstack-principle-model-the-domain
-description: Apply model the domain when PStack selects this principle.
+description: "Apply when writing stateful logic, or when code branches a lot or repeats a shape assumption across files."
 ---
 
 

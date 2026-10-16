@@ -1,6 +1,6 @@
 ---
 name: pstack-principle-sequence-verifiable-units
-description: Apply sequence verifiable units when PStack selects this principle.
+description: "Apply to multi-step work (sweeps, migrations, runs of similar edits) and to how you stack commits and PRs."
 ---
 
 

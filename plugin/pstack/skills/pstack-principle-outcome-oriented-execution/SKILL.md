@@ -1,6 +1,6 @@
 ---
 name: pstack-principle-outcome-oriented-execution
-description: Apply outcome oriented execution when PStack selects this principle.
+description: "Apply during planned rewrites and migrations with explicit phase boundaries."
 ---
 
 

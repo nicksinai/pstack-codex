@@ -1,5 +1,5 @@
 interface:
   display_name: "pstack: why"
-  short_description: "Lauren Tan’s why workflow adapted for Codex"
+  short_description: "Investigate the motivation and intent behind code."
 policy:
   allow_implicit_invocation: false

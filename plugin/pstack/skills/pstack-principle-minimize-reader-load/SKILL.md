@@ -1,6 +1,6 @@
 ---
 name: pstack-principle-minimize-reader-load
-description: Apply minimize reader load when PStack selects this principle.
+description: "Apply when reviewing or shaping code that's hard to trace."
 ---
 
 

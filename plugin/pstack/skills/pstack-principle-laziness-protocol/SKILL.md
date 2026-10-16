@@ -1,6 +1,6 @@
 ---
 name: pstack-principle-laziness-protocol
-description: Apply laziness protocol when PStack selects this principle.
+description: "Apply when refactoring, evaluating diff size, or tempted to add abstractions, layers, or signal threading."
 ---
 
 

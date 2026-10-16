@@ -1,6 +1,6 @@
 ---
 name: pstack-setup-pstack
-description: Configure pstack native GPT model roles and separate reasoning budgets. Explicit setup or model-budget changes.
+description: "Configure which models pstack uses per role and at what reasoning budget."
 ---
 
 # Setup pstack

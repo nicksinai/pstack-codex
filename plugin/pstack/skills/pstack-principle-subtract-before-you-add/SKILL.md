@@ -1,6 +1,6 @@
 ---
 name: pstack-principle-subtract-before-you-add
-description: Apply subtract before you add when PStack selects this principle.
+description: "Apply when sequencing an addition, refactor, or rewrite."
 ---
 
 

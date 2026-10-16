@@ -1,6 +1,6 @@
 ---
 name: pstack-principle-boundary-discipline
-description: Apply boundary discipline when PStack selects this principle.
+description: "Apply when wiring validation, error handling, or framework adapters."
 ---
 
 

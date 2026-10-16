@@ -1,6 +1,6 @@
 ---
 name: pstack-principle-attack-the-premise
-description: Apply attack the premise when PStack selects this principle.
+description: "Apply when two or more fixes that share one premise have failed the same gate."
 ---
 
 

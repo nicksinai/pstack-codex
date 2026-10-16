@@ -1,6 +1,6 @@
 ---
 name: pstack-tdd
-description: Reproduce a bug test-first when a cheap local test exists.
+description: "Use only when the user explicitly asks for TDD, a failing test, or a regression test, OR when the bug has an obvious cheap local test target."
 ---
 
 Resolve named skills/principles through the [main mode lookup](../pstack-poteto-mode/SKILL.md). Read the leaf before applying it. Use the shared [delegation](../../references/delegation.md), [models](../../references/models.md), [continuation](../../references/continuation.md), and [PR delivery](../../references/pr-delivery.md) contracts when those operations apply. Invocation of this leaf applies only to the request; it does not enter sticky mode.

@@ -1,6 +1,6 @@
 ---
 name: pstack-architect
-description: Design competing type and module sketches, synthesize a shape, then implement it; supports an explicit design checkpoint.
+description: "Sketch types, signatures, and module structure before code, then stay in the loop while implementation fills in."
 ---
 
 # Architect

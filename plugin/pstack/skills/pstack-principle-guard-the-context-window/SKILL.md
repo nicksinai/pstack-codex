@@ -1,6 +1,6 @@
 ---
 name: pstack-principle-guard-the-context-window
-description: Apply guard the context window when PStack selects this principle.
+description: "Apply when context is filling up: large outputs, long files, repeated reads, fan-out planning."
 ---
 
 

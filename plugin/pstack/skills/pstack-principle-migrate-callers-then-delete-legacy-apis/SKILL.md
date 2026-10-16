@@ -1,6 +1,6 @@
 ---
 name: pstack-principle-migrate-callers-then-delete-legacy-apis
-description: Apply migrate callers then delete legacy apis when PStack selects this principle.
+description: "Apply when introducing a new internal API while old callers still exist."
 ---
 
 

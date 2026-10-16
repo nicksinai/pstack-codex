@@ -1,4 +1,5 @@
 interface:
   display_name: "pstack: principle-build-the-lever"
+  short_description: "build the tool that does it instead of doing it by hand"
 policy:
   allow_implicit_invocation: false

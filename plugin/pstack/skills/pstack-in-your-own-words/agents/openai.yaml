@@ -1,4 +1,5 @@
 interface:
   display_name: "pstack: in-your-own-words"
+  short_description: "what you think the user's goals are"
 policy:
   allow_implicit_invocation: false

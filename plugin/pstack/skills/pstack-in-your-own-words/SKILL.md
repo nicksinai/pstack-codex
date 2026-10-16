@@ -1,6 +1,6 @@
 ---
 name: pstack-in-your-own-words
-description: Restate the user's goals and problem before work begins.
+description: "Restate in your own words what you think the user's goals are and what problem they're trying to solve."
 ---
 
 Restate in your own words what you think the user's goals are and what problem they're trying to solve.

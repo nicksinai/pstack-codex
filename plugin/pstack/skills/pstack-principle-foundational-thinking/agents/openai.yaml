@@ -1,4 +1,5 @@
 interface:
   display_name: "pstack: principle-foundational-thinking"
+  short_description: "Get the data shape right before writing logic."
 policy:
   allow_implicit_invocation: false

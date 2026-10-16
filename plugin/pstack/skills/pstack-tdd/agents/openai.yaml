@@ -1,4 +1,5 @@
 interface:
   display_name: "pstack: tdd"
+  short_description: "when the bug has an obvious cheap local test target"
 policy:
   allow_implicit_invocation: false

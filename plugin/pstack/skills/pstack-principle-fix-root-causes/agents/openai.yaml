@@ -1,4 +1,5 @@
 interface:
   display_name: "pstack: principle-fix-root-causes"
+  short_description: "Trace every problem to its root cause and fix it there."
 policy:
   allow_implicit_invocation: false

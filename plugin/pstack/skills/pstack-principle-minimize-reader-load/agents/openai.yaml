@@ -1,4 +1,5 @@
 interface:
   display_name: "pstack: principle-minimize-reader-load"
+  short_description: "Maintainability is the work a reader must do to understand code."
 policy:
   allow_implicit_invocation: false

@@ -1,6 +1,6 @@
 ---
 name: pstack-figure-it-out
-description: Design and execute a bespoke rigorous workflow for complex work.
+description: "Design an auditable playbook when no narrower one fits: a large migration, an ambitious multi-part change, or work a human reviews after stepping away."
 ---
 
 Resolve named skills/principles through the [main mode lookup](../pstack-poteto-mode/SKILL.md). Read the leaf before applying it. Use the shared [delegation](../../references/delegation.md), [models](../../references/models.md), [continuation](../../references/continuation.md), and [PR delivery](../../references/pr-delivery.md) contracts when those operations apply. Invocation of this leaf applies only to the request; it does not enter sticky mode.

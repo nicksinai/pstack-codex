@@ -1,6 +1,6 @@
 ---
 name: pstack-arena
-description: Produce independent competing artifacts, cross-judge them, select a base, graft strengths and verify the synthesis.
+description: "Spawn N parallel candidates at the same task, pick a base, graft the strongest parts of the losers into it."
 ---
 
 # Arena

@@ -1,6 +1,6 @@
 ---
 name: pstack-unslop
-description: Cut AI tells from any writing. Must always apply.
+description: "Cut AI tells from any writing."
 ---
 
 Read the [compatibility contract](../../references/compatibility.md) before applying this workflow.

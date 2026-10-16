@@ -1,6 +1,6 @@
 ---
 name: pstack-how
-description: Explain how code works, subsystem architecture, placement, ownership and layering through a source-backed walkthrough. Use why for motivation.
+description: "Explains subsystem architecture, runtime flow, onboarding mental models. Use why for motivation."
 ---
 
 # How

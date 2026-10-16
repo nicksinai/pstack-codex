@@ -1,6 +1,6 @@
 ---
 name: pstack-interrogate
-description: Review code through independent adversarial panels and return an evidence-based lead verdict without applying changes.
+description: "Multiple LLM reviewers challenge changes from independent angles."
 ---
 
 # Interrogate

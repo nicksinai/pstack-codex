@@ -1,6 +1,6 @@
 ---
 name: pstack-principle-foundational-thinking
-description: Apply foundational thinking when PStack selects this principle.
+description: "Apply before writing logic: choosing core types and data structures, sequencing scaffold-vs-feature work, asking what concurrent actors share."
 ---
 
 

@@ -1,4 +1,5 @@
 interface:
   display_name: "pstack: no-comments"
+  short_description: "Spawn Comment Sicko, fix accepted findings"
 policy:
   allow_implicit_invocation: false

@@ -1,6 +1,6 @@
 ---
 name: pstack-ketchup
-description: Catch up on this conversation with checked states, real visuals, and pending user decisions.
+description: "Catch the user up on what changed in this chat since their last message, in a short reply built on real visuals."
 ---
 
 # Ketchup

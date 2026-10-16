@@ -1,6 +1,6 @@
 ---
 name: pstack-create-verification-skill
-description: Create a project-local real-app verification skill and feature map.
+description: "Generate a project-local verification skill that drives your app the way a user does — any language, framework, or platform."
 ---
 
 # Create a verification skill

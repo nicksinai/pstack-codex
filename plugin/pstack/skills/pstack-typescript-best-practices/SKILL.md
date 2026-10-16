@@ -1,6 +1,6 @@
 ---
 name: pstack-typescript-best-practices
-description: Apply PStack TypeScript guidance to .ts and .tsx work.
+description: "TypeScript best practices."
 ---
 
 Resolve named skills/principles through the [main mode lookup](../pstack-poteto-mode/SKILL.md). Read the leaf before applying it. Use the shared [delegation](../../references/delegation.md), [models](../../references/models.md), [continuation](../../references/continuation.md), and [PR delivery](../../references/pr-delivery.md) contracts when those operations apply. Invocation of this leaf applies only to the request; it does not enter sticky mode.

@@ -1,6 +1,6 @@
 ---
 name: pstack-principle-prove-it-works
-description: Apply prove it works when PStack selects this principle.
+description: "Apply after completing a task, before declaring done."
 ---
 
 

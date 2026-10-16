@@ -1,4 +1,5 @@
 interface:
   display_name: "pstack: principle-make-operations-idempotent"
+  short_description: "Converge to the same end state regardless of partial prior runs."
 policy:
   allow_implicit_invocation: false

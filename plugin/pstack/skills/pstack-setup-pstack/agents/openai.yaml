@@ -1,5 +1,5 @@
 interface:
   display_name: "pstack: setup-pstack"
-  short_description: "Lauren Tan’s setup-pstack workflow adapted for Codex"
+  short_description: "Configure which models pstack uses per role"
 policy:
   allow_implicit_invocation: false

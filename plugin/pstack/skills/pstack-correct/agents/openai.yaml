@@ -1,4 +1,5 @@
 interface:
   display_name: "pstack: correct"
+  short_description: "Find the mistakes agents keep repeating in this repo"
 policy:
   allow_implicit_invocation: false

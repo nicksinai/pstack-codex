@@ -1,4 +1,5 @@
 interface:
   display_name: "pstack: principle-exhaust-the-design-space"
+  short_description: "Build 2-3 competing prototypes and compare side by side"
 policy:
   allow_implicit_invocation: false

@@ -1,6 +1,6 @@
 ---
 name: pstack-principle-separate-before-serializing-shared-state
-description: Apply separate before serializing shared state when PStack selects this principle.
+description: "Apply when concurrent actors might write to the same file, branch, key, or state object."
 ---
 
 

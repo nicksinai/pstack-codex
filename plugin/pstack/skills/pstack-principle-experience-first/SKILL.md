@@ -1,6 +1,6 @@
 ---
 name: pstack-principle-experience-first
-description: Apply experience first when PStack selects this principle.
+description: "Apply when product, UX, or feature-scope tradeoffs come up."
 ---
 
 

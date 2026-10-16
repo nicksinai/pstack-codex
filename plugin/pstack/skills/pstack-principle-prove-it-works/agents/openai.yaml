@@ -1,4 +1,5 @@
 interface:
   display_name: "pstack: principle-prove-it-works"
+  short_description: "Verify every task output by checking the real thing directly."
 policy:
   allow_implicit_invocation: false

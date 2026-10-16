@@ -1,4 +1,5 @@
 interface:
   display_name: "pstack: figure-it-out"
+  short_description: "Design an auditable playbook when no narrower one fits"
 policy:
   allow_implicit_invocation: false
