@@ -1,6 +1,6 @@
 ---
 name: pstack-interrogate
-description: "Multiple LLM reviewers challenge changes from independent angles."
+description: "Adversaries try to break a change or design, and only findings proven by a run survive."
 ---
 
 # Interrogate

@@ -37,3 +37,13 @@ Port 0.1.3 closes all 65 fixed source differences; [issue #30](issue-30.md) acco
 ## Explicit recipient updating
 
 [Update qualification](update.md) records current official marketplace, workspace-sync, directory-publication and restart evidence, plus inspected local CLI help. It distinguishes refresh side effects from installation, catalog availability from installed contents, and source-backed instructions from conditional recipient execution. No experimental app-server API is assumed available to recipients.
+
+## Reviewed 0.15.36 capabilities (November 4, 2026)
+
+The [official skills documentation](https://developers.openai.com/codex/skills) was rechecked for project `.agents/skills` discovery and `agents/openai.yaml` with `policy.allow_implicit_invocation: false`. All five new entry points use explicit invocation and source-backed picker excerpts. Formal verification generators write project skills through this layout; model and verifier dependencies are checked before use.
+
+The available native collaboration schema supports spawning owned local workers, result/status inspection, messages and waits. A message does not wake an idle worker: use an exposed follow-up-task operation when available. Conversation inheritance is not a live-worker fork or a filesystem snapshot. No cloud VM clone, native Project key/value store or Cursor agent tool is assumed. The orchestration adapter uses private local checkpoints and actual owned-worker events under the [orchestration contract](../references/orchestration.md). These are explicit substitutions, conditional on the recipient's controls.
+
+The observed model surface offers GPT variants. They are not different model families. Arena follows upstream's explicit no-other-family fallback: skip the cross-family judge, disclose the limit and let the parent choose from the artifacts. Gates that actually require another provider remain unsatisfied without one. Interrogate keeps independently rerun failures rather than claiming model diversity.
+
+Statechart execution requires a supported JavaScript runtime, Java and the pinned TLC artifact; private runtime qualification is in [new-skill evidence](upstream-0.15.36-new-skills.md). Video execution requires an available renderer, playable output and inspection; no renderer is granted by the plugin. The same evidence records a local rendered sample. These checks do not establish recipient dependencies, app availability, unrestricted worker capacity or correctness of future generated artifacts.

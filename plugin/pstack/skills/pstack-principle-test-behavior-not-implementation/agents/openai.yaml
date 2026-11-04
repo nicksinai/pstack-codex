@@ -1,5 +1,5 @@
 interface:
   display_name: "pstack: principle-test-behavior-not-implementation"
-  short_description: "A test calls the code as its users do"
+  short_description: "Assert what the code's users can observe"
 policy:
   allow_implicit_invocation: false
