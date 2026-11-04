@@ -4396,13 +4396,11 @@ Binary files differ: docs/guide/images/verification.jpg -> plugin/pstack/README.
  
 --- upstream/bb68f2365eceafa0cb2d253112f675acf5f144cc/pstack/skills/poteto-mode/scripts/bootstrap.ts
 +++ plugin/pstack/scripts/bootstrap.ts
-@@ -1,62 +1,69 @@
+@@ -1,62 +1,67 @@
  import { createHash } from "node:crypto";
 -import { existsSync, readFileSync, writeFileSync } from "node:fs";
 -import { join } from "node:path";
-+import { existsSync, readFileSync, writeFileSync, mkdirSync, readdirSync, copyFileSync, realpathSync, rmdirSync } from "node:fs";
-+import { join, resolve, relative, isAbsolute, dirname, basename } from "node:path";
- 
+-
 -const scriptsDirectory = import.meta.dir;
 -const nodeModulesDirectory = join(scriptsDirectory, "node_modules");
 -const commanderPackagePath = join(
@@ -4421,14 +4419,34 @@ Binary files differ: docs/guide/images/verification.jpg -> plugin/pstack/README.
 -    .update("\0")
 -    .update(readFileSync(join(scriptsDirectory, "bun.lock")))
 -    .digest("hex");
-+// Imported before external dependencies by the watcher launcher. Never install into
-+// the plugin or rely on Bun's implicit package installation.
-+export function ensureDependenciesInstalled(): void {
+-}
++import { existsSync, readFileSync, writeFileSync, mkdirSync, readdirSync, copyFileSync, realpathSync, rmdirSync } from "node:fs";
++import { join, resolve, relative, isAbsolute, dirname, basename } from "node:path";
+ 
+ export function ensureDependenciesInstalled(): void {
+-  const installKey = currentInstallKey();
+-  if (
+-    existsSync(commanderPackagePath) &&
+-    existsSync(installKeyPath) &&
+-    readFileSync(installKeyPath, "utf8").trim() === installKey
+-  ) {
+-    return;
 +  const source = import.meta.dir;
 +  const configured = process.env.PSTACK_TOOLS_CACHE;
 +  if (!configured || !isAbsolute(configured)) {
 +    throw new Error("Set PSTACK_TOOLS_CACHE to a recipient-owned absolute directory outside the plugin; read references/pr-delivery.md");
-+  }
+   }
+-
+-  const result = Bun.spawnSync(
+-    [process.execPath, "install", "--frozen-lockfile"],
+-    { cwd: scriptsDirectory }
+-  );
+-  if (result.exitCode !== 0) {
+-    process.stdout.write(result.stdout);
+-    process.stderr.write(result.stderr);
+-    throw new Error(
+-      `bun install --frozen-lockfile exited with status ${result.exitCode}`
+-    );
 +  // Resolve existing ancestors (including symlinks) before creating anything.
 +  const missing: string[] = [];
 +  let ancestor = resolve(configured);
@@ -4437,7 +4455,11 @@ Binary files differ: docs/guide/images/verification.jpg -> plugin/pstack/README.
 +    const parent = dirname(ancestor);
 +    if (parent === ancestor) throw new Error("Cannot resolve dependency cache parent");
 +    ancestor = parent;
-+  }
+   }
+-  if (!existsSync(commanderPackagePath)) {
+-    throw new Error(
+-      "bun install --frozen-lockfile completed without installing commander"
+-    );
 +  const cache = join(realpathSync(ancestor), ...missing);
 +  const plugin = realpathSync(join(source, ".."));
 +  const files: string[] = [];
@@ -4448,7 +4470,16 @@ Binary files differ: docs/guide/images/verification.jpg -> plugin/pstack/README.
 +      if (entry.isDirectory()) collect(join(directory, entry.name), name);
 +      else if (entry.isFile()) files.push(name);
 +    }
-+  }
+   }
+-
+-  writeFileSync(installKeyPath, `${installKey}\n`);
+-
+-  const restarted = Bun.spawnSync([process.execPath, ...process.argv.slice(1)], {
+-    cwd: process.cwd(),
+-    env: process.env,
+-    stdin: "inherit",
+-    stdout: "inherit",
+-    stderr: "inherit",
 +  collect(source);
 +  const digest = createHash("sha256");
 +  for (const file of files) digest.update(file).update("\0").update(readFileSync(join(source, file))).update("\0");
@@ -4483,48 +4514,10 @@ Binary files differ: docs/guide/images/verification.jpg -> plugin/pstack/README.
 +  const args = process.argv.slice(2).filter((arg) => arg !== "--setup-dependencies");
 +  const child = Bun.spawnSync([process.execPath, "--no-install", join(runtime, entry), ...args], {
 +    cwd: process.cwd(), env: process.env, stdin: "inherit", stdout: "inherit", stderr: "inherit",
-+  });
+   });
+-  process.exit(restarted.exitCode ?? 1);
 +  process.exit(child.exitCode ?? 1);
  }
--
--export function ensureDependenciesInstalled(): void {
--  const installKey = currentInstallKey();
--  if (
--    existsSync(commanderPackagePath) &&
--    existsSync(installKeyPath) &&
--    readFileSync(installKeyPath, "utf8").trim() === installKey
--  ) {
--    return;
--  }
--
--  const result = Bun.spawnSync(
--    [process.execPath, "install", "--frozen-lockfile"],
--    { cwd: scriptsDirectory }
--  );
--  if (result.exitCode !== 0) {
--    process.stdout.write(result.stdout);
--    process.stderr.write(result.stderr);
--    throw new Error(
--      `bun install --frozen-lockfile exited with status ${result.exitCode}`
--    );
--  }
--  if (!existsSync(commanderPackagePath)) {
--    throw new Error(
--      "bun install --frozen-lockfile completed without installing commander"
--    );
--  }
--
--  writeFileSync(installKeyPath, `${installKey}\n`);
--
--  const restarted = Bun.spawnSync([process.execPath, ...process.argv.slice(1)], {
--    cwd: process.cwd(),
--    env: process.env,
--    stdin: "inherit",
--    stdout: "inherit",
--    stderr: "inherit",
--  });
--  process.exit(restarted.exitCode ?? 1);
--}
 --- upstream/bb68f2365eceafa0cb2d253112f675acf5f144cc/pstack/skills/poteto-mode/scripts/bun.lock
 +++ plugin/pstack/scripts/bun.lock
 @@ -3,7 +3,7 @@

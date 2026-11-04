@@ -43,7 +43,6 @@ for entry in registry["baselines"]:
             assert bool(source.stat().st_mode & 0o111) == (expected_mode == "100755"), (revision, path, "Executable mode differs")
     baselines[revision] = (baseline, hashes)
 assert set(baselines) == {registry["original_revision"], "dbf49813a39c1a5389c5e28cb8e4c1c2379e2454", registry["reviewed_revision"]}
-# Historical ledgers are immutable alongside their source archives.
 for archived, digest in {
     "ownership-0.15.23.json": "1bc6af2a37f65b510c34442621ae6604aeb91e9613650a08e03dbcf7aa562010",
     "upstream-transition-0.15.23.json": "996488fa59a8f5ff22233c68da723f6b58e1ac1e0782a93a91f6035ff3433011",
@@ -78,7 +77,6 @@ for row in rows:
         old_target = previous_targets.get(path)
         assert old_target, path
         if path == "skills/poteto-mode/scripts/orch/orch.test.ts":
-            # This test was already archive-only; its target is historical evidence.
             assert old_target == "plugin/pstack/qualification/issue-12.md"
             assert "superseded" in (root / old_target).read_text().lower()
         else:
