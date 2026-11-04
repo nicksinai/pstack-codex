@@ -7,6 +7,8 @@ description: "Fan out N parallel workers, drain them, and return one report."
 
 Read [compatibility](../../references/compatibility.md), [delegation](../../references/delegation.md) and [models](../../references/models.md). This workflow explicitly requests parallel delegation. Local workers replace upstream cloud workers. Track Frame, Fan out, Aggregate, Report in the host todo facility or a visible local checklist when no facility exists.
 
+Pick each subagent's reasoning level and fast or standard speed for the job through the [mode's Subagents contract](../pstack-poteto-mode/SKILL.md#subagents) and [native model binding](../../references/models.md). Use only controls exposed and permitted by the actual host; record inherited or unavailable controls rather than claiming they were set.
+
 ## A. Frame
 
 1. State the done predicate and returned artifact/report.

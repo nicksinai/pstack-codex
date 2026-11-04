@@ -1,0 +1,5 @@
+interface:
+  display_name: "pstack: create-formal-verification-skill"
+  short_description: "Generate a project-local skill that formally verifies the code"
+policy:
+  allow_implicit_invocation: false

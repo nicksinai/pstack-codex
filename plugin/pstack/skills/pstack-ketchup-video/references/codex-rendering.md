@@ -1,0 +1,13 @@
+# Codex rendering contract
+
+Keep the upstream slide, subtitle, source, timing, and inspection rules in SKILL.md. Choose an available renderer only after checking its tool schema or executable. Rendering is local work outside the repository; sending or publishing the video is a separate action that requires the user's instruction.
+
+A local FFmpeg pipeline is one concrete option. Check `ffmpeg -version` first; use an existing binary or a dependency installed into a private scratch directory. A connected Remotion renderer can also work if its exposed tools provide the same frame and timing checks. Neither renderer is bundled or guaranteed by this plugin. Missing rendering capability follows the upstream failure response: one line saying the render failed and only the waiting calls.
+
+1. Write the takeaway and slide plan privately in the scratch folder. Keep a source locator for every screenshot, diff, number, and state used. Label absent screenshots explicitly. Do not turn a prose recap into invented screens.
+2. Render numbered, equal-size landscape PNG frames at a fixed frame rate, for example 24 fps. Each consists of the slide above a reserved subtitle strip. Burn the subtitle into every frame during its slide. Use a short transition between slides and enough fully settled frames for each slide's newly added words divided by three seconds. Round up to a whole frame.
+3. Encode the frame sequence as a silent MP4. For example, with the chosen binary: `ffmpeg -framerate 24 -i frames/%06d.png -c:v libx264 -pix_fmt yuv420p -an -movflags +faststart recap.mp4`. Validate dimensions and duration from the encoded file, using a media probe or decoding the video.
+4. Decode the encoded file and inspect at least one settled frame per slide at chat size. Compare frames against the expected settled slide image (allowing codec error) to measure each actual hold. Keep a table in scratch evidence of added word counts, required hold, measured hold, and inspected frame. Do not substitute encoder input durations or a still-frame detector for this measurement. Fix failures and repeat.
+5. In hosts that support local video embeds, use Markdown image syntax with a descriptive label and the absolute local video path. Otherwise use the host's exposed media preview or attachment capability. Do not claim successful delivery from a tool name alone. Give the opening sentence, video, self-service work left, and waiting calls as required by SKILL.md. Keep options named exactly as in the video.
+
+Frame generation may use a drawing library or an available design tool. This is slide rendering from captured evidence, not image editing or screen recording. Never claim a rendered diagram is a captured product screen.

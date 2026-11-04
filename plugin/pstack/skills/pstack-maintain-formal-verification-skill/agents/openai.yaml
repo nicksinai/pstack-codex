@@ -1,0 +1,5 @@
+interface:
+  display_name: "pstack: maintain-formal-verification-skill"
+  short_description: "Bring a project's formal verification back in line with the code"
+policy:
+  allow_implicit_invocation: false

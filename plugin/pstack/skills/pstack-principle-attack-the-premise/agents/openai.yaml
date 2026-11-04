@@ -1,5 +1,5 @@
 interface:
   display_name: "pstack: principle-attack-the-premise"
-  short_description: "question the premise instead of writing another fix"
+  short_description: "Write the premise down and test it directly"
 policy:
   allow_implicit_invocation: false

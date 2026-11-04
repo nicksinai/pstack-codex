@@ -16,6 +16,8 @@ The user's chat trail holds what they did and decided. The shared record holds u
 5. **Check live artifacts.** Inspect surfaced PRs, branches, tickets and current diffs using the actual repository plus authenticated `gh` or supported forge readers. Preserve unavailable source gaps. When an answer hinges on what an agent did, read original execution items, including relevant tool calls/results and errors; a trimmed copy or summary is insufficient. Merged, deployed, verified and self-reported are separate claims.
 6. **Write the brief.** Group by thread, stay on the named topic, and apply [unslop](../pstack-unslop/SKILL.md). Cite chat findings by UUID/item and shared findings by PR, ticket, chat permalink or error issue. Sanitize before public output. An adjacent feature stays out unless it blocks this one. If it outgrows a screen, cut detail before threads.
 
+Pick each subagent's reasoning level and fast or standard speed for the job through the [mode's Subagents contract](../pstack-poteto-mode/SKILL.md#subagents) and [native model binding](../../references/models.md). Use only controls exposed and permitted by the actual host; record inherited or unavailable controls rather than claiming they were set.
+
 ## Output contract
 
 Lead with capsule, then threads, problems and next move. Deeper detail goes below or gets cut.

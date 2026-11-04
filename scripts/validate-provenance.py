@@ -17,7 +17,7 @@ manifest = json.loads((root / "provenance/ownership.json").read_text())
 registry = json.loads((root / "provenance/baselines.json").read_text())
 assert registry["schema_version"] == 1
 assert registry["original_revision"] == "d0ef80d86795816da932a153458c5dbe192d294e"
-assert registry["reviewed_revision"] == "dbf49813a39c1a5389c5e28cb8e4c1c2379e2454"
+assert registry["reviewed_revision"] == "bb68f2365eceafa0cb2d253112f675acf5f144cc"
 baselines = {}
 for entry in registry["baselines"]:
     revision = entry["revision"]
@@ -36,30 +36,54 @@ for entry in registry["baselines"]:
         source = baseline / path
         assert not source.is_symlink() and source.resolve().is_relative_to(baseline.resolve()), path
         assert hashlib.sha256(source.read_bytes()).hexdigest() == digest, (revision, path)
+        if "files_git_modes" in source_manifest:
+            assert set(source_manifest["files_git_modes"]) == set(hashes)
+            expected_mode = source_manifest["files_git_modes"][path]
+            assert expected_mode in {"100644", "100755"}, (revision, path)
+            assert bool(source.stat().st_mode & 0o111) == (expected_mode == "100755"), (revision, path, "Executable mode differs")
     baselines[revision] = (baseline, hashes)
-assert set(baselines) == {registry["original_revision"], registry["reviewed_revision"]}
+assert set(baselines) == {registry["original_revision"], "dbf49813a39c1a5389c5e28cb8e4c1c2379e2454", registry["reviewed_revision"]}
+for archived, digest in {
+    "ownership-0.15.23.json": "1bc6af2a37f65b510c34442621ae6604aeb91e9613650a08e03dbcf7aa562010",
+    "upstream-transition-0.15.23.json": "996488fa59a8f5ff22233c68da723f6b58e1ac1e0782a93a91f6035ff3433011",
+}.items():
+    assert hashlib.sha256((root / "provenance" / archived).read_bytes()).hexdigest() == digest, archived
+previous_inventory = json.loads((root / "provenance/ownership-0.15.23.json").read_text())
+previous_targets = {item["source"]: item["target"] for item in previous_inventory["items"]}
 reviewed = next(x for x in registry["baselines"] if x["revision"] == registry["reviewed_revision"])
-assert reviewed["predecessor_revision"] == registry["original_revision"]
-assert manifest["commit"] == registry["original_revision"]
+assert reviewed["predecessor_revision"] == "dbf49813a39c1a5389c5e28cb8e4c1c2379e2454"
+assert manifest["commit"] == registry["reviewed_revision"]
 transition = json.loads((root / "provenance/upstream-transition.json").read_text())
-assert transition["schema_version"] == 1 and transition["spec_issue"] == 20
-assert transition["from_revision"] == registry["original_revision"]
+assert transition["schema_version"] == 1 and transition["spec_issue"] == 35
+assert transition["from_revision"] == reviewed["predecessor_revision"]
 assert transition["to_revision"] == registry["reviewed_revision"]
 old_hashes = baselines[transition["from_revision"]][1]
 new_hashes = baselines[transition["to_revision"]][1]
 expected_delta = {path for path in old_hashes.keys() | new_hashes.keys()
                   if old_hashes.get(path) != new_hashes.get(path)}
 rows = transition["items"]
-assert len(rows) == len({x["source"] for x in rows}) == 65
+assert len(rows) == len({x["source"] for x in rows}) == 487
 assert {x["source"] for x in rows} == expected_delta
-assert sum(x["change"] == "added" for x in rows) == 4
-assert sum(x["change"] == "changed" for x in rows) == 61
+assert sum(x["change"] == "added" for x in rows) == 412
+assert sum(x["change"] == "changed" for x in rows) == 68
+assert sum(x["change"] == "removed" for x in rows) == 7
 for row in rows:
     path = row["source"]
     assert row["previous_sha256"] == old_hashes.get(path) and row["sha256"] == new_hashes.get(path), path
     assert row["change"] == ("added" if path not in old_hashes else "removed" if path not in new_hashes else "changed"), path
-    assert 21 <= row["owner_issue"] <= 30 and row["reason"], path
-    assert row["disposition"] in {"pending", "blocked", "adapted", "equivalent", "retained", "deferred"}, path
+    assert row["owner_issue"] == 35 and row["reason"], path
+    if row["change"] == "removed":
+        assert row["disposition"] == "removed" and row["target"] is None, path
+        old_target = previous_targets.get(path)
+        assert old_target, path
+        if path == "skills/poteto-mode/scripts/orch/orch.test.ts":
+            assert old_target == "plugin/pstack/qualification/issue-12.md"
+            assert "superseded" in (root / old_target).read_text().lower()
+        else:
+            assert not (root / old_target).exists(), (path, "Retired target remains packaged")
+    else:
+        assert row["disposition"] != "removed", path
+    assert row["disposition"] in {"pending", "blocked", "adapted", "equivalent", "retained", "deferred", "reference", "removed"}, path
     if row["disposition"] not in {"pending", "blocked"}:
         evidence = root / row["qualification"]
         assert evidence.resolve().is_relative_to(root) and evidence.is_file(), path
@@ -71,12 +95,12 @@ for row in rows:
 items = manifest["items"]
 paths = [item["source"] for item in items]
 assert len(paths) == len(set(paths)), "Duplicate source owners"
-assert set(old_hashes) <= set(paths) <= set(old_hashes) | set(new_hashes), "Active inventory lost original source or added unknown source"
+assert set(paths) == set(new_hashes), "Active inventory must account for every current source file"
 for item in items:
     baseline, hashes = baselines[item["source_revision"]]
     assert item["sha256"] == hashes[item["source"]], item["source"]
-    assert 2 <= item["owner_issue"] <= 30, item
-    assert item["disposition"] in {"pending", "adapted", "preserved", "deferred", "blocked"}, item
+    assert item["owner_issue"] == 35, item
+    assert item["disposition"] in {"pending", "adapted", "preserved", "deferred", "blocked", "reference"}, item
     if item["target"]:
         target = (root / item["target"]).resolve()
         assert target.is_relative_to(root), item["target"]
@@ -92,8 +116,8 @@ assert json.loads((root / "plugin/pstack/qualification/upstream-transition.json"
 pending = sum(row["disposition"] in {"pending", "blocked"} for row in rows)
 if args.require_complete:
     assert pending == 0, f"Final qualification requires zero pending/blocked obligations; found {pending}"
-    assert {item["source"] for item in manifest["items"]} == set(new_hashes), "Final qualification requires all 168 reviewed source items"
-print(f"Validated both retained source baselines; 65 transition differences, {pending} pending/blocked adaptation obligations.")
+    assert {item["source"] for item in manifest["items"]} == set(new_hashes), "Final qualification requires all 573 reviewed source items"
+print(f"Validated three retained source baselines; 487 transition differences, {pending} pending/blocked adaptation obligations.")
 current_diff = subprocess.check_output(
     [sys.executable, str(root / "scripts/adaptation-diff.py")], cwd=root,
 )
@@ -153,15 +177,19 @@ for skill in skills:
     assert short in source_text or short in source_description, ('Picker wording differs from upstream', skill)
 print(f'Validated upstream wording for {len(skill_sources)} skill and picker descriptions; Codex-specific update is excluded.')
 # Final closure is structural proof, not a behavioral product-use claim.
-assert len(old_hashes) == 164 and len(new_hashes) == 168
-assert len(items) == len(old_hashes) + len(set(paths) - set(old_hashes))
+assert len(baselines[registry["original_revision"]][1]) == 164
+assert len(old_hashes) == 168 and len(new_hashes) == 573
+assert len(items) == len(new_hashes)
 assert sum(x['disposition'] == 'deferred' for x in items) == 13
-assert all(x['disposition'] in {'adapted', 'preserved', 'deferred'} for x in items)
+assert all(x['disposition'] in {'adapted', 'preserved', 'deferred', 'reference'} for x in items)
 assert all(x.get('reason') for x in items)
 for item in items:
     if item['disposition'] == 'deferred':
         assert item['target'] is None
         assert item['source'].startswith('automations/benny/') or item['source'] == 'skills/make-bot-ui/SKILL.md'
+    elif item['disposition'] == 'reference':
+        assert item['target'] is None
+        assert item['source'].startswith('skills/statechart/scripts/test/') or item['source'] == 'docs/harness/claude-code.md'
     else:
         assert item['target']
         if item['disposition'] == 'preserved':
@@ -193,7 +221,7 @@ for file in package.rglob('*'):
     assert not any(part in {'node_modules', '__pycache__', '.git', '.cache', '.env'} for part in file.relative_to(package).parts), file
     if not file.is_file():
         continue
-    assert file.suffix in {'.md', '.json', '.yaml', '.ts', '.mjs', '.py', '.sh', '.lock', '.tsv'} or file.name in {'LICENSE', 'cursor-team-kit-LICENSE', 'watch-pr'}, file
+    assert file.suffix in {'.md', '.json', '.yaml', '.ts', '.mjs', '.py', '.sh', '.lock', '.tsv', '.tla', '.cfg'} or file.name in {'LICENSE', 'cursor-team-kit-LICENSE', 'watch-pr', 'statechart'}, file
     text = file.read_text()
     assert not re.search(r'/Users/[^/]+|/home/[^/]+|/tmp/pstack|gh[pousr]_[A-Za-z0-9]{20,}|sk-[A-Za-z0-9]{24,}|app-[a-f0-9]{32}', text), file
     if file.suffix == '.md' and 'qualification' not in file.relative_to(package).parts:

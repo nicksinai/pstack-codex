@@ -2,7 +2,7 @@
 
 A source-preserving port of Lauren Tan / poteto's pstack engineering workflows to Codex, intended to be shareable with a friend.
 
-**Status:** source-qualified port, prepared for public repository distribution. Recipient installation and runtime capabilities still require verification. The [self-contained package guide](plugin/pstack/README.md) describes setup, invocation and limits; [complete 0.15.23 qualification](plugin/pstack/qualification/issue-30.md) records the source-backed argument.
+**Status:** source-qualified port, prepared for public repository distribution. Recipient installation and runtime capabilities still require verification. The [self-contained package guide](plugin/pstack/README.md) describes setup, invocation and limits; [0.15.36 qualification](plugin/pstack/qualification/upstream-0.15.36.md) records the source-backed argument.
 
 ## Install
 
@@ -28,7 +28,7 @@ Explicitly select **pstack: in-your-own-words** to check goal/problem understand
 
 ## Update
 
-Select **pstack: update** or use `$pstack-update` with "update pstack". Use "check for pstack updates" for a read-only comparison. The skill updates existing supported Git-marketplace installations within their source and pin constraints. See [the update contract](plugin/pstack/skills/pstack-update/SKILL.md) and [source-backed qualification](plugin/pstack/qualification/update.md). Version 0.1.4 is the next unreleased candidate in this checkout.
+Select **pstack: update** or use `$pstack-update` with "update pstack". Use "check for pstack updates" for a read-only comparison. The skill updates existing supported Git-marketplace installations within their source and pin constraints. See [the update contract](plugin/pstack/skills/pstack-update/SKILL.md) and [source-backed qualification](plugin/pstack/qualification/update.md). Port version 0.2.0 targets upstream 0.15.36.
 
 ## Source and qualification
 
@@ -49,9 +49,9 @@ Port qualification uses a source-backed fidelity and compatibility argument rath
 
 ## Upstream
 
-Port version 0.1.3 qualifies all 65 differences in reviewed pstack 0.15.23 at `dbf49813a39c1a5389c5e28cb8e4c1c2379e2454`: 168 source items, 13 exclusions, 53 skills, 24 principles, 23 playbooks and two wrappers. The official source is [cursor/plugins/pstack](https://github.com/cursor/plugins/tree/dbf49813a39c1a5389c5e28cb8e4c1c2379e2454/pstack), authored by Lauren Tan and distributed under MIT. The initial baseline is version 0.15.15 at repository commit `d0ef80d86795816da932a153458c5dbe192d294e`. This is an independent adaptation project, not an official Cursor or OpenAI plugin.
+Port version 0.2.0 updates the port to pstack 0.15.36 at `bb68f2365eceafa0cb2d253112f675acf5f144cc`: 573 source items, 487 transition differences, 59 packaged skills, 24 principles, 23 playbooks and two wrappers. The five added skills are sharpen, statechart, create-formal-verification-skill, maintain-formal-verification-skill and ketchup-video. The official source is [cursor/plugins/pstack](https://github.com/cursor/plugins/tree/bb68f2365eceafa0cb2d253112f675acf5f144cc/pstack), authored by Lauren Tan under MIT. This is an independent adaptation project, not an official Cursor or OpenAI plugin.
 
-The ignored reconnaissance checkout is excluded. The immutable original and reviewed archives are retained separately under `provenance/upstream/pstack` and `provenance/upstream-0.15.23/pstack`; [the source manifest](recon/upstream-manifest.json) records its hashes and [ownership inventory](provenance/ownership.json) accounts for every adaptation. [Third-party notices](THIRD_PARTY_NOTICES.md) and companion licenses accompany redistributed content.
+All three immutable baselines (0.15.15, 0.15.23 and 0.15.36) remain under `provenance/`; the ignored reconnaissance checkout is excluded. The [current source manifest](recon/upstream-0.15.36-manifest.json), [ownership inventory](provenance/ownership.json) and [transition ledger](provenance/upstream-transition.json) account for every file. The 13 previous exclusions remain; 376 statechart test files and the official Claude harness adapter remain source evidence outside the installed runtime. Runtime qualification and conditional host requirements are recorded separately from source preservation. [Third-party notices](THIRD_PARTY_NOTICES.md) accompany redistributed content.
 
 ## Project workflow
 

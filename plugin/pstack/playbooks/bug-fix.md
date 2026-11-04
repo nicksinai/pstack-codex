@@ -1,9 +1,8 @@
 ### Bug fix
 
-Read the main [mode](../skills/pstack-poteto-mode/SKILL.md) for skill/principle lookup and the [delegation](../references/delegation.md), [models](../references/models.md), [PR delivery](../references/pr-delivery.md), and [continuation](../references/continuation.md) contracts when their operations apply. The parent owns the task's gates and evidence. Local isolated GPT workers replace Cursor dispatch; actual tools remain conditional. Opening a PR runs deslop before commit and no-comments before review in that order. These cleanup gates remain inside delivery after the workflow's reproduction/design/verification steps.
+Read the [main mode](../skills/pstack-poteto-mode/SKILL.md), [delegation](../references/delegation.md), [models](../references/models.md), [PR delivery](../references/pr-delivery.md) and [continuation](../references/continuation.md) for scoped local workers, actual controls and authority.
 
-
-**You own this task. Plan, review, verify.** Delegate investigation and the fix to subagents, stay in the lead.
+**You own this task. Plan, review, verify.** Delegate investigation and the fix to subagents, stay in the lead. Select each worker’s validated GPT model, reasoning effort and speed only where the actual host schema supports them, per [models](../references/models.md); otherwise inherit the parent defaults.
 
 Be scientific. Every shipped line traces to runtime evidence. Belt-and-suspenders that "might help" is a hypothesis, not a fix. It does not ship. When evidence refutes a hypothesis, revert what it motivated. The smallest change the evidence justifies ships, nothing more.
 

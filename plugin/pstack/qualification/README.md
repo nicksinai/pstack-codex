@@ -17,3 +17,7 @@ The [explicit recipient update addition](update.md) qualifies the Codex-specific
 ## Description provenance in port 0.1.5
 
 All 52 pstack-derived skill descriptions use verbatim text from the source revision recorded in the ownership inventory. Picker descriptions use verbatim excerpts from the same original description or skill body. The deslop companion retains its Cursor team kit description. The Codex-specific update skill has no upstream counterpart and remains identified separately in [update qualification](update.md). The provenance validator checks source wording, picker length, and the catalog size limit. Workflow bodies and invocation policies are unchanged.
+
+## Port 0.2.0 / upstream 0.15.36
+
+The [current qualification](upstream-0.15.36.md) supersedes earlier current-release counts and source pins. It links the [workflow changes](upstream-0.15.36-workflows.md), [five new skills and runtime evidence](upstream-0.15.36-new-skills.md), full source inventory and 487-row transition. Historical issue records remain evidence of their original delivery, not claims that retired scripts or templates are still shipped.

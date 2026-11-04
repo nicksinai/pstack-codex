@@ -7,6 +7,8 @@ description: "Spawn three parallel review subagents over the active transcript, 
 
 Mine the current conversation for durable learnings, then route them into skill edits. Enter only when the user explicitly asks for reflect or /reflect. Skip trivial, off-topic, one-off sessions and lessons already covered by a skill the parent followed correctly.
 
+Pick each subagent's reasoning level and fast or standard speed for the job through the [mode's Subagents contract](../pstack-poteto-mode/SKILL.md#subagents) and [native model binding](../../references/models.md). Use only controls exposed and permitted by the actual host; record inherited or unavailable controls rather than claiming they were set.
+
 ## 1. Locate the active transcript
 
 Read [history](../../references/history.md) and the [review context adapter](references/context.md). Identify this chat from host metadata and the opening user prompt; read its actual execution items when available. Bind an exposed reader or a metadata-verified export in the active workspace. Never search unrelated workspaces. Current chat is deliberately the corpus for reflect; recall's duplicate exclusion applies to separate history mining. If no exact transcript resolves, write a tight session digest, identify its limits and pass that instead. Do not represent summary/digest assertions as original execution evidence.
@@ -33,7 +35,7 @@ Sanity-check every Accepted row. Move any rule more reliably enforced by a lint 
 
 ## 5. Apply approved rows
 
-Present the full Accepted / Rejected / Backlog output before any Accepted edit. Wait for explicit approval; the user chooses a subset and may redirect routings. Reflection invocation itself authorizes proposals, not durable skill edits.
+Present the full Accepted / Rejected / Backlog output before any Accepted edit. Wait for explicit approval; the user chooses a subset and may redirect routings. Reflection invocation itself authorizes proposals, not durable skill edits. Before approval, show the exact recipient-owned destination for each edit. Never edit a skill under `plugins/cache/`. For a cached skill, propose a project-local `.agents/skills/<skill>/` copy or a verified recipient-owned user skill root, preserving the folder and invocation policy. After approval, copy the complete folder there and edit the copy. Check for an existing destination before copying and preserve unrelated content. Never open a PR or push from this workflow.
 
 File Backlog automatically to the configured team devex/backlog tracker when the current host and user authority permit it; only Accepted edits have the reflection approval gate. Resolve the tracker/repository from actual team configuration and existing issue conventions, check duplicates, sanitize private evidence, and record the resulting issue. If no tracker is configured or filing is unauthorized/unavailable, retain a concrete unfiled draft with the exact blocker; never invent a destination or report it filed. A skill cannot override a host's message/write restriction.
 
@@ -44,7 +46,7 @@ For each approved Accepted row, follow Routing exactly:
 - `tune description: <skill path>`: use that companion's description-optimization loop; preserve existing invocation policy.
 - `new skill via create-skill: <kebab-name>`: use the same companion to create the approved skill; do not invent its shape ad hoc.
 
-Preserve unrelated existing content and configuration. Installed plugin/system instructions may be read-only or managed: prepare changes in the recipient's authorized source checkout or recipient-owned override, show target and diff, and follow its update channel. Never silently edit a shared managed cache or publish personal lessons in this distributable. Run the available SKILL.md validator on every touched skill; if unavailable, perform direct frontmatter/path checks and disclose the validator limitation. Use [PR delivery](../../references/pr-delivery.md) for repository skill changes, honoring local-only/draft-only limits.
+Preserve unrelated existing content and configuration. Never publish personal lessons in this distributable. Run the available SKILL.md validator on every touched skill; if unavailable, perform direct frontmatter/path checks and disclose the validator limitation. This workflow delivers local edits only; its no-PR/no-push rule also applies when the authoring companion normally routes repository edits to PR delivery.
 
 ## 6. Reply
 

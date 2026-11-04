@@ -21,17 +21,19 @@ Infer the need from the message and conversation. A specific situation goes dire
 - Fix a run that went wrong.
 - Make pstack my own.
 
-Check state only when it changes the answer. Read [models](../../references/models.md) for the recipient's configured role file; its absence means inherited validated host defaults, not missing Cursor configuration. If the project has no verify-* skill or app harness, explain that scripted real-artifact verification is missing and route creation through the mode lookup.
+Check state only when it changes the answer. Read [models](../../references/models.md) for the recipient's configured role file; its absence means inherited validated host defaults, not missing Cursor configuration. If the project has no verify-* skill or app harness, explain that scripted real-artifact verification is missing and route creation through the mode lookup. If the question concerns a race, an invariant, or a case tests rarely hit, check for a project formal verification skill and mention create-formal-verification-skill when absent. When one exists and the covered code changed since its recorded last-in-sync commit, mention maintain-formal-verification-skill if the question touches that code.
 
 If setup/model cost matters, ask at most once per chat whether they want setup now or later. Combine this with an unclear-need question. “Now” gives `$pstack-setup-pstack` and still answers the question; “Later” explains that missing roles inherit the parent until configured. Setup is explicit and never loads merely from installation or inferred preferences.
 
 ## Get set up
 
 1. Follow the package [setup/removal instructions](../../README.md); use only a supported recipient install mechanism.
-2. Read [setup-pstack](../pstack-setup-pstack/SKILL.md). Choose reasoning budget and available native GPT role identities in recipient-owned settings. It changes no global rules and roles are read at entry and dispatch.
+2. Read [setup-pstack](../pstack-setup-pstack/SKILL.md). Choose reasoning budget and available native GPT role identities in recipient-owned settings. It changes no global rules and roles are read at entry and dispatch. Setup then offers a verification skill and a formal verification skill once each, unless the project already has one.
 3. Start with `$pstack-poteto-mode`, a goal, and a check that can pass or fail.
 
 Installation makes workflows available without running them. Offer to word the first prompt using [prompting](references/prompting.md). Extra tokens go to workers and review panels. Reduce budget, use cheaper validated models or inherited aliases, or shorten configured panel lists (one worker per entry) when the workflow allows; never silently drop required independent review. Budget labels are reasoning preferences rather than dollar caps. Reserve mode rigor for tasks that need it.
+
+Upstream also provides a [Claude Code adapter](https://github.com/cursor/plugins/blob/bb68f2365eceafa0cb2d253112f675acf5f144cc/pstack/docs/harness/claude-code.md). Its commands and Cursor-only step substitutions belong to that separate adapter, not this Codex package.
 
 This port targets Codex desktop, native GPT models and isolated local workers. It loses upstream Claude/Grok provider diversity and cloud machines. Actual tool access, model overrides, live control and continued execution depend on the recipient environment. No progress through app closure or sleep is promised. Grok Bot UI and Benny are excluded.
 
@@ -48,11 +50,13 @@ Default to mode for a nontrivial engineering request; recommend a leaf when the 
 | User need | Skill name (invoke as `$pstack-<name>`) |
 | --- | --- |
 | Check the agent understood your goals and problem before work begins | in-your-own-words |
+| Rewrite a prompt with professional methods, raw material and an outside check, without doing its task | sharpen |
 | Current mechanics and where code belongs | how |
 | Reasons, regression history or a number's origin | why |
 | Plain explanation and tradeoffs | teach |
 | Recent scoped working context | recall |
-| Checked catch-up on this conversation and pending decisions | ketchup |
+| Plain catch-up on this conversation with every pending user item decidable from the reply alone | ketchup |
+| The same catch-up in a short subtitled slide video, with waiting calls also in text | ketchup-video |
 | Breakage outside the diff and a proven safety fact | blast-radius |
 | Parallel design before crossing a function boundary | architect |
 | Competing attempts with base selection and grafting | arena |
@@ -65,6 +69,9 @@ Default to mode for a nontrivial engineering request; recommend a leaf when the 
 | Docs, RFCs, README, PR descriptions and commits | technical-writing |
 | Restate the last reply plainly | bro |
 | Build or maintain project verification and feature map | create-verification-skill / maintain-verification-skill |
+| Prove a race, invariant or property beyond cases tests reach | create-formal-verification-skill |
+| Update formal verification after code changes and distinguish drift from bugs | maintain-formal-verification-skill |
+| Show user-visible states in a TLA+ checked chart and shortest paths to rule-breaking states | statechart |
 | Qualify measured performance numbers | benchmark-checklist |
 | Bespoke rigorous large or cross-cutting run | figure-it-out |
 | Auditable decision log and later review | show-me-your-work |
@@ -81,7 +88,7 @@ Close calls preserve upstream distinctions. How explains mechanics; why explains
 
 ## Playbooks
 
-Playbooks are mode routes, without independent slash commands. Describe the task or name the route. “Check on PR X” runs Babysit in its prescribed status mode; “babysit this PR” drives to merge-ready. Neither merges without a merge/land/ship instruction. “Land the stack” runs Shipping with independent verification. “Take over this branch” runs session pickup. “Pause safely” preserves resumable state. “Full autopilot on this queue” requests the independent-PR mode; “stack them, don't ship” retains operator landing. “Run the eval playbook” requests blinded evaluation.
+Playbooks are mode routes, without independent slash commands. Describe the task or name the route. “Check on PR X” runs Babysit in its prescribed status mode; “babysit this PR” drives to merge-ready. Neither merges without a merge/land/ship instruction. “Land the stack” runs Shipping with independent verification. “Take over this branch” runs session pickup. “Pause safely” preserves resumable state. “Full autopilot on this queue” requests the independent-PR mode; “autopilot, don't merge” runs Autopilot-stack and retains operator landing. “Run the eval playbook” requests blinded evaluation.
 
 The mode lists all routes. Multi-phase planning produces a plan and does not authorize implementation. Prototype or architect settles design from evidence. [PR delivery](../../references/pr-delivery.md) distinguishes opening, babysitting and shipping. Bundled deslop and control adapters replace cursor-team-kit runtime dependencies; continuation replaces `/loop`, and the authoring playbook replaces the unavailable Cursor built-in authoring instructions. There is no independent bundled orchestrate skill.
 

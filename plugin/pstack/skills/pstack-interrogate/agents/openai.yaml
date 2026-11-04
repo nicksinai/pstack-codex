@@ -1,5 +1,5 @@
 interface:
   display_name: "pstack: interrogate"
-  short_description: "Multiple LLM reviewers challenge changes from independent angles"
+  short_description: "only findings proven by a run survive"
 policy:
   allow_implicit_invocation: false

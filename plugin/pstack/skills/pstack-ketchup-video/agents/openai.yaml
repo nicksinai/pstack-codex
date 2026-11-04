@@ -1,0 +1,5 @@
+interface:
+  display_name: "pstack: ketchup-video"
+  short_description: "with a short subtitled video of slides for what happened"
+policy:
+  allow_implicit_invocation: false

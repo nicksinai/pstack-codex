@@ -1,30 +1,46 @@
 ---
 name: pstack-ketchup
-description: "Catch the user up on what changed in this chat since their last message, in a short reply built on real visuals."
+description: "Catch the user up on what changed in this chat since their last message, in plain words and small visuals. List every item waiting on them with what they need to decide it from the reply alone."
 ---
 
 # Ketchup
 
 Read the [compatibility contract](../../references/compatibility.md) and [catch-up capability binding](../../references/ketchup-capabilities.md) before gathering evidence. This explicit invocation produces a catch-up reply, then stops; it does not resume the underlying task.
 
-Catch the user up since the last message they wrote before this invocation. Notifications, tool messages and delegate results do not move that boundary. Assume the user remembers their message and nothing after it. Use the plain voice of [bro](../pstack-bro/SKILL.md), skipping its restating step. Call each PR, branch and agent by a recognizable name, rather than an invented internal label.
+Catch the user up on what changed in this chat since the last message they wrote before `$pstack-ketchup`, and help them understand each change, not only where it stands. Then lay out every call waiting on them so they can make it from your reply alone. Notifications and subagent results are not their messages. Assume the user remembers their last message and nothing after it.
 
-## Gather
+Use [`$pstack-bro`](../pstack-bro/SKILL.md)'s voice, not its task: plain words, short sentences, no jargon, like one person catching up another. Say what changed for the user, not how you did it. Say "the tests pass", not "CI is green". Leave out hashes, file paths, commands, build numbers, and test counts unless the user needs one to act. Call each PR, branch, or agent by a name the user would know, not by a label you invented. If a fact needs context to make sense, give the context or leave the fact out.
 
-Keep the turn read-only, except for reply visuals made from available facts. Do not change code, start apps or jobs, post externally, or continue task work to improve the report. Stay within this conversation and artifacts it touched. Collect your work, delegate reports and other messages since the boundary; include earlier unresolved user actions. Check the current state of every touched PR, CI run and agent with an available read operation. Verify every displayed number against its underlying facts, and disclose corrections. Mark unavailable state “unknown” or “not checked,” never inferred success.
+## Gather what changed
 
-An action item is a decision or step only the user can take: a product choice, approval, irreversible action or missing access. Agent-owned work is not a user action item.
+Keep this turn read-only. Make visuals only from what you already have: do not change code, start an app or a job, or post anything. Collect your own work since that message, reports from subagents, and messages from anyone else in this chat. Stay within this conversation and artifacts it touched. Check the current state of each PR, CI run, or agent this chat touched with available read operations. Mark unavailable state "unknown" or "not checked", never inferred success. Check each number you will show against the facts it comes from, and say so when you correct one.
 
-## Reply
+An action item is a call or step only the user can take, such as a product choice, an approval, an irreversible action, or access you lack. Include any still waiting on the user, even one raised before their last message. Work you can still do yourself is not an action item. Never make up a call to fill the reply. A step the user did not ask for and the work does not need is not an action item, unless it is irreversible and waiting on the user: give it one line and no visual.
 
-Keep text under 250 words, including Markdown tables; visuals do not count. Each visual replaces the facts it shows: avoid repeating them in text. Omit work that changed nothing for the user.
+One call can cover many items, such as each PR in a set awaiting merge. For each item, collect its link, what it changes for users, the evidence behind your pick, its risk, and your pick. Write "unknown" for a fact the call needs that you do not know. Leave out a link you do not have.
 
-Open with one sentence giving the action-item count, or saying there are none. If nothing happened and nothing waits on the user, say so and stop.
+## Write the reply
 
-Show progress in one visual containing each touched PR, run and agent with its state: done, running, failed or not checked. Give at most three one-line results that change what the user knows or must do. Keep a key number in its result line unless already visualized. Name remaining agent-owned work in one line.
+Spend words on the calls, not on the story. Keep what happened under 100 words, not counting pictures, and shorter when less happened. Leave out work that changed nothing for the user. Give each item about 30 words. The reply grows with the number of items: two items need well under 150 words in all, not counting pictures, and thirty need far more. Never cut items or shrink them to stay under a word count: no count in place of a list, and no link in place of an item. A link can add depth, but the reply alone must be enough to decide.
 
-For each user action, give three lines: the decision; your recommendation and reason; the consequence of no answer. Write “unknown” for anything unknown and link existing detail. Show before/after side by side in a visual; for choices show the current state beside each option, or options alone when there is no current state. Put options and costs in the visual rather than repeating them in text. Only access requests may omit their action visual.
+Open with one short sentence that names what waits on the user, or says nothing does. The action items give the detail. If nothing happened and nothing waits on the user, say so and stop.
 
-## Real visuals
+Then show what happened, pictures first. Embed inline the screenshots and videos the work produced, then any diagram that explains a change. Then sum up in one short bullet per thing the user asked for: what came of it, and whether it is done, still running, failed, or not checked. Write each line the way you would say it out loud: "Search was slow from a missing index", not "Search review: done" or "Slow search: missing index". Name any bug found and fixed on the way. Each line must stay true when read alone. Never mark something done that still waits on the user, and leave out anything the action items say. Under the summary, give at most three short lines that change what the user knows or must do. Then name in one line any work left that you can do yourself.
 
-Use real screenshots or video for visible changes. When none exists, mark that change “No screenshot yet” in the progress visual. Never draw or generate an uncaptured screen. For other changes use fact-grounded Mermaid state/flow/structure diagrams or charts of verified numbers through an available visualization capability. Screenshots, video, diagrams and charts qualify; Markdown tables do not. Link only existing artifacts. Missing required history or visualization capabilities remain explicit limitations or blockers under the capability binding; text or tables do not silently substitute for a required visual.
+Then list the action items. Ask the call the user owns, such as merge, approve, or pick, and give your pick. A step you would take first goes in your pick. So does anything that must happen first, and anything that cannot be undone. Give the number or link of each PR, issue, or agent a call is about, also in a call between options.
+
+Fit the shape to the call. A call about one item is one bullet: the call, your pick, what it changes for users, the evidence behind your pick, and its risk, with the item named once. When items share a call, write the call and your pick once, then give each item its own bullet, riskiest first: its link and name, what it changes for users, the evidence behind your pick, and its risk. Name an item's pick only where it differs from the call's. Give each item's risk even when it is low, such as "Low risk: only the colors change." Say what waiting costs only when it is more than a delay, such as a deadline or lost data.
+
+For a call between options, give every option the work weighed, each with what it gets the user and what it costs, and the current state when there is one. Those costs are the call's risk, so add no separate risk line. When the screenshots above show the options, write each option's gain and cost under its screenshot.
+
+## Visuals
+
+A visual is a picture: a screenshot, a video, a Mermaid diagram, a chart or diagram from an available visualization capability, or a generated image. A Markdown table is not a visual, even with before and after columns.
+
+When something is easier to grasp as a picture than as sentences, draw it: how a design or system works, a PR stack or dependency chain with each PR's state, a before and after of a fix, or options side by side. Never draw a status list, a list of action items, or boxes with nothing connecting them. Never give a fact twice, in text or across visuals.
+
+Keep each visual small enough to read at a glance: at most six boxes, with at most eight words in each. Write labels as plain words a person would say, not tags like "Tests: pass". A fact that needs a sentence belongs in the text, or nowhere.
+
+Embed screenshots and videos inline when the change is visible, not only as links. If a visible change has none, mark its summary line "No screenshot yet," and say there what changed on screen. Draw diagrams and charts from facts you have: a Mermaid diagram for how things connect and an available visualization capability for charts of numbers. Never invent a number, and never draw or generate a picture of a screen you did not capture. Link only artifacts that exist.
+
+Bind actual inline media and visualization capabilities through the catch-up capability binding. Missing required history or visuals remain explicit limitations; never fabricate a capture or present an unavailable operation as completed.
