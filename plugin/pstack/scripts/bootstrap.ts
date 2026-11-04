@@ -2,13 +2,13 @@ import { createHash } from "node:crypto";
 import { existsSync, readFileSync, writeFileSync, mkdirSync, readdirSync, copyFileSync, realpathSync, rmdirSync } from "node:fs";
 import { join, resolve, relative, isAbsolute, dirname, basename } from "node:path";
 
-// Imported before external dependencies by both launchers. Never install into
+// Imported before external dependencies by the watcher launcher. Never install into
 // the plugin or rely on Bun's implicit package installation.
 export function ensureDependenciesInstalled(): void {
   const source = import.meta.dir;
   const configured = process.env.PSTACK_TOOLS_CACHE;
   if (!configured || !isAbsolute(configured)) {
-    throw new Error("Set PSTACK_TOOLS_CACHE to a recipient-owned absolute directory outside the plugin; read references/orchestration.md");
+    throw new Error("Set PSTACK_TOOLS_CACHE to a recipient-owned absolute directory outside the plugin; read references/pr-delivery.md");
   }
   // Resolve existing ancestors (including symlinks) before creating anything.
   const missing: string[] = [];

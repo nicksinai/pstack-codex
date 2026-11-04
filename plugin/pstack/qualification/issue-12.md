@@ -1,5 +1,7 @@
 # Issue 12 — local program orchestration
 
+Historical qualification for the prior upstream baseline. The 0.15.36 update supersedes the old Interrogate templates and orch helper runtime; see [current workflow qualification](upstream-0.15.36-workflows.md). Historical removed-file paths below are evidence locators, not current package entry points.
+
 Baseline: official Cursor plugins commit `d0ef80d86795816da932a153458c5dbe192d294e`, pstack 0.15.15. Locators below are relative to that pinned pstack root. The immutable source is retained in repository provenance; this file qualifies the distributed slice, not an observed multi-day run.
 
 | Upstream locator / obligation | Adapted artifact and preservation argument | Evidence/status and limits |
