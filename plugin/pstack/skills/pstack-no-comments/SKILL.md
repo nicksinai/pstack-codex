@@ -9,6 +9,8 @@ Read [PR delivery](../../references/pr-delivery.md) and [delegation](../../refer
 
 Defer to Comment Sicko's fresh perspective.
 
+Pick each subagent's reasoning level and fast or standard speed for the job through the [mode's Subagents contract](../pstack-poteto-mode/SKILL.md#subagents) and [native model binding](../../references/models.md). Use only controls exposed and permitted by the actual host; record inherited or unavailable controls rather than claiming they were set.
+
 ## Scope
 
 Use the caller's files or diff. Otherwise use the current diff against the base branch, default `main`, including the working tree.

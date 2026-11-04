@@ -9,6 +9,8 @@ Investigate the motivation and intent behind code. The companion `how` skill ans
 
 Read [compatibility](../../references/compatibility.md), [delegation](../../references/delegation.md), [models](../../references/models.md), and [source access](references/source-access.md). This workflow explicitly requests bounded local read-only investigators and a fresh synthesizer. Resolve the `why investigators` and `why synthesizer` roles through the shared contract. All workers retain their specialized prompts, not the full mode wrapper. GPT-only investigation replaces upstream provider choices; independent workers do not supply provider diversity.
 
+Pick each subagent's reasoning level and fast or standard speed for the job through the [mode's Subagents contract](../pstack-poteto-mode/SKILL.md#subagents) and [native model binding](../../references/models.md). Use only controls exposed and permitted by the actual host; record inherited or unavailable controls rather than claiming they were set.
+
 ## Operating Posture
 
 Operate as a **careful, cautious, and precise investigator**. Be honest about what you know vs what you're inferring. Read [references/epistemics.md](references/epistemics.md) for the full confidence framework and phrasing guide. The synthesizer must follow it.

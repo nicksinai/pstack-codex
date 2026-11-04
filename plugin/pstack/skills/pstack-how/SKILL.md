@@ -7,6 +7,8 @@ description: "Explains subsystem architecture, runtime flow, onboarding mental m
 
 Read [compatibility](../../references/compatibility.md), [delegation](../../references/delegation.md) and [models](../../references/models.md). This workflow explicitly requests bounded local read-only delegates. Use its specialized explorer/explainer prompts, not the full poteto-mode wrapper.
 
+Pick each subagent's reasoning level and fast or standard speed for the job through the [mode's Subagents contract](../pstack-poteto-mode/SKILL.md#subagents) and [native model binding](../../references/models.md). Use only controls exposed and permitted by the actual host; record inherited or unavailable controls rather than claiming they were set.
+
 ## 1. Assess complexity
 
 State an interpretation and explore when scope is ambiguous. A single module, small utility or narrow function question uses the simple path; default to simple when unsure. A cross-file/service subsystem or architectural overview uses the complex path.

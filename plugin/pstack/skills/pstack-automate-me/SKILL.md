@@ -9,6 +9,8 @@ A guided flow for turning the user's working conventions into a skill agents wil
 
 This skill orchestrates three others: an inline mining pass (see step 1), the bundled [authoring companion](../../references/skill-authoring.md) and an available Codex skill-creator (authoring), and the **unslop** skill (prose discipline). It sequences them. It doesn't replace them.
 
+Pick each subagent's reasoning level and fast or standard speed for the job through the [mode's Subagents contract](../pstack-poteto-mode/SKILL.md#subagents) and [native model binding](../../references/models.md). Use only controls exposed and permitted by the actual host; record inherited or unavailable controls rather than claiming they were set.
+
 ## Flow
 
 ### 0. Check for an existing skill

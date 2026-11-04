@@ -7,6 +7,8 @@ description: "Keep a reviewable decision trail for long-running or unattended wo
 
 Keep one canonical log. For unattended progress, pausing, sticky-mode transitions and interruption recovery, also read [continuation](../../references/continuation.md). This skill explicitly requests the independent audit delegate described below. Serialize appends through one named log owner; each parallel worker uses its own log and returns pointers to that owner. The helper does not provide cross-process locking.
 
+Pick each subagent's reasoning level and fast or standard speed for the job through the [mode's Subagents contract](../pstack-poteto-mode/SKILL.md#subagents) and [native model binding](../../references/models.md). Use only controls exposed and permitted by the actual host; record inherited or unavailable controls rather than claiming they were set.
+
 ## The format
 
 A single TSV file, one row per decision. Cells stay single-line. Evidence is a pointer, not prose.
